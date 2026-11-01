@@ -1420,7 +1420,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   function autoPlay(host,vb,go){var HOLD=7000,FLY=6000,IDLE=20000,last=performance.now(),touched=0,
       cur=function(){for(var i=0;i<vb.length;i++)if(vb[i].getAttribute("aria-pressed")==="true")return i;return 0};
     var stop=function(){touched=performance.now()};
-    host.addEventListener("pointerdown",stop,true);host.addEventListener("wheel",stop,{capture:true,passive:true});
+    host.addEventListener("pointerdown",stop,true);host.addEventListener("wheel",function(e){var hc=host.querySelector(".g3-hero");if(!e.ctrlKey&&hc&&hc.style.opacity==="1")return;stop()},{capture:true,passive:true});
     var t=setInterval(function(){if(!document.body.contains(host)){clearInterval(t);return}
       var now=performance.now();if(document.hidden)return;
       if(touched){if(now-touched<IDLE)return;touched=0;last=now-FLY;}
@@ -1443,7 +1443,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     // une vue choisie pendant le chargement est gardée et jouée dès que la maquette est prête
     [].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(b){b.onclick=function(){pend=b.dataset.v;[].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});uiShow(b)}});
     if(!hasGL()){g3static(host,name);return}
-    import("./js/"+name+"3d.js?v="+(name==="ventres"?"4":"213")).then(function(m){
+    import("./js/"+name+"3d.js?v="+(name==="ventres"?"5":"214")).then(function(m){
       if(tok!==g3seq||!document.body.contains(host))return;
       var ph=host.querySelector(".g3-load"),pt0=performance.now(),keep=window.__g3keep;window.__g3keep=null;host.__keep=keep;
       var inst;try{inst=m.mount(host)}catch(err){g3static(host,name);return}g3=inst;

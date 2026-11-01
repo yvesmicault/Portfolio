@@ -666,6 +666,9 @@ export function mount(host, opts = {}) {
     return c.mc;
   }
   function drawHero(now) {
+    // tactile : sur l'image, glisser verticalement fait défiler la page ; en 3D, la maquette prend tous les gestes
+    const ta = hero && hero.mode !== "out" ? "pan-y" : "none";
+    if (host.style.touchAction !== ta) { host.style.touchAction = ta; renderer.domElement.style.touchAction = ta; }
     if (!hero) return;
     // un à-coup (préparation du passage, décodage de l'image) met le fondu en pause au lieu de le sauter
     if (heroFreeze == null && hero.mode !== "show") {
@@ -715,6 +718,8 @@ export function mount(host, opts = {}) {
   }
   const ptr = (e) => { const r = host.getBoundingClientRect(); lastPtr = [e.clientX - r.left, e.clientY - r.top]; };
   host.addEventListener("pointerdown", ptr, true); host.addEventListener("wheel", ptr, { capture: true, passive: true });
+  // image posée : la molette fait défiler la page sans toucher à la maquette (le pincement, ctrl+molette, passe)
+  host.addEventListener("wheel", (e) => { if (hero && hero.mode !== "out" && !e.ctrlKey) e.stopPropagation(); }, { capture: true, passive: true });
 
   function fly(name, dur = 4200) {
     const v = views[name]; setFg(name);
