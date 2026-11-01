@@ -4,6 +4,10 @@
 
   /* phrases entières */
   var FULL = {
+    /* Synergies latentes (01/11/2026) */
+    "Auby · 2019 · équipe : Yves Micault, Nathanaël Pinard, Marc Viaud · 3 panneaux A1": "Auby · 2019 · team: Yves Micault, Nathanaël Pinard, Marc Viaud · 3 A1 boards",
+    "Rive sud": "South bank", "Rive nord": "North bank", "Axonométrie · zoom 1": "Axonometry · close-up 1", "Axonométrie · bureau": "Axonometry · office",
+    "Zoom · interface": "Close-up · interface", "Zoom · base nautique": "Close-up · water sports base", "Auby, Nord, France": "Auby, Nord, France",
     /* globes 30/10 — NOUVELLES TRADUCTIONS (01/11/2026), à relire par Yves */
     "Ce globe situe mes projets d’études et mes concours. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.": "This globe locates my study projects and my competitions. Hover over a marker to locate it, select it to read its details.",
     "Découvrir les projets": "Discover the projects",
