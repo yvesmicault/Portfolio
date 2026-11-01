@@ -627,6 +627,8 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
   .home #gbox .list{order:3}}
 
 
+/* l’agence quitte le globe (Yves, 01/11) : seulement études et concours */
+#gbox .list h3.a,#gbox #cA{display:none!important}
 /* --- Globes 30/10 : fiche, prévisualisation, frise, découverte guidée --- */
 #gbox .cap .ct{display:block;margin-top:8px;font:500 9px/1.2 var(--f);letter-spacing:.28em;text-transform:uppercase;color:var(--brick)}
 #gbox .cap .mt{display:block;margin-top:4px;font:400 10.5px/1.45 var(--m);color:var(--mute)}
@@ -773,7 +775,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
         <p class="empty" id="empty"></p>
       </div>
       <div class="side">
-        <div class="gin" id="gin"><p>Ce globe situe mes projets d’études, mes concours et mes projets en agence. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.</p><button type="button" class="gd-st" id="gdSt">Découvrir les projets <i>→</i></button></div>
+        <div class="gin" id="gin"><p>Ce globe situe mes projets d’études et mes concours. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.</p><button type="button" class="gd-st" id="gdSt">Découvrir les projets <i>→</i></button></div>
         <div class="gd" id="gd" role="group" aria-label="Découverte guidée" hidden><p class="gd-o">Études puis concours, par date</p><div class="gd-c"><button type="button" id="gdP" aria-label="Projet précédent">←</button><span id="gdN" aria-live="polite">1 / 8</span><button type="button" id="gdNx" aria-label="Projet suivant">→</button><button type="button" id="gdA" class="gd-t" aria-pressed="false">Lecture</button><button type="button" id="gdX" class="gd-t">Quitter</button></div></div>
         <button type="button" class="pv" id="pv" hidden></button>
         <div class="cap"><b id="tit"></b><span id="sub"></span></div><span class="hint" id="coord"></span>
@@ -1741,7 +1743,7 @@ addEventListener("keydown",e=>{if(e.key!=="Escape"||home.hidden||VW.classList.co
   if(gdOn)return gdStop();if(cur>=0||acur>=0){if(mode==="site")back();else if(acur>=0)resetGlobe();return}if(fcat)setCat(null)});
 
 /* frise : un axe commun, une barrette par catégorie, bornes lues dans les données */
-const CATS=[["e","Études"],["c","Concours"],["a","Agence"]];
+const CATS=[["e","Études"],["c","Concours"]];   // le globe ne montre que les projets personnels (Yves, 01/11) : l’agence a sa page
 function catItems(c){if(c==="a")return AG.map((p,k)=>({i:100+k,p,y0:+String(p.y).slice(0,4)||null,y1:+String(p.y).slice(-4)||null,o:k}));
   return P.map((p,i)=>({i,p,y0:p.y0,y1:p.y1,o:p.o})).filter(x=>x.p.f===c)}
 function chron(c){return catItems(c).filter(x=>x.y0).sort((a,b)=>a.y0-b.y0||a.y1-b.y1||(a.o&&b.o?a.o-b.o:0))}
@@ -1961,7 +1963,7 @@ function hrefFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]);re
 new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme","data-eff"]});matchMedia("(prefers-color-scheme: dark)").addEventListener("change",theme);
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
-<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=5"></script>
-<script charset="utf-8" src="js/i18n.js?v=207"></script>
+<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=6"></script>
+<script charset="utf-8" src="js/i18n.js?v=208"></script>
 
 </body></html>

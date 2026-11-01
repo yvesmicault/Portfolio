@@ -5,7 +5,7 @@
   /* phrases entières */
   var FULL = {
     /* globes 30/10 — NOUVELLES TRADUCTIONS (01/11/2026), à relire par Yves */
-    "Ce globe situe mes projets d’études, mes concours et mes projets en agence. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.": "This globe locates my study projects, my competitions and my projects in practice. Hover over a marker to locate it, select it to read its details.",
+    "Ce globe situe mes projets d’études et mes concours. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.": "This globe locates my study projects and my competitions. Hover over a marker to locate it, select it to read its details.",
     "Découvrir les projets": "Discover the projects",
     "Découverte guidée": "Guided tour",
     "Études puis concours, par date": "Studies then competitions, by date",
@@ -39,6 +39,12 @@
     "Sur les falaises de Sagres, Equilibrium transforme la découverte du paysage en parcours architectural. Sa géométrie triangulaire met en relation le cap Saint-Vincent et les forteresses de Beliche et de Sagres. Un cheminement en acier Corten alterne ancrage dans la roche et avancées vers le vide, tandis que des espaces d’exposition s’inscrivent dans le relief. Le projet explore l’équilibre entre terre, mer et ciel à travers le déplacement du visiteur.": "On the cliffs of Sagres, Equilibrium turns the discovery of the landscape into an architectural route. Its triangular geometry relates Cape St. Vincent to the fortresses of Beliche and Sagres. A Corten steel path alternates between anchoring in the rock and reaching out over the void, while exhibition spaces are set into the terrain. The project explores the balance between land, sea and sky through the visitor's movement.",
     "Les petits ventres-villes": "Les petits ventres-villes",
     /* page Agence chronologique (28/10) */
+    "État du projet": "Project status", "Arrêté faute de financement": "Halted for lack of funding",
+    "Woodeum x Pitch Immo + Immobilière 3F": "Woodeum x Pitch Immo + Immobilière 3F", "Hamonic+Masson & Associés (mandataire et coordinateur)": "Hamonic+Masson & Associés (lead architect and coordinator)",
+    "240 logements dont 60 sociaux, commerces, espace public": "240 homes including 60 social units, shops, public space",
+    "15 000 m² de logements + 3 000 m² de commerces + 400 m² de restaurant panoramique": "15,000 m² of housing + 3,000 m² of shops + 400 m² panoramic restaurant",
+    "Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019": "Winner of the Inventons la Métropole du Grand Paris 2 international competition in 2019",
+    "Image : Hamonic+Masson & Associés": "Image: Hamonic+Masson & Associés", "Le Cabanon idéal, Marseille : perspective du projet": "Le Cabanon idéal, Marseille: project view", "Métamorphose, Angers : perspective du projet": "Métamorphose, Angers: project view", "High Garden, Rueil-Malmaison : perspective du projet": "High Garden, Rueil-Malmaison: project view",
     "Depuis mars 2017, je travaille au sein d’Hamonic + Masson & Associés, à Paris puis à Marseille. Cette chronologie présente mes contributions à des projets de logements, d’équipements et d’opérations urbaines, du concours aux études de projet et aux dossiers d’appel d’offres.": "Since March 2017, I have worked at Hamonic + Masson & Associés, first in Paris, then in Marseille. This timeline presents my contributions to housing, public facility and urban projects, from competition stage to design development and tender documents.",
     "Ma participation": "My involvement", "Mes contributions": "My contributions", "Environ trois ans, du concours au PRO / DCE": "About three years, from competition to technical design / tender",
     "Production des plans, images et détails, de l’esquisse au PRO / DCE": "Drawings, images and details, from sketch design to technical design / tender",

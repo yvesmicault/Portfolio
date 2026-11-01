@@ -16,22 +16,29 @@
       ["Surface","8 551 m² (fiche de l’agence) · 116 logements et 9 090 m² au dossier cité dans le CV"],
       ["Ma participation","Environ trois ans, du concours au PRO / DCE"],
       ["Mes contributions",["Production des plans, images et détails, de l’esquisse au PRO / DCE","Coordination des bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)","Dossiers remis : concours, APS, permis de construire, PRO / DCE"]],
-      ["Calendrier public","Livraison annoncée : 2025"]],
+      ["État du projet","Arrêté faute de financement"]],
     "metamorphose":[
       ["Maîtrise d’ouvrage","Groupe Giboire"],
       ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
       ["Programme","Bureaux, coworking, 76 logements en coliving, salle d’escalade, restaurant, serre événementielle"],
       ["Surface","24 500 m²"],
       ["Jalons","Lauréat du concours international Imagine Angers en 2018 · études en 2018 (CV 2024)"],
-      ["Calendrier public","Livraison annoncée : 2025"]],
+      ["État du projet","Livré en 2025"]],
     "cite-administrative":[
       ["Maîtrise d’ouvrage","SNC Duval développement Hauts-de-France"],
       ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
       ["Programme","Restructuration d’un bâtiment administratif classé : résidence étudiante, résidence sociale, logements familiaux, commerce, espace culturel, restaurant en toiture"],
       ["Surface","20 410 m² SDP · 17 000 m² SHAB"],
-      ["Calendrier public","Démarrage des études"]]
+      ["État du projet","Démarrage des études"]]
   };
-  var FORDER=["le-cabanon-ideal","metamorphose","cite-administrative"];
+  FEAT["high-garden"]=[
+      ["Maîtrise d’ouvrage","Woodeum x Pitch Immo + Immobilière 3F"],
+      ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire et coordinateur)"],
+      ["Programme","240 logements dont 60 sociaux, commerces, espace public"],
+      ["Surface","15 000 m² de logements + 3 000 m² de commerces + 400 m² de restaurant panoramique"],
+      ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
+      ["État du projet","Livré en 2024"]];
+  var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
 
   function role(p){return p.rq?"Participation au concours":p.r}
   function phases(p){return p.rq?"":p.ph}
@@ -78,5 +85,5 @@
   function deep(){var m=/^#agence\/(.+)$/.exec(location.hash);if(!m||!AG.length)return;var el=$("ag-"+decodeURIComponent(m[1]));
     if(el)requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.focus({preventScroll:true})})}
   addEventListener("hashchange",deep);
-  fetch("data/globe/agence.json?v=2").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
+  fetch("data/globe/agence.json?v=3").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
 })();
