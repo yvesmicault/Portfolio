@@ -8,40 +8,42 @@
   function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
   function yr(p){return p.y.slice(0,4)}
   /* fiches développées : uniquement des faits relevés sur les fiches publiques (consultées le 28/10/2026) ou dans les CV */
+  /* fiches développées : ma participation (CV, réponses d'Yves) séparée de l'opération (fiches publiques de l'agence) */
   var FEAT={
-    "le-cabanon-ideal":[
-      ["Maîtrise d’ouvrage","BNP Paribas Real Estate Expertise"],
-      ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire) + Boris Bouchet Architectes"],
-      ["Programme","117 logements, commerces et activités"],
-      ["Surface","8 551 m²"],
-      ["Ma participation","Environ trois ans, du concours au PRO / DCE"],
-      ["Mes contributions",["Production des plans, images et détails, de l’esquisse au PRO / DCE","Coordination des bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)","Dossiers remis : concours, APS, permis de construire, PRO / DCE"]],
-      ["État du projet","Arrêté faute de financement"]],
-    "metamorphose":[
-      ["Maîtrise d’ouvrage","Groupe Giboire"],
-      ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
-      ["Programme","Bureaux, coworking, 76 logements en coliving, salle d’escalade, restaurant, serre événementielle"],
-      ["Surface","24 500 m²"],
-      ["Jalons","Lauréat du concours international Imagine Angers en 2018"],
-      ["Ma participation","D’octobre 2017 à l’été 2019 : concours, puis études"],
-      ["Mes contributions",["Conduite du concours en tant que chef de projet, de la conception au rendu (projet lauréat)","Échanges avec la maîtrise d’ouvrage et présentation du projet en workshop","Maquette numérique, études graphiques et contribution aux études de développement"]],
-      ["État du projet","Livré en 2025"]],
-    "cite-administrative":[
-      ["Maîtrise d’ouvrage","SNC Duval développement Hauts-de-France"],
-      ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
-      ["Programme","Restructuration d’un bâtiment administratif classé : résidence étudiante, résidence sociale, logements familiaux, commerce, espace culturel, restaurant en toiture"],
-      ["Surface","20 410 m² SDP · 17 000 m² SHAB"],
-      ["État du projet","Démarrage des études"]]
+    "metamorphose":{per:"D’octobre 2017 à l’été 2019",
+      ct:[["Conception","Conduite du concours en chef de projet, de l’esquisse au rendu"],
+          ["Maîtrise d’ouvrage","Échanges avec le maître d’ouvrage et présentation du projet en workshop"],
+          ["Production","Maquette numérique et études graphiques, puis contribution aux études de développement"]],
+      op:[["Maîtrise d’ouvrage","Groupe Giboire"],
+          ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
+          ["Programme","Bureaux, coworking, 76 logements en coliving, salle d’escalade, restaurant, serre événementielle"],
+          ["Surface","24 500 m²"],
+          ["Jalons","Lauréat du concours international Imagine Angers en 2018"],
+          ["État","Livré en 2025"]],
+      img:[["img/agx/2017-metamorphose","Perspective du projet"],["img/agx/2017-metamorphose-2","Vue du rez-de-chaussée"],["img/agx/2017-metamorphose-3","Vue intérieure des bureaux"]]},
+    "high-garden":{per:"De janvier à octobre 2019",
+      ct:[["Conception","Études de façade du concours, en variantes bois et métal"],
+          ["Rendus","Production des perspectives du concours"],
+          ["Production","Maquette numérique construite et tenue à jour, support de la conception et des rendus"],
+          ["Avant-projet sommaire","Modèle 3D préparé pour la fabrication de la maquette physique"]],
+      op:[["Maîtrise d’ouvrage","Woodeum x Pitch Immo + Immobilière 3F"],
+          ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire et coordinateur)"],
+          ["Programme","240 logements dont 60 sociaux, commerces, espace public"],
+          ["Surface","15 000 m² de logements + 3 000 m² de commerces + 400 m² de restaurant panoramique"],
+          ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
+          ["État","Livré en 2024"]],
+      img:[["img/agx/2017-high-garden","Perspective du projet"]]},
+    "le-cabanon-ideal":{per:"Environ trois ans",
+      ct:[["Production","Plans, images et détails, de l’esquisse au PRO / DCE"],
+          ["Coordination","Bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)"],
+          ["Rendus","Dossiers de concours, d’APS, de permis de construire et de PRO / DCE"]],
+      op:[["Maîtrise d’ouvrage","BNP Paribas Real Estate Expertise"],
+          ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire) + Boris Bouchet Architectes"],
+          ["Programme","117 logements, commerces et activités"],
+          ["Surface","8 551 m²"],
+          ["État","Arrêté faute de financement"]],
+      img:[["img/agx/2020-le-cabanon-ideal","Perspective du projet"]]}
   };
-  FEAT["high-garden"]=[
-      ["Maîtrise d’ouvrage","Woodeum x Pitch Immo + Immobilière 3F"],
-      ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire et coordinateur)"],
-      ["Programme","240 logements dont 60 sociaux, commerces, espace public"],
-      ["Surface","15 000 m² de logements + 3 000 m² de commerces + 400 m² de restaurant panoramique"],
-      ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
-      ["Ma participation","De janvier à octobre 2019 : concours, puis avant-projet sommaire"],
-      ["Mes contributions",["Conception et production des perspectives du concours, dont les études de façade en variantes bois et métal","Construction et mise à jour de la maquette numérique, support de la conception et des rendus","Avant-projet sommaire : préparation du modèle 3D ayant servi à fabriquer la maquette physique"]],
-      ["État du projet","Livré en 2024"]];
   var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
 
   function role(p){return p.rq?"Participation au concours":p.r}
@@ -68,12 +70,35 @@
       (st?'<p class="agt-mt">Opération : '+esc(st)+'</p>':'')+
       (S?'<p class="agt-mt">Suite en '+yr(S)+'</p>':'')+
       links(p)+'</article></li>'}
-  function feat(p){var rows=FEAT[p.id]||[],ph=phases(p);
-    return '<article class="agt-f" id="agf-'+esc(p.id)+'" tabindex="-1">'+media(p,1)+
+  function feat(p){var F=FEAT[p.id];if(!F)return "";var ph=phases(p).split(/\s*→\s*/).filter(Boolean),I=F.img||[],n=I.length;
+    var fig=n?'<figure class="agt-m"><button type="button" class="agt-zb" data-ag="'+esc(p.id)+'" aria-label="'+esc(p.t)+' : '+(n>1?'voir les '+n+' images':'agrandir l’image')+'"><img src="'+esc(I[0][0])+'.jpg" alt="'+esc(p.t+', '+p.c+' : '+I[0][1].toLowerCase())+'" loading="lazy" decoding="async"><span class="agt-zl">'+(n>1?'Voir les '+n+' images':'Agrandir l’image')+'</span></button><figcaption>Image : Hamonic+Masson & Associés</figcaption></figure>':"";
+    function dl(rows){return '<dl>'+rows.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join("")+'</dl>'}
+    return '<article class="agt-f" id="agf-'+esc(p.id)+'" tabindex="-1">'+fig+
       '<p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(p.t)+'</h4>'+
-      '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p>'+
-      '<dl>'+rows.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+(Array.isArray(r[1])?'<ul>'+r[1].map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul>':esc(r[1]))+'</dd></div>'}).join("")+'</dl>'+
+      '<section class="agt-me"><h5>Ma participation</h5>'+
+        '<p class="agt-ro"><b>'+esc(role(p))+'</b><span>'+esc(F.per)+'</span></p>'+
+        (ph.length?'<ol class="agt-ph" aria-label="Phases suivies">'+ph.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ol>':'')+
+        '<h5>Mes contributions</h5><ul class="agt-ct">'+F.ct.map(function(c){return '<li><b>'+esc(c[0])+'</b>'+esc(c[1])+'</li>'}).join("")+'</ul></section>'+
+      '<section class="agt-op"><h5>L’opération</h5>'+dl(F.op)+'</section>'+
       links(p)+'</article>'}
+  function zoom(id,el){var p=byId(id),F=FEAT[id];if(!p||!F)return;
+    var L=F.img.map(function(m){return {src:m[0]+".jpg",th:m[0]+"_t.jpg",cap:p.t+" · "+p.c+" · "+m[1]+" · image © Hamonic+Masson & Associés"}});
+    if(window.agOpenV)window.agOpenV(p.t,L,0,{},el);else window.open(L[0].src,"_blank")}
+  document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("#v-agence .agt-zb");if(b)zoom(b.dataset.ag,b)});
+  (function(){var st=document.createElement("style");st.textContent=
+    "#v-agence .agt-zb{all:unset;box-sizing:border-box;display:block;position:relative;width:100%;cursor:zoom-in}"+
+    "#v-agence .agt-zb:focus-visible{outline:2px solid var(--brick);outline-offset:2px}"+
+    "#v-agence .agt-zl{position:absolute;right:8px;bottom:8px;padding:6px 10px;font:400 11px/1 var(--m);color:#fff;background:rgba(20,20,20,.62);letter-spacing:.04em}"+
+    "#v-agence .agt-zb:hover .agt-zl{background:var(--brick)}"+
+    "#v-agence .agt-f h5{margin:16px 0 6px;font:500 9.5px/1.3 var(--f);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}"+
+    "#v-agence .agt-me{margin-top:4px}#v-agence .agt-me>h5:first-child{color:var(--brick)}"+
+    "#v-agence .agt-ph{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}"+
+    "#v-agence .agt-ph li{font:400 11px/1 var(--m);padding:5px 8px;border:1px solid var(--line)}"+
+    "#v-agence .agt-ph li::first-letter{text-transform:uppercase}"+
+    "#v-agence .agt-ct{list-style:none;margin:0;padding:0;display:grid;gap:8px}"+
+    "#v-agence .agt-ct li{font:400 13.5px/1.5 var(--f)}#v-agence .agt-ct b{display:block;font:500 11px/1.4 var(--m);color:var(--ink)}"+
+    "#v-agence .agt-op{margin-top:18px;padding-top:4px;border-top:1px solid var(--line)}#v-agence .agt-op dd{color:var(--mute)}";
+    document.head.appendChild(st)})();
 
   function build(){
     var L=AG.slice().sort(function(a,b){return yr(a)-yr(b)}),ys=[];   // tri stable : l'ordre du fichier est gardé dans l'année
