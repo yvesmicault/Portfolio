@@ -665,8 +665,7 @@
     "2021-tours-jumelles"
    ],
    "id": "tours-jumelles",
-   "pub": [],
-   "hs": 1
+   "pub": []
   },
   {
    "t": "Cœur de Carnolès",
@@ -1038,7 +1037,7 @@
    "t": "Bougainville, ancien site Itron",
    "c": "Massy",
    "y": "2024",
-   "n": "Logements, bureaux, activités et parking silo",
+   "n": "237 logements, 3 300 m² de bureaux, 1 700 m² d’activités, parking silo",
    "s": "",
    "ph": "Concours → APS",
    "r": "Chef de projet",
@@ -1055,7 +1054,7 @@
    "c": "Cergy",
    "y": "2024",
    "n": "Logements, coliving, bureaux, activités, pôle alimentaire",
-   "s": "",
+   "s": "9 490 m² SDP de logements + 4 180 m² SU de bureaux, pôle alimentaire et activités",
    "ph": "Concours",
    "r": "Chef de projet",
    "src": "mail",
@@ -1140,8 +1139,8 @@
    "t": "Marne Europe, lots MA5/10",
    "c": "Villiers-sur-Marne",
    "y": "2025",
-   "n": "Concours : parc et schémas",
-   "s": "",
+   "n": "Logements, bureaux, commerces et stationnement",
+   "s": "11 000 m² SDP",
    "ph": "Concours",
    "r": "Chef de projet",
    "src": "mail",
