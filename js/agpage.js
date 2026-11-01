@@ -41,7 +41,7 @@
           ["Programme","117 logements, commerces et activités"],
           ["Surface","8 551 m²"],
           ["État","Arrêté faute de financement"]],
-      img:[["img/agx/2020-le-cabanon-ideal","Perspective du projet"],["img/agx/2022-cabanon-vue-2","Vue depuis la rue"],["img/agx/2022-cabanon-vue-3","Façade et loggias"],["img/agx/2022-cabanon-vue-4","Intérieur d’un logement"]]}
+      img:[["img/agx/2020-le-cabanon-ideal","Perspective du projet"],["img/agx/2022-cabanon-vue-3","Façade et loggias"],["img/agx/2022-cabanon-vue-4","Intérieur d’un logement"]]}
   };
   var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
 
