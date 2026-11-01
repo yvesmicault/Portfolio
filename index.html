@@ -816,7 +816,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 <section class="view page gut" id="v-publications" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Accueil</a>
-    <div class="ph-head"><h1>Publications<small>03</small></h1></div>
+    <div class="ph-head"><h1>Publications<small id="nPub">03</small></h1></div>
     <div class="pubs" id="pubs"></div>
   </div>
 </section>
@@ -834,7 +834,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 <section class="view page gut" id="v-concours" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Accueil</a>
-    <div class="ph-head"><h1>Concours<small>04</small></h1><p>Concours et appels à idées, faits en dehors de l'école et de l'agence.</p></div>
+    <div class="ph-head"><h1>Concours<small id="nCon">05</small></h1><p>Concours et appels à idées, faits en dehors de l'école et de l'agence.</p></div>
     <div class="conc" id="conc"></div>
   </div>
 </section>
@@ -1216,7 +1216,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     else{var sp=h("div","sem span",'<span class="sl">'+c.sl+' <span class="tag">semestre exact à préciser</span></span>');sp.appendChild(cards(c.span,c.c+" · "+c.sl));row.appendChild(sp)}
     $("cursus").appendChild(row);
   });
-  if($("nEtu"))$("nEtu").textContent=pad(nEtu);$("nEtu2").textContent=pad(nEtu);
+  if($("nEtu"))$("nEtu").textContent=pad(nEtu);$("nEtu2").textContent=pad(nEtu);if($("nCon"))$("nCon").textContent=pad(CONC.length);if($("nPub"))$("nPub").textContent=pad(PUB.length);
   CONC.forEach(function(c){
     var strip=c.thM?'<img loading="lazy" src="'+c.thM+'" alt="">':c.p?c.p.slice(0,4).map(function(x){return '<img loading="lazy" src="'+x.th+'" alt="">'}).join(""):'<span>Panneaux à venir</span>';
     if(c.p)reg(c,"concours",c.org);
@@ -1567,6 +1567,7 @@ const P=[
   {k:"elle",m:"Glostrup, Copenhague · PFE en équipe à trois · 2015–2016",r:"À Glostrup, Elle transforme le parcours vers la gare en jardin botanique et installe une usine de microalgues à l’articulation des quartiers résidentiels et industriels. Le projet associe production, équipements ouverts au public, bureaux et logements. Une barre traversée par le parc se redresse en tour ; l’ensemble met en relation les ressources du voisinage, la découverte des procédés de culture et de nouvelles manières d’habiter la frange industrielle.",y0:2015,y1:2016,o:0,f:"e",t:"Elle",c:"Glostrup, Copenhague",s:"PFE · 2015–2016",id:[["Nature","Tour mixte, projet de fin d’études"],["Programme","Usine de microalgues, restaurant, musée, jardinerie, serre tropicale, bureaux, logements"],["Surface","12 000 m²"],["Emplacement","Glostrup, Copenhague, Danemark"]],ll:[55.658003,12.365585]},
   {k:"ventres",m:"Limoges · Europan 16 · mentionné · collectif ITERA · mars 2021",r:"À Limoges, Les petits ventres-villes prend appui sur les vides, les mémoires et les édifices existants pour renouer les liens entre le centre historique et la Vienne. Places, jardins et passages composent une traversée publique, tandis que le manège, les friches GRDF et le site ENEDIS accueillent de nouveaux usages. Réhabilitation, réemploi et désimperméabilisation soutiennent une transformation progressive, attentive aux ressources du quartier.",y0:2021,y1:2021,o:0,f:"c",t:"Les petits ventres-villes",c:"Limoges",s:"Europan 16 · 2021",id:[["Nature","Concours Europan 16, mentionné"],["Programme","Projet urbain : places, logements, halle, salle de concert, recyclerie"],["Surface","—"],["Emplacement","Limoges, France"]],ll:[45.833,1.262]},
   {k:"crank",m:"YAC · Tree House Module · juin 2020 · sites de châteaux, dont Mothe-Chandeniers",r:"The Crank House réinterprète la cabane comme une architecture nomade, modulaire et manipulable. Derrière une enveloppe de bois brûlé, manivelles, poulies et panneaux mobiles permettent à l’habitant de régler son ouverture au paysage. Des modules de vie, de repos et de service s’assemblent autour d’un noyau technique, sur une ossature légère en acier. Le dispositif s’adapte à différentes implantations, suspendu au contact des arbres ou porté par une structure autonome.",y0:2020,y1:2020,o:0,f:"c",t:"The Crank House",c:"Mothe-Chandeniers",s:"Concours d’idées · 2020",id:[["Nature","Concours d’idées"],["Programme","Cabane nomade"],["Surface","40 m² de planchers"],["Emplacement","Châteaux de Mothe-Chandeniers, Ébaupinay, Vibrac"]],ll:[47.054,0.035]},
+  {k:"synergies",m:"Auby · Europan 15 · 2019",r:"À Auby, dans le bassin minier du Nord, Synergies Latentes propose de réinventer les relations entre habitat, activités productives et paysage. Autour du canal de la Haute-Deûle, le projet transforme les héritages industriels en ressources pour une nouvelle dynamique territoriale, fondée sur l’économie circulaire, la participation habitante et la mutualisation des savoir-faire. Plutôt qu’un aménagement figé, il imagine une ville coopérative, évolutive et productive, dont l’architecture accompagne les transformations sociales, économiques et environnementales du territoire.",y0:2019,y1:2019,o:0,f:"c",t:"Synergies latentes",c:"Auby",s:"Europan 15 · 2019",id:[["Nature","Concours Europan 15, projet urbain et territorial"],["Programme","Habitat participatif, équipements collectifs, manufacture, agriculture urbaine, reconversion industrielle"],["Surface","—"],["Emplacement","Auby, Nord, France"]],ll:[50.414,3.056]},
   {k:"siberian",m:"Bee Breeders · Transiberian Pit Stops · mention honorable · novembre 2016",r:"Pensé pour les abords des grandes gares du Transsibérien, Siberian Spotlight propose une halte d’accueil et d’information touristique. Son enveloppe translucide devient un repère lumineux la nuit, tandis qu’un intérieur en mélèze de Sibérie évoque la chaleur des isbas. Une trame métallique régulière organise structure et mobilier ; la collecte des pluies et de la fonte des neiges complète un dispositif léger, préfabriqué et reproductible le long du voyage.",y0:2016,y1:2016,o:0,f:"c",t:"Siberian Spotlight",c:"le long du Transsibérien",s:"Bee Breeders · 2016",id:[["Nature","Concours Bee Breeders, mention honorable"],["Programme","Halte le long du Transsibérien (Transiberian Pit Stops)"],["Surface","80 m² d’emprise"],["Emplacement","Le long du Transsibérien, Russie"]],ll:[55.03,82.92],route:1},
   {k:"equilibrium",m:"Sagres, Portugal · ArkxSite · Site Landmark · 2016",r:"Sur les falaises de Sagres, Equilibrium transforme la découverte du paysage en parcours architectural. Sa géométrie triangulaire met en relation le cap Saint-Vincent et les forteresses de Beliche et de Sagres. Un cheminement en acier Corten alterne ancrage dans la roche et avancées vers le vide, tandis que des espaces d’exposition s’inscrivent dans le relief. Le projet explore l’équilibre entre terre, mer et ciel à travers le déplacement du visiteur.",y0:2016,y1:2016,o:0,f:"c",t:"Equilibrium",c:"Sagres, Portugal",s:"ArkxSite · 2016",id:[["Nature","Concours d’idées ArkxSite « Site Landmark »"],["Programme","Landmark site : parcours en acier Corten, espaces d’exposition, toilettes, stockage"],["Surface","—"],["Emplacement","Sagres, Portugal"]],ll:[37.009,-8.94]}];
 
@@ -1990,7 +1991,7 @@ function resetGlobe(){tw=null;mode="globe";cur=-1;acur=-1;$("fiche").classList.r
 addEventListener("hashchange",()=>{const h=location.hash;if(!h||h==="#"||h==="#accueil")resetGlobe()});
 document.querySelector("header .name").addEventListener("click",()=>{if(!location.hash||location.hash==="#accueil")resetGlobe()});
 // « Ouvrir → » mène à la page du projet sur le site
-const TITLE={varese:"Sospesa",agri:"Champ libre",terminus:"Terminus",elle:"Elle",ventres:"Les petits ventres-villes",crank:"The Crank House",siberian:"Siberian Spotlight",equilibrium:"Equilibrium"};
+const TITLE={varese:"Sospesa",agri:"Champ libre",terminus:"Terminus",elle:"Elle",ventres:"Les petits ventres-villes",crank:"The Crank House",siberian:"Siberian Spotlight",equilibrium:"Equilibrium",synergies:"Synergies latentes"};
 function hrefFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]);return it?"#projet/"+it.id:(p.f==="e"?"#etudes":"#concours")}
 new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme","data-eff"]});matchMedia("(prefers-color-scheme: dark)").addEventListener("change",theme);
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};

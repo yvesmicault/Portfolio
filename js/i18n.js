@@ -5,6 +5,10 @@
   /* phrases entières */
   var FULL = {
     /* Synergies latentes (01/11/2026) */
+    "Auby · Europan 15 · 2019": "Auby · Europan 15 · 2019", "Europan 15 · 2019": "Europan 15 · 2019", "Auby": "Auby",
+    "À Auby, dans le bassin minier du Nord, Synergies Latentes propose de réinventer les relations entre habitat, activités productives et paysage. Autour du canal de la Haute-Deûle, le projet transforme les héritages industriels en ressources pour une nouvelle dynamique territoriale, fondée sur l’économie circulaire, la participation habitante et la mutualisation des savoir-faire. Plutôt qu’un aménagement figé, il imagine une ville coopérative, évolutive et productive, dont l’architecture accompagne les transformations sociales, économiques et environnementales du territoire.": "In Auby, in the former mining basin of northern France, Synergies Latentes sets out to reinvent the relationships between housing, productive activities and landscape. Around the Haute-Deûle canal, the project turns industrial legacies into resources for a new territorial dynamic, based on the circular economy, residents’ participation and the pooling of know-how. Rather than a fixed plan, it imagines a cooperative, evolving and productive city, whose architecture accompanies the social, economic and environmental transformations of the territory.",
+    "Concours Europan 15, projet urbain et territorial": "Europan 15 competition, urban and territorial project",
+    "Habitat participatif, équipements collectifs, manufacture, agriculture urbaine, reconversion industrielle": "Participative housing, community facilities, manufacture, urban agriculture, industrial reconversion",
     "Auby · 2019 · équipe : Yves Micault, Nathanaël Pinard, Marc Viaud · 3 panneaux A1": "Auby · 2019 · team: Yves Micault, Nathanaël Pinard, Marc Viaud · 3 A1 boards",
     "Rive sud": "South bank", "Rive nord": "North bank", "Axonométrie · zoom 1": "Axonometry · close-up 1", "Axonométrie · bureau": "Axonometry · office",
     "Zoom · interface": "Close-up · interface", "Zoom · base nautique": "Close-up · water sports base", "Auby, Nord, France": "Auby, Nord, France",
