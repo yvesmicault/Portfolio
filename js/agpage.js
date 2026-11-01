@@ -38,8 +38,8 @@
       img:[["img/agx/2020-le-cabanon-ideal","Perspective du projet"],["img/agx/2022-cabanon-vue-3","Façade et loggias"],["img/agx/2022-cabanon-vue-4","Intérieur d’un logement"]]}
   };
   /* concours remportés par l'agence, établis par les fiches hamonic-masson.com */
-  var WIN={"metamorphose":"2018","high-garden":"2019","siege-du-groupe-angevin":"2023","le-cabanon-ideal":"2022","cite-administrative":"2026"};
-  var LAU='<svg class="agt-lau" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17.5c-3.6-1-6-4.2-6-8M10 17.5c3.6-1 6-4.2 6-8M5.2 13.2l-2 .6M4.3 10.6l-2-.3M4.2 7.9l-1.6-1M14.8 13.2l2 .6M15.7 10.6l2-.3M15.8 7.9l1.6-1"/><circle cx="10" cy="7" r="2.6"/></svg>';
+  var WIN={"metamorphose":["2018","Métamorphose"],"lille":["2018","Emblem"],"harmony-of-the-sky":["2018","Harmony of the Sky"],"high-garden":["2019","High Garden"],"station-service":["2019","Station BP"],"archives-departementales":["2020","Archives de Seine-et-Marne"],"le-cabanon-ideal":["2022","Le Cabanon idéal"],"siege-du-groupe-angevin":["2023","Siège du Groupe Angevin"],"massy-itron":["2024","Bougainville"],"port-marianne-lot-7a":["2025","Port Marianne, lot 7a"],"cite-administrative":["2026","Cité administrative"],"nantes-2026":["2026","Îlot Capstone"],"bondy-sabliere":["2026","La Sablière"]};
+  var LAU='';
   var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
 
   function role(p){return p.rq?"Participation au concours":p.r}
@@ -63,7 +63,7 @@
       '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p>'+
       '<p class="agt-pr">'+esc(p.n)+(su?'<span class="agt-s">'+esc(su)+'</span>':'')+'</p>'+
       (p.co?'<p class="agt-mt">Avec '+esc(p.co)+'</p>':'')+
-      (WIN[p.id]?'<p class="agt-w">'+LAU+'Concours remporté en '+WIN[p.id]+'</p>':'')+
+      (WIN[p.id]?'<p class="agt-w">'+LAU+'Concours remporté en '+WIN[p.id][0]+'</p>':'')+
       (st?'<p class="agt-mt">Opération : '+esc(st)+'</p>':'')+
       (S?'<p class="agt-mt">Suite en '+yr(S)+'</p>':'')+
       links(p)+'</article></li>'}
@@ -96,9 +96,9 @@
     "#v-agence .agt-ct li{font:400 13.5px/1.5 var(--f)}#v-agence .agt-ct b{display:block;font:500 11px/1.4 var(--m);color:var(--ink)}"+
     "#v-agence .agt-lau{width:16px;height:16px;flex:none;fill:none;stroke:var(--brick);stroke-width:1.3;stroke-linecap:round}"+
     "#v-agence .agt-w{margin:6px 0 0;display:inline-flex;align-items:center;gap:6px;font:400 11.5px/1.3 var(--m);color:var(--brick)}"+
-    "#v-agence .agt-wl{list-style:none;margin:0 0 56px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));column-gap:24px;border-top:1px solid var(--ink)}"+
-    "#v-agence .agt-wl a{display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none}"+
-    "#v-agence .agt-wl a:hover b{color:var(--brick)}#v-agence .agt-wl b{font:400 15px/1.3 var(--f)}"+
+    "#v-agence .agt-wl{list-style:none;margin:0 0 56px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));column-gap:28px;border-top:1px solid var(--ink)}"+
+    "#v-agence .agt-wl a{display:flex;align-items:baseline;gap:12px;min-height:44px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;white-space:nowrap;overflow:hidden}"+
+    "#v-agence .agt-wl a:hover b{color:var(--brick)}#v-agence .agt-wl b{font:400 14px/1.3 var(--f);overflow:hidden;text-overflow:ellipsis}"+
     "#v-agence .agt-wy{font:400 12px/1 var(--m);color:var(--brick);font-variant-numeric:tabular-nums}#v-agence .agt-wc{margin-left:auto;font:400 11px/1.3 var(--m);color:var(--mute)}"+
     "#v-agence .agt-op{margin-top:18px;padding-top:4px;border-top:1px solid var(--line)}#v-agence .agt-op dd{color:var(--mute)}";
     document.head.appendChild(st)})();
@@ -108,7 +108,7 @@
     L.forEach(function(p){var y=yr(p),e=ys[ys.length-1];if(!e||e.y!==y)ys.push(e={y:y,p:[]});e.p.push(p)});
     var n=AG.filter(function(p){return !p.m}).length,H=document.querySelector("#v-agence .wrap > h3.agt-h");if(H)H.textContent="Chronologie 2017 — 2026 · "+n+" projets";
     var F=FORDER.map(function(id){return AG.filter(function(p){return p.id===id})[0]}).filter(Boolean);
-    $("agF").innerHTML=F.length?'<h3 class="agt-h">Trois références développées</h3><div class="agt-fg">'+F.map(feat).join("")+'</div>'+'<h3 class="agt-h">Concours remportés</h3><ul class="agt-wl">'+Object.keys(WIN).map(function(id){var p=byId(id);return p?'<li><a href="#agence/'+esc(id)+'">'+LAU+'<span class="agt-wy">'+WIN[id]+'</span><b>'+esc(p.t)+'</b><span class="agt-wc">'+esc(p.c)+'</span></a></li>':''}).join("")+'</ul>':"";
+    $("agF").innerHTML=F.length?'<h3 class="agt-h">Trois références développées</h3><div class="agt-fg">'+F.map(feat).join("")+'</div>'+'<h3 class="agt-h">Concours remportés · '+Object.keys(WIN).length+'</h3><ul class="agt-wl">'+Object.keys(WIN).map(function(id){var w=WIN[id];return byId(id)?'<li><a href="#agence/'+esc(id)+'"><span class="agt-wy">'+w[0]+'</span><b>'+esc(w[1])+'</b></a></li>':''}).join("")+'</ul>':"";
     $("agI").innerHTML=ys.map(function(e){return '<button type="button" data-y="'+e.y+'">'+e.y+'<small>'+e.p.length+'</small></button>'}).join("");
     $("agT").innerHTML=ys.map(function(e){return '<section class="agt-y" aria-labelledby="agy-'+e.y+'"><h3 id="agy-'+e.y+'" tabindex="-1">'+e.y+'</h3><ul class="agt-g">'+e.p.map(card).join("")+'</ul></section>'}).join("");
     [].forEach.call($("agI").children,function(b){b.onclick=function(){var h=$("agy-"+b.dataset.y);h.scrollIntoView({block:"start"});h.focus({preventScroll:true})}});
@@ -117,5 +117,5 @@
   function deep(){var m=/^#agence\/(.+)$/.exec(location.hash);if(!m||!AG.length)return;var el=$("ag-"+decodeURIComponent(m[1]));
     if(el)requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.focus({preventScroll:true})})}
   addEventListener("hashchange",deep);
-  fetch("data/globe/agence.json?v=13").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
+  fetch("data/globe/agence.json?v=14").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
 })();
