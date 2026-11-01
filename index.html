@@ -629,6 +629,10 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 
 /* l’agence quitte le globe (Yves, 01/11) : seulement études et concours */
 #gbox .list h3.a,#gbox #cA{display:none!important}
+#gbox .fim{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--bg2);margin:0 0 10px;animation:fimIn .5s var(--ease)}
+#gbox .fim[hidden]{display:none}@keyframes fimIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+#gbox .cap b,#gbox .pv b{font:300 22px/1.12 var(--f);letter-spacing:.02em;text-transform:uppercase}
+.gdw .gd-st[hidden]{display:none}.gdw .gd-c button{min-width:26px;height:26px}.gdw{margin-top:18px;padding-top:10px;border-top:1px solid var(--line)}.gdw .gd{margin:0;border:0;padding:0}
 /* --- Globes 30/10 : fiche, prévisualisation, frise, découverte guidée --- */
 #gbox .cap .ct{display:block;margin-top:8px;font:500 9px/1.2 var(--f);letter-spacing:.28em;text-transform:uppercase;color:var(--brick)}
 #gbox .cap .mt{display:block;margin-top:4px;font:400 10.5px/1.45 var(--m);color:var(--mute)}
@@ -768,17 +772,16 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
     <h1 class="sr">Yves Micault, architecte</h1>
     <div>
     <div class="gbox" id="gbox">
-      <div class="list" id="list"><h3><button type="button" class="fo" data-f="e" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Études</button><button type="button" class="tg" data-f="e" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cE"></div><h3 class="c"><button type="button" class="fo" data-f="c" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Concours</button><button type="button" class="tg" data-f="c" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cC"></div><h3 class="a"><button type="button" class="fo" data-f="a" aria-expanded="false" title="Déplier ou replier la liste"><i></i>Agence <em id="agN"></em></button><button type="button" class="tg" data-f="a" aria-pressed="false" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cA" class="off fold" aria-label="Projets d’agence"></div><div class="fz" id="fz"><h3 class="fz-h">Chronologie</h3><div id="fzR"></div><div class="fz-ax" id="fzAx" aria-hidden="true"></div><p class="fz-k">trait plein : ordre chronologique · pointillé : même période</p><button type="button" class="fz-all" id="fzAll" hidden>Tout afficher</button><p class="fz-n" id="fzN" hidden></p></div></div>
+      <div class="list" id="list"><h3><button type="button" class="fo" data-f="e" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Études</button><button type="button" class="tg" data-f="e" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cE"></div><h3 class="c"><button type="button" class="fo" data-f="c" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Concours</button><button type="button" class="tg" data-f="c" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cC"></div><h3 class="a"><button type="button" class="fo" data-f="a" aria-expanded="false" title="Déplier ou replier la liste"><i></i>Agence <em id="agN"></em></button><button type="button" class="tg" data-f="a" aria-pressed="false" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cA" class="off fold" aria-label="Projets d’agence"></div><div class="fz" id="fz"><h3 class="fz-h">Chronologie</h3><div id="fzR"></div><div class="fz-ax" id="fzAx" aria-hidden="true"></div><p class="fz-k">trait plein : ordre chronologique · pointillé : même période</p><button type="button" class="fz-all" id="fzAll" hidden>Tout afficher</button><p class="fz-n" id="fzN" hidden></p><div class="gdw"><button type="button" class="gd-st" id="gdSt">Découvrir les projets <i>→</i></button><div class="gd" id="gd" role="group" aria-label="Découverte guidée" hidden><p class="gd-o">Études puis concours, par date</p><div class="gd-c"><button type="button" id="gdP" aria-label="Projet précédent">←</button><span id="gdN" aria-live="polite">1 / 8</span><button type="button" id="gdNx" aria-label="Projet suivant">→</button><button type="button" id="gdA" class="gd-t" aria-pressed="false">Lecture</button><button type="button" id="gdX" class="gd-t">Quitter</button></div></div></div></div></div>
       <div class="stage" id="stage">
         <div class="gl" id="gl"></div>
         <canvas id="fx" aria-hidden="true"></canvas>
         <p class="empty" id="empty"></p>
       </div>
       <div class="side">
-        <div class="gin" id="gin"><p>Ce globe situe mes projets d’études et mes concours. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.</p><button type="button" class="gd-st" id="gdSt">Découvrir les projets <i>→</i></button></div>
-        <div class="gd" id="gd" role="group" aria-label="Découverte guidée" hidden><p class="gd-o">Études puis concours, par date</p><div class="gd-c"><button type="button" id="gdP" aria-label="Projet précédent">←</button><span id="gdN" aria-live="polite">1 / 8</span><button type="button" id="gdNx" aria-label="Projet suivant">→</button><button type="button" id="gdA" class="gd-t" aria-pressed="false">Lecture</button><button type="button" id="gdX" class="gd-t">Quitter</button></div></div>
+        <div class="gin" id="gin"><p>Ce globe situe mes projets d’études et mes concours. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.</p></div>
         <button type="button" class="pv" id="pv" hidden></button>
-        <div class="cap"><b id="tit"></b><span id="sub"></span></div><span class="hint" id="coord"></span>
+        <img class="fim" id="fim" alt="" hidden><div class="cap"><b id="tit"></b><span id="sub"></span></div><span class="hint" id="coord"></span>
         <div class="fiche" id="fiche" aria-live="polite"></div><div class="gal" id="gal" hidden></div></div>
       <svg id="ov" aria-hidden="true"></svg>
       <svg id="dsv" aria-hidden="false"><path class="rim" id="rimA"/><path id="rimF" fill="none"/><path id="rimB" fill="none"/>
@@ -823,8 +826,8 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 <section class="view page gut" id="v-agence" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Noyau</a>
-    <div class="ph-head"><h1>Parcours en agence</h1><p>Depuis mars 2017, je travaille au sein d’Hamonic + Masson &amp; Associés, à Paris puis à Marseille. Cette chronologie présente mes contributions à des projets de logements, d’équipements et d’opérations urbaines, du concours aux études de projet et aux dossiers d’appel d’offres.</p></div>
-    <p class="agt-note">Projets conçus au sein d’Hamonic + Masson &amp; Associés. Les rôles et phases indiqués décrivent ma participation personnelle.</p>
+    <div class="ph-head"><h1>Parcours en agence</h1><p>L’expérience en agence est celle d’une confrontation permanente entre les idées et leur réalité. Depuis 2017, chez Hamonic+Masson &amp; Associés, j’ai exploré cette relation à travers des projets très différents, apprenant autant de leur conception que des contraintes, des échanges et des arbitrages qui accompagnent leur développement.</p></div>
+    <p class="agt-note">Une décennie de projets, de recherches et d’expériences architecturales, du concours à la mise au point technique.</p>
     <div id="agF"></div>
     <h3 class="agt-h">Chronologie 2017 — 2026</h3>
     <nav class="agt-i" id="agI" aria-label="Aller à l’année"></nav>
@@ -1653,7 +1656,7 @@ function angDist(a,b){const p1=a[0]*D2R,p2=b[0]*D2R,dl=(b[1]-a[1])*D2R;return Ma
 function fmtLL(ll){return Math.abs(ll[0]).toFixed(3)+"° "+(ll[0]>=0?"N":"S")+" · "+Math.abs(ll[1]).toFixed(3)+"° "+(ll[1]>=0?"E":"O")}
 let AG=[],acur=-1,WH=null;const VIS={e:1,c:1,a:0};const selI=()=>acur>=0?100+acur:cur;
 function marks(){document.querySelectorAll(".it").forEach(b=>{const i=+b.dataset.i;b.classList.toggle("on",i===selI());b.classList.toggle("hot",i===hov)})}
-function caption(i){if(i<0){$("tit").textContent="";$("sub").textContent="";return}if(i>=100){const a=AG[i-100];$("tit").textContent=a.t;$("sub").textContent=(a.t!==a.c?a.c+" · ":"")+a.y;return}$("tit").textContent=P[i].t;$("sub").innerHTML='<span class="ct">'+(P[i].f==="e"?"Projet d’études":"Concours")+'</span><span class="mt">'+P[i].m+"</span>"}
+function caption(i){if(i<0||i>=100)$("fim").hidden=true;if(i<0){$("tit").textContent="";$("sub").textContent="";return}if(i>=100){const a=AG[i-100];$("tit").textContent=a.t;$("sub").textContent=(a.t!==a.c?a.c+" · ":"")+a.y;return}{const g=imgsFor(P[i])[0],F=$("fim");if(g){F.src=g.th;F.alt=P[i].t;F.hidden=false}else F.hidden=true}$("tit").textContent=P[i].t;$("sub").innerHTML='<span class="ct">'+(P[i].f==="e"?"Projet d’études":"Concours")+'</span><span class="mt">'+P[i].m+"</span>"}
 // la plongée : le globe tourne vers le lieu, on descend, la vue s'incline et la maquette s'imprime sur place
 const WARM={varese:["varese.json","varese_env.json"],agri:["agri.json","agri_life.json?v=117"],terminus:["terminus.json?v=120"],elle:["elle.json"],ventres:["ventres.json?v=6"],crank:["crank.json?v=1"],siberian:["siberian.json?v=3"],equilibrium:["equilibrium.json?v=1"]},warmed={};
 function warm(k){if(warmed[k]||!WARM[k])return;warmed[k]=1;WARM[k].forEach(f=>{try{fetch("data/"+f,{priority:"low"}).catch(()=>{})}catch(e){}})}   // précharge la maquette dès qu'un projet est survolé ou choisi
@@ -1783,8 +1786,8 @@ function gdShow(){$("gdN").textContent=(gdK+1)+" / "+GD.length}
 function gdGo(k){gdK=(k+GD.length)%GD.length;gdShow();choose(GD[gdK])}
 function gdAuto(on){clearInterval(gdT);gdT=null;$("gdA").setAttribute("aria-pressed",on);$("gdA").textContent=on?"Pause":"Lecture";
   if(on)gdT=setInterval(()=>{if(gdK>=GD.length-1)return gdAuto(false);gdGo(gdK+1)},reduce?8000:11000)}
-function gdStart(){gdOn=true;$("gd").hidden=false;sideState();const k=GD.indexOf(cur);gdGo(k>=0?k:0);$("gdNx").focus()}
-function gdStop(){gdAuto(false);gdOn=false;$("gd").hidden=true;sideState()}
+function gdStart(){gdOn=true;$("gd").hidden=false;$("gdSt").hidden=true;sideState();const k=GD.indexOf(cur);gdGo(k>=0?k:0);$("gdNx").focus()}
+function gdStop(){gdAuto(false);gdOn=false;$("gd").hidden=true;$("gdSt").hidden=false;sideState()}
 $("gdSt").addEventListener("click",gdStart);$("gdX").addEventListener("click",gdStop);
 $("gdP").addEventListener("click",()=>{gdAuto(false);gdGo(gdK-1)});$("gdNx").addEventListener("click",()=>{gdAuto(false);gdGo(gdK+1)});
 $("gdA").addEventListener("click",()=>gdAuto(!gdT));
@@ -1873,7 +1876,8 @@ function drawFx(){fc.clearRect(0,0,W,Hh);return;const cx=W/2,cy=Hh/2,Mx=Math.hyp
 function imgsFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]),o=[];if(!it)return o;
   if(it.g3==="crank")return [{th:"img/rendu/crank_nuit.jpg",cap:"Perspective"}];
   const U=(window.YM_G3UI||{})[it.g3];if(U&&U.norender&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&!U.norender)U.v.filter(([k])=>(it.g3!=="siberian"||k==="face"||k==="ensemble")&&!(it.g3==="varese"&&k==="parvis2")).forEach(([k,lab])=>{const f=it.g3==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":it.g3+"_"+k+".jpg"+(it.g3==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"");o.push({th:"img/rendu/"+f,src:"img/rendu/"+f,cap:lab})});return o}   // uniquement les images rendues, pas les panneaux (Yves)
-function gallery(i){const G=$("gal");holoOff(true);if(typeof lbClose==="function"&&window.__lbReady)lbClose();if(i<0){G.hidden=true;G.classList.remove("vis");G.innerHTML="";return}
+function gallery(i){i=-1;const G=$("gal");   // plus de galerie dans la fiche (Yves, 01/11) : une seule illustration en tête
+ holoOff(true);if(typeof lbClose==="function"&&window.__lbReady)lbClose();if(i<0){G.hidden=true;G.classList.remove("vis");G.innerHTML="";return}
   const L=imgsFor(P[i]);if(!L.length){G.hidden=true;return}
   G.innerHTML="<p>Galerie</p>"+L.map((x,k)=>'<button type="button" data-k="'+k+'" aria-pressed="false" title="'+x.cap.replace(/"/g,"&quot;")+'"><img loading="lazy" src="'+x.th+'" alt="'+x.cap.replace(/"/g,"&quot;")+'"></button>').join("");
   G.hidden=false;requestAnimationFrame(()=>G.classList.add("vis"));
@@ -1920,7 +1924,7 @@ function holoStep(dt){if(mode!=="site"&&holoT)holoOff();holoK+= (holoT-holoK)*Ma
 let last=performance.now();const nW=new THREE.Vector3();
 function frame(now){if(home.hidden){gPause=true;return}const dt=Math.min(.05,(now-last)/1000);last=now;
   if(tw){const t=clamp((now-tw.t0)/tw.T,0,1);tw.step(t);if(t>=1)tw=null}
-  else if(mode==="globe"&&!dragging&&hov<0&&acur<0&&!inside&&!reduce&&!fcat&&!gdOn&&now-lastAct>6000){V.lon+=dt*2*drift*clamp((V.h-80)/(H0-80),0,1);if(V.lon>48)drift=-1;if(V.lon<-14)drift=1}
+  else if(mode==="globe"&&!dragging&&hov<0&&acur<0&&!inside&&!reduce){V.lon+=dt*2*drift*clamp((V.h-80)/(H0-80),0,1);if(V.lon>48)drift=-1;if(V.lon<-14)drift=1}
   globe.rotation.set(V.lat*D2R,-V.lon*D2R,0,"XYZ");globe.updateMatrixWorld(true);
   cam.position.set(0,-V.h*Math.sin(V.tau),GR+V.h*Math.cos(V.tau));cam.up.set(0,1,0);cam.lookAt(0,0,GR+V.lk);
   {const d=Math.hypot(cam.position.x,cam.position.y,cam.position.z),rr=GR*Math.sqrt(Math.max(0,1-(GR*GR)/(d*d))),c=cam.position.clone().normalize(),zc=GR*GR/d;
@@ -1932,7 +1936,7 @@ function frame(now){if(home.hidden){gPause=true;return}const dt=Math.min(.05,(no
   if(printing){curH=reduce?target:Math.min(target,curH+dt*Math.max(40,target*.9));if(curH>=target)printing=false}
   site.getWorldPosition(nW);const n=nW.clone().normalize();clip.normal.copy(n).negate();clip.constant=n.dot(nW)+curH*S*K;
   if(ring){ring.position.y=curH;ring.visible=printing}
-  if(!reduce&&mode==="site"&&!dragging&&now-lastAct>6000)spin.rotation.y+=dt*.12;
+  if(!reduce&&mode==="site"&&!dragging)spin.rotation.y+=dt*.12;
   R.render(scene,cam);overlay();drawFx();requestAnimationFrame(frame)}
 let gPause=false;theme();requestAnimationFrame(frame);
 
@@ -1964,6 +1968,6 @@ new MutationObserver(theme).observe(document.documentElement,{attributes:true,at
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
 <script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=7"></script>
-<script charset="utf-8" src="js/i18n.js?v=208"></script>
+<script charset="utf-8" src="js/i18n.js?v=209"></script>
 
 </body></html>
