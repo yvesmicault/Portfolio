@@ -13,7 +13,7 @@
       ["Maîtrise d’ouvrage","BNP Paribas Real Estate Expertise"],
       ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire) + Boris Bouchet Architectes"],
       ["Programme","117 logements, commerces et activités"],
-      ["Surface","8 551 m² (fiche de l’agence) · 116 logements et 9 090 m² au dossier cité dans le CV"],
+      ["Surface","8 551 m²"],
       ["Ma participation","Environ trois ans, du concours au PRO / DCE"],
       ["Mes contributions",["Production des plans, images et détails, de l’esquisse au PRO / DCE","Coordination des bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)","Dossiers remis : concours, APS, permis de construire, PRO / DCE"]],
       ["État du projet","Arrêté faute de financement"]],
@@ -24,7 +24,7 @@
       ["Surface","24 500 m²"],
       ["Jalons","Lauréat du concours international Imagine Angers en 2018"],
       ["Ma participation","D’octobre 2017 (concours) aux études de 2019"],
-      ["Mes contributions",["Interface avec la maîtrise d’ouvrage pendant le concours","Maquette numérique et présentation du workshop","Études graphiques"]],
+      ["Mes contributions",["Concours mené seul, en chef de projet, jusqu’à la victoire en 2018","Interface avec la maîtrise d’ouvrage, maquette numérique et présentation du workshop","Participation aux études qui ont suivi"]],
       ["État du projet","Livré en 2025"]],
     "cite-administrative":[
       ["Maîtrise d’ouvrage","SNC Duval développement Hauts-de-France"],
@@ -78,6 +78,7 @@
   function build(){
     var L=AG.slice().sort(function(a,b){return yr(a)-yr(b)}),ys=[];   // tri stable : l'ordre du fichier est gardé dans l'année
     L.forEach(function(p){var y=yr(p),e=ys[ys.length-1];if(!e||e.y!==y)ys.push(e={y:y,p:[]});e.p.push(p)});
+    var n=AG.filter(function(p){return !p.m}).length,H=document.querySelector("#v-agence .wrap > h3.agt-h");if(H)H.textContent="Chronologie 2017 — 2026 · "+n+" projets";
     var F=FORDER.map(function(id){return AG.filter(function(p){return p.id===id})[0]}).filter(Boolean);
     $("agF").innerHTML=F.length?'<h3 class="agt-h">Trois références développées</h3><div class="agt-fg">'+F.map(feat).join("")+'</div>':"";
     $("agI").innerHTML=ys.map(function(e){return '<button type="button" data-y="'+e.y+'">'+e.y+'<small>'+e.p.length+'</small></button>'}).join("");
@@ -88,5 +89,5 @@
   function deep(){var m=/^#agence\/(.+)$/.exec(location.hash);if(!m||!AG.length)return;var el=$("ag-"+decodeURIComponent(m[1]));
     if(el)requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.focus({preventScroll:true})})}
   addEventListener("hashchange",deep);
-  fetch("data/globe/agence.json?v=5").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
+  fetch("data/globe/agence.json?v=4").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
 })();

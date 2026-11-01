@@ -39,6 +39,8 @@
     "Sur les falaises de Sagres, Equilibrium transforme la découverte du paysage en parcours architectural. Sa géométrie triangulaire met en relation le cap Saint-Vincent et les forteresses de Beliche et de Sagres. Un cheminement en acier Corten alterne ancrage dans la roche et avancées vers le vide, tandis que des espaces d’exposition s’inscrivent dans le relief. Le projet explore l’équilibre entre terre, mer et ciel à travers le déplacement du visiteur.": "On the cliffs of Sagres, Equilibrium turns the discovery of the landscape into an architectural route. Its triangular geometry relates Cape St. Vincent to the fortresses of Beliche and Sagres. A Corten steel path alternates between anchoring in the rock and reaching out over the void, while exhibition spaces are set into the terrain. The project explores the balance between land, sea and sky through the visitor's movement.",
     "Les petits ventres-villes": "Les petits ventres-villes",
     /* page Agence chronologique (28/10) */
+    "Concours mené seul, en chef de projet, jusqu’à la victoire en 2018": "Competition led single-handedly as project leader, through to the win in 2018", "Interface avec la maîtrise d’ouvrage, maquette numérique et présentation du workshop": "Liaison with the client, digital model and workshop presentation", "Participation aux études qui ont suivi": "Contribution to the subsequent design studies",
+    "Le Cabanon idéal (suite)": "Le Cabanon idéal (continued)", "Voir la référence de 2022": "See the 2022 reference", "Suite en 2023": "Continued in 2023", "PRO / DCE, dossier de consultation des entreprises": "Technical design and tender documents", "Concours Vannes": "Vannes competition",
     "L’expérience en agence est celle d’une confrontation permanente entre les idées et leur réalité. Depuis 2017, chez Hamonic+Masson & Associés, j’ai exploré cette relation à travers des projets très différents, apprenant autant de leur conception que des contraintes, des échanges et des arbitrages qui accompagnent leur développement.": "Practice is a constant confrontation between ideas and their reality. Since 2017, at Hamonic+Masson & Associés, I have explored this relationship through very different projects, learning as much from their design as from the constraints, discussions and trade-offs that come with their development.",
     "Une décennie de projets, de recherches et d’expériences architecturales, du concours à la mise au point technique.": "A decade of projects, research and architectural experience, from competition to technical development.",
     "État du projet": "Project status", "Arrêté faute de financement": "Halted for lack of funding",
@@ -245,6 +247,7 @@
     "août": "August", septembre: "September", octobre: "October", novembre: "November", "décembre": "December" };
   var RX = [
     [/^Semestre (\d)$/, "Semester $1"],
+    [/^Chronologie 2017 — 2026 · (\d+) projets$/, "Timeline 2017 — 2026 · $1 projects"],
     [/^(\d+) logements$/, "$1 homes"],
     [/^(\d+) pages A4$/, "$1 A4 pages"],
     [/^Études (\d{4}–\d{4})$/, "Studies $1"],
