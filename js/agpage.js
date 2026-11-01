@@ -18,7 +18,7 @@
           ["Surface","24 500 m²"],
           ["Jalons","Lauréat du concours international Imagine Angers en 2018"],
           ["État","Livré en 2025"]],
-      img:[["img/agx/2017-metamorphose","Perspective du projet"],["img/agx/2017-metamorphose-2","Vue du rez-de-chaussée"],["img/agx/2017-metamorphose-3","Vue intérieure des bureaux"]]},
+      img:[["img/agx/2017-metamorphose","Perspective du projet"],["img/agx/2025-metamorphose-photo-1","Vue aérienne du bâtiment livré","photo © Dimitri Lamour"],["img/agx/2025-metamorphose-photo-2","Depuis le boulevard et le tramway","photo © Dimitri Lamour"],["img/agx/2025-metamorphose-photo-3","Terrasses et patio","photo © Dimitri Lamour"],["img/agx/2025-metamorphose-photo-4","Le passage couvert","photo © Dimitri Lamour"],["img/agx/2025-metamorphose-photo-5","La serre et le jardin"],["img/agx/2017-metamorphose-2","Perspective du concours : rez-de-chaussée"],["img/agx/2017-metamorphose-3","Perspective du concours : bureaux"]]},
     "high-garden":{per:"",
       ct:[["Concours", "Projet lauréat, conçu en assistant chef de projet au sein de l’équipe de concours"], ["Conception", "Conception architecturale du projet, dont les façades en variantes bois et métal"], ["Production", "Conception et production des perspectives du concours"], ["Suite des études", "Poursuite des études et travail en continu en maquette numérique BIM"]],
       op:[["Maîtrise d’ouvrage","Woodeum x Pitch Immo + Immobilière 3F"],
