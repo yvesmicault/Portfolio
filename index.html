@@ -502,6 +502,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
 .stamp b{font:600 12px/1 var(--m);letter-spacing:.3em;text-transform:uppercase;margin-right:-.3em}.stamp small{font:400 8px/1 var(--m);letter-spacing:.08em;white-space:nowrap}
 .fiche .stamp{pointer-events:none}.fiche .stamp b{font-size:10px}
 /* page Agence : chronologie complète 2017 → 2026, toutes les cartes dans le flux (28/10) */
+#v-agence .agt-logo{float:right;display:block;width:34px;margin:2px 0 0 16px;color:var(--mute);opacity:.7;transition:opacity .2s}#v-agence .agt-logo:hover{opacity:1}#v-agence .agt-logo svg{display:block;width:100%;height:auto}
 #v-agence .agt-note{margin:-14px 0 34px;font:400 12px/1.6 var(--m);color:var(--mute);max-width:75ch}
 #v-agence .agt-h{margin:0 0 16px;font:500 10.5px/1.4 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
 #v-agence .agt-fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:22px clamp(20px,3vw,40px);margin-bottom:56px}
@@ -685,6 +686,18 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 @media (max-width:1060px){.home #gbox .side{display:flex;flex-direction:column}.home #gbox .gal{order:5}}
 @media (max-width:760px){.home #gbox .side:not(:has(.fiche.on)){display:block}#gbox .fiche .rs p.tx{font-size:14px}#gbox .gin p{max-width:none}}
 @media (max-height:760px) and (min-width:761px){#gbox .pv img{aspect-ratio:2/1}}
+
+/* boutons sobres (proposition 01/11) : des lignes de texte, pas de cadres */
+#gbox .fiche .fa{display:block;margin-top:16px}
+#gbox .fiche .op{display:flex;justify-content:space-between;align-items:center;width:100%;box-sizing:border-box;border:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:11px 0;background:none;font:500 10px/1 var(--f);letter-spacing:.24em;color:var(--ink);transition:color .25s,padding .35s var(--ease)}
+#gbox .fiche .op:hover,#gbox .fiche .op:focus-visible{background:none;color:var(--brick);padding-left:6px}
+#gbox .fiche .bk{display:inline-block;margin-top:10px;border:0;font:400 10px var(--m);color:var(--mute)}
+#gbox .fiche .bk::before{content:"← "}#gbox .fiche .bk:hover,#gbox .fiche .bk:focus-visible{color:var(--brick)}
+#gbox .gd-c button,#gbox .gdw .gd-c button{border:0;min-width:22px;height:22px;font:400 13px var(--m);color:var(--mute)}
+#gbox .gdw .gd-c .gd-t{padding:0 4px;min-width:0;font:500 9px/1 var(--f);letter-spacing:.2em;color:var(--mute)}#gbox .gdw .gd-c{flex-wrap:nowrap}#gbox .gdw .gd-c .gd-t{display:inline-flex;align-items:center}#gbox .gdw .gd-c .gd-t:hover,#gbox .gdw .gd-c .gd-t[aria-pressed="true"]{color:var(--brick)}
+#gbox .gd-c button:hover,#gbox .gd-c button:focus-visible{color:var(--brick)}#gbox .gd-c button[aria-pressed="true"]{color:var(--brick)}
+#gbox .gd-c .gd-t+.gd-t::before{content:"·";margin-right:8px;color:var(--line)}
+#gbox .gd-o{display:none}
 /* page Profil : contact à gauche, texte en chapitres, parcours en bref */
 .pf{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start;max-width:1120px}
 .pf-side{position:sticky;top:80px}.pf-side .ct{margin-top:22px}.pf-side .ct div{grid-template-columns:86px minmax(0,1fr);padding:10px 0}.pf-side .ct dd{font-size:14.5px}
@@ -829,13 +842,14 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 <section class="view page gut" id="v-agence" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Noyau</a>
+    <a class="agt-logo" href="https://hamonic-masson.com/" target="_blank" rel="noopener" aria-label="Hamonic+Masson &amp; Associés" title="Hamonic+Masson &amp; Associés"><svg viewBox="0 0 149.27 132.63" fill="currentColor" aria-hidden="true"><path d="M45.94,89.89H35.58V69.57H16.51v20.32H6.15v-47.1h10.36v18.08h19.07V42.79h10.36V89.89z"></path><path d="M71.73,64.96h15.46v2.52H71.73v15.46h-2.52V67.48H53.75v-2.52h15.46V49.5h2.52V64.96z"></path><path d="M145.74,42.79v47.1h-9.7V56.84h-0.13l-11.55,33.05h-7.98l-11.55-33.38h-0.13v33.38H95v-47.1h14.58L120,75.18   h0.13l11.02-32.39h14.58H145.74z"></path></svg></a>
     <div class="ph-head"><h1>Parcours en agence</h1><p>L’expérience en agence est celle d’une confrontation permanente entre les idées et leur réalité. Depuis 2017, chez Hamonic+Masson &amp; Associés, j’ai exploré cette relation à travers des projets très différents, apprenant autant de leur conception que des contraintes, des échanges et des arbitrages qui accompagnent leur développement.</p></div>
     <p class="agt-note">Une décennie de projets, de recherches et d’expériences architecturales, du concours à la mise au point technique.</p>
     <div id="agF"></div>
     <h3 class="agt-h">Chronologie 2017 — 2026</h3>
     <nav class="agt-i" id="agI" aria-label="Aller à l’année"></nav>
     <div id="agT"></div>
-    <p class="agp-src">Opérations : fiches de hamonic-masson.com consultées le 28 octobre 2026, sinon CV. Rôles et phases : CV 2024 et 2026. « Opération » indique l’état public du projet, distinct de ma participation. <a href="https://hamonic-masson.com/architecte/micault/" target="_blank" rel="noopener">Page profil sur hamonic-masson.com ↗</a></p>
+    <p class="agp-src">Opérations : fiches de hamonic-masson.com consultées le 1er novembre 2026, sinon CV. Rôles et phases : CV 2024 et 2026. « Opération » indique l’état public du projet, distinct de ma participation. <a href="https://hamonic-masson.com/architecte/micault/" target="_blank" rel="noopener">Page profil sur hamonic-masson.com ↗</a></p>
     <p class="agt-to"><a href="#parcours">Parcours et CV →</a></p>
     <div id="years" hidden></div><ul id="moreAg" hidden></ul>
   </div>
@@ -1688,7 +1702,7 @@ $("tF").addEventListener("click",()=>{if(cur>=0)location.hash=hrefFor(P[cur])});
 $("tF").addEventListener("keydown",e=>{if(e.key==="Enter"&&cur>=0)location.hash=hrefFor(P[cur])});$("tB").addEventListener("keydown",e=>{if(e.key==="Enter")back()});
 $("tF").addEventListener("pointerenter",()=>discLit(true));$("tF").addEventListener("pointerleave",()=>discLit(false));
 function fiche(i){const F=$("fiche");gallery(i);if(i<0){F.classList.remove("on","vis");return}const p=P[i];
-  F.innerHTML="<p>Fiche</p><dl>"+p.id.map(([a,b])=>"<div><dt>"+a+"</dt><dd>"+b+"</dd></div>").join("")+"</dl>"+(p.r?'<div class="rs"><p>Résumé</p><p class="tx">'+p.r+"</p></div>":"")+'<div class="fa"><a class="op" href="'+hrefFor(p)+'">Ouvrir le projet →</a><button type="button" class="bk">Retour au globe</button></div>';
+  F.innerHTML="<p>Fiche</p><dl>"+p.id.map(([a,b])=>"<div><dt>"+a+"</dt><dd>"+b+"</dd></div>").join("")+"</dl>"+(p.r?'<div class="rs"><p>Résumé</p><p class="tx">'+p.r+"</p></div>":"")+'<div class="fa"><a class="op" href="'+hrefFor(p)+'"><span>Ouvrir le projet</span><i>→</i></a><button type="button" class="bk">Retour au globe</button></div>';
   F.querySelector(".bk").addEventListener("click",back);F.classList.add("on");requestAnimationFrame(()=>F.classList.add("vis"))}
 
 /* ---------- la liste ---------- */
