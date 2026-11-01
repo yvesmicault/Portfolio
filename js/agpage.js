@@ -22,7 +22,9 @@
       ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
       ["Programme","Bureaux, coworking, 76 logements en coliving, salle d’escalade, restaurant, serre événementielle"],
       ["Surface","24 500 m²"],
-      ["Jalons","Lauréat du concours international Imagine Angers en 2018 · études en 2018 (CV 2024)"],
+      ["Jalons","Lauréat du concours international Imagine Angers en 2018"],
+      ["Ma participation","D’octobre 2017 (concours) aux études de 2019"],
+      ["Mes contributions",["Interface avec la maîtrise d’ouvrage pendant le concours","Maquette numérique et présentation du workshop","Études graphiques"]],
       ["État du projet","Livré en 2025"]],
     "cite-administrative":[
       ["Maîtrise d’ouvrage","SNC Duval développement Hauts-de-France"],
@@ -37,6 +39,8 @@
       ["Programme","240 logements dont 60 sociaux, commerces, espace public"],
       ["Surface","15 000 m² de logements + 3 000 m² de commerces + 400 m² de restaurant panoramique"],
       ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
+      ["Ma participation","De janvier à octobre 2019 : concours, puis avant-projet sommaire"],
+      ["Mes contributions",["Rendus de vues : variantes métal et bois, vues depuis les balcons","Préparation et conversion de la maquette numérique","Modèle 3D transmis pour la maquette physique de l’APS"]],
       ["État du projet","Livré en 2024"]];
   var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
 
@@ -84,5 +88,5 @@
   function deep(){var m=/^#agence\/(.+)$/.exec(location.hash);if(!m||!AG.length)return;var el=$("ag-"+decodeURIComponent(m[1]));
     if(el)requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.focus({preventScroll:true})})}
   addEventListener("hashchange",deep);
-  fetch("data/globe/agence.json?v=4").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
+  fetch("data/globe/agence.json?v=5").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
 })();
