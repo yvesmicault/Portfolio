@@ -117,7 +117,8 @@ export function mount(host, opts = {}) {
     };
     if (isMain) { const ground = new THREE.Mesh(new THREE.CircleGeometry(700, 96).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: C.ballast })); ground.position.y = -0.04; ground.userData.glass = true; g.add(ground); }
     mesh(parts.s, C.model);
-    if (parts.g && parts.g.length) mesh(parts.g, C.glass, { transparent: true, opacity: dark ? 0.7 : 0.82, depthWrite: false }, true);
+    // façade polycarbonate retirée de la maquette (Yves, 01/11) : seules ses arêtes restent, l'intérieur se lit
+    if (false && parts.g && parts.g.length) mesh(parts.g, C.glass, { transparent: true, opacity: dark ? 0.7 : 0.82, depthWrite: false }, true);
     lines(parts.pl, C.ink, dark ? 0.95 : 0.8);
     if (parts.pd) lines(parts.pd, C.ink, dark ? 0.6 : 0.46, 16, 0);
   }

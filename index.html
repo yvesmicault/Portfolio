@@ -1443,7 +1443,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     // une vue choisie pendant le chargement est gardée et jouée dès que la maquette est prête
     [].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(b){b.onclick=function(){pend=b.dataset.v;[].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});uiShow(b)}});
     if(!hasGL()){g3static(host,name);return}
-    import("./js/"+name+"3d.js?v="+(name==="ventres"?"5":"214")).then(function(m){
+    import("./js/"+name+"3d.js?v="+(name==="ventres"?"5":"215")).then(function(m){
       if(tok!==g3seq||!document.body.contains(host))return;
       var ph=host.querySelector(".g3-load"),pt0=performance.now(),keep=window.__g3keep;window.__g3keep=null;host.__keep=keep;
       var inst;try{inst=m.mount(host)}catch(err){g3static(host,name);return}g3=inst;
