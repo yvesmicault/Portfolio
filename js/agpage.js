@@ -21,10 +21,12 @@
           ["Jalons","Lauréat du concours international Imagine Angers en 2018"],
           ["État","Livré en 2025"]],
       img:[["img/agx/2017-metamorphose","Perspective du projet"],["img/agx/2017-metamorphose-2","Vue du rez-de-chaussée"],["img/agx/2017-metamorphose-3","Vue intérieure des bureaux"]]},
-    "high-garden":{per:"De janvier à octobre 2019",
-      ct:[["Conception","Conception architecturale du projet, dont les études de façade en variantes bois et métal"],
-          ["Rendus","Production des perspectives du concours"],
-          ["Production","Maquette numérique construite et tenue à jour, support de la conception et des rendus"]],
+    "high-garden":{per:"",
+      ct:[["Conception architecturale","Conception du projet lauréat au sein de l’équipe de concours, de l’esquisse au rendu"],
+          ["Façades","Développement des façades en variantes bois et métal, de l’étude au rendu final"],
+          ["Images","Conception et production des perspectives du concours"],
+          ["Maquette numérique","Construction et pilotage de la maquette numérique, outil des choix de conception et des rendus"],
+          ["Avant-projet sommaire","Poursuite des études et préparation du modèle 3D ayant servi à fabriquer la maquette physique"]],
       op:[["Maîtrise d’ouvrage","Woodeum x Pitch Immo + Immobilière 3F"],
           ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire et coordinateur)"],
           ["Programme","240 logements dont 60 sociaux, commerces, espace public"],
@@ -75,7 +77,7 @@
     return '<article class="agt-f" id="agf-'+esc(p.id)+'" tabindex="-1">'+fig+
       '<p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(p.t)+'</h4>'+
       '<section class="agt-me"><h5>Ma participation</h5>'+
-        '<p class="agt-ro"><b>'+esc(role(p))+'</b><span>'+esc(F.per)+'</span></p>'+
+        '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(F.per?'<span>'+esc(F.per)+'</span>':'')+'</p>'+
         (ph.length?'<ol class="agt-ph" aria-label="Phases suivies">'+ph.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ol>':'')+
         '<h5>Mes contributions</h5><ul class="agt-ct">'+F.ct.map(function(c){return '<li><b>'+esc(c[0])+'</b>'+esc(c[1])+'</li>'}).join("")+'</ul></section>'+
       '<section class="agt-op"><h5>L’opération</h5>'+dl(F.op)+'</section>'+
