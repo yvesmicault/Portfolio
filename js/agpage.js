@@ -1,33 +1,82 @@
-/* Page Agence : la molette des 47 projets à gauche, la fiche du projet à droite. Tout tient dans l'écran. */
+/* Page Agence : chronologie complète des références Hamonic + Masson, 2017 → 2026.
+   Toutes les cartes sont dans le flux de la page. Données : data/globe/agence.json (partagé avec le globe).
+   Rôle et phases = participation d'Yves (CV) ; « Opération » = état public lu sur la fiche de l'agence.
+   Images : seules celles listées dans p.pub (publication autorisée) sont affichées. */
 (function(){
-  var $=function(id){return document.getElementById(id)};if(!$("agW"))return;
-  var HM="https://hamonic-masson.com/projet/",AG=[],W=null,k0=-1;
-  function im(p,t){if(p.img&&p.img.length)return "img/agx/"+p.img[0]+".jpg";if(p.im)return "img/ag/"+p.im+".jpg";return ""}
-  function show(k){if(k===k0)return;k0=k;var p=AG[k],D=$("agD"),src=im(p),conf=!p.u;
-    D.classList.remove("vis");
-    D.innerHTML='<figure class="agp-f'+(conf?' conf':'')+(src?'':' none')+'">'+(src?'<img src="'+src+'" alt="'+p.t.replace(/"/g,"&quot;")+'">':'<span class="agp-no">Pas d’image</span>')+
-      (conf?'<button type="button" class="stamp" title="Lever le secret"><b>Confidentiel</b><small>non publié par l’agence</small></button>':'')+'</figure>'+
-      '<div class="agp-t"><p class="eb">'+p.y+' · '+p.c+'</p><h3>'+p.t+'</h3></div>'+
-      '<dl class="agp-dl"><div><dt>Programme</dt><dd>'+p.n+'</dd></div><div><dt>Surface</dt><dd>'+p.s+'</dd></div><div><dt>Phase</dt><dd>'+p.ph+'</dd></div>'+(p.st?'<div><dt>Statut</dt><dd>'+p.st+'</dd></div>':'')+'<div><dt>Rôle</dt><dd>'+p.r+'</dd></div></dl>'+
-      '<div class="agp-n">'+(p.u?'<a class="lk" href="'+HM+p.u+'" target="_blank" rel="noopener">Fiche sur hamonic-masson.com ↗</a>':'<span></span>')+
-      '<span class="ct"><button type="button" class="pv" aria-label="Projet précédent">‹</button><span>'+String(k+1).padStart(2,"0")+' / '+AG.length+'</span><button type="button" class="nx" aria-label="Projet suivant">›</button></span></div>';
-    var st=D.querySelector(".stamp");if(st)st.onclick=function(){D.querySelector("figure").classList.toggle("open")};
-    D.querySelector(".pv").onclick=function(){W.go(k-1)};D.querySelector(".nx").onclick=function(){W.go(k+1)};
-    requestAnimationFrame(function(){D.classList.add("vis")});
-    var y=p.y.slice(0,4);document.querySelectorAll("#agY button").forEach(function(b){b.classList.toggle("on",b.dataset.y===y)})}
-  var built=false;
-  function build(){if(built||$("v-agence").hidden||!AG.length)return;built=true;
-    var rh=32,av=innerWidth<=760?0:$("agW").parentNode.clientHeight-$("agY").offsetHeight-40,rows=7;
-    // la molette prend toute la hauteur disponible, à côté de l'image
-    for(var n=7;n<=31;n+=2){var st=Math.PI/(n+1),hh=2*(rh/Math.sin(st))*Math.sin(st*(n-1)/2)+rh;if(hh<=av)rows=n}
-    W=YMWheel($("agW"),AG.map(function(p){return {html:"<i>"+p.y.slice(0,4)+"</i><b>"+p.t+"</b><span>"+(p.t!==p.c?p.c:"")+"</span>"}}),{rows:rows,rowH:rh,onCenter:show,onPick:show})}
-  new MutationObserver(build).observe($("v-agence"),{attributes:true,attributeFilter:["hidden"]});
-  fetch("data/globe/agence.json").then(function(r){return r.json()}).then(function(j){AG=j.p;$("agCount").textContent=AG.length;
-    // frise : une année par case, un trait par projet
-    var ys=[];AG.forEach(function(p,k){var y=p.y.slice(0,4),e=ys.filter(function(e){return e[0]===y})[0];if(e)e[2]++;else ys.push([y,k,1])});
-    $("agY").innerHTML=ys.map(function(e){return '<button type="button" data-y="'+e[0]+'" data-k="'+e[1]+'" title="'+e[0]+' : '+e[2]+' projet'+(e[2]>1?'s':'')+'"><b>'+e[0].slice(2)+'</b><i>'+'<s></s>'.repeat(e[2])+'</i></button>'}).join("");
-    document.querySelectorAll("#agY button").forEach(function(b){b.onclick=function(){W&&W.go(+b.dataset.k)}});
-    build();
-    addEventListener("keydown",function(e){if(!W||$("v-agence").hidden||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;if(document.activeElement===$("agW"))return;
-      if(e.key==="ArrowDown"||e.key==="ArrowRight"){W.go(W.get()+1)}else if(e.key==="ArrowUp"||e.key==="ArrowLeft"){W.go(W.get()-1)}})});
+  var $=function(id){return document.getElementById(id)};if(!$("agT"))return;
+  var HM="https://hamonic-masson.com/projet/",AG=[];
+  function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+  function yr(p){return p.y.slice(0,4)}
+  /* fiches développées : uniquement des faits relevés sur les fiches publiques (consultées le 28/10/2026) ou dans les CV */
+  var FEAT={
+    "le-cabanon-ideal":[
+      ["Maîtrise d’ouvrage","BNP Paribas Real Estate Expertise"],
+      ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire) + Boris Bouchet Architectes"],
+      ["Programme","117 logements, commerces et activités"],
+      ["Surface","8 551 m² (fiche de l’agence) · 116 logements et 9 090 m² au dossier cité dans le CV"],
+      ["Ma participation","Environ trois ans, du concours au PRO / DCE"],
+      ["Mes contributions",["Production des plans, images et détails, de l’esquisse au PRO / DCE","Coordination des bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)","Dossiers remis : concours, APS, permis de construire, PRO / DCE"]],
+      ["Calendrier public","Livraison annoncée : 2025"]],
+    "metamorphose":[
+      ["Maîtrise d’ouvrage","Groupe Giboire"],
+      ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
+      ["Programme","Bureaux, coworking, 76 logements en coliving, salle d’escalade, restaurant, serre événementielle"],
+      ["Surface","24 500 m²"],
+      ["Jalons","Lauréat du concours international Imagine Angers en 2018 · études en 2018 (CV 2024)"],
+      ["Calendrier public","Livraison annoncée : 2025"]],
+    "cite-administrative":[
+      ["Maîtrise d’ouvrage","SNC Duval développement Hauts-de-France"],
+      ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
+      ["Programme","Restructuration d’un bâtiment administratif classé : résidence étudiante, résidence sociale, logements familiaux, commerce, espace culturel, restaurant en toiture"],
+      ["Surface","20 410 m² SDP · 17 000 m² SHAB"],
+      ["Calendrier public","Démarrage des études"]]
+  };
+  var FORDER=["le-cabanon-ideal","metamorphose","cite-administrative"];
+
+  function role(p){return p.rq?"Participation au concours":p.r}
+  function phases(p){return p.rq?"":p.ph}
+  function surf(p){if(p.hs||!p.s)return "";return p.s+(p.sq?" "+p.sq:"")}
+  function status(p){var s=p.st||"";return /^Concours/.test(s)?"":s}   // pas de « Concours / Concours »
+  function media(p,big){var m=(p.pub||[])[0];if(!m)return "";
+    return '<figure class="agt-m"><img src="'+esc(m.f)+'" alt="'+esc(m.alt||p.t)+'" loading="lazy" decoding="async"'+(big?'':' width="600" height="400"')+'><figcaption>'+esc(m.cr||"")+'</figcaption></figure>'}
+  function links(p){var a=[];
+    if(p.u)a.push('<a class="agt-lk" href="'+HM+esc(p.u)+'" target="_blank" rel="noopener">Fiche de l’agence ↗</a>');
+    if(p.team)a.push('<span class="agt-tm">Nommé dans l’équipe de la fiche</span>');
+    return a.length?'<p class="agt-ft">'+a.join("")+'</p>':""}
+  function byId(id){return AG.filter(function(q){return q.id===id})[0]}
+  function card(p){
+    var ph=phases(p),su=surf(p),st=status(p),M=p.m&&byId(p.m),S=AG.filter(function(q){return q.m===p.id})[0];
+    if(M)return '<li><article class="agt-c agt-sx" id="ag-'+esc(p.id)+'" tabindex="-1"><p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(M.t)+' (suite)</h4>'+
+      '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p><p class="agt-pr">'+esc(p.n)+'</p>'+
+      '<p class="agt-ft"><a class="agt-lk" href="#agence/'+esc(M.id)+'">Voir la référence de '+yr(M)+'</a></p></article></li>';
+    return '<li><article class="agt-c" id="ag-'+esc(p.id)+'" tabindex="-1">'+media(p)+
+      '<p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p>'+
+      '<h4>'+esc(p.t)+'</h4>'+
+      '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p>'+
+      '<p class="agt-pr">'+esc(p.n)+(su?'<span class="agt-s">'+esc(su)+'</span>':'')+'</p>'+
+      (p.co?'<p class="agt-mt">Avec '+esc(p.co)+'</p>':'')+
+      (st?'<p class="agt-mt">Opération : '+esc(st)+'</p>':'')+
+      (S?'<p class="agt-mt">Suite en '+yr(S)+'</p>':'')+
+      links(p)+'</article></li>'}
+  function feat(p){var rows=FEAT[p.id]||[],ph=phases(p);
+    return '<article class="agt-f" id="agf-'+esc(p.id)+'" tabindex="-1">'+media(p,1)+
+      '<p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(p.t)+'</h4>'+
+      '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p>'+
+      '<dl>'+rows.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+(Array.isArray(r[1])?'<ul>'+r[1].map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul>':esc(r[1]))+'</dd></div>'}).join("")+'</dl>'+
+      links(p)+'</article>'}
+
+  function build(){
+    var L=AG.slice().sort(function(a,b){return yr(a)-yr(b)}),ys=[];   // tri stable : l'ordre du fichier est gardé dans l'année
+    L.forEach(function(p){var y=yr(p),e=ys[ys.length-1];if(!e||e.y!==y)ys.push(e={y:y,p:[]});e.p.push(p)});
+    var F=FORDER.map(function(id){return AG.filter(function(p){return p.id===id})[0]}).filter(Boolean);
+    $("agF").innerHTML=F.length?'<h3 class="agt-h">Trois références développées</h3><div class="agt-fg">'+F.map(feat).join("")+'</div>':"";
+    $("agI").innerHTML=ys.map(function(e){return '<button type="button" data-y="'+e.y+'">'+e.y+'<small>'+e.p.length+'</small></button>'}).join("");
+    $("agT").innerHTML=ys.map(function(e){return '<section class="agt-y" aria-labelledby="agy-'+e.y+'"><h3 id="agy-'+e.y+'" tabindex="-1">'+e.y+'</h3><ul class="agt-g">'+e.p.map(card).join("")+'</ul></section>'}).join("");
+    [].forEach.call($("agI").children,function(b){b.onclick=function(){var h=$("agy-"+b.dataset.y);h.scrollIntoView({block:"start"});h.focus({preventScroll:true})}});
+    deep()}
+  /* lien direct vers une référence : #agence/<id> */
+  function deep(){var m=/^#agence\/(.+)$/.exec(location.hash);if(!m||!AG.length)return;var el=$("ag-"+decodeURIComponent(m[1]));
+    if(el)requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.focus({preventScroll:true})})}
+  addEventListener("hashchange",deep);
+  fetch("data/globe/agence.json?v=2").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
 })();

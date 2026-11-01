@@ -121,8 +121,8 @@ html:not([lang="en"]) .pj-txt[lang="en"],html[lang="en"] .pj-txt[lang="fr"]:has(
 /* pages */
 .page .wrap{padding-block:20px 64px}
 .ph-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end;border-bottom:1px solid var(--ink);padding-bottom:16px;margin-bottom:30px}
-h2{margin:0;font:300 clamp(36px,5vw,64px)/1 var(--f);letter-spacing:.05em;text-transform:uppercase}
-h2 small{font:400 12px var(--m);letter-spacing:0;color:var(--brick);margin-left:10px;vertical-align:super}
+h2,.ph-head h1,.pj-head h1{margin:0;font:300 clamp(36px,5vw,64px)/1 var(--f);letter-spacing:.05em;text-transform:uppercase}
+h2 small,.ph-head h1 small{font:400 12px var(--m);letter-spacing:0;color:var(--brick);margin-left:10px;vertical-align:super}
 .ctw{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start;max-width:980px}
 .ct-ph{margin:0;aspect-ratio:4/5;background:var(--bg2);overflow:hidden}
 .ct-ph img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
@@ -265,7 +265,7 @@ footer .wrap{padding-block:28px 40px;display:flex;flex-wrap:wrap;gap:12px 24px;j
 /* page projet */
 .pj-head{border-bottom:1px solid var(--ink);padding-bottom:16px;margin-bottom:22px;display:grid;gap:8px}
 .pj-head .fam{font:500 10px var(--f);letter-spacing:.3em;text-transform:uppercase;color:var(--brick)}
-.pj-head h2{font-size:clamp(34px,5vw,62px)}
+.pj-head h1{font-size:clamp(34px,5vw,62px)}
 .pj-head .s{font:400 12px var(--m);color:var(--mute)}
 .pj-head .sub{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 32px;font-weight:300}
 .pj-head .sub span:last-child{text-align:right}
@@ -412,7 +412,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
   .bar nav{grid-column:1/-1;grid-row:2;justify-content:space-between;width:100%;flex-wrap:nowrap;gap:0 6px;overflow-x:auto;scrollbar-width:none}
   .bar nav::-webkit-scrollbar{display:none}
   .bar nav{border-top:1px solid var(--line);padding-top:8px;margin-top:2px}
-  .bar nav a{letter-spacing:.08em;font-size:min(10px,2.6vw);white-space:nowrap;flex:0 0 auto}
+  .bar nav a{letter-spacing:.12em;white-space:nowrap;flex:0 0 auto}
   .pj-head .sub span:last-child{display:none}
   .pj-bk button{white-space:nowrap}.pj-bk .bk-x{display:none}
   .pj-sec{flex-direction:column;gap:6px}.pj-sec b{white-space:nowrap;letter-spacing:.22em}.pj-sec span{font-size:9.5px;line-height:1.4;letter-spacing:0}
@@ -500,30 +500,38 @@ html.fs-on,html.fs-on body{overflow:hidden}
 .stamp{all:unset;box-sizing:border-box;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-8deg);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 12px 6px;border:2px solid var(--brick);color:var(--brick);background:var(--veil);box-shadow:inset 0 0 0 2px var(--veil),inset 0 0 0 3px var(--brick);transition:opacity .3s}
 .stamp b{font:600 12px/1 var(--m);letter-spacing:.3em;text-transform:uppercase;margin-right:-.3em}.stamp small{font:400 8px/1 var(--m);letter-spacing:.08em;white-space:nowrap}
 .fiche .stamp{pointer-events:none}.fiche .stamp b{font-size:10px}
-/* page Agence : la molette à gauche, la fiche à droite, tout tient dans l'écran */
-#v-agence .agp-b{display:grid;grid-template-columns:minmax(240px,300px) minmax(0,1fr);gap:clamp(24px,4vw,56px);height:clamp(440px,calc(100vh - 290px),760px);margin-top:8px}
-#v-agence .agp-l{display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-width:0;min-height:0}
-#v-agence .agp-l .wh-it{height:32px}#v-agence .agp-l .wh-lens{height:32px}#v-agence .agp-l .wh-it b{font-size:13.5px}
-#v-agence .agp-y{display:flex;flex-wrap:wrap;gap:2px 0;border-top:1px solid var(--line);padding-top:10px}
-#v-agence .agp-y button{all:unset;cursor:pointer;flex:1 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;font:400 10.5px var(--m);color:var(--mute);padding:4px 0 6px;border-bottom:1px solid transparent}#v-agence .agp-y b{font-weight:400}#v-agence .agp-y i{display:flex;gap:2px;height:14px;align-items:flex-end}#v-agence .agp-y s{display:block;width:1px;height:100%;background:currentColor;opacity:.6}#v-agence .agp-y button.on s{background:var(--agc);opacity:1}
-#v-agence .agp-y button:hover,#v-agence .agp-y button:focus-visible{color:var(--ink)}#v-agence .agp-y button.on{color:var(--ink);border-bottom-color:var(--agc)}
-#v-agence .agp-r{display:grid;grid-template-rows:minmax(0,1fr) 64px 96px 28px;gap:14px;min-width:0;min-height:0;opacity:0;transition:opacity .35s}
-#v-agence .agp-r.vis{opacity:1}
-#v-agence .agp-f{position:relative;margin:0;min-height:0;height:100%;width:100%;overflow:hidden;background:var(--bg2);display:flex;align-items:center;justify-content:center}
-#v-agence .agp-f img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:filter .5s,transform .5s}
-#v-agence .agp-f.conf img{filter:blur(9px) grayscale(.55);transform:scale(1.06)}#v-agence .agp-f.conf.open img{filter:none;transform:none}
-#v-agence .agp-f.conf.open .stamp{top:16px;left:auto;right:16px;transform:rotate(-8deg) scale(.7);transform-origin:top right}
-#v-agence .agp-f .stamp b{font-size:clamp(14px,2vw,22px)}#v-agence .agp-f .stamp small{font-size:9.5px}#v-agence .agp-f .stamp{padding:12px 20px 10px}
-#v-agence .agp-no{font:400 11px var(--m);color:var(--mute)}
-#v-agence .agp-t .eb{margin:0 0 4px;font:400 11px var(--m);color:var(--agc)}#v-agence .agp-t h3{margin:0;font:400 clamp(22px,2.6vw,32px)/1.1 var(--f);letter-spacing:.02em;text-wrap:balance}
-#v-agence .agp-dl{margin:0;display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;gap:16px;border-top:1px solid var(--line);padding-top:12px;height:96px;overflow:hidden;align-content:start}#v-agence .agp-t{height:64px;overflow:hidden}#v-agence .agp-t h3{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#v-agence .agp-dl dt{font:500 8.5px/1.2 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}#v-agence .agp-dl dd{margin:4px 0 0;font:400 12px/1.45 var(--m);font-variant-numeric:tabular-nums}
-#v-agence .agp-n{display:flex;justify-content:space-between;align-items:center;gap:12px}
-#v-agence .agp-n .lk{font:400 11px var(--m);color:var(--agc);text-decoration:none;border-bottom:1px solid currentColor}
-#v-agence .agp-n .ct{display:flex;align-items:center;gap:10px;font:400 11px var(--m);color:var(--mute);font-variant-numeric:tabular-nums}
-#v-agence .agp-n button{all:unset;cursor:pointer;width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--ink)}#v-agence .agp-n button:hover,#v-agence .agp-n button:focus-visible{border-color:var(--ink)}
-#v-agence .agp-src{margin-top:14px;font:400 10.5px var(--m);color:var(--mute)}#v-agence .agp-src a{color:inherit}
-@media (max-width:760px){#v-agence .agp-b{grid-template-columns:minmax(0,1fr);height:auto}#v-agence .agp-r{grid-template-rows:auto}#v-agence .agp-f{height:auto;aspect-ratio:3/2}#v-agence .agp-r{grid-template-rows:auto!important}#v-agence .agp-t,#v-agence .agp-dl{height:auto}#v-agence .agp-dl{grid-template-columns:1fr 1fr}}
+/* page Agence : chronologie complète 2017 → 2026, toutes les cartes dans le flux (28/10) */
+#v-agence .agt-note{margin:-14px 0 34px;font:400 12px/1.6 var(--m);color:var(--mute);max-width:75ch}
+#v-agence .agt-h{margin:0 0 16px;font:500 10.5px/1.4 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
+#v-agence .agt-fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:22px clamp(20px,3vw,40px);margin-bottom:56px}
+#v-agence .agt-f{min-width:0;border-top:2px solid var(--brick);padding-top:14px}
+#v-agence .agt-f dl{margin:14px 0 0;display:grid;gap:10px}
+#v-agence .agt-f dt{font:500 9.5px/1.3 var(--f);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+#v-agence .agt-f dd{margin:3px 0 0;font:400 13.5px/1.5 var(--f)}#v-agence .agt-f dd ul{margin:0;padding-left:1.1em}#v-agence .agt-f dd li{margin:2px 0}
+#v-agence .agt-i{display:flex;flex-wrap:wrap;border-top:1px solid var(--ink);margin-bottom:4px}
+#v-agence .agt-i button{min-height:44px;padding:0 14px 0 0;margin-right:10px;font:400 13px/1 var(--m);color:var(--ink);display:inline-flex;align-items:center;gap:5px;font-variant-numeric:tabular-nums}
+#v-agence .agt-i button small{font-size:10px;color:var(--mute)}#v-agence .agt-i button:hover{color:var(--brick)}
+#v-agence .agt-y{display:grid;grid-template-columns:110px minmax(0,1fr);gap:clamp(16px,3vw,40px);border-top:1px solid var(--line);padding:22px 0 26px}
+#v-agence .agt-y h3{margin:0;font:400 clamp(22px,2.4vw,30px)/1 var(--f);letter-spacing:.02em;color:var(--brick);font-variant-numeric:tabular-nums;scroll-margin-top:84px}
+#v-agence .agt-g{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px clamp(20px,3vw,40px)}
+#v-agence .agt-g>li{min-width:0}
+#v-agence .agt-c{border-left:1px solid var(--line);padding:0 0 0 14px;scroll-margin-top:84px}
+#v-agence .agt-c:focus,#v-agence .agt-f:focus,#v-agence .agt-y h3:focus{outline:none}#v-agence .agt-c:focus-visible{outline:2px solid var(--brick)}
+#v-agence .agt-eb{margin:0 0 4px;font:400 11px/1.4 var(--m);color:var(--mute)}
+#v-agence h4{margin:0;font:400 19px/1.25 var(--f);letter-spacing:.01em;overflow-wrap:anywhere}
+#v-agence .agt-f h4{font-size:clamp(21px,2vw,26px)}
+#v-agence .agt-ro{margin:6px 0 0;font:400 13.5px/1.45 var(--f)}#v-agence .agt-ro b{font-weight:500;color:var(--brick)}#v-agence .agt-ro span::before{content:" · ";color:var(--mute)}
+#v-agence .agt-pr{margin:3px 0 0;font:400 13.5px/1.5 var(--f);color:var(--mute)}#v-agence .agt-s{white-space:nowrap}#v-agence .agt-s::before{content:" · "}
+#v-agence .agt-mt{margin:2px 0 0;font:400 11.5px/1.5 var(--m);color:var(--mute)}
+#v-agence .agt-ft{margin:4px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:0 16px}
+#v-agence .agt-lk{display:inline-block;padding:9px 0;font:400 12px/1.2 var(--m);color:var(--brick);text-decoration:underline;text-underline-offset:3px}
+#v-agence .agt-tm{font:400 11px/1.4 var(--m);color:var(--mute)}
+#v-agence .agt-m{margin:0 0 12px}#v-agence .agt-m img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}#v-agence .agt-m figcaption{margin-top:4px;font:400 10.5px/1.4 var(--m);color:var(--mute)}
+#v-agence .agp-src{margin-top:26px;font:400 11px/1.6 var(--m);color:var(--mute);max-width:90ch}#v-agence .agp-src a{color:inherit}
+#v-agence .agt-to{margin:10px 0 0}
+.agt-to a,.parc .agt-pl{display:inline-block;padding:10px 0;font:400 12px/1.2 var(--m);color:var(--brick);text-decoration:underline;text-underline-offset:3px}.parc .agt-pl{padding:6px 0 0;font-style:normal}
+@media (max-width:820px){#v-agence .agt-y{grid-template-columns:minmax(0,1fr);gap:14px}#v-agence .agt-y h3,#v-agence .agt-c{scroll-margin-top:128px}}
+@media (max-width:640px){#v-agence .agt-g{grid-template-columns:minmax(0,1fr)}}
 #gbox .list h3 i{width:8px;height:8px;border-radius:50%;background:var(--brick)}#gbox .list h3.c i{background:none;border:1.5px solid var(--brick);box-sizing:border-box}   /* concours : cercle seul, comme sur le globe */
 #gbox .it{display:block;width:100%;padding:7px 0;border-top:1px solid var(--line)}
 #gbox .it b{display:block;font:500 11px/1.25 var(--f);letter-spacing:.14em;text-transform:uppercase;transition:color .25s,padding .35s var(--ease)}
@@ -533,7 +541,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
 #gbox .gl{position:absolute;inset:0;filter:var(--glow);cursor:grab;touch-action:none}
 #gbox .gl.grab{cursor:grabbing}.gl.pt{cursor:pointer}.gl canvas{display:block;width:100%;height:100%}
 #gbox #fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-#gbox #ov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+#gbox #ov{position:absolute;z-index:2;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 #gbox .hint{font:400 10px/1.5 var(--m);color:var(--mute)}
 #gbox .empty{position:absolute;left:0;right:0;top:30%;text-align:center;font:400 10.5px var(--m);color:var(--mute);opacity:0;transition:opacity .4s;pointer-events:none}
 #gbox .empty.on{opacity:1}
@@ -636,9 +644,61 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 @media (max-width:860px){.pf{grid-template-columns:minmax(0,1fr)}.pf-side{position:static;display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px}.pf-side .ct{margin-top:0}.pf-side .ct-cv{grid-column:1/-1;margin-top:0}
   .pf-tl{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:22px}}
 @media (max-width:520px){.pf-side{grid-template-columns:minmax(0,1fr)}.pf-side .ct-ph{max-width:200px}.pf-tl{grid-template-columns:repeat(2,minmax(0,1fr))}.pf-ch{grid-template-columns:30px minmax(0,1fr)}}
+
+/* --- Lot A : mobile, tablette, accessibilité --- */
+.skip{position:absolute;left:12px;top:-80px;z-index:200;background:var(--ink);color:var(--bg);padding:14px 18px;font:500 11px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
+.skip:focus{top:calc(8px + env(safe-area-inset-top,0px))}
+h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
+html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8px)}
+/* en-tête : deux rangées dès que la place réelle manque (mesurée en JS, en français comme en anglais) */
+.bar.two .wrap{grid-template-columns:minmax(0,1fr) auto;height:auto;padding:10px 0 0;gap:6px 12px}
+.bar.two nav{grid-column:1/-1;grid-row:2;width:100%;justify-content:space-between;flex-wrap:nowrap;gap:0 12px;overflow:visible;border-top:1px solid var(--line);padding-top:0;margin-top:0}
+.bar.two nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0;white-space:nowrap}
+.bar.three{position:relative;top:auto}
+.bar.three nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.bar.three nav a{letter-spacing:.14em}
+/* études : les cartes et les semestres rétrécissent avec leur colonne */
+.cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.cards>*,.card{min-width:0}
+@media (min-width:641px) and (max-width:900px){.cyc,.cyc.one{grid-template-columns:150px minmax(0,1fr)}.cyc>.lb{grid-row:1/span 2}.cyc>.sem,.cyc>.sem.span{grid-column:2;border-right:0}.cyc>.sem+.sem{border-top:1px solid var(--line)}}
+/* visionneuse */
+.arrow:disabled{opacity:.3;cursor:default}
+.v-top .v-zoom{overflow:hidden;text-overflow:ellipsis;min-width:0}
+@media (max-width:640px){
+  .v-top{display:grid;grid-template-columns:minmax(0,1fr) auto auto;height:auto;gap:4px 8px;padding:6px 0 8px;align-items:center}
+  .v-top .acts{display:contents}
+  .v-top b{grid-column:1/3;grid-row:1}
+  #vClose{grid-column:3;grid-row:1}
+  .v-top .cnt{grid-column:1;grid-row:2}
+  #vPdf{grid-column:2;grid-row:2}
+  #vZoom{grid-column:3;grid-row:2}
+  .v-top .v-zoom{grid-column:1/-1;grid-row:3;white-space:normal;font-size:11px;line-height:1.35}
+  .v-top .acts button,.v-top .acts a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 14px;font-size:11px;letter-spacing:.14em}
+  .viewer .arrow{display:grid;top:auto;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:none}
+  .viewer > div:last-child{min-height:66px;display:flex;align-items:center;justify-content:center}
+  .v-cap{padding:0 62px;text-align:center;line-height:1.35}
+}
+/* scènes 3D : commandes plus grandes au doigt, barre de vues qui signale qu'elle défile */
+@media (pointer:coarse){
+  .g3-ui button{min-height:44px;padding:0 14px;font-size:10px;letter-spacing:.12em}
+  .g3 .g3-lb,.g3 .g3-fs,.g3 .g3-2d{width:44px;height:44px}
+  .g3 .g3-2d{font-size:9px}.g3.has2d .g3-lb{left:62px}
+  .g3 .g3-lb svg,.g3 .g3-fs svg{width:18px;height:18px}
+}
+@media (max-width:640px){.g3-ui button{font-size:10px;letter-spacing:.1em}}
+.g3-ui.ovr{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
+.g3-ui.ovl{-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px);mask-image:linear-gradient(90deg,transparent,#000 40px)}
+.g3-ui.ovl.ovr{-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent)}
+/* repli statique quand WebGL manque */
+.g3.g3-static .g3-msg{position:absolute;left:12px;right:12px;top:12px;z-index:5;margin:0;padding:10px 12px;background:var(--veil);border:1px solid var(--line);font:400 12px/1.45 var(--m);color:var(--ink)}
+.g3.g3-static .g3-msg button{display:inline-flex;align-items:center;min-height:32px;margin-left:6px;text-decoration:underline;color:var(--brick);font:inherit;background:none;border:0;padding:0}
+/* texte courant : à gauche sur colonne étroite, largeur de ligne limitée sur grand écran */
+@media (max-width:640px){.pj-txt .lead,.pj-txt p,.pf-body p{text-align:left}}
+.pj-txt .cb p{max-width:58ch}
 </style>
 
 <script>(function(){var R=document.documentElement,t=null;try{t=localStorage.getItem("ym-theme")}catch(e){}if(t)R.dataset.theme=t;R.dataset.eff=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})();</script>
+<a class="skip" href="#accueil" id="skip">Aller au contenu</a>
 <header class="bar gut">
   <div class="wrap">
     <a class="name" href="#accueil">Yves <span>Micault</span><small>Architecte HMONP</small></a>
@@ -647,7 +707,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
   </div>
 </header>
 
-<main>
+<main id="main">
 <!-- ACCUEIL -->
 <section class="view home" id="v-accueil">
   <div class="gut"><div class="wrap hg">
@@ -679,7 +739,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 <section class="view page gut" id="v-publications" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Noyau</a>
-    <div class="ph-head"><h2>Publications<small>03</small></h2></div>
+    <div class="ph-head"><h1>Publications<small>03</small></h1></div>
     <div class="pubs" id="pubs"></div>
   </div>
 </section>
@@ -688,7 +748,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 <section class="view page gut" id="v-etudes" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Noyau</a>
-    <div class="ph-head"><h2>Projets d’études<small id="nEtu2">13</small></h2><p>ENSA Clermont-Ferrand</p></div>
+    <div class="ph-head"><h1>Projets d’études<small id="nEtu2">13</small></h1><p>ENSA Clermont-Ferrand</p></div>
     <div class="cursus" id="cursus"></div>
   </div>
 </section>
@@ -697,7 +757,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 <section class="view page gut" id="v-concours" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Noyau</a>
-    <div class="ph-head"><h2>Concours<small>04</small></h2><p>Concours et appels à idées, faits en dehors de l'école et de l'agence.</p></div>
+    <div class="ph-head"><h1>Concours<small>04</small></h1><p>Concours et appels à idées, faits en dehors de l'école et de l'agence.</p></div>
     <div class="conc" id="conc"></div>
   </div>
 </section>
@@ -706,9 +766,14 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 <section class="view page gut" id="v-agence" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Noyau</a>
-    <div class="ph-head"><h2>Agence<small id="agCount">47</small></h2><p>Hamonic + Masson &amp; Associés, Paris · Marseille, depuis mars 2017. Architecte, chef de projet, du concours aux études.</p></div>
-    <div class="agp-b"><div class="agp-l"><div id="agW"></div><div class="agp-y" id="agY" aria-label="Aller à l’année"></div></div><article class="agp-r" id="agD" aria-live="polite"></article></div>
-    <p class="agp-src">Chiffres : fiches de hamonic-masson.com quand elles existent, sinon CV. Source : <a href="https://hamonic-masson.com/architecte/micault/" target="_blank" rel="noopener">page profil sur hamonic-masson.com</a>.</p>
+    <div class="ph-head"><h1>Parcours en agence</h1><p>Depuis mars 2017, je travaille au sein d’Hamonic + Masson &amp; Associés, à Paris puis à Marseille. Cette chronologie présente mes contributions à des projets de logements, d’équipements et d’opérations urbaines, du concours aux études de projet et aux dossiers d’appel d’offres.</p></div>
+    <p class="agt-note">Projets conçus au sein d’Hamonic + Masson &amp; Associés. Les rôles et phases indiqués décrivent ma participation personnelle.</p>
+    <div id="agF"></div>
+    <h3 class="agt-h">Chronologie 2017 — 2026</h3>
+    <nav class="agt-i" id="agI" aria-label="Aller à l’année"></nav>
+    <div id="agT"></div>
+    <p class="agp-src">Opérations : fiches de hamonic-masson.com consultées le 28 octobre 2026, sinon CV. Rôles et phases : CV 2024 et 2026. « Opération » indique l’état public du projet, distinct de ma participation. <a href="https://hamonic-masson.com/architecte/micault/" target="_blank" rel="noopener">Page profil sur hamonic-masson.com ↗</a></p>
+    <p class="agt-to"><a href="#parcours">Parcours et CV →</a></p>
     <div id="years" hidden></div><ul id="moreAg" hidden></ul>
   </div>
 </section>
@@ -717,12 +782,12 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 <section class="view page gut" id="v-parcours" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Noyau</a>
-    <div class="ph-head"><h2>Parcours</h2></div>
+    <div class="ph-head"><h1>Parcours</h1></div>
     <div class="parc">
       <div>
         <h3>Expérience</h3>
         <ol>
-          <li><span>Depuis mars 2017</span><div>Hamonic + Masson Architectes, Paris · Marseille<em>Architecte / chef de projet, conception et études</em></div></li>
+          <li><span>Depuis mars 2017</span><div>Hamonic + Masson Architectes, Paris · Marseille<em>Architecte / chef de projet, conception et études</em><a class="agt-pl" href="#agence">Voir mes projets en agence →</a></div></li>
           <li><span>2016</span><div>ENSACF, Clermont-Ferrand<em>Monitorat en projet architectural et morphologie urbaine</em></div></li>
           <li><span>Nov. 2015</span><div>Epicentre Faktory, Clermont-Ferrand<em>Conférence sur l'agriculture urbaine</em></div></li>
           <li class="sub">Premières expériences professionnelles</li>
@@ -755,7 +820,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 <section class="view page gut" id="v-profil" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Accueil</a>
-    <div class="ph-head"><h2>Profil</h2></div>
+    <div class="ph-head"><h1>Profil</h1></div>
     <div class="pf">
       <aside class="pf-side">
         <figure class="ct-ph"><img src="img/yves_cv.jpg" alt="Portrait d’Yves Micault" loading="lazy"></figure>
@@ -942,6 +1007,8 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     $("vCap").textContent=u.map(function(i){return pages[i].cap}).join("  ·  ");
     [].forEach.call($("vStrip").children,function(b,j){b.setAttribute("aria-current",j===cur?"true":"false");if(j===cur)b.scrollIntoView({block:"nearest",inline:"center"})});
     var multi=units.length>1;$("vPrev").hidden=!multi;$("vNext").hidden=!multi;
+    var ae=document.activeElement;$("vPrev").disabled=cur<=0;$("vNext").disabled=cur>=units.length-1;
+    if(ae&&ae.disabled){var o=ae===$("vPrev")?$("vNext"):$("vPrev");(o.disabled?$("vClose"):o).focus({preventScroll:true})}
     [units[cur+1],units[cur+2]].forEach(function(n){if(n)n.forEach(function(i){var im=new Image();im.src=pages[i].src})});
   }
   function bookSize(){
@@ -968,7 +1035,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   function load(p){return p==null?Promise.resolve():new Promise(function(r){var im=new Image();im.onload=im.onerror=r;im.src=pages[p].src;setTimeout(r,700)})}
   function go(j,dir){
     if(busy)return;
-    j=(j+units.length)%units.length;if(j===cur&&unit.innerHTML)return;dir=dir||(j>cur?1:-1);
+    if(j<0||j>=units.length)return;if(j===cur&&unit.innerHTML)return;dir=dir||(j>cur?1:-1);
     if(reduce){cur=j;paint();return}
     if(bookMode()&&BK&&unit.querySelector(".book")){turn(j,dir);return}
     unit.classList.add("out");
@@ -996,6 +1063,8 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     opts=opts||{};pages=list;spreadOpt=!!opts.spread;opener=el||null;$("vTitle").textContent=title;busy=false;BK=null;
     var p=$("vPdf");if(opts.pdf){p.hidden=false;p.href=opts.pdf;p.setAttribute("download",opts.pdf.split("/").pop())}else p.hidden=true;
     build();strip();cur=0;
+    var tch=matchMedia("(pointer:coarse)").matches,many=units.length>1;
+    $("vZl").textContent=tch?"pincer pour zoomer"+(many?" · glisser ou ← → pour changer de page":" · glisser pour se déplacer"):"molette ou double-clic pour zoomer · glisser pour se déplacer"+(many?" · ← → pour changer de page":"");
     var s=start||0;units.forEach(function(u,j){if(u.indexOf(s)>-1)cur=j});
     unit.innerHTML="";V.hidden=false;document.body.style.overflow="hidden";$("vClose").focus({preventScroll:true});
     if(spreadOpt){var im=new Image();im.onload=function(){BK={ratio:im.naturalWidth/im.naturalHeight};paint()};im.onerror=function(){paint()};im.src=pages[0].th}
@@ -1042,7 +1111,9 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   stage.addEventListener("pointerup",up);stage.addEventListener("pointercancel",up);
   unit.addEventListener("dblclick",function(e){zoomAt(e.clientX,e.clientY,Z.s>1.01?1:Math.min(2.5,maxS()),true)});
   $("vPrev").onclick=function(){go(cur-1,-1)};$("vNext").onclick=function(){go(cur+1,1)};
-  document.addEventListener("keydown",function(e){if(V.hidden)return;if(e.key==="Escape")closeV();if(e.key==="ArrowRight")go(cur+1,1);if(e.key==="ArrowLeft")go(cur-1,-1);if(e.key==="+"||e.key==="=")$("vZoom").click();if(e.key==="-"||e.key==="0")resetZ()});
+  document.addEventListener("keydown",function(e){if(V.hidden)return;
+    if(e.key==="Tab"){var f=[].filter.call(V.querySelectorAll("button,a[href]"),function(x){return !x.hidden&&!x.disabled&&x.offsetParent!==null});if(f.length){var i=f.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&(i<0||i===f.length-1)){e.preventDefault();f[0].focus()}}return}
+    if(e.key==="Escape")closeV();if(e.key==="ArrowRight")go(cur+1,1);if(e.key==="ArrowLeft")go(cur-1,-1);if(e.key==="+"||e.key==="=")$("vZoom").click();if(e.key==="-"||e.key==="0")resetZ()});
   addEventListener("resize",function(){if(V.hidden||busy)return;resetZ();if(!spreadOpt)return;var p0=units[cur][0];build();strip();units.forEach(function(u,j){if(u.indexOf(p0)>-1)cur=j});paint()});
 
   /* ---------- pages ---------- */
@@ -1206,11 +1277,30 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   // mini-carte calée sous le chapeau « Le projet », dans la colonne de gauche
   function withMap(t,k,l){if(!k||!LOC[k])return t;var i=t.indexOf("</p>");return i<0?t:t.slice(0,i)+miniMap(k,l)+t.slice(i)}
   /* ---------- page projet ---------- */
-  var g3=null;
+  var g3=null,g3seq=0,RM=matchMedia("(prefers-reduced-motion: reduce)"),GL=null;
+  function hasGL(){if(GL===null){try{var c=document.createElement("canvas");var x=window.WebGLRenderingContext&&(c.getContext("webgl2")||c.getContext("webgl"));GL=!!x;var lc=x&&x.getExtension("WEBGL_lose_context");if(lc)lc.loseContext()}catch(e){GL=false}}return GL}
+  function g3file(name,k){return name==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":name+"_"+k+".jpg"+(name==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"")}
+  // sans WebGL : les rendus restent consultables avec les mêmes boutons de vues, et les planches sont signalées
+  function g3static(host,name){
+    var UU=G3UI[name]||{v:[]},ph=host.querySelector(".g3-load");if(ph)ph.remove();host.classList.add("g3-static");
+    [".g3-lb",".g3-ui .hint"].forEach(function(q){var x=host.querySelector(q);if(x)x.remove()});
+    var im=document.createElement("div");im.className="g3-im";host.insertBefore(im,host.firstChild);
+    var msg=h("p","g3-msg","La maquette 3D ne peut pas s’afficher sur cet appareil. ");var pb=h("button","","Voir les planches ↓");pb.type="button";
+    pb.onclick=function(){var p=$("panels");if(p)p.scrollIntoView({behavior:RM.matches?"auto":"smooth"})};msg.appendChild(pb);host.appendChild(msg);
+    var vb=host.querySelectorAll(".g3-ui button[data-v]"),first=UU.v[0]&&UU.v[0][0];
+    var show=function(k){var n=new Image();n.alt="";n.src="img/rendu/"+(k===first&&G3IMG[name]?G3IMG[name]:g3file(name,k));im.innerHTML="";im.appendChild(n)};
+    if(UU.norender){[].forEach.call(vb,function(b){b.remove()});if(G3IMG[name])show(first)}
+    else{[].forEach.call(vb,function(b){b.onclick=function(){[].forEach.call(vb,function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});show(b.dataset.v)}});
+      var on=host.querySelector('.g3-ui button[data-v][aria-pressed="true"]');show(on?on.dataset.v:first)}
+  }
+  // barre de vues qui défile : fondu sur le bord qui cache des boutons, bouton actif toujours visible
+  function uiOvf(u){var f=function(){var o=u.scrollWidth>u.clientWidth+1;u.classList.toggle("ovl",o&&u.scrollLeft>2);u.classList.toggle("ovr",o&&u.scrollLeft<u.scrollWidth-u.clientWidth-2)};u.addEventListener("scroll",f,{passive:true});addEventListener("resize",f);f();setTimeout(f,500)}
+  function uiShow(b){var u=b&&b.parentNode;if(!u||u.scrollWidth<=u.clientWidth)return;var l=b.offsetLeft,r=l+b.offsetWidth;
+    if(l<u.scrollLeft)u.scrollTo({left:l-8,behavior:"smooth"});else if(r>u.scrollLeft+u.clientWidth)u.scrollTo({left:r-u.clientWidth+8,behavior:"smooth"})}
   function projectPage(id){
     var it=BY[id],P=$("pj");if(!it){location.replace("#etudes");return}
     var famN=it.fam==="etudes"?"Études":"Concours",list=PROJ.filter(function(x){return x.fam===it.fam}),i=list.indexOf(it),prev=list[i-1],next=list[i+1];
-    var html='<a class="crumb" href="#'+it.fam+'">← '+famN+'</a><div class="pj-head"><span class="fam">'+it.ctx+(it.res?' · '+it.res:'')+'</span><h2>'+it.t+'</h2>'+headSub(it)+'</div>';
+    var html='<a class="crumb" href="#'+it.fam+'">← '+famN+'</a><div class="pj-head"><span class="fam">'+it.ctx+(it.res?' · '+it.res:'')+'</span><h1>'+it.t+'</h1>'+headSub(it)+'</div>';
     if(it.docs){html+='<div class="g3 dv" id="dv"><img id="dvImg" src="'+it.docs[0].m+'" alt="'+it.docs[0].cap+'"><div class="g3-ui">'+it.docs.map(function(d,i){return '<button type="button" data-d="'+i+'" aria-pressed="'+(i?'false':'true')+'">'+d.cap+'</button>'}).join("")+'<span class="hint">cliquer pour agrandir</span></div></div>';}
     else if(it.g3){var G=G3UI[it.g3];html+='<div class="g3" id="g3"><div class="g3-load"'+(G3IMG[it.g3]?' style="background:url(img/rendu/'+G3IMG[it.g3]+') center/cover">':'>Chargement de la maquette…')+'</div><div class="g3-ui">'+G.v.map(function(v,i){return '<button type="button" data-v="'+v[0]+'" aria-pressed="'+(i?'false':'true')+'">'+v[1]+'</button>'}).join("")+'<button type="button" class="g3-lb" data-l aria-pressed="true" aria-label="Afficher ou masquer les annotations" title="Afficher ou masquer les annotations"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="5" cy="15" r="2.2"/><path d="M6.6 13.4 11 6h6.5"/></svg></button>'+'<span class="hint">glisser pour tourner · molette pour zoomer</span></div></div><div class="g3-note" aria-hidden="true"></div>';}
     if(it.eu)html+='<div class="pj-eu"><i role="img" aria-label="Europan"></i><div>'+it.eu.map(function(l){return '<a href="'+l[1]+'" target="_blank" rel="noopener">'+l[0]+' <span aria-hidden="true">↗</span></a>'}).join("")+'</div></div>';
@@ -1271,18 +1361,27 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   addEventListener("resize",fitG3);
   function mount3d(name){
     var host=$("g3");fitG3();requestAnimationFrame(fitG3);setTimeout(fitG3,400);
+    // chaque montage porte un jeton : un changement de page l'invalide, ses rappels tardifs ne font plus rien
+    var tok=++g3seq,pend=null,alive=function(){return tok===g3seq&&document.body.contains(host)&&!host.closest("[hidden]")};
+    var ui=host.querySelector(".g3-ui");if(ui)uiOvf(ui);
+    // une vue choisie pendant le chargement est gardée et jouée dès que la maquette est prête
+    [].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(b){b.onclick=function(){pend=b.dataset.v;[].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});uiShow(b)}});
+    if(!hasGL()){g3static(host,name);return}
     import("./js/"+name+"3d.js?v="+(name==="ventres"?"4":"213")).then(function(m){
-      if(!document.body.contains(host))return;
+      if(tok!==g3seq||!document.body.contains(host))return;
       var ph=host.querySelector(".g3-load"),pt0=performance.now(),keep=window.__g3keep;window.__g3keep=null;host.__keep=keep;
-      g3=m.mount(host);
+      var inst;try{inst=m.mount(host)}catch(err){g3static(host,name);return}g3=inst;
+      var cv=host.querySelector("canvas"),tt=document.querySelector(".pj-head h1");
+      if(cv){cv.setAttribute("role","img");cv.setAttribute("aria-label","Maquette 3D"+(tt?" : "+tt.textContent:"")+". Les boutons de vues ci-dessous la font pivoter ; les planches détaillent le projet.")}
       if(keep){ph.remove();ph=null;var kb=host.querySelectorAll(".g3-ui button[data-v]");[].forEach.call(kb,function(x,i){x.setAttribute("aria-pressed",i===keep.on?"true":"false")})}
       // le visuel d'attente reste jusqu'à ce que l'image du module soit posée par-dessus
       var pi=setInterval(function(){var hc=host.querySelector(".g3-hero");if((hc&&hc.style.opacity==="1")||performance.now()-pt0>8000||!document.body.contains(host)){clearInterval(pi);setTimeout(function(){if(ph)ph.remove()},150)}},100);
       var bs=host.querySelectorAll(".g3-ui button[data-v],.g3-ui button[data-r]");
       var vb=host.querySelectorAll(".g3-ui button[data-v]"),rb=host.querySelector(".g3-ui button[data-r]");
-      var go=function(b){[].forEach.call(vb,function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});g3.fly(b.dataset.v)};
+      var go=function(b){if(!alive())return;[].forEach.call(vb,function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});uiShow(b);inst.fly(b.dataset.v)};
       [].forEach.call(vb,function(b){b.onclick=function(){go(b)}});
-      if(G3UI[name].auto&&!keep)autoPlay(host,vb,go);
+      var pb=pend&&!keep?host.querySelector('.g3-ui button[data-v="'+pend+'"]'):null;if(pb)go(pb);
+      if(G3UI[name].auto&&!keep&&!pb&&!RM.matches)autoPlay(host,vb,go);
       var lb=host.querySelector(".g3-ui button[data-l]");if(lb)host.appendChild(lb);
       if(!host.querySelector(".g3-fs")){var fb=document.createElement("button");fb.type="button";fb.className="g3-fs";fb.setAttribute("aria-pressed","false");fb.setAttribute("aria-label","Plein écran");fb.title="Plein écran";
         fb.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true"><path class="o" d="M3 8V3h5M12 3h5v5M17 12v5h-5M8 17H3v-5"/><path class="i" d="M8 3v5H3M12 8V3M17 8h-5M12 17v-5h5M3 12h5v5"/></svg>';
@@ -1290,7 +1389,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
         host.appendChild(fb)}
       var UU=G3UI[name];
       if(UU&&!UU.norender&&name!=="ventres"){
-        var rfile=function(k){return name==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":name+"_"+k+".jpg"+(name==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"")};
+        var rfile=function(k){return g3file(name,k)};
         var tb=document.createElement("button");tb.type="button";tb.className="g3-2d";tb.textContent="3D";tb.title="Afficher la maquette 3D ou les rendus";tb.setAttribute("aria-label","Maquette 3D ou rendus");
         var im=null,cur=function(){var b=host.querySelector(".g3-ui button[data-v][aria-pressed=\"true\"]");return b?b.dataset.v:UU.v[0][0]};
         var paint=function(){if(!im)return;var k=cur(),old=[].slice.call(im.children),n=new Image();n.alt="";n.style.cssText="position:absolute;inset:0;animation:g3in 1.2s ease both";n.onload=function(){old.forEach(function(o){o.style.animation="none";o.style.zIndex=0});n.style.zIndex=1;im.appendChild(n);setTimeout(function(){old.forEach(function(o){o.remove()})},1300)};n.onerror=function(){};n.src="img/rendu/"+rfile(k)};
@@ -1300,7 +1399,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
         var lastK=null,tch=0;host.addEventListener("pointerdown",function(){tch=performance.now()},true);
         var tm=setInterval(function(){if(!document.body.contains(host)){clearInterval(tm);return}
           if(im){var k=cur();if(k!==lastK){lastK=k;paint()}}
-          if(!UU.auto&&im&&!document.hidden&&performance.now()-tch>8000&&(performance.now()-(host.__sl||0))>6000){var r=host.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;host.__sl=performance.now();var i=0;[].forEach.call(vb,function(x,j){if(x.getAttribute("aria-pressed")==="true")i=j});var n=vb[(i+1)%vb.length];var o=n.onclick;n.onclick&&n.onclick()}},700);
+          if(!UU.auto&&im&&!RM.matches&&!document.hidden&&performance.now()-tch>8000&&(performance.now()-(host.__sl||0))>6000){var r=host.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;host.__sl=performance.now();var i=0;[].forEach.call(vb,function(x,j){if(x.getAttribute("aria-pressed")==="true")i=j});var n=vb[(i+1)%vb.length];var o=n.onclick;n.onclick&&n.onclick()}},700);
         tb.onclick=function(){setM(tb.getAttribute("aria-pressed")!=="true")};
         [].forEach.call(vb,function(b){var o=b.onclick;b.onclick=function(){o();setTimeout(paint,0)}});
         host.appendChild(tb);host.classList.add("has2d");var m3=true;try{m3=localStorage.getItem("ym-3d")!=="0"}catch(e){}tb.setAttribute("aria-pressed","true");if(!m3)setM(false)}
@@ -1308,7 +1407,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
         lb.onclick=function(){lon=!lon;lb.setAttribute("aria-pressed",lon?"true":"false");g3.labels(lon);try{localStorage.setItem("ym-labels",lon?"1":"0")}catch(e){}}}
       else if(lb)lb.remove();
       if(rb&&g3.real)rb.onclick=function(){var on=rb.getAttribute("aria-pressed")!=="true";rb.setAttribute("aria-pressed",on?"true":"false");g3.real(on)};
-    }).catch(function(){var l=host.querySelector(".g3-load");if(l)l.textContent="La maquette 3D n'a pas pu se charger ici."});
+    }).catch(function(){if(tok===g3seq&&document.body.contains(host))g3static(host,name)});
   }
 
   /* ---------- outil de cadrage : touche C sur une page projet = caméra copiée (pour caler une nouvelle vue) ---------- */
@@ -1332,16 +1431,29 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
 
   /* ---------- navigation par page ---------- */
   var VIEWS=["accueil","publications","etudes","concours","agence","parcours","profil","projet"];
-  function route(){
+  var lastKey=null;
+  function focusView(){var t=document.querySelector("main .view:not([hidden]) h1")||document.querySelector("main .view:not([hidden]) h2");if(!t)return;t.setAttribute("tabindex","-1");t.focus({preventScroll:true})}
+  $("skip").addEventListener("click",function(e){e.preventDefault();var t=document.querySelector("main .view:not([hidden]) h1")||document.querySelector("main .view:not([hidden]) h2");if(t){t.setAttribute("tabindex","-1");t.focus();t.scrollIntoView({block:"start"})}});
+  function route(nav){
     var hsh=(location.hash||"#accueil").slice(1),v=hsh.split("/")[0],arg=hsh.split("/")[1];if(v==="contact")v="profil";if(VIEWS.indexOf(v)<0)v="accueil";
+    g3seq++;
+    var oh=$("g3");if(oh&&oh.classList.contains("fs")){try{if(document.fullscreenElement||document.webkitFullscreenElement)(document.exitFullscreen||document.webkitExitFullscreen).call(document)}catch(e){}document.documentElement.classList.remove("fs-on");if(oh.parentNode===document.body)oh.remove()}
     if(g3){g3.destroy();g3=null}
+    if(v!=="projet")$("pj").innerHTML="";
     if(v==="projet")projectPage(decodeURIComponent(arg||""));
     VIEWS.forEach(function(x){$("v-"+x).hidden=x!==v});
     var navKey=v==="projet"&&BY[arg]?BY[arg].fam:v;
     [].forEach.call($("nav").children,function(a){a.setAttribute("aria-current",a.getAttribute("href")==="#"+navKey?"page":"false")});
     if(!V.hidden)closeV();window.scrollTo(0,0);
+    var key=v+"/"+(v==="projet"?arg:"");if(nav===true&&key!==lastKey)focusView();lastKey=key;
   }
-  addEventListener("hashchange",route);route();
+  addEventListener("hashchange",function(){route(true)});route();
+  (function(){var hd=document.querySelector("header.bar"),wr=hd.querySelector(".wrap"),nm=hd.querySelector(".name"),nv=$("nav"),br=hd.querySelector(".bar-r"),busy=false;
+    function fit(){if(busy)return;busy=true;hd.classList.remove("two","three");
+      var g=parseFloat(getComputedStyle(wr).columnGap)||20,need=nv.scrollWidth+2*Math.max(nm.scrollWidth,br.scrollWidth)+2*g+8;
+      if(need>wr.clientWidth){hd.classList.add("two");if(nv.scrollWidth>nv.clientWidth+1)hd.classList.add("three")}
+      document.documentElement.style.setProperty("--barH",(getComputedStyle(hd).position==="sticky"?hd.offsetHeight:0)+"px");busy=false}
+    fit();addEventListener("resize",fit);new MutationObserver(fit).observe(nv,{subtree:true,characterData:true,childList:true});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit)})();
   (function(){var b=document.getElementById("thm"),R=document.documentElement,mq=matchMedia("(prefers-color-scheme: dark)");
     function eff(){return R.dataset.theme||(mq.matches?"dark":"light")}
     function lab(){R.dataset.eff=eff();b.setAttribute("aria-label",eff()==="dark"?"Passer en mode clair":"Passer en mode sombre")}lab();
@@ -1399,7 +1511,7 @@ fetch("data/globe/elle_schem.json").then(r=>r.json()).then(j=>{GEO.elle=j});
 fetch("data/globe/agri_schem.json?v=168").then(r=>r.json()).then(j=>{GEO.agri=j});
 fetch("data/globe/siberian_schem.json?v=5").then(r=>r.json()).then(j=>{GEO.siberian=j});  // Siberian Spotlight : le pavillon dans son contexte (voie ferrée, train, gare, église, forêt)
 fetch("data/globe/crank_schem.json?v=11").then(r=>r.json()).then(j=>{GEO.crank=j});  // Crank House : cabane dans un arbre, château, forêt
-fetch("data/globe/ventres_schem.json?v=10").then(r=>r.json()).then(j=>{j.logo=1;GEO.ventres=j});  // Europan 16 : le parcours et les trois centralités en couleur, les volumes du projet, la ville en trait léger
+fetch("data/globe/ventres_schem.json?v=13").then(r=>r.json()).then(j=>{j.logo=1;GEO.ventres=j});  // Europan 16 : le parcours et les trois centralités en couleur, les volumes du projet, la ville en trait léger
 fetch("data/globe/equilibrium_schem.json?v=185").then(r=>r.json()).then(j=>{GEO.equilibrium=j});  // Equilibrium : le triangle de la maquette, la pointe de Sagres (trait de côte, falaises)
 fetch("data/globe/varese_schem.json").then(r=>r.json()).then(j=>{GEO.varese=j});  // Varèse : la gare-passerelle de la maquette, le relief en courbes, voies, route, piste cyclable, arbres, volumes voisins
 
@@ -1440,10 +1552,10 @@ fetch("data/globe/geo2.json").then(r=>r.json()).then(G=>{addLines(polyl(G.c,[],G
 /* ---------- la maquette, posée sur le globe à son lieu ---------- */
 const S=.045,RAD=128;                       // 1 m = 0,045 unité : maquettes agrandies pour être lisibles
 const clip=new THREE.Plane(new THREE.Vector3(0,-1,0),0);
-const H={model:lm(.95,{clippingPlanes:[clip]}),disc:lm(.6),fine:lm(.25),ring:lm(1),mfine:lm(.5,{clippingPlanes:[clip]}),cseg:lm(.42,{clippingPlanes:[clip]}),cfine:lm(.2,{clippingPlanes:[clip]}),green:lm(.8,{clippingPlanes:[clip]}),skA:new THREE.MeshBasicMaterial({transparent:true,opacity:.12,depthWrite:false,side:THREE.DoubleSide,clippingPlanes:[clip]}),skB:new THREE.MeshBasicMaterial({transparent:true,opacity:.2,depthWrite:false,side:THREE.DoubleSide,clippingPlanes:[clip]}),veil:new THREE.MeshBasicMaterial({transparent:true,opacity:.6,depthWrite:false,side:THREE.DoubleSide})};
+const H={model:lm(.95,{clippingPlanes:[clip]}),disc:lm(.6),fine:lm(.25),ring:lm(1),mfine:lm(.5,{clippingPlanes:[clip]}),cseg:lm(.42,{clippingPlanes:[clip]}),cfine:lm(.2,{clippingPlanes:[clip]}),green:lm(.8,{clippingPlanes:[clip]}),skA:new THREE.MeshBasicMaterial({transparent:true,opacity:.12,depthWrite:false,side:THREE.DoubleSide,clippingPlanes:[clip]}),skB:new THREE.MeshBasicMaterial({transparent:true,opacity:.2,depthWrite:false,side:THREE.DoubleSide,clippingPlanes:[clip]}),skC:new THREE.MeshBasicMaterial({transparent:true,opacity:.16,depthWrite:false,side:THREE.DoubleSide,clippingPlanes:[clip]}),veil:new THREE.MeshBasicMaterial({transparent:true,opacity:.6,depthWrite:false,side:THREE.DoubleSide})};
 // logo de concours au-dessus de la maquette (Europan 16), tourne avec le site
 H.logo=new THREE.MeshBasicMaterial({transparent:true,opacity:.8,depthWrite:false,map:new THREE.TextureLoader().load("img/europan_holo.png",t=>{t.anisotropy=8})});
-const HA=[H.model,H.disc,H.fine,H.ring,H.veil,H.mfine,H.green,H.skA,H.skB,H.cseg,H.cfine,H.logo],HA0=HA.map(m=>m.opacity);
+const HA=[H.model,H.disc,H.fine,H.ring,H.veil,H.mfine,H.green,H.skA,H.skB,H.skC,H.cseg,H.cfine,H.logo],HA0=HA.map(m=>m.opacity);
 const MA=Object.values(M),MA0=MA.map(m=>m.opacity);   // le globe s'efface en partie quand la maquette est là
 const site=new THREE.Group(),spin=new THREE.Group();site.add(spin);globe.add(site);site.scale.setScalar(S);
 {const o=[],of=[];for(const r of [RAD,RAD*.66,RAD*.33]){for(let i=0;i<96;i++){const a=i/96*Math.PI*2,b=(i+1)/96*Math.PI*2;(r===RAD?o:of).push(Math.cos(a)*r,0,Math.sin(a)*r,Math.cos(b)*r,0,Math.sin(b)*r)}}
@@ -1461,13 +1573,13 @@ function setModel(k){objs.forEach(o=>{mdl.remove(o);o.geometry.dispose()});objs=
   const G=GEO[k];$("empty").classList.toggle("on",!!k&&!G);curH=0;if(!G){target=0;return}
   const Rp=G.R||RAD;K=RAD/Rp;mdl.scale.setScalar(K);HA0[0]=.95*(G.op||1);
   for(const [key,mt] of LAY)if(G[key]&&G[key].length){const g=new THREE.BufferGeometry();g.setAttribute("position",new THREE.Float32BufferAttribute(G[key],3));const o=new THREE.LineSegments(g,mt);o.renderOrder=7;mdl.add(o);objs.push(o);if(key==="seg")model=o}
-  for(const [key,mt] of [["skinA",H.skA],["skinB",H.skB]])if(G[key]){const gs=new THREE.BufferGeometry();gs.setAttribute("position",new THREE.Float32BufferAttribute(G[key],3));const ms=new THREE.Mesh(gs,mt);ms.renderOrder=6;mdl.add(ms);objs.push(ms)}
+  for(const [key,mt] of [["skinA",H.skA],["skinB",H.skB],["skinC",H.skC]])if(G[key]){const gs=new THREE.BufferGeometry();gs.setAttribute("position",new THREE.Float32BufferAttribute(G[key],3));const ms=new THREE.Mesh(gs,mt);ms.renderOrder=6;mdl.add(ms);objs.push(ms)}
   const o=[];for(let i=0;i<96;i++){const a=i/96*Math.PI*2,b=(i+1)/96*Math.PI*2;o.push(Math.cos(a)*Rp,0,Math.sin(a)*Rp,Math.cos(b)*Rp,0,Math.sin(b)*Rp)}const rg=new THREE.BufferGeometry();rg.setAttribute("position",new THREE.Float32BufferAttribute(o,3));
   ring=new THREE.LineSegments(rg,H.ring);ring.renderOrder=7;mdl.add(ring);objs.push(ring);target=G.h+2;
   if(G.logo){const ph=innerWidth<=760,w=Rp*(ph?.5:.62),pg=new THREE.PlaneGeometry(w,w);for(const r of [0,Math.PI]){const p=new THREE.Mesh(pg,H.logo);p.rotation.y=r;p.position.y=G.h+Rp*(ph?.72:1.0);p.renderOrder=8;mdl.add(p);objs.push(p)}}}
 
 function theme(){const g=new THREE.Color(css("--gl")),pin=new THREE.Color(css("--brick")),bg=new THREE.Color(css("--bg"));
-  [M.grat,M.coast,M.bord,M.back,M.limb,M.coast2,M.bord2,M.reg,M.sea].forEach(m=>m.color.copy(g));const gm=new THREE.Color(css("--glm"));[H.model,H.disc,H.fine,H.ring,H.mfine,H.cseg,H.cfine].forEach(m=>m.color.copy(gm));H.green.color.set(css("--tube"));H.skA.color.copy(gm);H.logo.color.copy(gm);H.skB.color.copy(gm);M.pin.color.copy(pin);M.route.color.copy(pin);occM.color.copy(bg);H.veil.color.copy(bg);fxCol=css("--glm");
+  [M.grat,M.coast,M.bord,M.back,M.limb,M.coast2,M.bord2,M.reg,M.sea].forEach(m=>m.color.copy(g));const gm=new THREE.Color(css("--glm"));[H.model,H.disc,H.fine,H.ring,H.mfine,H.cseg,H.cfine].forEach(m=>m.color.copy(gm));H.green.color.set(css("--tube"));H.skA.color.copy(gm);H.logo.color.copy(gm);H.skB.color.copy(gm);H.skC.color.copy(gm);M.pin.color.copy(pin);M.route.color.copy(pin);occM.color.copy(bg);H.veil.color.copy(bg);fxCol=css("--glm");
   // mode jour : traits fins (régions, frontières) plus marqués, sinon ils disparaissent sur fond clair
   const lt=bg.r+bg.g+bg.b>1.5;[[M.reg,.17,.42],[M.bord2,.62,.85],[M.bord,.45,.62],[M.sea,.06,.1]].forEach(([m,d,l])=>{MA0[MA.indexOf(m)]=lt?l:d});LB=lt?1.2:1;LM=lt?1.15:1}   // jour : traits renforcés, mais aussi fins que la nuit (Yves : trop épais à 1,7)
 let LB=1,LM=1;   // mode jour : traits renforcés pour tenir sur le fond blanc
@@ -1632,7 +1744,7 @@ function drawFx(){fc.clearRect(0,0,W,Hh);if(streak<=.001)return;const cx=W/2,cy=
 /* ---------- galerie et écran holographique : l'image se projette au-dessus du disque, la maquette s'efface ---------- */
 function imgsFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]),o=[];if(!it)return o;
   if(it.g3==="crank")return [{th:"img/rendu/crank_nuit.jpg",cap:"Perspective"}];
-  const U=(window.YM_G3UI||{})[it.g3];if(U&&!U.norender)U.v.filter(([k])=>(it.g3!=="siberian"||k==="face"||k==="ensemble")&&!(it.g3==="varese"&&k==="parvis2")).forEach(([k,lab])=>{const f=it.g3==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":it.g3+"_"+k+".jpg"+(it.g3==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"");o.push({th:"img/rendu/"+f,src:"img/rendu/"+f,cap:lab})});return o}   // uniquement les images rendues, pas les panneaux (Yves)
+  const U=(window.YM_G3UI||{})[it.g3];if(U&&U.norender&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&!U.norender)U.v.filter(([k])=>(it.g3!=="siberian"||k==="face"||k==="ensemble")&&!(it.g3==="varese"&&k==="parvis2")).forEach(([k,lab])=>{const f=it.g3==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":it.g3+"_"+k+".jpg"+(it.g3==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"");o.push({th:"img/rendu/"+f,src:"img/rendu/"+f,cap:lab})});return o}   // uniquement les images rendues, pas les panneaux (Yves)
 function gallery(i){const G=$("gal");holoOff(true);if(typeof lbClose==="function"&&window.__lbReady)lbClose();if(i<0){G.hidden=true;G.classList.remove("vis");G.innerHTML="";return}
   const L=imgsFor(P[i]);if(!L.length){G.hidden=true;return}
   G.innerHTML="<p>Galerie</p>"+L.map((x,k)=>'<button type="button" data-k="'+k+'" aria-pressed="false" title="'+x.cap.replace(/"/g,"&quot;")+'"><img loading="lazy" src="'+x.th+'" alt="'+x.cap.replace(/"/g,"&quot;")+'"></button>').join("");
@@ -1678,7 +1790,7 @@ function holoStep(dt){if(mode!=="site"&&holoT)holoOff();holoK+= (holoT-holoK)*Ma
   beam.geometry.setAttribute("position",new THREE.Float32BufferAttribute(pts,3));beamM.color.set(css("--glm"));beamM.opacity=.35*holoK;beam.visible=true;$("tB").style.opacity=1-holoK}
 /* ---------- boucle ---------- */
 let last=performance.now();const nW=new THREE.Vector3();
-function frame(now){if(home.hidden){last=now;requestAnimationFrame(frame);return}const dt=Math.min(.05,(now-last)/1000);last=now;
+function frame(now){if(home.hidden){gPause=true;return}const dt=Math.min(.05,(now-last)/1000);last=now;
   if(tw){const t=clamp((now-tw.t0)/tw.T,0,1);tw.step(t);if(t>=1)tw=null}
   else if(mode==="globe"&&!dragging&&hov<0&&acur<0&&!inside&&!reduce){V.lon+=dt*2*drift*clamp((V.h-80)/(H0-80),0,1);if(V.lon>48)drift=-1;if(V.lon<-14)drift=1}
   globe.rotation.set(V.lat*D2R,-V.lon*D2R,0,"XYZ");globe.updateMatrixWorld(true);
@@ -1694,9 +1806,10 @@ function frame(now){if(home.hidden){last=now;requestAnimationFrame(frame);return
   if(ring){ring.position.y=curH;ring.visible=printing}
   if(!reduce&&mode==="site"&&!dragging)spin.rotation.y+=dt*.12;
   R.render(scene,cam);overlay();drawFx();requestAnimationFrame(frame)}
-theme();requestAnimationFrame(frame);
+let gPause=false;theme();requestAnimationFrame(frame);
 
 const home=$("v-accueil");
+new MutationObserver(()=>{if(!home.hidden&&gPause){gPause=false;requestAnimationFrame(t=>{last=t;frame(t)})}}).observe(home,{attributes:true,attributeFilter:["hidden"]});
 // retour à l'accueil (menu, logo, bouton précédent) : le globe revient entier, dézoomé, sans projet choisi
 // taille du globe calculée en pixels : Safari (iPad) gère mal « hauteur 100 % + aspect-ratio » dans la grille
 const stageEl=document.querySelector("#gbox .stage");
@@ -1722,7 +1835,7 @@ function hrefFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]);re
 new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme","data-eff"]});matchMedia("(prefers-color-scheme: dark)").addEventListener("change",theme);
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
-<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=3"></script>
-<script charset="utf-8" src="js/i18n.js?v=205"></script>
+<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=5"></script>
+<script charset="utf-8" src="js/i18n.js?v=207"></script>
 
 </body></html>

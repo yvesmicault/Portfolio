@@ -340,7 +340,7 @@ export function mount(host, opts = {}) {
     const inside = c.y < 8 || (c.y < 14 && cs > -2 && cs < 210 && Math.abs(ct) < 16); // à hauteur d’homme ou dedans : pas d’étiquettes
     labels.forEach((l) => {
       lv.copy(l.v).project(camera);
-      const vis = lv.z < 1 && Math.abs(lv.x) < 1.05 && Math.abs(lv.y) < 1.05;
+      const vis = lv.z < 1 && labIn(l.el, lv, w, h, 0.5);
       l.el.style.opacity = labOn && vis && !inside && !anim && !hero ? 1 : 0;
       l.el.style.transform = "translate(" + ((lv.x + 1) / 2 * w) + "px," + ((1 - lv.y) / 2 * h) + "px) translate(-50%,-100%)";
     });
@@ -604,7 +604,7 @@ export function mount(host, opts = {}) {
     fly, labels: labels_,
     destroy() {
       alive = false;
-      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); controls.dispose(); renderer.dispose();
+      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); controls.dispose(); renderer.dispose(); renderer.forceContextLoss();
       scene.traverse((o) => { if (o.geometry) o.geometry.dispose(); });
       renderer.domElement.remove(); wait.remove(); heroC.remove(); labels.forEach((l) => l.el.remove());
     },
@@ -619,3 +619,6 @@ function mulberry(a) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+
+// étiquette entièrement dans le cadre (largeur mesurée une fois par taille de cadre)
+function labIn(el, v, w, h, ax) { if (el.__ww !== w) { el.__ww = w; el.__w = el.offsetWidth; el.__h = el.offsetHeight; } const x = (v.x + 1) / 2 * w, y = (1 - v.y) / 2 * h; return x - el.__w * ax >= 2 && x + el.__w * (1 - ax) <= w - 2 && y - el.__h >= 2 && y <= h - 2; }

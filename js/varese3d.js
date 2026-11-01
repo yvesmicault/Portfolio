@@ -779,7 +779,7 @@ export function mount(host, opts = {}) {
     const w = W(), h = H();
     labels.forEach((l) => {
       const v = l.p.clone(); v.y += burst * LIFT[3]; v.project(camera);
-      const vis = v.z < 1 && Math.abs(v.x) < 1.1 && Math.abs(v.y) < 1.1;
+      const vis = v.z < 1 && labIn(l.el, v, w, h, 0.5);
       l.el.style.opacity = labOn && vis && !(sec === 2 && cut > 0.3) && !lookTo && !hero ? 1 : 0;
       l.el.style.transform = "translate(" + ((v.x + 1) / 2 * w) + "px," + ((1 - v.y) / 2 * h) + "px) translate(-50%,-100%)";
     });
@@ -811,7 +811,7 @@ export function mount(host, opts = {}) {
     fly, real, labels: labels_,
     destroy() {
       alive = false;
-      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); controls.dispose(); renderer.dispose();
+      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); controls.dispose(); renderer.dispose(); renderer.forceContextLoss();
       scene.traverse((o) => { if (o.geometry) o.geometry.dispose(); });
       renderer.domElement.remove(); labels.forEach((l) => l.el.remove()); wait.remove(); wipeEl.remove(); heroC.remove(); heroTag.remove();
     },
@@ -826,3 +826,6 @@ function mulberry(a) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+
+// étiquette entièrement dans le cadre (largeur mesurée une fois par taille de cadre)
+function labIn(el, v, w, h, ax) { if (el.__ww !== w) { el.__ww = w; el.__w = el.offsetWidth; el.__h = el.offsetHeight; } const x = (v.x + 1) / 2 * w, y = (1 - v.y) / 2 * h; return x - el.__w * ax >= 2 && x + el.__w * (1 - ax) <= w - 2 && y - el.__h >= 2 && y <= h - 2; }

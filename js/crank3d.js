@@ -103,7 +103,7 @@ export function mount(host, opts = {}) {
       const m = new THREE.MeshLambertMaterial(Object.assign({ color, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }, extra));
       if (glass) m.onBeforeCompile = (sh) => {   // polycarbonate alvéolaire : fines cannelures verticales et grain
         sh.vertexShader = "varying vec3 vWP;\n" + sh.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\nvWP=(modelMatrix*vec4(transformed,1.)).xyz;");
-        sh.fragmentShader = "varying vec3 vWP;\nfloat hh(vec3 p){return fract(sin(dot(p,vec3(12.9898,78.233,37.719)))*43758.5453);}\n" + sh.fragmentShader.replace("#include <dithering_fragment>", "float rb=.5+.5*sin((vWP.x+vWP.z)*210.);float gr=hh(floor(vWP*vec3(160.,70.,160.)));gl_FragColor.rgb*=.9+.06*rb+.06*gr;#include <dithering_fragment>");
+        sh.fragmentShader = "varying vec3 vWP;\nfloat hh(vec3 p){return fract(sin(dot(p,vec3(12.9898,78.233,37.719)))*43758.5453);}\n" + sh.fragmentShader.replace("#include <dithering_fragment>", "float rb=.5+.5*sin((vWP.x+vWP.z)*210.);float gr=hh(floor(vWP*vec3(160.,70.,160.)));gl_FragColor.rgb*=.9+.06*rb+.06*gr;\n#include <dithering_fragment>");
       };
       const me = new THREE.Mesh(g2, m); me.userData.glass = glass; g.add(me);
     };
@@ -186,7 +186,7 @@ export function mount(host, opts = {}) {
     const inside = false;
     labels.forEach((l) => {
       lv.copy(l.v).project(camera);
-      const vis = lv.z < 1 && Math.abs(lv.x) < 1.05 && Math.abs(lv.y) < 1.05;
+      const vis = lv.z < 1 && labIn(l.el, lv, w, h, 0.5);
       l.el.style.opacity = labOn && vis && !inside && !anim && !hero ? 1 : 0;
       l.el.style.transform = "translate(" + ((lv.x + 1) / 2 * w) + "px," + ((1 - lv.y) / 2 * h) + "px) translate(-50%,-100%)";
     });
@@ -449,7 +449,7 @@ export function mount(host, opts = {}) {
     fly, labels: labels_,
     destroy() {
       alive = false;
-      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); controls.dispose(); renderer.dispose();
+      cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); controls.dispose(); renderer.dispose(); renderer.forceContextLoss();
       scene.traverse((o) => { if (o.geometry) o.geometry.dispose(); });
       renderer.domElement.remove(); wait.remove(); heroC.remove(); labels.forEach((l) => l.el.remove());
     },
@@ -464,3 +464,6 @@ function mulberry(a) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+
+// étiquette entièrement dans le cadre (largeur mesurée une fois par taille de cadre)
+function labIn(el, v, w, h, ax) { if (el.__ww !== w) { el.__ww = w; el.__w = el.offsetWidth; el.__h = el.offsetHeight; } const x = (v.x + 1) / 2 * w, y = (1 - v.y) / 2 * h; return x - el.__w * ax >= 2 && x + el.__w * (1 - ax) <= w - 2 && y - el.__h >= 2 && y <= h - 2; }
