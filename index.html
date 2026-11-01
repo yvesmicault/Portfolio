@@ -632,7 +632,9 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 #gbox .fim{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--bg2);margin:0 0 10px;animation:fimIn .5s var(--ease)}
 #gbox .fim[hidden]{display:none}@keyframes fimIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 #gbox .cap b,#gbox .pv b{font:300 22px/1.12 var(--f);letter-spacing:.02em;text-transform:uppercase}
-.gdw .gd-st[hidden]{display:none}.gdw .gd-c button{min-width:26px;height:26px}.gdw{margin-top:18px;padding-top:10px;border-top:1px solid var(--line)}.gdw .gd{margin:0;border:0;padding:0}
+.gdw .gd-st[hidden]{display:none}.gdw .gd-c button{min-width:26px;height:26px}.gdw{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}#gbox .gdw .gd{margin:0;border:0;padding:0;display:flex;align-items:center;gap:12px}.gdw .gd[hidden]{display:none}.gdw .gd-o{margin:0}
+@media (min-width:761px){.home #gbox .gdw{position:absolute;z-index:4}}
+@media (max-width:760px){.home #gbox .gdw{order:1;margin:6px 0 4px}}
 /* --- Globes 30/10 : fiche, prévisualisation, frise, découverte guidée --- */
 #gbox .cap .ct{display:block;margin-top:8px;font:500 9px/1.2 var(--f);letter-spacing:.28em;text-transform:uppercase;color:var(--brick)}
 #gbox .cap .mt{display:block;margin-top:4px;font:400 10.5px/1.45 var(--m);color:var(--mute)}
@@ -654,13 +656,13 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 #gbox .gd-c .gd-t{padding:0 9px;font:500 9px/1 var(--f);letter-spacing:.18em;text-transform:uppercase}
 #gbox .gd-c button:hover,#gbox .gd-c button:focus-visible{border-color:var(--ink)}#gbox .gd-c button[aria-pressed="true"]{color:var(--brick);border-color:var(--brick)}
 #gbox .gd-c span{font:400 10.5px var(--m);color:var(--mute);min-width:38px;text-align:center}
-#gbox .pv{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;border-left:1px solid var(--line);padding:2px 0 2px 12px}
+#gbox .pv{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;padding:0}
 #gbox .pv[hidden]{display:none}
 #gbox .pv img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;margin:0 0 10px;background:var(--bg2)}
 #gbox .pv b{display:block;font:300 20px/1.15 var(--f);text-transform:uppercase;letter-spacing:.02em}
 #gbox .pv .ct{display:block;margin-top:6px;font:500 8.5px/1.2 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--brick)}
 #gbox .pv .mt,#gbox .pv .pg{display:block;margin-top:5px;font:400 10.5px/1.45 var(--m);color:var(--mute)}#gbox .pv .pg{color:var(--ink)}
-#gbox .pv:hover,#gbox .pv:focus-visible{border-left-color:var(--brick)}
+#gbox .pv:hover b,#gbox .pv:focus-visible b{color:var(--brick)}
 #gbox .it:focus-visible{outline:2px solid var(--brick);outline-offset:2px}
 #list.fz-e .it:not([data-c="e"]),#list.fz-c .it:not([data-c="c"]){opacity:.35}#list.fz-e #cA,#list.fz-c #cA{opacity:.35}
 .fz{margin-top:22px;padding-top:10px;border-top:1px solid var(--line)}
@@ -772,7 +774,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
     <h1 class="sr">Yves Micault, architecte</h1>
     <div>
     <div class="gbox" id="gbox">
-      <div class="list" id="list"><h3><button type="button" class="fo" data-f="e" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Études</button><button type="button" class="tg" data-f="e" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cE"></div><h3 class="c"><button type="button" class="fo" data-f="c" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Concours</button><button type="button" class="tg" data-f="c" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cC"></div><h3 class="a"><button type="button" class="fo" data-f="a" aria-expanded="false" title="Déplier ou replier la liste"><i></i>Agence <em id="agN"></em></button><button type="button" class="tg" data-f="a" aria-pressed="false" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cA" class="off fold" aria-label="Projets d’agence"></div><div class="fz" id="fz"><h3 class="fz-h">Chronologie</h3><div id="fzR"></div><div class="fz-ax" id="fzAx" aria-hidden="true"></div><p class="fz-k">trait plein : ordre chronologique · pointillé : même période</p><button type="button" class="fz-all" id="fzAll" hidden>Tout afficher</button><p class="fz-n" id="fzN" hidden></p><div class="gdw"><button type="button" class="gd-st" id="gdSt">Découvrir les projets <i>→</i></button><div class="gd" id="gd" role="group" aria-label="Découverte guidée" hidden><p class="gd-o">Études puis concours, par date</p><div class="gd-c"><button type="button" id="gdP" aria-label="Projet précédent">←</button><span id="gdN" aria-live="polite">1 / 8</span><button type="button" id="gdNx" aria-label="Projet suivant">→</button><button type="button" id="gdA" class="gd-t" aria-pressed="false">Lecture</button><button type="button" id="gdX" class="gd-t">Quitter</button></div></div></div></div></div>
+      <div class="list" id="list"><h3><button type="button" class="fo" data-f="e" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Études</button><button type="button" class="tg" data-f="e" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cE"></div><h3 class="c"><button type="button" class="fo" data-f="c" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Concours</button><button type="button" class="tg" data-f="c" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cC"></div><h3 class="a"><button type="button" class="fo" data-f="a" aria-expanded="false" title="Déplier ou replier la liste"><i></i>Agence <em id="agN"></em></button><button type="button" class="tg" data-f="a" aria-pressed="false" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cA" class="off fold" aria-label="Projets d’agence"></div><div class="fz" id="fz"><h3 class="fz-h">Chronologie</h3><div id="fzR"></div><div class="fz-ax" id="fzAx" aria-hidden="true"></div><p class="fz-k">trait plein : ordre chronologique · pointillé : même période</p><button type="button" class="fz-all" id="fzAll" hidden>Tout afficher</button><p class="fz-n" id="fzN" hidden></p></div></div>
       <div class="stage" id="stage">
         <div class="gl" id="gl"></div>
         <canvas id="fx" aria-hidden="true"></canvas>
@@ -788,6 +790,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
         <text class="f" id="tF" role="link" tabindex="0"><textPath href="#rimF" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">Ouvrir le projet</textPath></text>
         <text class="b" id="tB" role="button" tabindex="0" style="display:none"><textPath href="#rimB" startOffset="50%" text-anchor="middle">Globe</textPath></text></svg>
       <div class="lb" id="lb" role="dialog" aria-modal="false" aria-label="Image du projet"><figure><img alt=""></figure><figcaption></figcaption><button class="x" type="button" aria-label="Fermer">×</button><button class="pv" type="button" aria-label="Image précédente">‹</button><button class="nx" type="button" aria-label="Image suivante">›</button></div>
+      <div class="gdw"><button type="button" class="gd-st" id="gdSt">Découvrir les projets <i>→</i></button><div class="gd" id="gd" role="group" aria-label="Découverte guidée" hidden><p class="gd-o">Études puis concours, par date</p><div class="gd-c"><button type="button" id="gdP" aria-label="Projet précédent">←</button><span id="gdN" aria-live="polite">1 / 8</span><button type="button" id="gdNx" aria-label="Projet suivant">→</button><button type="button" id="gdA" class="gd-t" aria-pressed="false">Lecture</button><button type="button" id="gdX" class="gd-t">Quitter</button></div></div></div>
       <div class="dact" id="dact"><button class="go lt" id="back" type="button" hidden><i>←</i><span>Globe</span></button><a class="go" href="#" id="go" hidden><span>Ouvrir le projet</span><i>→</i></a></div>
     </div>
       <span id="rb" hidden></span>
@@ -1955,7 +1958,8 @@ function fitStage(){if(!stageEl)return;const g=$("gbox");
   const x0=lw+gap,x1=W-(wide?sd.offsetWidth+gap:0),pad=16,s=Math.floor(Math.max(160,Math.min(x1-x0,H-2*pad)));
   if(wide&&innerWidth>1060){const t=sd.offsetTop;Object.assign(L.style,{top:t+"px",height:(H-t-12)+"px",maxHeight:"none"});L.classList.add("full");if(window.agBuild)agBuild()}else{["top","height","maxHeight"].forEach(k=>L.style[k]="");L.classList.remove("full")}
   Object.assign(stageEl.style,{width:s+"px",height:s+"px",left:Math.round(x0+(x1-x0-s)/2)+"px",top:Math.round((H-s)/2)+"px"});
-  $("dsv").style.clipPath="inset(0 "+Math.max(0,Math.round(W-x1))+"px 0 "+Math.round(x0)+"px)"}
+  $("dsv").style.clipPath="inset(0 "+Math.max(0,Math.round(W-x1))+"px 0 "+Math.round(x0)+"px)";
+  const gw=g.querySelector(".gdw");if(gw)Object.assign(gw.style,{left:Math.round(x0+(x1-x0-s)/2)+"px",width:s+"px",top:Math.round((H-s)/2+s-34)+"px"})}   // découverte guidée : sous le globe
 new ResizeObserver(fitStage).observe($("gbox"));addEventListener("resize",fitStage);fitStage();
 function resetGlobe(){tw=null;mode="globe";cur=-1;acur=-1;$("fiche").classList.remove("ag");hov=-1;marks();caption(-1);fiche(-1);$("go").hidden=true;$("back").hidden=true;$("coord").textContent="";setModel(null);
   Object.assign(V,{lat:46,lon:14,h:H0,tau:0,lk:0,ha:0});spin.rotation.y=0}
