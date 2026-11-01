@@ -22,7 +22,7 @@
           ["État","Livré en 2025"]],
       img:[["img/agx/2017-metamorphose","Perspective du projet"],["img/agx/2017-metamorphose-2","Vue du rez-de-chaussée"],["img/agx/2017-metamorphose-3","Vue intérieure des bureaux"]]},
     "high-garden":{per:"De janvier à octobre 2019",
-      ct:[["Conception","Études de façade du concours, en variantes bois et métal"],
+      ct:[["Conception","Conception architecturale du projet, dont les études de façade en variantes bois et métal"],
           ["Rendus","Production des perspectives du concours"],
           ["Production","Maquette numérique construite et tenue à jour, support de la conception et des rendus"],
           ["Avant-projet sommaire","Modèle 3D préparé pour la fabrication de la maquette physique"]],
@@ -32,7 +32,7 @@
           ["Surface","15 000 m² de logements + 3 000 m² de commerces + 400 m² de restaurant panoramique"],
           ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
           ["État","Livré en 2024"]],
-      img:[["img/agx/2017-high-garden","Perspective du projet"]]},
+      img:[["img/agx/2017-high-garden","Perspective du projet"],["img/agx/2019-high-garden-photo-1","Le bâtiment livré","photo © Florian Bouziges"],["img/agx/2019-high-garden-photo-2","Façade et balcons","photo © Florian Bouziges"],["img/agx/2019-high-garden-photo-3","Vue depuis le jardin","photo © Élise Robaglia"],["img/agx/2019-high-garden-photo-4","Les balcons filants","photo © Élise Robaglia"],["img/agx/2019-high-garden-planche-1","Planche du concours 1 : parti urbain"],["img/agx/2019-high-garden-planche-2","Planche du concours 2 : un espace public augmenté"],["img/agx/2019-high-garden-planche-3","Planche du concours 3 : un événement"]]},
     "le-cabanon-ideal":{per:"Environ trois ans",
       ct:[["Production","Plans, images et détails, de l’esquisse au PRO / DCE"],
           ["Coordination","Bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)"],
@@ -42,7 +42,7 @@
           ["Programme","117 logements, commerces et activités"],
           ["Surface","8 551 m²"],
           ["État","Arrêté faute de financement"]],
-      img:[["img/agx/2020-le-cabanon-ideal","Perspective du projet"]]}
+      img:[["img/agx/2020-le-cabanon-ideal","Perspective du projet"],["img/agx/2022-cabanon-vue-2","Vue depuis la rue"],["img/agx/2022-cabanon-vue-3","Façade et loggias"],["img/agx/2022-cabanon-vue-4","Intérieur d’un logement"]]}
   };
   var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
 
@@ -82,7 +82,7 @@
       '<section class="agt-op"><h5>L’opération</h5>'+dl(F.op)+'</section>'+
       links(p)+'</article>'}
   function zoom(id,el){var p=byId(id),F=FEAT[id];if(!p||!F)return;
-    var L=F.img.map(function(m){return {src:m[0]+".jpg",th:m[0]+"_t.jpg",cap:p.t+" · "+p.c+" · "+m[1]+" · image © Hamonic+Masson & Associés"}});
+    var L=F.img.map(function(m){return {src:m[0]+".jpg",th:m[0]+"_t.jpg",cap:p.t+" · "+p.c+" · "+m[1]+" · "+(m[2]||"image © Hamonic+Masson & Associés")}});
     if(window.agOpenV)window.agOpenV(p.t,L,0,{},el);else window.open(L[0].src,"_blank")}
   document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("#v-agence .agt-zb");if(b)zoom(b.dataset.ag,b)});
   (function(){var st=document.createElement("style");st.textContent=
