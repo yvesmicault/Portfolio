@@ -501,7 +501,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
 .stamp b{font:600 12px/1 var(--m);letter-spacing:.3em;text-transform:uppercase;margin-right:-.3em}.stamp small{font:400 8px/1 var(--m);letter-spacing:.08em;white-space:nowrap}
 .fiche .stamp{pointer-events:none}.fiche .stamp b{font-size:10px}
 /* page Agence : chronologie complète 2017 → 2026, toutes les cartes dans le flux (28/10) */
-#v-agence .agt-logo{float:right;display:block;width:180px;aspect-ratio:911/57;margin:4px 0 0 16px;background:var(--mute);-webkit-mask:url(img/hm_logo.svg) center/contain no-repeat;mask:url(img/hm_logo.svg) center/contain no-repeat;opacity:.8;transition:opacity .2s}#v-agence .agt-logo:hover{opacity:1}@media(max-width:760px){#v-agence .agt-logo{width:130px}}
+#v-agence .agt-logo{float:right;display:block;width:clamp(240px,24vw,320px);aspect-ratio:911/57;margin:6px 0 0 24px;background:var(--ink);-webkit-mask:url(img/hm_logo.svg) center/contain no-repeat;mask:url(img/hm_logo.svg) center/contain no-repeat;opacity:.92;transition:opacity .2s}#v-agence .agt-logo:hover{opacity:1}@media(max-width:760px){#v-agence .agt-logo{float:none;width:min(240px,70vw);margin:0 0 20px}}
 #v-agence .agt-note{margin:-14px 0 34px;font:400 12px/1.6 var(--m);color:var(--mute);max-width:75ch}
 #v-agence .agt-h{margin:0 0 16px;font:500 10.5px/1.4 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
 #v-agence .agt-fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:22px clamp(20px,3vw,40px);margin-bottom:56px}
