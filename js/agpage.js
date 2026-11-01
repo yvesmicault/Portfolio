@@ -45,7 +45,7 @@
   function surf(p){if(p.hs||!p.s)return "";return p.s+(p.sq?" "+p.sq:"")}
   function status(p){var s=p.st||"";return /^Concours/.test(s)?"":s}   // pas de « Concours / Concours »
   function media(p,big){var m=(p.pub||[])[0];if(!m)return "";
-    return '<figure class="agt-m"><img src="'+esc(m.f)+'" alt="'+esc(m.alt||p.t)+'" loading="lazy" decoding="async"'+(big?'':' width="600" height="400"')+'><figcaption>'+esc(m.cr||"")+'</figcaption></figure>'}
+    return '<figure class="agt-m"><img src="'+esc(m.f)+'" alt="'+esc(m.alt||p.t)+'" loading="lazy" decoding="async"'+(big?'':' width="600" height="400"')+'></figure>'}
   function links(p){var a=[];
     if(p.u)a.push('<a class="agt-lk" href="'+HM+esc(p.u)+'" target="_blank" rel="noopener">Fiche de l’agence ↗</a>');
     return a.length?'<p class="agt-ft">'+a.join("")+'</p>':""}
