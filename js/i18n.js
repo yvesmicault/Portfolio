@@ -39,6 +39,9 @@
     "Sur les falaises de Sagres, Equilibrium transforme la découverte du paysage en parcours architectural. Sa géométrie triangulaire met en relation le cap Saint-Vincent et les forteresses de Beliche et de Sagres. Un cheminement en acier Corten alterne ancrage dans la roche et avancées vers le vide, tandis que des espaces d’exposition s’inscrivent dans le relief. Le projet explore l’équilibre entre terre, mer et ciel à travers le déplacement du visiteur.": "On the cliffs of Sagres, Equilibrium turns the discovery of the landscape into an architectural route. Its triangular geometry relates Cape St. Vincent to the fortresses of Beliche and Sagres. A Corten steel path alternates between anchoring in the rock and reaching out over the void, while exhibition spaces are set into the terrain. The project explores the balance between land, sea and sky through the visitor's movement.",
     "Les petits ventres-villes": "Les petits ventres-villes",
     /* page Agence chronologique (28/10) */
+    "Conception et production des perspectives du concours, dont les études de façade en variantes bois et métal": "Design and production of the competition visuals, including façade studies in timber and metal options",
+    "Construction et mise à jour de la maquette numérique, support de la conception et des rendus": "Building and updating the digital model used for design and renderings",
+    "Avant-projet sommaire : préparation du modèle 3D ayant servi à fabriquer la maquette physique": "Outline design: preparation of the 3D model used to build the physical model",
     "Ma page sur hamonic-masson.com ↗": "My page on hamonic-masson.com ↗",
     "D’octobre 2017 à l’été 2019 : concours, puis études": "October 2017 to summer 2019: competition, then design studies",
     "Conduite du concours en tant que chef de projet, de la conception au rendu (projet lauréat)": "Led the competition as project leader, from design to submission (winning scheme)",

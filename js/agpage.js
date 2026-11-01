@@ -40,7 +40,7 @@
       ["Surface","15 000 m² de logements + 3 000 m² de commerces + 400 m² de restaurant panoramique"],
       ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
       ["Ma participation","De janvier à octobre 2019 : concours, puis avant-projet sommaire"],
-      ["Mes contributions",["Production des perspectives du concours et études de variantes de façade (métal, bois)","Préparation et gestion de la maquette numérique du projet","Contribution à l’avant-projet sommaire : modèle 3D de la maquette physique"]],
+      ["Mes contributions",["Conception et production des perspectives du concours, dont les études de façade en variantes bois et métal","Construction et mise à jour de la maquette numérique, support de la conception et des rendus","Avant-projet sommaire : préparation du modèle 3D ayant servi à fabriquer la maquette physique"]],
       ["État du projet","Livré en 2024"]];
   var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
 
