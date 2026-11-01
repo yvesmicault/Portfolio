@@ -23,8 +23,8 @@
       ["Programme","Bureaux, coworking, 76 logements en coliving, salle d’escalade, restaurant, serre événementielle"],
       ["Surface","24 500 m²"],
       ["Jalons","Lauréat du concours international Imagine Angers en 2018"],
-      ["Ma participation","D’octobre 2017 (concours) aux études de 2019"],
-      ["Mes contributions",["Concours mené seul, en chef de projet, jusqu’à la victoire en 2018","Interface avec la maîtrise d’ouvrage, maquette numérique et présentation du workshop","Participation aux études qui ont suivi"]],
+      ["Ma participation","D’octobre 2017 à l’été 2019 : concours, puis études"],
+      ["Mes contributions",["Conduite du concours en tant que chef de projet, de la conception au rendu (projet lauréat)","Échanges avec la maîtrise d’ouvrage et présentation du projet en workshop","Maquette numérique, études graphiques et contribution aux études de développement"]],
       ["État du projet","Livré en 2025"]],
     "cite-administrative":[
       ["Maîtrise d’ouvrage","SNC Duval développement Hauts-de-France"],
@@ -40,7 +40,7 @@
       ["Surface","15 000 m² de logements + 3 000 m² de commerces + 400 m² de restaurant panoramique"],
       ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
       ["Ma participation","De janvier à octobre 2019 : concours, puis avant-projet sommaire"],
-      ["Mes contributions",["Rendus de vues : variantes métal et bois, vues depuis les balcons","Préparation et conversion de la maquette numérique","Modèle 3D transmis pour la maquette physique de l’APS"]],
+      ["Mes contributions",["Production des perspectives du concours et études de variantes de façade (métal, bois)","Préparation et gestion de la maquette numérique du projet","Contribution à l’avant-projet sommaire : modèle 3D de la maquette physique"]],
       ["État du projet","Livré en 2024"]];
   var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
 
