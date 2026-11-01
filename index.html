@@ -1,4 +1,5 @@
-<!doctype html><html><head><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head>
+<meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Yves Micault">
 <title>Archive Yves Micault</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -462,8 +463,8 @@ html.fs-on,html.fs-on body{overflow:hidden}
 
 /* le globe de l'accueil : trait gris chaud le jour, bleu la nuit ; vert = la touche colorée des maquettes */
 :root{--gl:#7a716a;--glm:#4a4541;--tube:#6f9c7e;--agc:#3f4b57;--glow:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--gl:#82c8ee;--glm:#9fd6f4;--tube:#8fd0a0;--agc:#d4dbe2;--glow:drop-shadow(0 0 2px rgba(130,200,238,.2)) drop-shadow(0 0 9px rgba(130,200,238,.16))}}
-:root[data-theme="dark"]{--gl:#82c8ee;--glm:#9fd6f4;--tube:#8fd0a0;--agc:#d4dbe2;--glow:drop-shadow(0 0 2px rgba(130,200,238,.2)) drop-shadow(0 0 9px rgba(130,200,238,.16))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--gl:#82c8ee;--glm:#9fd6f4;--tube:#8fd0a0;--agc:#d4dbe2;--glow:drop-shadow(0 0 1.5px rgba(130,200,238,.12))}}
+:root[data-theme="dark"]{--gl:#82c8ee;--glm:#9fd6f4;--tube:#8fd0a0;--agc:#d4dbe2;--glow:drop-shadow(0 0 1.5px rgba(130,200,238,.12))}
 /* la liste à côté du globe, puis le globe, sans cadre */
 #gbox{position:relative;display:grid;grid-template-columns:168px minmax(0,1fr) 196px;gap:0 14px;align-items:center}
 #gbox .side{align-self:stretch;display:flex;flex-direction:column;gap:14px;padding-top:2px}
@@ -625,6 +626,57 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
   .home #gbox .cap{order:-2}.home #gbox .acts{order:-1;margin:0 0 6px}
   .home #gbox .list{order:3}}
 
+
+/* --- Globes 30/10 : fiche, prévisualisation, frise, découverte guidée --- */
+#gbox .cap .ct{display:block;margin-top:8px;font:500 9px/1.2 var(--f);letter-spacing:.28em;text-transform:uppercase;color:var(--brick)}
+#gbox .cap .mt{display:block;margin-top:4px;font:400 10.5px/1.45 var(--m);color:var(--mute)}
+#gbox .fiche{cursor:default}#gbox .fiche:hover p{color:var(--glm)}#gbox .fiche:hover{border-left-color:var(--glm)}
+#gbox .fiche .rs{margin-top:14px}#gbox .fiche .rs p{margin:0 0 6px}
+#gbox .fiche .rs p.tx{font:300 12.5px/1.6 var(--f);letter-spacing:0;text-transform:none;color:var(--ink);hyphens:manual}
+#gbox .fiche:hover .rs p.tx{color:var(--ink)}
+#gbox .fiche .fa{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:12px}
+#gbox .fiche .op{font:500 10px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:9px 12px}
+#gbox .fiche .op:hover,#gbox .fiche .op:focus-visible{background:var(--ink);color:var(--bg)}
+#gbox .fiche .bk{all:unset;cursor:pointer;font:400 10.5px var(--m);color:var(--mute);border-bottom:1px solid var(--line)}#gbox .fiche .bk:hover,#gbox .fiche .bk:focus-visible{color:var(--ink)}
+#gbox .gin p{margin:0 0 12px;font:300 13px/1.55 var(--f);color:var(--mute);max-width:32ch}
+#gbox .gd-st{all:unset;cursor:pointer;font:500 9.5px/1 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:4px}
+#gbox .gd-st:hover,#gbox .gd-st:focus-visible{border-bottom-color:var(--brick);color:var(--brick)}
+#gbox .gd{margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+#gbox .gd-o{margin:0 0 8px;font:500 8.5px/1.2 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+#gbox .gd-c{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#gbox .gd-c button{all:unset;cursor:pointer;min-width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--line);font:400 12px var(--m);color:var(--ink)}
+#gbox .gd-c .gd-t{padding:0 9px;font:500 9px/1 var(--f);letter-spacing:.18em;text-transform:uppercase}
+#gbox .gd-c button:hover,#gbox .gd-c button:focus-visible{border-color:var(--ink)}#gbox .gd-c button[aria-pressed="true"]{color:var(--brick);border-color:var(--brick)}
+#gbox .gd-c span{font:400 10.5px var(--m);color:var(--mute);min-width:38px;text-align:center}
+#gbox .pv{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;border-left:1px solid var(--line);padding:2px 0 2px 12px}
+#gbox .pv[hidden]{display:none}
+#gbox .pv img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;margin:0 0 10px;background:var(--bg2)}
+#gbox .pv b{display:block;font:300 20px/1.15 var(--f);text-transform:uppercase;letter-spacing:.02em}
+#gbox .pv .ct{display:block;margin-top:6px;font:500 8.5px/1.2 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--brick)}
+#gbox .pv .mt,#gbox .pv .pg{display:block;margin-top:5px;font:400 10.5px/1.45 var(--m);color:var(--mute)}#gbox .pv .pg{color:var(--ink)}
+#gbox .pv:hover,#gbox .pv:focus-visible{border-left-color:var(--brick)}
+#gbox .it:focus-visible{outline:2px solid var(--brick);outline-offset:2px}
+#list.fz-e .it:not([data-c="e"]),#list.fz-c .it:not([data-c="c"]){opacity:.35}#list.fz-e #cA,#list.fz-c #cA{opacity:.35}
+.fz{margin-top:22px;padding-top:10px;border-top:1px solid var(--line)}
+.fz .fz-h{margin:0 0 8px;font:500 9.5px/1 var(--f);letter-spacing:.28em;text-transform:uppercase;color:var(--mute);border:0;padding:0}
+.fz-row{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:62px minmax(0,1fr);align-items:center;gap:8px;width:100%;padding:5px 0}
+.fz-row .fl{font:500 8.5px/1.2 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}.fz-row .fl small{display:block;margin-top:2px;font:400 8.5px var(--m);letter-spacing:0;color:var(--mute)}
+.fz-tr{position:relative;height:14px}
+.fz-tr .fb{position:absolute;top:6px;height:2px;background:var(--line)}
+.fz-tr .tk{position:absolute;top:2px;width:2px;height:10px;margin-left:-1px;background:var(--mute)}
+.fz-tr .tk.s{width:auto;height:2px;top:6px;margin:0}
+.fz-row[data-c="e"] .tk,.fz-row[data-c="c"] .tk{background:var(--brick)}.fz-row[data-c="a"] .tk{background:var(--agc)}
+.fz-row:hover .fb,.fz-row:focus-visible .fb,.fz-row[aria-pressed="true"] .fb{background:var(--ink)}
+.fz-row:focus-visible{outline:2px solid var(--brick);outline-offset:2px}
+.fz-row[aria-pressed="false"].dim{opacity:.4}
+.fz-ax{position:relative;height:14px;margin-left:70px;margin-right:2px;border-top:1px solid var(--line)}
+.fz-ax span{position:absolute;top:3px;transform:translateX(-50%);white-space:nowrap}.fz-ax span:last-child{transform:translateX(-100%)}.fz-ax span:first-child{transform:none}.fz-ax span{font:400 8.5px var(--m);color:var(--mute)}
+.fz-k{margin:6px 0 0;font:400 8.5px/1.4 var(--m);color:var(--mute)}
+.fz-all{all:unset;cursor:pointer;margin-top:8px;font:500 9px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid currentColor;color:var(--ink)}
+.fz-n{margin:6px 0 0;font:400 9px var(--m);color:var(--mute)}
+@media (max-width:1060px){.home #gbox .side{display:flex;flex-direction:column}.home #gbox .gal{order:5}}
+@media (max-width:760px){.home #gbox .side:not(:has(.fiche.on)){display:block}#gbox .fiche .rs p.tx{font-size:14px}#gbox .gin p{max-width:none}}
+@media (max-height:760px) and (min-width:761px){#gbox .pv img{aspect-ratio:2/1}}
 /* page Profil : contact à gauche, texte en chapitres, parcours en bref */
 .pf{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start;max-width:1120px}
 .pf-side{position:sticky;top:80px}.pf-side .ct{margin-top:22px}.pf-side .ct div{grid-template-columns:86px minmax(0,1fr);padding:10px 0}.pf-side .ct dd{font-size:14.5px}
@@ -701,7 +753,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 <a class="skip" href="#accueil" id="skip">Aller au contenu</a>
 <header class="bar gut">
   <div class="wrap">
-    <a class="name" href="#accueil">Yves <span>Micault</span><small>Architecte HMONP</small></a>
+    <a class="name" href="#accueil" title="Retour au Noyau">Yves <span>Micault</span><small>Architecte HMONP</small></a>
     <nav aria-label="Navigation" id="nav">
       <a href="#etudes">Études</a><a href="#concours">Concours</a><a href="#publications">Publications</a><a href="#agence">Agence</a><a href="#parcours">Parcours</a><a href="#profil">Profil</a></nav><div class="bar-r"><button type="button" class="thm" id="thm" aria-label="Passer en mode sombre" title="Jour / nuit"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></button><button type="button" class="lng" id="lng" data-no-i18n data-cur="fr" aria-label="Switch the site to English" title="FR / EN"><span data-l="fr">FR</span><i>/</i><span data-l="en">EN</span></button></div>
   </div>
@@ -714,13 +766,16 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
     <h1 class="sr">Yves Micault, architecte</h1>
     <div>
     <div class="gbox" id="gbox">
-      <div class="list" id="list"><h3><button type="button" class="fo" data-f="e" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Études</button><button type="button" class="tg" data-f="e" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cE"></div><h3 class="c"><button type="button" class="fo" data-f="c" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Concours</button><button type="button" class="tg" data-f="c" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cC"></div><h3 class="a"><button type="button" class="fo" data-f="a" aria-expanded="false" title="Déplier ou replier la liste"><i></i>Agence <em id="agN"></em></button><button type="button" class="tg" data-f="a" aria-pressed="false" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cA" class="off fold" aria-label="Projets d’agence"></div></div>
+      <div class="list" id="list"><h3><button type="button" class="fo" data-f="e" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Études</button><button type="button" class="tg" data-f="e" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cE"></div><h3 class="c"><button type="button" class="fo" data-f="c" aria-expanded="true" title="Déplier ou replier la liste"><i></i>Concours</button><button type="button" class="tg" data-f="c" aria-pressed="true" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cC"></div><h3 class="a"><button type="button" class="fo" data-f="a" aria-expanded="false" title="Déplier ou replier la liste"><i></i>Agence <em id="agN"></em></button><button type="button" class="tg" data-f="a" aria-pressed="false" aria-label="Afficher sur le globe" title="Afficher ou masquer sur le globe"><u></u></button></h3><div id="cA" class="off fold" aria-label="Projets d’agence"></div><div class="fz" id="fz"><h3 class="fz-h">Chronologie</h3><div id="fzR"></div><div class="fz-ax" id="fzAx" aria-hidden="true"></div><p class="fz-k">trait plein : ordre chronologique · pointillé : même période</p><button type="button" class="fz-all" id="fzAll" hidden>Tout afficher</button><p class="fz-n" id="fzN" hidden></p></div></div>
       <div class="stage" id="stage">
         <div class="gl" id="gl"></div>
         <canvas id="fx" aria-hidden="true"></canvas>
         <p class="empty" id="empty"></p>
       </div>
       <div class="side">
+        <div class="gin" id="gin"><p>Ce globe situe mes projets d’études, mes concours et mes projets en agence. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.</p><button type="button" class="gd-st" id="gdSt">Découvrir les projets <i>→</i></button></div>
+        <div class="gd" id="gd" role="group" aria-label="Découverte guidée" hidden><p class="gd-o">Études puis concours, par date</p><div class="gd-c"><button type="button" id="gdP" aria-label="Projet précédent">←</button><span id="gdN" aria-live="polite">1 / 8</span><button type="button" id="gdNx" aria-label="Projet suivant">→</button><button type="button" id="gdA" class="gd-t" aria-pressed="false">Lecture</button><button type="button" id="gdX" class="gd-t">Quitter</button></div></div>
+        <button type="button" class="pv" id="pv" hidden></button>
         <div class="cap"><b id="tit"></b><span id="sub"></span></div><span class="hint" id="coord"></span>
         <div class="fiche" id="fiche" aria-live="polite"></div><div class="gal" id="gal" hidden></div></div>
       <svg id="ov" aria-hidden="true"></svg>
@@ -1474,14 +1529,14 @@ const D2R=Math.PI/180;
 /* ---------- les lieux ---------- */
 const TRANSSIB=[[55.75,37.62],[56.13,40.41],[56.33,44.0],[58.6,49.66],[58.01,56.25],[56.84,60.6],[57.15,65.53],[54.98,73.37],[55.03,82.92],[56.01,92.87],[52.29,104.3],[51.83,107.6],[52.03,113.5],[50.27,127.53],[48.48,135.08],[43.12,131.9]];
 const P=[
-  {k:"varese",f:"e",t:"Sospesa",c:"Varèse, Italie",s:"Master 1 · S7 · 2013–2014",id:[["Nature","Projet de gare"],["Programme","Passerelle de liaison, espace paysager, espace public"],["Surface","6 400 m²"],["Emplacement","Gares de Varese FS et Varese Nord, Varèse, Italie"]],ll:[45.817924,8.834408]},
-  {k:"agri",f:"e",t:"Champ libre",c:"Clermont-Ferrand",s:"Master 1 · S8 · 2013–2014",id:[["Nature","Projet urbain"],["Programme","1 500 logements, centre de recherche, centre de formation, fermes-ponts, parc-pâturage"],["Surface","33 ha"],["Emplacement","Usines Michelin, Clermont-Ferrand"]],ll:[45.792941,3.102708]},
-  {k:"terminus",f:"e",t:"Terminus",c:"Ishøj, Copenhague",s:"PFE · 2015–2016",id:[["Nature","Équipement, projet de fin d’études"],["Programme","Usine de macroalgues, médiathèque, auberge de jeunesse pour 70 personnes ; en temps 2, base nautique et bains"],["Surface","4 000 m²"],["Emplacement","Ishøj, Copenhague, Danemark"]],ll:[55.606664,12.37673]},
-  {k:"elle",f:"e",t:"Elle",c:"Glostrup, Copenhague",s:"PFE · 2015–2016",id:[["Nature","Tour mixte, projet de fin d’études"],["Programme","Usine de microalgues, restaurant, musée, jardinerie, serre tropicale, bureaux, logements"],["Surface","12 000 m²"],["Emplacement","Glostrup, Copenhague, Danemark"]],ll:[55.658003,12.365585]},
-  {k:"ventres",f:"c",t:"Petits ventres-villes",c:"Limoges",s:"Europan 16 · 2021",id:[["Nature","Concours Europan 16, mentionné"],["Programme","Projet urbain : places, logements, halle, salle de concert, recyclerie"],["Surface","—"],["Emplacement","Limoges, France"]],ll:[45.833,1.262]},
-  {k:"crank",f:"c",t:"The Crank House",c:"Mothe-Chandeniers",s:"Concours d’idées · 2020",id:[["Nature","Concours d’idées"],["Programme","Cabane nomade"],["Surface","40 m² de planchers"],["Emplacement","Châteaux de Mothe-Chandeniers, Ébaupinay, Vibrac"]],ll:[47.054,0.035]},
-  {k:"siberian",f:"c",t:"Siberian Spotlight",c:"le long du Transsibérien",s:"Bee Breeders · 2016",id:[["Nature","Concours Bee Breeders, mention honorable"],["Programme","Halte le long du Transsibérien (Transiberian Pit Stops)"],["Surface","80 m² d’emprise"],["Emplacement","Le long du Transsibérien, Russie"]],ll:[55.03,82.92],route:1},
-  {k:"equilibrium",f:"c",t:"Equilibrium",c:"Sagres, Portugal",s:"ArkxSite · 2016",id:[["Nature","Concours d’idées ArkxSite « Site Landmark »"],["Programme","Landmark site : parcours en acier Corten, espaces d’exposition, toilettes, stockage"],["Surface","—"],["Emplacement","Sagres, Portugal"]],ll:[37.009,-8.94]}];
+  {k:"varese",m:"Varèse, Italie · Master 1, S7 · 2013–2014",r:"À Varèse, deux gares proches restent séparées par les voies et la topographie. Sospesa les réunit par une structure de béton dont les plateaux et les rampes deviennent une traversée publique entre les quartiers. Une forêt urbaine remplace l’emprise asphaltée, tandis que le stationnement est regroupé dans un silo. La gare associe ainsi mobilités, paysage et espaces ouverts à des usages évolutifs.",y0:2013,y1:2014,o:1,f:"e",t:"Sospesa",c:"Varèse, Italie",s:"Master 1 · S7 · 2013–2014",id:[["Nature","Projet de gare"],["Programme","Passerelle de liaison, espace paysager, espace public"],["Surface","6 400 m²"],["Emplacement","Gares de Varese FS et Varese Nord, Varèse, Italie"]],ll:[45.817924,8.834408]},
+  {k:"agri",m:"Clermont-Ferrand · Master 1, S8 · 2013–2014",r:"Sur les 33 hectares d’une ancienne emprise Michelin, Champ libre transforme une enclave industrielle en territoire habité et productif. Le projet associe 1 500 logements, patrimoine reconverti, parc et agriculture urbaine. Des fermes-ponts franchissent le paysage et rapprochent culture, élevage, transformation et distribution. À travers l’eau de la Tiretaine, la valorisation des déchets et la culture hydroponique, il explore une ville capable de produire une part de ses ressources.",y0:2013,y1:2014,o:2,f:"e",t:"Champ libre",c:"Clermont-Ferrand",s:"Master 1 · S8 · 2013–2014",id:[["Nature","Projet urbain"],["Programme","1 500 logements, centre de recherche, centre de formation, fermes-ponts, parc-pâturage"],["Surface","33 ha"],["Emplacement","Usines Michelin, Clermont-Ferrand"]],ll:[45.792941,3.102708]},
+  {k:"terminus",m:"Ishøj, Copenhague · PFE en équipe à trois · 2015–2016",r:"À Ishøj, au débouché du Lightrail sur le littoral, Terminus associe une usine expérimentale de macroalgues à une médiathèque et une auberge de jeunesse. Un pipeline guide le parcours vers un quai sur pilotis, entre marais et bassin. L’architecture de métal et de polycarbonate anticipe une seconde vie : après le déplacement de l’usine, les espaces productifs accueillent une base nautique et des bains.",y0:2015,y1:2016,o:0,f:"e",t:"Terminus",c:"Ishøj, Copenhague",s:"PFE · 2015–2016",id:[["Nature","Équipement, projet de fin d’études"],["Programme","Usine de macroalgues, médiathèque, auberge de jeunesse pour 70 personnes ; en temps 2, base nautique et bains"],["Surface","4 000 m²"],["Emplacement","Ishøj, Copenhague, Danemark"]],ll:[55.606664,12.37673]},
+  {k:"elle",m:"Glostrup, Copenhague · PFE en équipe à trois · 2015–2016",r:"À Glostrup, Elle transforme le parcours vers la gare en jardin botanique et installe une usine de microalgues à l’articulation des quartiers résidentiels et industriels. Le projet associe production, équipements ouverts au public, bureaux et logements. Une barre traversée par le parc se redresse en tour ; l’ensemble met en relation les ressources du voisinage, la découverte des procédés de culture et de nouvelles manières d’habiter la frange industrielle.",y0:2015,y1:2016,o:0,f:"e",t:"Elle",c:"Glostrup, Copenhague",s:"PFE · 2015–2016",id:[["Nature","Tour mixte, projet de fin d’études"],["Programme","Usine de microalgues, restaurant, musée, jardinerie, serre tropicale, bureaux, logements"],["Surface","12 000 m²"],["Emplacement","Glostrup, Copenhague, Danemark"]],ll:[55.658003,12.365585]},
+  {k:"ventres",m:"Limoges · Europan 16 · mentionné · collectif ITERA · mars 2021",r:"À Limoges, Les petits ventres-villes prend appui sur les vides, les mémoires et les édifices existants pour renouer les liens entre le centre historique et la Vienne. Places, jardins et passages composent une traversée publique, tandis que le manège, les friches GRDF et le site ENEDIS accueillent de nouveaux usages. Réhabilitation, réemploi et désimperméabilisation soutiennent une transformation progressive, attentive aux ressources du quartier.",y0:2021,y1:2021,o:0,f:"c",t:"Les petits ventres-villes",c:"Limoges",s:"Europan 16 · 2021",id:[["Nature","Concours Europan 16, mentionné"],["Programme","Projet urbain : places, logements, halle, salle de concert, recyclerie"],["Surface","—"],["Emplacement","Limoges, France"]],ll:[45.833,1.262]},
+  {k:"crank",m:"YAC · Tree House Module · juin 2020 · sites de châteaux, dont Mothe-Chandeniers",r:"The Crank House réinterprète la cabane comme une architecture nomade, modulaire et manipulable. Derrière une enveloppe de bois brûlé, manivelles, poulies et panneaux mobiles permettent à l’habitant de régler son ouverture au paysage. Des modules de vie, de repos et de service s’assemblent autour d’un noyau technique, sur une ossature légère en acier. Le dispositif s’adapte à différentes implantations, suspendu au contact des arbres ou porté par une structure autonome.",y0:2020,y1:2020,o:0,f:"c",t:"The Crank House",c:"Mothe-Chandeniers",s:"Concours d’idées · 2020",id:[["Nature","Concours d’idées"],["Programme","Cabane nomade"],["Surface","40 m² de planchers"],["Emplacement","Châteaux de Mothe-Chandeniers, Ébaupinay, Vibrac"]],ll:[47.054,0.035]},
+  {k:"siberian",m:"Bee Breeders · Transiberian Pit Stops · mention honorable · novembre 2016",r:"Pensé pour les abords des grandes gares du Transsibérien, Siberian Spotlight propose une halte d’accueil et d’information touristique. Son enveloppe translucide devient un repère lumineux la nuit, tandis qu’un intérieur en mélèze de Sibérie évoque la chaleur des isbas. Une trame métallique régulière organise structure et mobilier ; la collecte des pluies et de la fonte des neiges complète un dispositif léger, préfabriqué et reproductible le long du voyage.",y0:2016,y1:2016,o:0,f:"c",t:"Siberian Spotlight",c:"le long du Transsibérien",s:"Bee Breeders · 2016",id:[["Nature","Concours Bee Breeders, mention honorable"],["Programme","Halte le long du Transsibérien (Transiberian Pit Stops)"],["Surface","80 m² d’emprise"],["Emplacement","Le long du Transsibérien, Russie"]],ll:[55.03,82.92],route:1},
+  {k:"equilibrium",m:"Sagres, Portugal · ArkxSite · Site Landmark · 2016",r:"Sur les falaises de Sagres, Equilibrium transforme la découverte du paysage en parcours architectural. Sa géométrie triangulaire met en relation le cap Saint-Vincent et les forteresses de Beliche et de Sagres. Un cheminement en acier Corten alterne ancrage dans la roche et avancées vers le vide, tandis que des espaces d’exposition s’inscrivent dans le relief. Le projet explore l’équilibre entre terre, mer et ciel à travers le déplacement du visiteur.",y0:2016,y1:2016,o:0,f:"c",t:"Equilibrium",c:"Sagres, Portugal",s:"ArkxSite · 2016",id:[["Nature","Concours d’idées ArkxSite « Site Landmark »"],["Programme","Landmark site : parcours en acier Corten, espaces d’exposition, toilettes, stockage"],["Surface","—"],["Emplacement","Sagres, Portugal"]],ll:[37.009,-8.94]}];
 
 /* ---------- géométries schématiques (mètres) ---------- */
 function seg(a,b,o){o.push(a[0],a[1],a[2],b[0],b[1],b[2])}
@@ -1596,7 +1651,7 @@ function angDist(a,b){const p1=a[0]*D2R,p2=b[0]*D2R,dl=(b[1]-a[1])*D2R;return Ma
 function fmtLL(ll){return Math.abs(ll[0]).toFixed(3)+"° "+(ll[0]>=0?"N":"S")+" · "+Math.abs(ll[1]).toFixed(3)+"° "+(ll[1]>=0?"E":"O")}
 let AG=[],acur=-1,WH=null;const VIS={e:1,c:1,a:0};const selI=()=>acur>=0?100+acur:cur;
 function marks(){document.querySelectorAll(".it").forEach(b=>{const i=+b.dataset.i;b.classList.toggle("on",i===selI());b.classList.toggle("hot",i===hov)})}
-function caption(i){if(i<0){$("tit").textContent="";$("sub").textContent="";return}if(i>=100){const a=AG[i-100];$("tit").textContent=a.t;$("sub").textContent=(a.t!==a.c?a.c+" · ":"")+a.y;return}$("tit").textContent=P[i].t;$("sub").textContent=P[i].s}
+function caption(i){if(i<0){$("tit").textContent="";$("sub").textContent="";return}if(i>=100){const a=AG[i-100];$("tit").textContent=a.t;$("sub").textContent=(a.t!==a.c?a.c+" · ":"")+a.y;return}$("tit").textContent=P[i].t;$("sub").innerHTML='<span class="ct">'+(P[i].f==="e"?"Projet d’études":"Concours")+'</span><span class="mt">'+P[i].m+"</span>"}
 // la plongée : le globe tourne vers le lieu, on descend, la vue s'incline et la maquette s'imprime sur place
 const WARM={varese:["varese.json","varese_env.json"],agri:["agri.json","agri_life.json?v=117"],terminus:["terminus.json?v=120"],elle:["elle.json"],ventres:["ventres.json?v=6"],crank:["crank.json?v=1"],siberian:["siberian.json?v=3"],equilibrium:["equilibrium.json?v=1"]},warmed={};
 function warm(k){if(warmed[k]||!WARM[k])return;warmed[k]=1;WARM[k].forEach(f=>{try{fetch("data/"+f,{priority:"low"}).catch(()=>{})}catch(e){}})}   // précharge la maquette dès qu'un projet est survolé ou choisi
@@ -1604,7 +1659,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){var f=docum
 function toStage(){if(innerWidth<=760){scrollTo({top:0,behavior:"smooth"});setTimeout(()=>{if(scrollY>4)scrollTo({top:0,behavior:"smooth"})},350)}}
 function choose(i){toStage();if(P[i])warm(P[i].k);if(i>=100)return chooseAg(i-100);if(i===cur&&mode==="site")return;acur=-1;$("fiche").classList.remove("ag");const p=P[i],prev=cur;cur=i;marks();caption(i);$("go").hidden=false;$("go").href=hrefFor(p);$("back").hidden=false;
   $("coord").textContent=p.route?"le long du Transsibérien":fmtLL(p.ll);
-  fiche(-1);const s={...V},dl=wrap(p.ll[1]-V.lon),fromSite=mode!=="globe",far=angDist([V.lat,V.lon],p.ll);
+  fiche(i);const s={...V},dl=wrap(p.ll[1]-V.lon),fromSite=mode!=="globe",far=angDist([V.lat,V.lon],p.ll);
   const hz=(p.hz||HZ)*(innerWidth<=760?.72:1),tz=(p.tz!=null?p.tz:TZ)*D2R,lz=15*S*.5;  // même cadrage pour toutes les maquettes : le disque arrive toujours à la même taille (calé sur Terminus)  // on vise le milieu de la hauteur de la maquette
   const bump=fromSite?Math.min(220,20+far*6):0,T=reduce?1:(fromSite?2300:2000);let swapped=false;mode="dive";
   if(!fromSite){placeSite(p.ll);setModel(null);V.ha=0}
@@ -1615,24 +1670,24 @@ function choose(i){toStage();if(P[i])warm(P[i].k);if(i>=100)return chooseAg(i-10
       V.ha=t<.5?s.ha*(1-seg01(t,0,.15)):seg01(t,.7,.85);streak=0}
     else{const up=ease(seg01(t,.45,1));V.tau=lerp(s.tau,tz,up);V.lk=lerp(s.lk,lz,up);V.ha=seg01(t,.62,.8);streak=.5*seg01(t,.2,.5)*(1-seg01(t,.5,.75))}
     if(!swapped&&t>(fromSite?.5:.6)){swapped=true;placeSite(p.ll);setModel(p.k);printing=true}
-    if(t>=1){mode="site";streak=0;fiche(i)}}}}
+    if(t>=1){mode="site";streak=0}}}}
 function back(){fiche(-1);const s={...V};mode="dive";
   tw={t0:performance.now(),T:reduce?1:1500,step(t){const e=ease(seg01(t,.1,1)),d=ease(seg01(t,0,.5));V.ha=s.ha*(1-seg01(t,0,.25));V.tau=lerp(s.tau,0,d);V.lk=lerp(s.lk,0,d);V.h=lerp(s.h,H0,e);
     if(t>=1){mode="globe";cur=-1;acur=-1;$("fiche").classList.remove("ag");marks();caption(-1);$("go").hidden=true;$("back").hidden=true;$("coord").textContent="";setModel(null)}}}}
 $("back").addEventListener("click",back);
-$("fiche").addEventListener("click",()=>{if(cur>=0&&mode==="site")location.hash=hrefFor(P[cur])});   // cliquer sur la fiche = ouvrir le projet
-$("fiche").addEventListener("pointerenter",()=>discLit(true));$("fiche").addEventListener("pointerleave",()=>discLit(false));
+// ouverture du projet : seulement par une action explicite (bouton de la fiche, mot sur le disque)
 $("tF").addEventListener("click",()=>{if(cur>=0)location.hash=hrefFor(P[cur])});$("tB").addEventListener("click",back);
 $("tF").addEventListener("keydown",e=>{if(e.key==="Enter"&&cur>=0)location.hash=hrefFor(P[cur])});$("tB").addEventListener("keydown",e=>{if(e.key==="Enter")back()});
 $("tF").addEventListener("pointerenter",()=>discLit(true));$("tF").addEventListener("pointerleave",()=>discLit(false));
 function fiche(i){const F=$("fiche");gallery(i);if(i<0){F.classList.remove("on","vis");return}const p=P[i];
-  F.innerHTML="<p>Fiche</p><dl>"+p.id.map(([a,b])=>"<div><dt>"+a+"</dt><dd>"+b+"</dd></div>").join("")+"</dl>";F.classList.add("on");requestAnimationFrame(()=>F.classList.add("vis"))}
+  F.innerHTML="<p>Fiche</p><dl>"+p.id.map(([a,b])=>"<div><dt>"+a+"</dt><dd>"+b+"</dd></div>").join("")+"</dl>"+(p.r?'<div class="rs"><p>Résumé</p><p class="tx">'+p.r+"</p></div>":"")+'<div class="fa"><a class="op" href="'+hrefFor(p)+'">Ouvrir le projet →</a><button type="button" class="bk">Retour au globe</button></div>';
+  F.querySelector(".bk").addEventListener("click",back);F.classList.add("on");requestAnimationFrame(()=>F.classList.add("vis"))}
 
 /* ---------- la liste ---------- */
-P.forEach((p,i)=>{const b=document.createElement("button");b.type="button";b.className="it";b.dataset.i=i;b.innerHTML="<b>"+p.t+"</b><span>"+p.c+"</span>";
+P.forEach((p,i)=>{const b=document.createElement("button");b.type="button";b.className="it";b.dataset.i=i;b.dataset.c=p.f;b.innerHTML="<b>"+p.t+"</b><span>"+p.c+"</span>";
   b.addEventListener("click",()=>choose(i));b.addEventListener("pointerenter",()=>{setHov(i);if(P[i])warm(P[i].k)});b.addEventListener("pointerleave",()=>setHov(-1));b.addEventListener("focus",()=>setHov(i));b.addEventListener("blur",()=>setHov(-1));
   $(p.f==="e"?"cE":"cC").appendChild(b)});
-function setHov(i){if(hov===i)return;hov=i;marks();if(cur<0&&acur<0)caption(i)}
+function setHov(i){if(hov===i)return;hov=i;marks();preview(i)}
 // projet d'agence : pas de maquette ; le globe tourne vers la ville, se rapproche un peu, la fiche courte s'ouvre
 const HMU="https://hamonic-masson.com/projet/";
 function chooseAg(k){toStage();if(mode==="dive")return;if(mode==="site"){back();setTimeout(()=>chooseAg(k),reduce?20:1550);return}
@@ -1659,11 +1714,81 @@ fetch("data/globe/agence.json").then(r=>r.json()).then(j=>{AG=j.p;$("agN").textC
     WH=YMWheel(C,items,{rows,rowH,onCenter:k=>{if(wIn||document.activeElement===C)setHov(100+k)},onPick:k=>chooseAg(k)});
     if(keep)WH.go(keep);
     C.addEventListener("pointerleave",()=>{wIn=false;setHov(-1)});C.addEventListener("pointerenter",()=>{wIn=true;setHov(100+WH.get())});C.addEventListener("blur",()=>setHov(-1))};
-  agBuild();size()});
+  agBuild();size();buildFrise()});
 document.querySelectorAll("#list .fo").forEach(b=>b.addEventListener("click",()=>{const o=b.getAttribute("aria-expanded")!=="true";b.setAttribute("aria-expanded",o);$({e:"cE",c:"cC",a:"cA"}[b.dataset.f]).classList.toggle("fold",!o);fitStage()}));
 document.querySelectorAll("#list .tg").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.f,on=!VIS[f];VIS[f]=on?1:0;b.setAttribute("aria-pressed",on);$({e:"cE",c:"cC",a:"cA"}[f]).classList.toggle("off",!on)}));
 
 
+
+/* ---------- Globes 30/10 : prévisualisation, frise, constellations, découverte guidée ---------- */
+let lastAct=-1e9,fcat=null,gdOn=false,gdK=0,gdT=null,pvT=null,pvIn=false;
+const gboxEl=$("gbox"),act=()=>{lastAct=performance.now()};
+["pointerdown","pointermove","wheel","keydown","focusin","touchstart"].forEach(t=>gboxEl.addEventListener(t,act,{passive:true}));
+function sideState(){const sel=cur>=0||acur>=0;$("gin").hidden=sel||gdOn||!$("pv").hidden;if(sel){$("pv").hidden=true}}
+const _marks=marks;marks=function(){_marks();sideState()};
+function pvHide(){const v=$("pv");v.hidden=true;v.innerHTML="";sideState()}
+function preview(i){clearTimeout(pvT);if(i<0){pvT=setTimeout(()=>{if(!pvIn)pvHide()},500);return}if(cur>=0||acur>=0)return;
+  const v=$("pv");let h="";
+  if(i>=100){const a=AG[i-100];if(!a)return;const im=a.u&&a.img&&a.img.length?"img/agx/"+a.img[0]+".jpg":"";
+    h=(im?'<img src="'+im+'" alt="">':"")+"<b>"+a.t+'</b><span class="ct">Agence · Hamonic+Masson</span><span class="mt">'+(a.t!==a.c?a.c+" · ":"")+a.y+'</span><span class="pg">'+a.n+"</span>"}
+  else{const p=P[i],g=imgsFor(p)[0],pr=(p.id.find(x=>x[0]==="Programme")||[])[1]||"";
+    h=(g?'<img src="'+g.th+'" alt="">':"")+"<b>"+p.t+'</b><span class="ct">'+(p.f==="e"?"Projet d’études":"Concours")+'</span><span class="mt">'+p.m+'</span><span class="pg">'+pr+"</span>"}
+  v.innerHTML=h;v.dataset.i=i;v.setAttribute("aria-label",(i>=100?AG[i-100].t:P[i].t)+" : afficher la fiche");v.hidden=false;sideState()}
+$("pv").addEventListener("pointerenter",()=>{pvIn=true;clearTimeout(pvT)});$("pv").addEventListener("pointerleave",()=>{pvIn=false;preview(-1)});
+$("pv").addEventListener("click",()=>{const i=+$("pv").dataset.i;pvIn=false;pvHide();choose(i)});
+// Échap : quitte la découverte, puis la constellation, puis la sélection
+addEventListener("keydown",e=>{if(e.key!=="Escape"||home.hidden||VW.classList.contains("on")||document.querySelector(".g3.fs"))return;
+  if(gdOn)return gdStop();if(cur>=0||acur>=0){if(mode==="site")back();else if(acur>=0)resetGlobe();return}if(fcat)setCat(null)});
+
+/* frise : un axe commun, une barrette par catégorie, bornes lues dans les données */
+const CATS=[["e","Études"],["c","Concours"],["a","Agence"]];
+function catItems(c){if(c==="a")return AG.map((p,k)=>({i:100+k,p,y0:+String(p.y).slice(0,4)||null,y1:+String(p.y).slice(-4)||null,o:k}));
+  return P.map((p,i)=>({i,p,y0:p.y0,y1:p.y1,o:p.o})).filter(x=>x.p.f===c)}
+function chron(c){return catItems(c).filter(x=>x.y0).sort((a,b)=>a.y0-b.y0||a.y1-b.y1||(a.o&&b.o?a.o-b.o:0))}
+const grpKey=x=>x.y0+"-"+x.y1+"-"+(x.p.f?x.o:0);   // même clé = même période connue, sans ordre entre eux
+function buildFrise(){const all=CATS.flatMap(([c])=>chron(c));if(!all.length)return;
+  const A=Math.min(...all.map(x=>x.y0)),B=Math.max(...all.map(x=>x.y1))+1,X=y=>((y-A)/(B-A)*100).toFixed(2)+"%";
+  let miss=0;const R=$("fzR");R.innerHTML="";
+  for(const [c,lab] of CATS){const L=chron(c);miss+=catItems(c).length-L.length;if(!L.length)continue;const a=L[0].y0,b=Math.max(...L.map(x=>x.y1));
+    const G={};L.forEach(x=>{const k=x.y0+"-"+x.y1;(G[k]=G[k]||{y0:x.y0,y1:x.y1,n:[]}).n.push(x.p.t)});
+    const tk=Object.values(G).map(g=>{const w=(g.y1+1-g.y0)/(B-A)*100;return '<i class="tk'+(g.y1>g.y0?" s":"")+'" style="left:'+X(g.y0)+(g.y1>g.y0?";width:"+w.toFixed(2)+"%":";left:calc("+X(g.y0)+" + "+(50/(B-A)).toFixed(2)+"%)")+'" title="'+(g.y0===g.y1?g.y0:g.y0+"–"+g.y1)+" : "+g.n.join(", ").replace(/"/g,"&quot;")+'"></i>'}).join("");
+    const btn=document.createElement("button");btn.type="button";btn.className="fz-row";btn.dataset.c=c;btn.setAttribute("aria-pressed","false");
+    btn.innerHTML='<span class="fl">'+lab+"<small>"+(a===b?a:a+"–"+b)+'</small></span><span class="fz-tr"><i class="fb" style="left:'+X(a)+";width:"+((b+1-a)/(B-A)*100).toFixed(2)+'%"></i>'+tk+"</span>";
+    btn.addEventListener("click",()=>setCat(fcat===c?null:c));R.appendChild(btn)}
+  const ax=[];for(let y=A;y<=B;y++)if(y===A||y===B-1||(y-A)%4===0&&B-1-y>2&&y-A>2)ax.push('<span style="left:'+X(y+.5)+'">'+y+"</span>");$("fzAx").innerHTML=ax.join("");
+  const n=$("fzN");n.hidden=!miss;if(miss)n.textContent=miss+" projet(s) sans date vérifiée : accessibles par les listes"}
+function setCat(c){fcat=c;$("fzAll").hidden=!c;document.querySelectorAll(".fz-row").forEach(b=>{b.setAttribute("aria-pressed",b.dataset.c===c);b.classList.toggle("dim",!!c&&b.dataset.c!==c)});
+  const Lc=$("list");Lc.classList.remove("fz-e","fz-c","fz-a");if(c)Lc.classList.add("fz-"+c);if(!c)return;
+  const go=()=>{const L=chron(c);if(!L.length)return;let x=0,y=0,z=0;L.forEach(o=>{const la=o.p.ll[0]*D2R,lo=o.p.ll[1]*D2R;x+=Math.cos(la)*Math.cos(lo);y+=Math.cos(la)*Math.sin(lo);z+=Math.sin(la)});
+    const lat=clamp(Math.atan2(z,Math.hypot(x,y))/D2R,-60,75),lon=Math.atan2(y,x)/D2R,s={...V},dl=wrap(lon-V.lon);mode="dive";
+    tw={t0:performance.now(),T:reduce?1:1400,step(t){const e=ease(t);V.lat=lerp(s.lat,lat,e);V.lon=s.lon+dl*e;V.h=lerp(s.h,H0,e);V.tau=lerp(s.tau,0,e);V.lk=lerp(s.lk,0,e);if(t>=1)mode="globe"}}};
+  if(mode==="site"){back();setTimeout(go,reduce?20:1550)}else if(mode==="globe"){if(acur>=0){acur=-1;ficheAg(-1);$("back").hidden=true;$("coord").textContent="";caption(-1);marks()}go()}}
+$("fzAll").addEventListener("click",()=>setCat(null));
+// traits fins entre projets successifs : arcs de grand cercle, coupés sur la face cachée du globe
+function ll2v(ll){const a=ll[0]*D2R,b=ll[1]*D2R;return [Math.cos(a)*Math.cos(b),Math.cos(a)*Math.sin(b),Math.sin(a)]}
+function constel(){const L=chron(fcat);if(L.length<2)return "";const col=fcat==="a"?css("--agc"):css("--brick");let s="";
+  for(let k=0;k+1<L.length;k++){const A=ll2v(L[k].p.ll),B=ll2v(L[k+1].p.ll),om=Math.acos(clamp(A[0]*B[0]+A[1]*B[1]+A[2]*B[2],-1,1)),same=grpKey(L[k])===grpKey(L[k+1]);if(om<1e-4)continue;
+    let d="",pen=false;const N=Math.max(6,Math.ceil(om/D2R/3));
+    for(let j=0;j<=N;j++){const t=j/N,a=Math.sin((1-t)*om)/Math.sin(om),b=Math.sin(t*om)/Math.sin(om),v=[A[0]*a+B[0]*b,A[1]*a+B[1]*b,A[2]*a+B[2]*b];
+      const m=proj([Math.asin(clamp(v[2],-1,1))/D2R,Math.atan2(v[1],v[0])/D2R],GR*1.001),rr=Math.hypot(m.x-W/2,m.y-Hh/2)/(Math.min(W,Hh)/2);
+      if(m.vis>.03&&rr<.86&&m.z<=1){d+=(pen?"L":"M")+(m.x+box0.x).toFixed(1)+" "+(m.y+box0.y).toFixed(1);pen=true}else pen=false}
+    if(d)s+='<path d="'+d+'" fill="none" stroke="'+col+'" stroke-width="1.1" opacity=".85"'+(same?' stroke-dasharray="2 3"':"")+"/>"}
+  return s}
+
+/* découverte guidée : manuelle par défaut, lecture automatique seulement sur demande */
+const GD=chron("e").concat(chron("c")).map(x=>x.i);
+function gdShow(){$("gdN").textContent=(gdK+1)+" / "+GD.length}
+function gdGo(k){gdK=(k+GD.length)%GD.length;gdShow();choose(GD[gdK])}
+function gdAuto(on){clearInterval(gdT);gdT=null;$("gdA").setAttribute("aria-pressed",on);$("gdA").textContent=on?"Pause":"Lecture";
+  if(on)gdT=setInterval(()=>{if(gdK>=GD.length-1)return gdAuto(false);gdGo(gdK+1)},reduce?8000:11000)}
+function gdStart(){gdOn=true;$("gd").hidden=false;sideState();const k=GD.indexOf(cur);gdGo(k>=0?k:0);$("gdNx").focus()}
+function gdStop(){gdAuto(false);gdOn=false;$("gd").hidden=true;sideState()}
+$("gdSt").addEventListener("click",gdStart);$("gdX").addEventListener("click",gdStop);
+$("gdP").addEventListener("click",()=>{gdAuto(false);gdGo(gdK-1)});$("gdNx").addEventListener("click",()=>{gdAuto(false);gdGo(gdK+1)});
+$("gdA").addEventListener("click",()=>gdAuto(!gdT));
+// toute autre interaction arrête la lecture automatique ; un choix hors parcours garde le compteur juste
+["pointerdown","wheel","keydown"].forEach(t=>gboxEl.addEventListener(t,e=>{if(gdT&&!e.target.closest("#gd"))gdAuto(false)},{passive:true}));
+const _choose=choose;choose=function(i){if(gdOn){const k=GD.indexOf(i);if(k>=0){gdK=k;gdShow()}else gdStop()}return _choose(i)};
 /* ---------- taille ---------- */
 let W=1,Hh=1,box0={x:0,y:0},anc=[],leaders=true;const fx=$("fx"),fc=fx.getContext("2d"),ov=$("ov");
 function size(){if(!host.clientWidth||!host.clientHeight)return;W=host.clientWidth;Hh=host.clientHeight;R.setSize(W,Hh,false);cam.aspect=W/Hh;cam.updateProjectionMatrix();
@@ -1681,10 +1806,10 @@ function proj(ll,r){tmp.set(...v3(ll[0],ll[1],r)).applyMatrix4(globe.matrixWorld
   const vis=nrm.dot(camN.copy(cam.position).sub(tmp).normalize());tmp.project(cam);return {x:(tmp.x+1)/2*W,y:(1-tmp.y)/2*Hh,vis,z:tmp.z}}
 function overlay(){let s="";const brick=css("--brick"),ag=css("--agc"),L=[];
   const AN={};for(const a of anc)AN[a.i]=a;
-  const IT=P.map((p,i)=>({i,p})).filter(o=>VIS[o.p.f]||o.i===cur).concat(VIS.a||acur>=0||hov>=100?AG.map((p,k)=>({i:100+k,p})).filter(o=>VIS.a||o.i===100+acur||o.i===hov):[]);
+  const IT=P.map((p,i)=>({i,p})).filter(o=>VIS[o.p.f]||o.p.f===fcat||o.i===cur).concat(VIS.a||fcat==="a"||acur>=0||hov>=100?AG.map((p,k)=>({i:100+k,p})).filter(o=>VIS.a||fcat==="a"||o.i===100+acur||o.i===hov):[]);
   for(const it of IT){const p=it.p,a=AN[it.i]||(it.i>=100&&wAnc?{i:it.i,x:wAnc.x,y:wAnc.y}:{i:it.i,x:-1,y:-1,no:1}),m=proj(p.ll,GR);if(m.z>1)continue;if(V.ha>.3&&a.i!==cur)continue;  // sur la maquette, les autres points se taisent
     const rr=Math.hypot(m.x-W/2,m.y-Hh/2)/(Math.min(W,Hh)/2);// au-delà du bord du globe, les points disparaissent
-    const v=clamp((m.vis-.02)/.2,0,1)*clamp((.9-rr)/.12,0,1);if(v<=0)continue;L.push({a,p,x:m.x,y:m.y,v})}
+    let v=clamp((m.vis-.02)/.2,0,1)*clamp((.9-rr)/.12,0,1);if(v<=0)continue;if(fcat&&(p.f||"a")!==fcat&&it.i!==cur&&it.i!==hov)v*=.25;L.push({a,p,x:m.x,y:m.y,v})}
   // les points trop proches (Terminus et Elle) s'écartent un peu pour rester lisibles
   for(let k=0;k<4;k++)for(let i=0;i<L.length;i++)for(let j=i+1;j<L.length;j++){const A=L[i],B=L[j];let dx=B.x-A.x,dy=B.y-A.y,d=Math.hypot(dx,dy);const MIN=(A.p.f===undefined&&B.p.f===undefined?6:11)*(1-V.ha*.5);
     if(d<MIN){if(d<.01){dx=1;dy=-1;d=1.41}const push=(MIN-d)/2;dx/=d;dy/=d;A.x-=dx*push;A.y-=dy*push;B.x+=dx*push;B.y+=dy*push}}
@@ -1692,6 +1817,7 @@ function overlay(){let s="";const brick=css("--brick"),ag=css("--agc"),L=[];
     const sl=selI(),hot2=i===hov||i===sl;if(q.p.f===undefined){const r=hot2?3.6:2.3;if(!(V.ha>.3))s+=`<path d="M${x} ${y-r}L${x+r} ${y}L${x} ${y+r}L${x-r} ${y}Z" fill="${ag}" opacity="${o}"/>`;if(hot2&&leaders&&!q.a.no)s+=`<path d="M${q.a.x} ${q.a.y}L${q.a.x+14} ${q.a.y}L${x} ${y}" fill="none" stroke="${ag}" stroke-width="1" opacity="${o}"/>`;continue}
     if(!(i===cur&&V.ha>.5))s+=q.p.f==="e"?`<circle cx="${x}" cy="${y}" r="${hot?4.4:3.2}" fill="${brick}" opacity="${o}"/>`:`<circle cx="${x}" cy="${y}" r="${hot?4.8:3.6}" fill="${css("--bg")}" stroke="${brick}" stroke-width="1.4" opacity="${o}"/>`;
     if(hot&&leaders)s+=`<path d="M${q.a.x} ${q.a.y}L${q.a.x+14} ${q.a.y}L${x} ${y}" fill="none" stroke="${brick}" stroke-width="1" opacity="${o}"/>`}
+  if(fcat&&V.ha<.3)s=constel()+s;
   // sur la maquette : le bord du disque projeté à l'écran, Ouvrir / Globe accrochés à son point le plus bas
   rim=[];const D=$("dsv"),dv=mode==="site"?V.ha:mode==="dive"&&cur>=0?Math.max(0,V.ha-.6)/.4:0;
   if(dv>.01){const N=72;let cx=0,cy=0;for(let k=0;k<N;k++){const a=k/N*Math.PI*2;tmp.set(Math.cos(a)*RAD,1,Math.sin(a)*RAD);site.localToWorld(tmp);tmp.project(cam);
@@ -1738,7 +1864,7 @@ host.addEventListener("wheel",e=>{if(mode==="dive")return;e.preventDefault();con
 
 /* ---------- les traits de la plongée ---------- */
 const ST=[...Array(90)].map(()=>({a:Math.random()*Math.PI*2,r:.1+Math.random()*.5,l:.15+Math.random()*.4,w:.4+Math.random()*.9}));
-function drawFx(){fc.clearRect(0,0,W,Hh);if(streak<=.001)return;const cx=W/2,cy=Hh/2,Mx=Math.hypot(W,Hh)*.55;fc.strokeStyle=fxCol;
+function drawFx(){fc.clearRect(0,0,W,Hh);return;const cx=W/2,cy=Hh/2,Mx=Math.hypot(W,Hh)*.55;fc.strokeStyle=fxCol;
   for(const s of ST){const r0=(s.r+streak*.9)*Mx,r1=r0+s.l*Mx*streak;fc.globalAlpha=streak*.45;fc.lineWidth=s.w;fc.beginPath();fc.moveTo(cx+Math.cos(s.a)*r0,cy+Math.sin(s.a)*r0);fc.lineTo(cx+Math.cos(s.a)*r1,cy+Math.sin(s.a)*r1);fc.stroke()}fc.globalAlpha=1}
 
 /* ---------- galerie et écran holographique : l'image se projette au-dessus du disque, la maquette s'efface ---------- */
@@ -1766,10 +1892,10 @@ const holoM=new THREE.ShaderMaterial({uniforms:holoU,transparent:true,depthTest:
   fragmentShader:`uniform sampler2D map;uniform vec3 uTint;uniform float uDark,uRev,uTime,uOp;varying vec2 vUv;
   void main(){vec4 t=texture2D(map,vUv);float l=dot(t.rgb,vec3(.299,.587,.114));
     vec3 c=mix(t.rgb,mix(t.rgb,uTint*(.15+l*1.15),.62),uDark);           // nuit : l'image prend la teinte bleue du globe
-    float sc=.9+.1*sin(gl_FragCoord.y*1.7+uTime*6.);c*=mix(1.,sc,.6+.4*uDark); // lignes de balayage
+    float sc=.97+.03*sin(gl_FragCoord.y*1.7);c*=mix(1.,sc,.5); // lignes de balayage
     float e=smoothstep(0.,.06,min(min(vUv.x,1.-vUv.x),min(vUv.y,1.-vUv.y)));
-    float a=uOp*e*step(vUv.y,uRev)*mix(.97,.86,uDark)*(.96+.03*sin(uTime*37.));
-    float f=smoothstep(.018,0.,abs(vUv.y-uRev))*step(uRev,.999);c+=uTint*f*1.2;a=max(a,f*uOp);   // la ligne qui imprime l'image
+    float a=uOp*e*step(vUv.y,uRev)*mix(.97,.86,uDark)*.97;
+    float f=smoothstep(.018,0.,abs(vUv.y-uRev))*step(uRev,.999);c+=uTint*f*.5;a=max(a,f*uOp);   // la ligne qui imprime l'image
     gl_FragColor=vec4(c,a);}`});
 const holo=new THREE.Mesh(new THREE.PlaneGeometry(1,1),holoM);holo.renderOrder=20;holo.visible=false;scene.add(holo);
 const beamM=lm(0,{depthTest:false});const beam=new THREE.LineSegments(new THREE.BufferGeometry(),beamM);beam.renderOrder=19;beam.visible=false;scene.add(beam);
@@ -1792,7 +1918,7 @@ function holoStep(dt){if(mode!=="site"&&holoT)holoOff();holoK+= (holoT-holoK)*Ma
 let last=performance.now();const nW=new THREE.Vector3();
 function frame(now){if(home.hidden){gPause=true;return}const dt=Math.min(.05,(now-last)/1000);last=now;
   if(tw){const t=clamp((now-tw.t0)/tw.T,0,1);tw.step(t);if(t>=1)tw=null}
-  else if(mode==="globe"&&!dragging&&hov<0&&acur<0&&!inside&&!reduce){V.lon+=dt*2*drift*clamp((V.h-80)/(H0-80),0,1);if(V.lon>48)drift=-1;if(V.lon<-14)drift=1}
+  else if(mode==="globe"&&!dragging&&hov<0&&acur<0&&!inside&&!reduce&&!fcat&&!gdOn&&now-lastAct>6000){V.lon+=dt*2*drift*clamp((V.h-80)/(H0-80),0,1);if(V.lon>48)drift=-1;if(V.lon<-14)drift=1}
   globe.rotation.set(V.lat*D2R,-V.lon*D2R,0,"XYZ");globe.updateMatrixWorld(true);
   cam.position.set(0,-V.h*Math.sin(V.tau),GR+V.h*Math.cos(V.tau));cam.up.set(0,1,0);cam.lookAt(0,0,GR+V.lk);
   {const d=Math.hypot(cam.position.x,cam.position.y,cam.position.z),rr=GR*Math.sqrt(Math.max(0,1-(GR*GR)/(d*d))),c=cam.position.clone().normalize(),zc=GR*GR/d;
@@ -1804,7 +1930,7 @@ function frame(now){if(home.hidden){gPause=true;return}const dt=Math.min(.05,(no
   if(printing){curH=reduce?target:Math.min(target,curH+dt*Math.max(40,target*.9));if(curH>=target)printing=false}
   site.getWorldPosition(nW);const n=nW.clone().normalize();clip.normal.copy(n).negate();clip.constant=n.dot(nW)+curH*S*K;
   if(ring){ring.position.y=curH;ring.visible=printing}
-  if(!reduce&&mode==="site"&&!dragging)spin.rotation.y+=dt*.12;
+  if(!reduce&&mode==="site"&&!dragging&&now-lastAct>6000)spin.rotation.y+=dt*.12;
   R.render(scene,cam);overlay();drawFx();requestAnimationFrame(frame)}
 let gPause=false;theme();requestAnimationFrame(frame);
 

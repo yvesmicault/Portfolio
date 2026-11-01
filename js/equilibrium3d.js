@@ -334,7 +334,7 @@ export function mount(host, opts = {}) {
     if (heroC.width !== Wc || heroC.height !== Hc) { heroC.width = Wc; heroC.height = Hc; hero.cells = null; }
     const m = hero.m, src = m.img, w = m.w, h = m.h;
     // la maquette suit le léger zoom de l'image, pour rester calée dessous
-    const z = hero.mode === "out" ? hero.z || 1 : !reduce ? 1 + 0.035 * (0.5 - 0.5 * Math.cos(((now - hero.born) / 18000) * Math.PI * 2)) : 1;
+    const z = 1; // pas de zoom lent : l’image doit rester calée sur la maquette (01/11)
     hero.z = z; if (camera.zoom !== z) { camera.zoom = z; camera.updateProjectionMatrix(); }
     const sc = Math.max(Wc / w, Hc / h) * z, ix = (Wc - w * sc) / 2, iy = (Hc - h * sc) / 2;
     hx.clearRect(0, 0, Wc, Hc);
