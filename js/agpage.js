@@ -34,7 +34,7 @@
           ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
           ["État","Livré en 2024"]],
       img:[["img/agx/2017-high-garden","Perspective du projet"],["img/agx/2019-high-garden-photo-1","Le bâtiment livré","photo © Florian Bouziges"],["img/agx/2019-high-garden-photo-2","Façade et balcons","photo © Florian Bouziges"],["img/agx/2019-high-garden-photo-3","Vue depuis le jardin","photo © Élise Robaglia"],["img/agx/2019-high-garden-photo-4","Les balcons filants","photo © Élise Robaglia"],["img/agx/2019-high-garden-planche-1","Planche du concours 1 : parti urbain"],["img/agx/2019-high-garden-planche-2","Planche du concours 2 : un espace public augmenté"],["img/agx/2019-high-garden-planche-3","Planche du concours 3 : un événement"]]},
-    "le-cabanon-ideal":{per:"Environ trois ans",
+    "le-cabanon-ideal":{per:"Trois ans",
       ct:[["Production","Plans, images et détails, de l’esquisse au PRO / DCE"],
           ["Coordination","Bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)"],
           ["Rendus","Dossiers de concours, d’APS, de permis de construire et de PRO / DCE"]],
@@ -115,5 +115,5 @@
   function deep(){var m=/^#agence\/(.+)$/.exec(location.hash);if(!m||!AG.length)return;var el=$("ag-"+decodeURIComponent(m[1]));
     if(el)requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.focus({preventScroll:true})})}
   addEventListener("hashchange",deep);
-  fetch("data/globe/agence.json?v=12").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
+  fetch("data/globe/agence.json?v=13").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
 })();
