@@ -174,7 +174,7 @@ export function mount(host, opts = {}) {
   /* ---------- vues ---------- */
   const views = {
     // scènes enregistrées dans les modèles SketchUp du projet
-    ensemble: { pos: [11.9, 1.7, 19], tgt: [-1.6, 1, 3.7], fov: 40 },
+    ensemble: { pos: [11.9, 2.1, 19], tgt: [-1.6, 1.4, 3.7], fov: 40 },   // recalé sur le rendu (01/11 : +0,4 m)
     face: { pos: [0.9, 2.9, 27.4], tgt: [0.1, 2.2, 3.6], fov: 40 },
   };
 
