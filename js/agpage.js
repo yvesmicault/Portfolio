@@ -48,7 +48,6 @@
     return '<figure class="agt-m"><img src="'+esc(m.f)+'" alt="'+esc(m.alt||p.t)+'" loading="lazy" decoding="async"'+(big?'':' width="600" height="400"')+'><figcaption>'+esc(m.cr||"")+'</figcaption></figure>'}
   function links(p){var a=[];
     if(p.u)a.push('<a class="agt-lk" href="'+HM+esc(p.u)+'" target="_blank" rel="noopener">Fiche de l’agence ↗</a>');
-    if(p.team)a.push('<span class="agt-tm">Nommé dans l’équipe de la fiche</span>');
     return a.length?'<p class="agt-ft">'+a.join("")+'</p>':""}
   function byId(id){return AG.filter(function(q){return q.id===id})[0]}
   function card(p){
@@ -56,7 +55,7 @@
     if(M)return '<li><article class="agt-c agt-sx" id="ag-'+esc(p.id)+'" tabindex="-1"><p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(M.t)+' (suite)</h4>'+
       '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p><p class="agt-pr">'+esc(p.n)+'</p>'+
       '<p class="agt-ft"><a class="agt-lk" href="#agence/'+esc(M.id)+'">Voir la référence de '+yr(M)+'</a></p></article></li>';
-    return '<li><article class="agt-c" id="ag-'+esc(p.id)+'" tabindex="-1">'+media(p)+
+    return '<li><article class="agt-c" id="ag-'+esc(p.id)+'" tabindex="-1">'+
       '<p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p>'+
       '<h4>'+esc(p.t)+'</h4>'+
       '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p>'+
