@@ -4,10 +4,10 @@
 
   /* phrases entières */
   var FULL = {
-    /* Tasty Tank (02/11/2026) */
+    /* Tasty Tank */
     "Le concours comme espace de recherche, entre intuition architecturale et expérimentation.": "Competitions as a space for research, between architectural intuition and experimentation.",
     "Bee Breeders · Monte d’Oiro Wine Tasting Room · 2020 · Alenquer, Portugal": "Bee Breeders · Monte d’Oiro Wine Tasting Room · 2020 · Alenquer, Portugal", "Au sein de la Quinta do Monte d’Oiro, domaine viticole historique situé à Alenquer, au Portugal, Tasty Tank propose la création d’un espace de dégustation qui prolonge l’identité architecturale et paysagère du lieu. À partir des structures existantes et de la topographie, le projet articule deux places à différents niveaux, reliées par un parcours architectural. La conservation de la charpente métallique, l’emploi de la terre crue et la mise en scène de la lumière composent une intervention contemporaine où l’expérience du vin se prolonge dans celle du paysage.": "Within the Quinta do Monte d’Oiro, a historic wine estate in Alenquer, Portugal, Tasty Tank creates a tasting space that extends the architectural and landscape identity of the place. Starting from the existing structures and the topography, the project links two squares at different levels through an architectural path. Keeping the steel frame, using rammed earth and staging light create a contemporary intervention in which the experience of wine extends into that of the landscape.", "Bee Breeders · 2020": "Bee Breeders · 2020", "Alenquer": "Alenquer", "Alenquer, Portugal": "Alenquer, Portugal", "Concours, réhabilitation et extension": "Competition, rehabilitation and extension", "Salle de dégustation viticole, accueil et parcours de visite": "Wine tasting room, reception and visitor path", "Alenquer, Portugal · 2020 · 4 planches": "Alenquer, Portugal · 2020 · 4 boards", "Perspective générale": "General perspective", "Depuis la place basse": "From the lower square", "Sous la charpente": "Under the steel frame", "La salle de dégustation": "The tasting room", "Les baies sur le vignoble": "The bays onto the vineyard", "La table": "The table", "Le cylindre": "The cylinder", "Vers le cylindre": "Towards the cylinder", "En haut du cylindre": "At the top of the cylinder", "Depuis la place haute": "From the upper square", "Depuis les vignes": "From the vineyards", "Les commodités": "The amenities", "Maquette tirée du modèle SketchUp du projet (2020), allégée pour le web. Bouteilles du cylindre retirées.": "Model taken from the project’s SketchUp file (2020), lightened for the web. The cylinder’s bottles are removed.",
-    /* Synergies latentes (01/11/2026) */
+    /* Synergies latentes */
     "Auby · Europan 15 · 2019": "Auby · Europan 15 · 2019", "Europan 15 · 2019": "Europan 15 · 2019", "Auby": "Auby",
     "À Auby, dans le bassin minier du Nord, Synergies Latentes propose de réinventer les relations entre habitat, activités productives et paysage. Autour du canal de la Haute-Deûle, le projet transforme les héritages industriels en ressources pour une nouvelle dynamique territoriale, fondée sur l’économie circulaire, la participation habitante et la mutualisation des savoir-faire. Plutôt qu’un aménagement figé, il imagine une ville coopérative, évolutive et productive, dont l’architecture accompagne les transformations sociales, économiques et environnementales du territoire.": "In Auby, in the former mining basin of northern France, Synergies Latentes sets out to reinvent the relationships between housing, productive activities and landscape. Around the Haute-Deûle canal, the project turns industrial legacies into resources for a new territorial dynamic, based on the circular economy, residents’ participation and the pooling of know-how. Rather than a fixed plan, it imagines a cooperative, evolving and productive city, whose architecture accompanies the social, economic and environmental transformations of the territory.",
     "Concours Europan 15, projet urbain et territorial": "Europan 15 competition, urban and territorial project",
@@ -15,7 +15,7 @@
     "Auby · 2019 · équipe : Yves Micault, Nathanaël Pinard, Marc Viaud · 3 panneaux A1": "Auby · 2019 · team: Yves Micault, Nathanaël Pinard, Marc Viaud · 3 A1 boards",
     "Rive sud": "South bank", "Rive nord": "North bank", "Axonométrie · zoom 1": "Axonometry · close-up 1", "Axonométrie · bureau": "Axonometry · office",
     "Zoom · interface": "Close-up · interface", "Zoom · base nautique": "Close-up · water sports base", "Auby, Nord, France": "Auby, Nord, France",
-    /* globes 30/10 — NOUVELLES TRADUCTIONS (01/11/2026), à relire par Yves */
+    /* globes */
     "Ce globe situe mes projets d’études et mes concours. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.": "This globe locates my study projects and my competitions. Hover over a marker to locate it, select it to read its details.",
     "Découvrir les projets": "Discover the projects",
     "Découverte guidée": "Guided tour",
@@ -49,7 +49,7 @@
     "Pensé pour les abords des grandes gares du Transsibérien, Siberian Spotlight propose une halte d’accueil et d’information touristique. Son enveloppe translucide devient un repère lumineux la nuit, tandis qu’un intérieur en mélèze de Sibérie évoque la chaleur des isbas. Une trame métallique régulière organise structure et mobilier ; la collecte des pluies et de la fonte des neiges complète un dispositif léger, préfabriqué et reproductible le long du voyage.": "Designed for the surroundings of the main Trans-Siberian stations, Siberian Spotlight proposes a stop for welcome and tourist information. Its translucent envelope becomes a beacon at night, while an interior in Siberian larch recalls the warmth of the isbas. A regular steel grid organises structure and furniture; collecting rain and snowmelt completes a light, prefabricated system that can be repeated along the journey.",
     "Sur les falaises de Sagres, Equilibrium transforme la découverte du paysage en parcours architectural. Sa géométrie triangulaire met en relation le cap Saint-Vincent et les forteresses de Beliche et de Sagres. Un cheminement en acier Corten alterne ancrage dans la roche et avancées vers le vide, tandis que des espaces d’exposition s’inscrivent dans le relief. Le projet explore l’équilibre entre terre, mer et ciel à travers le déplacement du visiteur.": "On the cliffs of Sagres, Equilibrium turns the discovery of the landscape into an architectural route. Its triangular geometry relates Cape St. Vincent to the fortresses of Beliche and Sagres. A Corten steel path alternates between anchoring in the rock and reaching out over the void, while exhibition spaces are set into the terrain. The project explores the balance between land, sea and sky through the visitor's movement.",
     "Les petits ventres-villes": "Les petits ventres-villes",
-    /* page Agence chronologique (28/10) */
+    /* page Agence chronologique */
     "Conception et production des perspectives du concours, dont les études de façade en variantes bois et métal": "Design and production of the competition visuals, including façade studies in timber and metal options",
     "Construction et mise à jour de la maquette numérique, support de la conception et des rendus": "Building and updating the digital model used for design and renderings",
     "Avant-projet sommaire : préparation du modèle 3D ayant servi à fabriquer la maquette physique": "Outline design: preparation of the 3D model used to build the physical model",
@@ -170,7 +170,6 @@
     "Projets étudiants": "Student projects", "Projets d’études": "Study projects", "Projets d'études": "Study projects",
     "Accueil · parcours": "Home · career", "Survoler un nœud": "Hover a node",
     "Archive en vrac": "Loose archive", "Mélanger ↻": "Shuffle ↻",
-    "Aperçu privé v4": "Private preview v4",
     "Passer en mode sombre": "Switch to dark mode", "Passer en mode clair": "Switch to light mode", "Jour / nuit": "Day / night",
     "Sommaire": "Contents", "Images de tous les projets, cliquables": "Images from every project, clickable",
     "Précédent": "Previous", "Suivant": "Next", "Fermer": "Close",
@@ -205,11 +204,10 @@
     "Monitorat en projet architectural et morphologie urbaine": "Teaching assistant in architectural design and urban morphology",
     "Conférence sur l'agriculture urbaine": "Talk on urban agriculture",
     "Télécharger le PDF ↓": "Download the PDF (French) ↓",
-    "Young Architects Competitions (à confirmer)": "Young Architects Competitions (to be confirmed)",
     "6 A3 et images": "6 A3 sheets and images",
     "rouleau A0": "A0 roll", "356,7 × 84,1 cm chacun": "356.7 × 84.1 cm each",
     "assemblage des planches A1 verticales (59,4 × 84,1 cm)": "assembly of portrait A1 boards (59.4 × 84.1 cm)",
-    "416 × 168 cm d'après le fichier": "416 × 168 cm according to the file", "à confirmer": "to be confirmed",
+    
     "planche originale": "original board",
     "assemblage de 14 planches A1 verticales (59,4 × 84,1 cm)": "assembly of 14 portrait A1 boards (59.4 × 84.1 cm)", "7 de large sur 2 de haut": "7 across by 2 high"
   };
@@ -232,7 +230,7 @@
     "Réhabilitation cité administrative": "Refurbishment of the administrative centre",
     "assistant chef de projet": "assistant project leader", "chef de projet": "project leader", "fiche agence ↗": "practice page ↗",
     "études": "design studies", "autorisation": "planning permission", "Autorisation": "Planning permission", "appel d'offres": "tender",
-    "livré": "completed", "en cours": "in progress", "aperçu privé": "private preview",
+    "livré": "completed", "en cours": "in progress",
     "Expérience": "Experience", "Formation": "Education",
  "Premières expériences professionnelles": "Early professional experience",
  "Profil": "Profile",

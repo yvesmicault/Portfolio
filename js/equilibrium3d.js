@@ -1,4 +1,4 @@
-// Equilibrium (concours, Sagres, Portugal). Maquette tirée du modèle SketchUp du projet (export STL d'Yves, « MODEL 9 ») :
+// Equilibrium (concours, Sagres, Portugal). Maquette tirée du modèle SketchUp du projet :
 // le triangle du projet est gardé fidèle ; le site (pointe de Sagres, falaises en courbes) vient du même modèle ; la mer autour est ajoutée.
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -51,7 +51,7 @@ export function mount(host, opts = {}) {
   const W = () => host.clientWidth, H = () => host.clientHeight;
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, preserveDrawingBuffer: !!opts.capture });
   renderer.setPixelRatio(Math.min(2, Math.max(1.5, devicePixelRatio || 1))); // sur écran standard, rendu suréchantillonné : traits plus fins
-  const LK = 0.68; // intensité des traits (Yves : arêtes plus fines, « scalpel »)
+  const LK = 0.68; // intensité des traits
   renderer.setSize(W(), H());
   renderer.setClearColor(C.paper);
   host.appendChild(renderer.domElement);
@@ -148,7 +148,7 @@ export function mount(host, opts = {}) {
   let labOn = true;
   const labels_ = (on) => { labOn = on; };
   /* ---------- étiquettes : le programme, d'après la notice du projet ---------- */
-  const labels = [   // les trois pointes (notice d'Yves) : cap Saint-Vincent / ciel, forteresse de Beliche / terre, forteresse de Sagres / mer
+  const labels = [   // les trois pointes : cap Saint-Vincent / ciel, forteresse de Beliche / terre, forteresse de Sagres / mer
     { t: "Ciel", s: "pointe vers le cap Saint-Vincent", p: [-45.1, 53, -3.7], st: 64 },
     { t: "Terre", s: "ancrée dans le sol, vers la forteresse de Beliche", p: [43.6, 53, -49.9], st: 78 },
     { t: "Mer", s: "s’élance vers la forteresse de Sagres", p: [37.3, 38, 49.1], st: 24 },
@@ -174,7 +174,7 @@ export function mount(host, opts = {}) {
   const views = {
     // depuis la mer, au sud-est : la pointe, ses falaises et le triangle posé au bord
     ensemble: { pos: [175, 125, 235], tgt: [-5, 38, 5], fov: 36.4 },   // fov du rendu 3:2 (52,5° en horizontal)
-    // caméras d'Yves (touche C, 26/10), en attente de leurs rendus
+    // caméras
     montee: { pos: [35.1, 53.4, -49.7], tgt: [28.6, 38.6, 58.3], fov: 36.4 },
     ciel: { pos: [3.1, 277.4, -1.3], tgt: [10.3, 54, 12.6], fov: 36.4 },
     pointe: { pos: [81.9, 87.4, 1.5], tgt: [38.2, 40.6, 43.1], fov: 36.4 },
@@ -337,7 +337,7 @@ export function mount(host, opts = {}) {
     if (heroC.width !== Wc || heroC.height !== Hc) { heroC.width = Wc; heroC.height = Hc; hero.cells = null; }
     const m = hero.m, src = m.img, w = m.w, h = m.h;
     // la maquette suit le léger zoom de l'image, pour rester calée dessous
-    const z = 1; // pas de zoom lent : l’image doit rester calée sur la maquette (01/11)
+    const z = 1; // pas de zoom lent : l’image doit rester calée sur la maquette
     hero.z = z; if (camera.zoom !== z) { camera.zoom = z; camera.updateProjectionMatrix(); }
     const sc = Math.max(Wc / w, Hc / h) * z, ix = (Wc - w * sc) / 2, iy = (Hc - h * sc) / 2;
     hx.clearRect(0, 0, Wc, Hc);

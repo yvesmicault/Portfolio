@@ -7,8 +7,8 @@
   var HM="https://hamonic-masson.com/projet/",AG=[];
   function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
   function yr(p){return p.y.slice(0,4)}
-  /* fiches développées : uniquement des faits relevés sur les fiches publiques (consultées le 28/10/2026) ou dans les CV */
-  /* fiches développées : ma participation (CV, réponses d'Yves) séparée de l'opération (fiches publiques de l'agence) */
+  /* fiches développées : uniquement des faits relevés sur les fiches publiques ou dans les CV */
+  /* fiches développées : ma participation séparée de l'opération (fiches publiques de l'agence) */
   var FEAT={
     "metamorphose":{per:"",
       ct:[["Concours", "Concours mené en chef de projet, de l’esquisse au rendu ; projet lauréat"], ["Conception", "Conception architecturale du projet et présentation à la maîtrise d’ouvrage en workshop"], ["Production", "Maquette numérique et études graphiques"], ["Suite des études", "Contribution aux études de développement"]],
@@ -40,7 +40,7 @@
   /* concours remportés par l'agence, établis par les fiches hamonic-masson.com */
   var WIN={"metamorphose":["2018","Métamorphose"],"lille":["2018","Emblem"],"harmony-of-the-sky":["2018","Harmony of the Sky"],"high-garden":["2019","High Garden"],"station-service":["2019","Station BP"],"archives-departementales":["2020","Archives de Seine-et-Marne"],"le-cabanon-ideal":["2022","Le Cabanon idéal"],"siege-du-groupe-angevin":["2023","Siège du Groupe Angevin"],"massy-itron":["2024","Bougainville"],"port-marianne-lot-7a":["2025","Port Marianne, lot 7a"],"cite-administrative":["2026","Cité administrative"],"nantes-2026":["2026","Îlot Capstone"],"bondy-sabliere":["2026","La Sablière"]};
   var LAU='';
-  var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique (Yves, 01/11)
+  var FORDER=["metamorphose","high-garden","le-cabanon-ideal"];   // ordre chronologique
 
   function role(p){return p.rq?"Participation au concours":p.r}
   function phases(p){return p.rq?"":p.ph}

@@ -1,4 +1,4 @@
-// Siberian Spotlight (concours Bee Breeders, Transiberian Pit Stops, 2016). Maquette tirée des deux modèles SketchUp du projet (export COLLADA d'Yves) :
+// Siberian Spotlight (concours Bee Breeders, Transiberian Pit Stops, 2016). Maquette tirée des deux modèles SketchUp du projet :
 // le bâtiment assemblé et son axonométrie éclatée. Vues : les scènes enregistrées dans les modèles.
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
@@ -51,7 +51,7 @@ export function mount(host, opts = {}) {
   const W = () => host.clientWidth, H = () => host.clientHeight;
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, preserveDrawingBuffer: !!opts.capture });
   renderer.setPixelRatio(Math.min(2, Math.max(1.5, devicePixelRatio || 1))); // sur écran standard, rendu suréchantillonné : traits plus fins
-  const LK = 0.68; // intensité des traits (Yves : arêtes plus fines, « scalpel »)
+  const LK = 0.68; // intensité des traits
   renderer.setSize(W(), H());
   renderer.setClearColor(C.paper);
   host.appendChild(renderer.domElement);
@@ -117,7 +117,7 @@ export function mount(host, opts = {}) {
     };
     if (isMain) { const ground = new THREE.Mesh(new THREE.CircleGeometry(700, 96).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: C.ballast })); ground.position.y = -0.04; ground.userData.glass = true; g.add(ground); }
     mesh(parts.s, C.model);
-    // façade polycarbonate retirée de la maquette (Yves, 01/11) : seules ses arêtes restent, l'intérieur se lit
+    // façade polycarbonate retirée de la maquette : seules ses arêtes restent, l'intérieur se lit
     if (false && parts.g && parts.g.length) mesh(parts.g, C.glass, { transparent: true, opacity: dark ? 0.7 : 0.82, depthWrite: false }, true);
     lines(parts.pl, C.ink, dark ? 0.95 : 0.8);
     if (parts.pd) lines(parts.pd, C.ink, dark ? 0.6 : 0.46, 16, 0);
@@ -175,7 +175,7 @@ export function mount(host, opts = {}) {
   /* ---------- vues ---------- */
   const views = {
     // scènes enregistrées dans les modèles SketchUp du projet
-    ensemble: { pos: [11.9, 2.1, 19], tgt: [-1.6, 1.4, 3.7], fov: 40 },   // recalé sur le rendu (01/11 : +0,4 m)
+    ensemble: { pos: [11.9, 2.1, 19], tgt: [-1.6, 1.4, 3.7], fov: 40 },   // recalé sur le rendu
     face: { pos: [0.9, 2.9, 27.4], tgt: [0.1, 2.2, 3.6], fov: 40 },
   };
 
@@ -335,7 +335,7 @@ export function mount(host, opts = {}) {
     if (heroC.width !== Wc || heroC.height !== Hc) { heroC.width = Wc; heroC.height = Hc; hero.cells = null; }
     const m = hero.m, src = m.img, w = m.w, h = m.h;
     // la maquette suit le léger zoom de l'image, pour rester calée dessous
-    const z = 1; // pas de zoom lent : l’image doit rester calée sur la maquette (01/11)
+    const z = 1; // pas de zoom lent : l’image doit rester calée sur la maquette
     hero.z = z; if (camera.zoom !== z) { camera.zoom = z; camera.updateProjectionMatrix(); }
     const sc = Math.max(Wc / w, Hc / h) * z, ix = (Wc - w * sc) / 2, iy = (Hc - h * sc) / 2;
     hx.clearRect(0, 0, Wc, Hc);

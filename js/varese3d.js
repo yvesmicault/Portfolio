@@ -35,7 +35,7 @@ export function mount(host, opts = {}) {
   const W = () => host.clientWidth, H = () => host.clientHeight;
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, stencil: true, preserveDrawingBuffer: !!opts.capture });
   renderer.setPixelRatio(Math.min(2, Math.max(1.5, devicePixelRatio || 1))); // sur écran standard, rendu suréchantillonné : traits plus fins
-  const LK = 0.68; // intensité des traits (Yves : arêtes plus fines, « scalpel »)
+  const LK = 0.68; // intensité des traits
   renderer.setSize(W(), H());
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -411,7 +411,7 @@ export function mount(host, opts = {}) {
   const decks = [[2, 46, 8.0], [54, 92, 11.8], [100, 150, 15.5]];
   decks.forEach(([s0, s1, y], j) => {
     for (let i = 0; i < 9; i++) {
-      const p = new THREE.Mesh(pGeo, pMat); p.visible = false; life.add(p); // passants masqués (retour d’Yves)
+      const p = new THREE.Mesh(pGeo, pMat); p.visible = false; life.add(p); // passants masqués
       people.push({ p, s: s0 + rnd() * (s1 - s0), t: (rnd() - 0.5) * 9, v: (rnd() < 0.5 ? -1 : 1) * (0.9 + rnd() * 0.6), s0, s1, y });
     }
   });
@@ -422,7 +422,7 @@ export function mount(host, opts = {}) {
     for (let n = 0, tries = 0; n < 34 && tries < 4000; tries++) {
       const x = -150 + r2() * 160, z = -90 + r2() * 110;
       if (zoneAt(x, z) !== 1) continue;
-      const p = new THREE.Mesh(pGeo, pMat); p.visible = false; life.add(p); // passants masqués (retour d’Yves)
+      const p = new THREE.Mesh(pGeo, pMat); p.visible = false; life.add(p); // passants masqués
       const a = r2() * Math.PI * 2, v = 0.7 + r2() * 0.7;
       walkers.push({ p, x, z, vx: Math.cos(a) * v, vz: Math.sin(a) * v }); n++;
     }
@@ -466,11 +466,11 @@ export function mount(host, opts = {}) {
     ensemble: { pos: [-140, 105, 150], tgt: [0, 8, 0] },
     // même point de vue que la perspective du projet : depuis le parvis, vers le croisement passerelle / voies
     parvis: { pos: [-126.1, 7.5, -38.9], tgt: [-23.1, 6.5, -18.7], fov: 46 },
-    // variante de test (CAM d'Yves, 2026-10-26) : plus de recul, projet dégagé du premier plan
+    // variante : plus de recul, projet dégagé du premier plan
     parvis2: { pos: [-165.5, 12.3, -71.6], tgt: [44.1, 5.3, 7.1], fov: 33 },
     // la nef : l’espace ouvert sous la passerelle, où le parc traverse
     hall: { pos: along(74, -5.5, 1.6).toArray(), tgt: along(150, -5, 3.2).toArray(), fov: 60 },
-    // au-dessus du parc : la façade longue vue par-dessus la canopée, cadrée sur la 2e capture d’Yves (2026-10-25), avec la voie ferrée.
+    // au-dessus du parc : la façade longue vue par-dessus la canopée, avec la voie ferrée.
     // recalée le 2026-10-26 sur le nouveau rendu ChatGPT (16:9) : varese_parc.jpg
     parc: { pos: [177.1, 14.5, -145.7], tgt: [-8.9, 0.5, -0.8], fov: 28.5 },
   };
@@ -490,7 +490,7 @@ export function mount(host, opts = {}) {
     return compP;
   }
   function draw(k) {
-    k = 0;   // la maquette garde sa palette pendant le passage vers le rendu : pas de ciel, le fond reste celui de la page (Yves)
+    k = 0;   // la maquette garde sa palette pendant le passage vers le rendu : pas de ciel, le fond reste celui de la page
     setLook(k);
     if (k && comp) {
       renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.92;
@@ -508,7 +508,7 @@ export function mount(host, opts = {}) {
   let anim = null, cut = 0, cutTo = 0, burst = 0, burstTo = 0, sec = -1;
   /* ---------- image rendue (IA, animée) posée sur la maquette ; elle se désagrège au premier geste ---------- */
   const RENDU = new URL("../img/rendu/", import.meta.url);
-  // prov : image provisoire, en attendant les rendus d'Yves ; le format est lu sur l'image
+  // le format est lu sur l'image
   const MEDIA = {
     ensemble: { img: "varese_ensemble.jpg", video: "varese_ensemble.mp4", prov: false },
     parvis: { img: "varese_parvis.jpg", video: "varese_parvis.mp4", prov: false },
@@ -571,7 +571,7 @@ export function mount(host, opts = {}) {
       if (loaded) prepCut(hero); else hero.mode = "show";
       if (m.video) m.video.play().catch(() => {});
       heroC.style.opacity = 1;
-      heroTag.textContent = MEDIA[name].prov ? "image provisoire · le rendu IA viendra ici" : ""; heroTag.style.opacity = MEDIA[name].prov ? 1 : 0;
+      heroTag.textContent = ""; heroTag.style.opacity = MEDIA[name].prov ? 1 : 0;
     });
   }
   let heroFreeze = null; // test : fige l'effet à t secondes

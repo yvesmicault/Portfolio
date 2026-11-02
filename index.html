@@ -21,7 +21,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f);-
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
 .gut{padding-left:max(clamp(16px,3vw,40px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,3vw,40px),env(safe-area-inset-right,0px))}
 .wrap{max-width:var(--wide);margin:0 auto}
-:root{--wide:1480px}   /* accueil plus large (Yves, 26/10) : le globe a de la place sur un écran 16:9 */
+:root{--wide:1480px}   /* accueil plus large : le globe a de la place sur un écran 16:9 */
 body:has(.home:not([hidden])) .bar .wrap{max-width:var(--wide)}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
@@ -262,6 +262,9 @@ h2 small,.ph-head h1 small{font:400 12px var(--m);letter-spacing:0;color:var(--b
 .btn:hover{background:var(--ink);color:var(--bg)}
 
 footer .wrap{padding-block:28px 40px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;border-top:1px solid var(--line);font:400 12px var(--m);color:var(--mute)}
+footer .ft-ct{display:flex;flex-wrap:wrap;gap:6px 20px}
+footer a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+footer a:hover,footer a:focus-visible{color:var(--ink,inherit);border-bottom-color:currentColor}
 
 /* page projet */
 .pj-head{border-bottom:1px solid var(--ink);padding-bottom:16px;margin-bottom:22px;display:grid;gap:8px}
@@ -502,7 +505,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
 .stamp{all:unset;box-sizing:border-box;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-8deg);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 12px 6px;border:2px solid var(--brick);color:var(--brick);background:var(--veil);box-shadow:inset 0 0 0 2px var(--veil),inset 0 0 0 3px var(--brick);transition:opacity .3s}
 .stamp b{font:600 12px/1 var(--m);letter-spacing:.3em;text-transform:uppercase;margin-right:-.3em}.stamp small{font:400 8px/1 var(--m);letter-spacing:.08em;white-space:nowrap}
 .fiche .stamp{pointer-events:none}.fiche .stamp b{font-size:10px}
-/* page Agence : chronologie complète 2017 → 2026, toutes les cartes dans le flux (28/10) */
+/* page Agence : chronologie complète 2017 → 2026, toutes les cartes dans le flux */
 #v-agence .agt-logo{float:right;display:block;width:clamp(240px,24vw,320px);aspect-ratio:911/57;margin:6px 0 0 24px;background:var(--ink);-webkit-mask:url(img/hm_logo.svg) center/contain no-repeat;mask:url(img/hm_logo.svg) center/contain no-repeat;opacity:.92;transition:opacity .2s}#v-agence .agt-logo:hover{opacity:1}@media(max-width:760px){#v-agence .agt-logo{float:none;width:min(240px,70vw);margin:0 0 20px}}
 #v-agence .agt-note{margin:-14px 0 34px;font:400 12px/1.6 var(--m);color:var(--mute);max-width:75ch}
 #v-agence .agt-h{margin:0 0 16px;font:500 10.5px/1.4 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
@@ -629,7 +632,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
   .home #gbox .list{order:3}}
 
 
-/* l’agence quitte le globe (Yves, 01/11) : seulement études et concours */
+/* l’agence quitte le globe : seulement études et concours */
 #gbox .list h3.a,#gbox #cA{display:none!important}
 #gbox .fim{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--bg2);margin:0 0 10px;animation:fimIn .5s var(--ease)}
 #gbox .fim[hidden]{display:none}@keyframes fimIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -637,7 +640,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 .gdw .gd-st[hidden]{display:none}.gdw .gd-c button{min-width:26px;height:26px}.gdw{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}#gbox .gdw .gd{margin:0;border:0;padding:0;display:flex;align-items:center;gap:12px}.gdw .gd[hidden]{display:none}.gdw .gd-o{margin:0}
 @media (min-width:761px){.home #gbox .gdw{position:absolute;z-index:4}}
 @media (max-width:760px){.home #gbox .gdw{order:1;margin:6px 0 4px}}
-/* --- Globes 30/10 : fiche, prévisualisation, frise, découverte guidée --- */
+/* --- Globes : fiche, prévisualisation, frise, découverte guidée --- */
 #gbox .cap .ct{display:block;margin-top:8px;font:500 9px/1.2 var(--f);letter-spacing:.28em;text-transform:uppercase;color:var(--brick)}
 #gbox .cap .mt{display:block;margin-top:4px;font:400 10.5px/1.45 var(--m);color:var(--mute)}
 #gbox .fiche{cursor:default}#gbox .fiche:hover p{color:var(--glm)}#gbox .fiche:hover{border-left-color:var(--glm)}
@@ -688,7 +691,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 @media (max-width:760px){.home #gbox .side:not(:has(.fiche.on)){display:block}#gbox .fiche .rs p.tx{font-size:14px}#gbox .gin p{max-width:none}}
 @media (max-height:760px) and (min-width:761px){#gbox .pv img{aspect-ratio:2/1}}
 
-/* boutons sobres (proposition 01/11) : des lignes de texte, pas de cadres */
+/* boutons sobres : des lignes de texte, pas de cadres */
 #gbox .fiche .fa{display:block;margin-top:16px}
 #gbox .fiche .op{display:flex;justify-content:space-between;align-items:center;width:100%;box-sizing:border-box;border:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:11px 0;background:none;font:500 10px/1 var(--f);letter-spacing:.24em;color:var(--ink);transition:color .25s,padding .35s var(--ease)}
 #gbox .fiche .op:hover,#gbox .fiche .op:focus-visible{background:none;color:var(--brick);padding-left:6px}
@@ -719,11 +722,11 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
   .pf-tl{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:22px}}
 @media (max-width:520px){.pf-side{grid-template-columns:minmax(0,1fr)}.pf-side .ct-ph{max-width:200px}.pf-tl{grid-template-columns:repeat(2,minmax(0,1fr))}.pf-ch{grid-template-columns:30px minmax(0,1fr)}}
 
-/* --- iOS, Android, navigateurs PC (01/11) --- */
+/* --- iOS, Android, navigateurs PC --- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .v-stage img,.g3 canvas,#gbox .gl,.wh,.unit img{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
-/* --- Lot A : mobile, tablette, accessibilité --- */
+/* --- mobile, tablette, accessibilité --- */
 .skip{position:absolute;left:12px;top:-80px;z-index:200;background:var(--ink);color:var(--bg);padding:14px 18px;font:500 11px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
 .skip:focus{top:calc(8px + env(safe-area-inset-top,0px))}
 h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
@@ -936,7 +939,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 </section>
 </main>
 
-<footer class="gut"><div class="wrap"><span>Yves Micault · ymicault@gmail.com · Marseille</span><span>Aperçu privé v4</span></div></footer>
+<footer class="gut"><div class="wrap"><span class="ft-id">Yves Micault · Architecte HMONP · Marseille</span><span class="ft-ct"><a href="mailto:ymicault@gmail.com">ymicault@gmail.com</a><a href="doc/CV_2026_Yves_Micault.pdf" download="CV_2026_Yves_Micault.pdf">CV (PDF)</a><span>© 2026</span></span></div></footer>
 
 <div class="viewer gut" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
   <div class="v-top">
@@ -1251,7 +1254,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
       card.appendChild(b);
       card.appendChild(h("div","ag-d",'<span class="m2">'+a[2]+'</span><span class="ph">'+a[3]+'</span><span class="ro">'+a[4]+'</span>'+(a[6]?'<a class="lk" href="'+a[6]+'" target="_blank" rel="noopener">fiche agence ↗</a>':'')));
       col.appendChild(card);
-      /* les projets d’agence restent hors des bandeaux de l’accueil (Yves) */AGI.push({t:a[0],sub:"Agence · "+y+" · "+a[1],href:"#agence"});
+      /* les projets d’agence restent hors des bandeaux de l’accueil */AGI.push({t:a[0],sub:"Agence · "+y+" · "+a[1],href:"#agence"});
     });
     $("years").appendChild(col);
   });
@@ -1333,13 +1336,13 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   [].forEach.call(document.querySelectorAll(".som a"),function(a){var id=+a.dataset.ring;a.addEventListener("mouseenter",function(){hl(id,true)});a.addEventListener("mouseleave",function(){hl(id,false)})});
   }
 
-  // fiches d'identité : lieu, type, programme, matérialité (seulement des faits tirés des planches, du book, des textes et des explications d'Yves)
+  // fiches d'identité : lieu, type, programme, matérialité
   // sous-titre léger des pages projet : à gauche type, lieu, surface (si connue) ; à droite semestre, année, encadrement
   var HEAD={varese:[["Projet de gare · Varèse, Italie · 2013–2014","Encadrement : Olivier Malcles, Jean-Dominique Prieur, Marc Brunier Mestas"],["Railway station project · Varese, Italy · 2013–2014","Tutors: Olivier Malcles, Jean-Dominique Prieur, Marc Brunier Mestas"]],agri:[["Usines Michelin · Clermont-Ferrand · 2013–2014","Encadrement : Boris Bouchet, Luc Léotoing, Alexandre Dubure, Michel Limenitakis"],["Michelin factories · Clermont-Ferrand · 2013–2014","Tutors: Boris Bouchet, Luc Léotoing, Alexandre Dubure, Michel Limenitakis"]],terminus:[["Projet de fin d'études en équipe à trois · Copenhague · 4 000 m² · 2015–2016","Encadrement : Laetitia Lafont, Olivier Malcles, Aude Mermier, Simon Teyssou"],["Diploma project, team of three · Copenhagen · 4,000 m² · 2015–2016","Tutors: Laetitia Lafont, Olivier Malcles, Aude Mermier, Simon Teyssou"]],elle:[["Projet de fin d'études en équipe à trois · Copenhague · 12 000 m² · 2015–2016","Encadrement : Laetitia Lafont, Olivier Malcles, Aude Mermier, Simon Teyssou"],["Diploma project, team of three · Copenhagen · 12,000 m² · 2015–2016","Tutors: Laetitia Lafont, Olivier Malcles, Aude Mermier, Simon Teyssou"]]};
   // mini-carte : fond OpenStreetMap dans js/minicartes.js (window.MINI) ; îlots fictifs seulement si une carte manque
   var LOC={tasty:[39.0533,-9.0089,"https://www.google.com/maps/search/?api=1&query=Quinta%20do%20Monte%20d%E2%80%99Oiro%2C%20Alenquer"],synergies:[50.4139,3.0555,"https://www.google.com/maps/search/?api=1&query=Auby%2C%20France"],varese:[45.817924,8.834408,"https://maps.app.goo.gl/3dRgybLwy2EBHE2k8"],agri:[45.792941,3.102708,"https://maps.app.goo.gl/weX8Hr3obq9QT3ib8"],
     terminus:[55.606664,12.37673,"https://maps.app.goo.gl/qzbFx8SaWB3HrhUf9"],elle:[55.658003,12.365585,"https://maps.app.goo.gl/W7Y8rRhmb6ei6N43A"]};
-  function miniMap(k,l,pl){return "";   // cartes retirées (Yves : rester minimaliste, le nom de la ville souligné dans le sous-titre suffit)
+  function miniMap(k,l,pl){return "";   // cartes retirées
   }
   function miniMapOld(k,l,pl){var L=LOC[k];if(!L)return "";var seed=7;for(var c=0;c<k.length;c++)seed=(seed*31+k.charCodeAt(c))%9973;
     var rnd=function(){seed=(seed*16807)%2147483647;return (seed%10000)/10000},r=[],x,y;
@@ -1428,15 +1431,15 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   // première image posée tout de suite, la maquette se charge derrière
   var G3IMG={tasty:"tasty_ensemble.jpg?v=2",siberian:"siberian_face.jpg",crank:"crank_nuit.jpg",equilibrium:"equilibrium_ensemble.jpg",varese:"varese_parvis.jpg",agri:"agri_ensemble.jpg?v=2",terminus:"terminus_ensemble.jpg",elle:"elle_ensemble.jpg"};
   var G3UI={
-    varese:{auto:1,v:[["parvis","Depuis le parvis"],["ensemble","Vue d'ensemble"],["hall","La nef"],["parc","Au-dessus du parc"]],note:"Maquette tirée du modèle SketchUp du projet (2013–2014), allégée pour le web. Environnement redessiné simplement ; trains et bus ajoutés. Images rendues à partir de la maquette."},
-    agri:{v:[["ensemble","Vue d'ensemble"],["nuit","Au ras des champs"]],note:"Maquette tirée du modèle SketchUp du projet (2014), allégée pour le web. La ville autour vient du même modèle."},
-    terminus:{v:[["ensemble","Vue d'ensemble"],["facade","Les deux peaux"],["interieur","Les bains thermaux"]],note:"Maquette tirée du modèle SketchUp du projet (2016), allégée pour le web : mobilier retiré. La ville et les arbres viennent du même modèle."},
-    tasty:{auto:1,v:[["ensemble","Sous la charpente"],["cylindre","Le cylindre"],["salle","La salle de dégustation"],["vers","Vers le cylindre"]],note:"Maquette tirée du modèle SketchUp du projet (2020), allégée pour le web. Bouteilles du cylindre retirées."},
-    crank:{auto:1,norender:1,v:[["ensemble","Vue d'ensemble"]],note:"Maquette tirée du modèle SketchUp du projet (2020) : façade, structure et intérieur, allégés pour le web."},
-    siberian:{auto:1,v:[["face","Vue de face"],["ensemble","Vue d'ensemble"]],note:"Maquette tirée du modèle SketchUp du projet (2016), allégée pour le web : structure, façades et aménagement intérieur."},
-    ventres:{auto:1,norender:1,v:[["ensemble","Vue d'ensemble"],["parcours","Le parcours"],["jacobins","Places des Jacobins"],["friche","Friche urbaine"],["belvedere","Quartier belvédère"]],note:"Maquette tirée du modèle SketchUp du projet (2021), allégée pour le web : véhicules, silhouettes et mobilier retirés, terrain simplifié. Point de vue et annotations repris de l’axonométrie des planches."},
-    equilibrium:{auto:1,v:[["ensemble","Vue d'ensemble"],["arrivee","Vers l’horizon"],["montee","Vers l’océan"],["pointe","Le belvédère"],["ciel","Vue du ciel"]],note:"Maquette tirée du modèle SketchUp du projet, allégée pour le web. Le site vient du même modèle ; la mer est ajoutée."},
-    elle:{v:[["ensemble","Vue d'ensemble"],["vers","Vers la tour"],["bassin","Face au bassin"],["facade","Façade"]],note:"Maquette tirée du modèle SketchUp du projet (2016), allégée pour le web : mobilier retiré. La ville et les arbres viennent du même modèle."}
+    varese:{auto:1,v:[["parvis","Depuis le parvis"],["ensemble","Vue d'ensemble"],["hall","La nef"],["parc","Au-dessus du parc"]]},
+    agri:{v:[["ensemble","Vue d'ensemble"],["nuit","Au ras des champs"]]},
+    terminus:{v:[["ensemble","Vue d'ensemble"],["facade","Les deux peaux"],["interieur","Les bains thermaux"]]},
+    tasty:{auto:1,v:[["ensemble","Sous la charpente"],["cylindre","Le cylindre"],["salle","La salle de dégustation"],["vers","Vers le cylindre"]]},
+    crank:{auto:1,norender:1,v:[["ensemble","Vue d'ensemble"]]},
+    siberian:{auto:1,v:[["face","Vue de face"],["ensemble","Vue d'ensemble"]]},
+    ventres:{auto:1,norender:1,v:[["ensemble","Vue d'ensemble"],["parcours","Le parcours"],["jacobins","Places des Jacobins"],["friche","Friche urbaine"],["belvedere","Quartier belvédère"]]},
+    equilibrium:{auto:1,v:[["ensemble","Vue d'ensemble"],["arrivee","Vers l’horizon"],["montee","Vers l’océan"],["pointe","Le belvédère"],["ciel","Vue du ciel"]]},
+    elle:{v:[["ensemble","Vue d'ensemble"],["vers","Vers la tour"],["bassin","Face au bassin"],["facade","Façade"]]}
   };
   window.YM_G3UI=G3UI;
   // défilé automatique des vues : vol de 4,2 s + apparition de l'image, puis 7 s de pause sur chaque vue, une fois l’image posée.
@@ -1688,7 +1691,7 @@ function setModel(k){objs.forEach(o=>{mdl.remove(o);o.geometry.dispose()});objs=
 function theme(){const g=new THREE.Color(css("--gl")),pin=new THREE.Color(css("--brick")),bg=new THREE.Color(css("--bg"));
   [M.grat,M.coast,M.bord,M.back,M.limb,M.coast2,M.bord2,M.reg,M.sea].forEach(m=>m.color.copy(g));const gm=new THREE.Color(css("--glm"));[H.model,H.disc,H.fine,H.ring,H.mfine,H.cseg,H.cfine].forEach(m=>m.color.copy(gm));H.green.color.set(css("--tube"));H.skA.color.copy(gm);H.logo.color.copy(gm);H.logo15.color.copy(gm);H.skB.color.copy(gm);H.skC.color.copy(gm);M.pin.color.copy(pin);M.route.color.copy(pin);occM.color.copy(bg);H.veil.color.copy(bg);fxCol=css("--glm");
   // mode jour : traits fins (régions, frontières) plus marqués, sinon ils disparaissent sur fond clair
-  const lt=bg.r+bg.g+bg.b>1.5;[[M.reg,.17,.42],[M.bord2,.62,.85],[M.bord,.45,.62],[M.sea,.06,.1]].forEach(([m,d,l])=>{MA0[MA.indexOf(m)]=lt?l:d});LB=lt?1.2:1;LM=lt?1.15:1}   // jour : traits renforcés, mais aussi fins que la nuit (Yves : trop épais à 1,7)
+  const lt=bg.r+bg.g+bg.b>1.5;[[M.reg,.17,.42],[M.bord2,.62,.85],[M.bord,.45,.62],[M.sea,.06,.1]].forEach(([m,d,l])=>{MA0[MA.indexOf(m)]=lt?l:d});LB=lt?1.2:1;LM=lt?1.15:1}   // jour : traits renforcés, mais aussi fins que la nuit
 let LB=1,LM=1;   // mode jour : traits renforcés pour tenir sur le fond blanc
 let fxCol="#2b2b2b";
 
@@ -1772,7 +1775,7 @@ document.querySelectorAll("#list .tg").forEach(b=>b.addEventListener("click",()=
 
 
 
-/* ---------- Globes 30/10 : prévisualisation, frise, constellations, découverte guidée ---------- */
+/* ---------- Globes : prévisualisation, frise, constellations, découverte guidée ---------- */
 let lastAct=-1e9,fcat=null,gdOn=false,gdK=0,gdT=null,pvT=null,pvIn=false;
 const gboxEl=$("gbox"),act=()=>{lastAct=performance.now()};
 ["pointerdown","pointermove","wheel","keydown","focusin","touchstart"].forEach(t=>gboxEl.addEventListener(t,act,{passive:true}));
@@ -1793,7 +1796,7 @@ addEventListener("keydown",e=>{if(e.key!=="Escape"||home.hidden||VW.classList.co
   if(gdOn)return gdStop();if(cur>=0||acur>=0){if(mode==="site")back();else if(acur>=0)resetGlobe();return}if(fcat)setCat(null)});
 
 /* frise : un axe commun, une barrette par catégorie, bornes lues dans les données */
-const CATS=[["e","Études"],["c","Concours"]];   // le globe ne montre que les projets personnels (Yves, 01/11) : l’agence a sa page
+const CATS=[["e","Études"],["c","Concours"]];   // le globe ne montre que les projets personnels : l’agence a sa page
 function catItems(c){if(c==="a")return AG.map((p,k)=>({i:100+k,p,y0:+String(p.y).slice(0,4)||null,y1:+String(p.y).slice(-4)||null,o:k}));
   return P.map((p,i)=>({i,p,y0:p.y0,y1:p.y1,o:p.o})).filter(x=>x.p.f===c)}
 function chron(c){return catItems(c).filter(x=>x.y0).sort((a,b)=>a.y0-b.y0||a.y1-b.y1||(a.o&&b.o?a.o-b.o:0))}
@@ -1923,8 +1926,8 @@ function drawFx(){fc.clearRect(0,0,W,Hh);return;const cx=W/2,cy=Hh/2,Mx=Math.hyp
 function imgsFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]),o=[];if(!it)return o;
   if(it.g3==="crank")return [{th:"img/rendu/crank_nuit.jpg",cap:"Perspective"}];
   if(it.g3==="tasty")return [{th:"img/rendu/tasty_ensemble.jpg?v=2",cap:"Perspective"}];
-  const U=(window.YM_G3UI||{})[it.g3];if(!U&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&U.norender&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&!U.norender)U.v.filter(([k])=>(it.g3!=="siberian"||k==="face"||k==="ensemble")&&!(it.g3==="varese"&&k==="parvis2")).forEach(([k,lab])=>{const f=it.g3==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":it.g3+"_"+k+".jpg"+(it.g3==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"");o.push({th:"img/rendu/"+f,src:"img/rendu/"+f,cap:lab})});return o}   // uniquement les images rendues, pas les panneaux (Yves)
-function gallery(i){i=-1;const G=$("gal");   // plus de galerie dans la fiche (Yves, 01/11) : une seule illustration en tête
+  const U=(window.YM_G3UI||{})[it.g3];if(!U&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&U.norender&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&!U.norender)U.v.filter(([k])=>(it.g3!=="siberian"||k==="face"||k==="ensemble")&&!(it.g3==="varese"&&k==="parvis2")).forEach(([k,lab])=>{const f=it.g3==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":it.g3+"_"+k+".jpg"+(it.g3==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"");o.push({th:"img/rendu/"+f,src:"img/rendu/"+f,cap:lab})});return o}   // uniquement les images rendues, pas les panneaux
+function gallery(i){i=-1;const G=$("gal");   // plus de galerie dans la fiche : une seule illustration en tête
  holoOff(true);if(typeof lbClose==="function"&&window.__lbReady)lbClose();if(i<0){G.hidden=true;G.classList.remove("vis");G.innerHTML="";return}
   const L=imgsFor(P[i]);if(!L.length){G.hidden=true;return}
   G.innerHTML="<p>Galerie</p>"+L.map((x,k)=>'<button type="button" data-k="'+k+'" aria-pressed="false" title="'+x.cap.replace(/"/g,"&quot;")+'"><img loading="lazy" src="'+x.th+'" alt="'+x.cap.replace(/"/g,"&quot;")+'"></button>').join("");

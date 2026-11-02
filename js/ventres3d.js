@@ -1,4 +1,4 @@
-// Les petits ventres-villes (Europan 16, Limoges, 2021). Maquette tirée du modèle SketchUp du projet (export DAE d'Yves, « Assemblage Final V9 »),
+// Les petits ventres-villes (Europan 16, Limoges, 2021). Maquette tirée du modèle SketchUp du projet,
 // allégée pour le web : véhicules, silhouettes et mobilier retirés, terrain repris en grille de 4 m, arbres redessinés à leurs emplacements.
 // Code couleur des panneaux : réhabilitation en gris, constructions neuves en ocre, places en rose, axe principal en rouge.
 import * as THREE from "three";
@@ -56,7 +56,7 @@ export function mount(host, opts = {}) {
   const W = () => host.clientWidth, H = () => host.clientHeight;
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, preserveDrawingBuffer: !!opts.capture });
   renderer.setPixelRatio(Math.min(2, Math.max(1.5, devicePixelRatio || 1))); // sur écran standard, rendu suréchantillonné : traits plus fins
-  const LK = 0.68; // intensité des traits (Yves : arêtes plus fines, « scalpel »)
+  const LK = 0.68; // intensité des traits
   renderer.setSize(W(), H());
   renderer.setClearColor(C.paper);
   host.appendChild(renderer.domElement);
@@ -358,7 +358,7 @@ export function mount(host, opts = {}) {
     if (heroC.width !== Wc || heroC.height !== Hc) { heroC.width = Wc; heroC.height = Hc; hero.cells = null; }
     const m = hero.m, src = m.img, w = m.w, h = m.h;
     // la maquette suit le léger zoom de l'image, pour rester calée dessous
-    const z = 1; // pas de zoom lent : l’image doit rester calée sur la maquette (01/11)
+    const z = 1; // pas de zoom lent : l’image doit rester calée sur la maquette
     hero.z = z; if (camera.zoom !== z) { camera.zoom = z; camera.updateProjectionMatrix(); }
     const sc = Math.max(Wc / w, Hc / h) * z, ix = (Wc - w * sc) / 2, iy = (Hc - h * sc) / 2;
     hx.clearRect(0, 0, Wc, Hc);
