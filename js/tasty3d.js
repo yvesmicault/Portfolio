@@ -118,7 +118,7 @@ export function mount(host, opts = {}) {
     if (isMain) { const ground = new THREE.Mesh(new THREE.CircleGeometry(900, 96).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: C.terrain })); ground.position.y = -9; ground.userData.glass = true; g.add(ground); }
     if (parts.t && parts.t.length) mesh(parts.t, C.terrain, { polygonOffsetFactor: 3, polygonOffsetUnits: 3 });
     mesh(parts.s, C.model);
-    if (parts.g && parts.g.length) mesh(parts.g, C.glass, { transparent: true, opacity: dark ? 0.7 : 0.82, depthWrite: false }, true);
+    if (false && parts.g && parts.g.length) mesh(parts.g, C.glass, { transparent: true, opacity: dark ? 0.7 : 0.82, depthWrite: false }, true);
     lines(parts.pl, C.ink, dark ? 0.95 : 0.8);
     if (parts.pd) lines(parts.pd, C.ink, dark ? 0.6 : 0.46, 16, 0);
   }
