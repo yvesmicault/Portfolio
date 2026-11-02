@@ -1862,8 +1862,8 @@ function proj(ll,r){tmp.set(...v3(ll[0],ll[1],r)).applyMatrix4(globe.matrixWorld
   const vis=nrm.dot(camN.copy(cam.position).sub(tmp).normalize());tmp.project(cam);return {x:(tmp.x+1)/2*W,y:(1-tmp.y)/2*Hh,vis,z:tmp.z}}
 // le trait de rappel s'arrête au bord du disque de la maquette (bord de l'image précédente)
 function rimCut(x0,y0,x1,y1){if(!rim||rim.length<3)return {x:x1,y:y1};let t=1;const dx=x1-x0,dy=y1-y0;
-  for(let k=0;k<rim.length;k++){const A=rim[k],B=rim[(k+1)%rim.length],ex=B.x-A.x,ey=B.y-A.y,d=dx*ey-dy*ex;if(Math.abs(d)<1e-9)continue;
-    const u=((A.x-x0)*ey-(A.y-y0)*ex)/d,v=((A.x-x0)*dy-(A.y-y0)*dx)/d;if(u>0&&u<t&&v>=0&&v<=1)t=u}
+  for(let k=0;k<rim.length;k++){const A=rim[k],B=rim[(k+1)%rim.length],ax=A.x+box0.x,ay=A.y+box0.y,ex=B.x-A.x,ey=B.y-A.y,d=dx*ey-dy*ex;if(Math.abs(d)<1e-9)continue;   // rim est en repère du globe, le trait en repère de #gbox
+    const u=((ax-x0)*ey-(ay-y0)*ex)/d,v=((ax-x0)*dy-(ay-y0)*dx)/d;if(u>0&&u<t&&v>=0&&v<=1)t=u}
   return {x:x0+dx*t,y:y0+dy*t}}
 function overlay(){let s="";const brick=css("--brick"),ag=css("--agc"),L=[];
   const AN={};for(const a of anc)AN[a.i]=a;
