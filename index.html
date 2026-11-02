@@ -580,11 +580,12 @@ html.fs-on,html.fs-on body{overflow:hidden}
 #gbox .fiche p{margin:0 0 8px;font:500 9.5px/1 var(--f);letter-spacing:.32em;text-transform:uppercase;color:var(--glm)}
 #gbox .fiche dl{margin:0;display:grid;gap:6px}.fiche dt{font:500 8.5px/1.2 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
 /* image de la galerie : s'ouvre par-dessus le globe, couleurs d'origine, au-dessus du trait rouge */
-#gbox .lb{position:absolute;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--veil);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s}
+#gbox .lb{position:absolute;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;pointer-events:none;transition:opacity .3s;overflow:hidden}
 #gbox .lb.on{opacity:1;pointer-events:auto;touch-action:pan-y}#gbox .fim.zm{cursor:zoom-in}#gbox .lb{background:var(--bg)}
 #gbox .lb figure{margin:0;position:relative;width:88%;height:84%;display:flex;align-items:center;justify-content:center}
 #gbox .lb img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 18px 50px rgba(0,0,0,.22)}
-#gbox .lb.on img{animation:lbPrint .8s var(--ease) both}
+#gbox .lb img.in{animation:lbPrint .6s var(--ease) both}#gbox .lb img{transform-origin:0 0;will-change:transform;cursor:zoom-in;-webkit-user-drag:none;user-select:none}#gbox .lb.zoomed{touch-action:none}#gbox .lb.zoomed img{cursor:grab;animation:none;clip-path:none;box-shadow:none}#gbox .lb.zoomed figcaption{opacity:0}
+#gbox .lb .pv{right:auto;width:auto}#gbox .lb .nx{left:auto;width:auto}#gbox .lb .zm{right:4px;bottom:4px;display:grid;place-items:center}#gbox .lb .zm[aria-pressed="true"] .pl{display:none}#gbox .lb .zm[aria-pressed="true"]{color:var(--brick)}#gbox .lb figure{z-index:0}#gbox .lb button{z-index:1}
 @keyframes lbPrint{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 #gbox .lb figcaption{font:400 10px/1.4 var(--m);color:var(--mute);text-align:center}
 #gbox .lb button{position:absolute;border:0;background:none;color:var(--mute);font:300 22px/1 var(--f);cursor:pointer;padding:8px}
@@ -808,7 +809,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
       <svg id="dsv" aria-hidden="false"><path class="rim" id="rimA"/><path id="rimF" fill="none"/><path id="rimB" fill="none"/>
         <text class="f" id="tF" role="link" tabindex="0"><textPath href="#rimF" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">Ouvrir le projet</textPath></text>
         <text class="b" id="tB" role="button" tabindex="0" style="display:none"><textPath href="#rimB" startOffset="50%" text-anchor="middle">Globe</textPath></text></svg>
-      <div class="lb" id="lb" role="dialog" aria-modal="false" aria-label="Image du projet"><figure><img alt=""></figure><figcaption></figcaption><button class="x" type="button" aria-label="Fermer">×</button><button class="pv" type="button" aria-label="Image précédente">‹</button><button class="nx" type="button" aria-label="Image suivante">›</button></div>
+      <div class="lb" id="lb" role="dialog" aria-modal="false" aria-label="Image du projet"><figure><img alt=""></figure><figcaption></figcaption><button class="x" type="button" aria-label="Fermer">×</button><button class="pv" type="button" aria-label="Image précédente">‹</button><button class="nx" type="button" aria-label="Image suivante">›</button><button class="zm" type="button" aria-label="Loupe" aria-pressed="false" title="Zoomer (double-clic, molette, pincement)"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.5 12.5L17 17M6 8.5h5"/><path class="pl" d="M8.5 6v5"/></svg></button></div>
       <div class="gdw"><button type="button" class="gd-st" id="gdSt">Découvrir les projets <i>→</i></button><div class="gd" id="gd" role="group" aria-label="Découverte guidée" hidden><p class="gd-o">Études puis concours, par date</p><div class="gd-c"><button type="button" id="gdP" aria-label="Projet précédent">←</button><span id="gdN" aria-live="polite">1 / 8</span><button type="button" id="gdNx" aria-label="Projet suivant">→</button><button type="button" id="gdA" class="gd-t" aria-pressed="false">Lecture</button><button type="button" id="gdX" class="gd-t">Quitter</button></div></div></div>
       <div class="dact" id="dact"><button class="go lt" id="back" type="button" hidden><i>←</i><span>Globe</span></button><a class="go" href="#" id="go" hidden><span>Ouvrir le projet</span><i>→</i></a></div>
     </div>
@@ -1936,20 +1937,46 @@ function gallery(i){i=-1;const G=$("gal");   // plus de galerie dans la fiche : 
     if(on){lbClose();return}lbOpen(L,+b.dataset.k)}))}
 // la visionneuse : posée sur le cadre du globe, dissociée de la maquette
 let lbL=[],lbK=0;const VW=$("lb");
-function lbShow(){const x=lbL[lbK],im=VW.querySelector("img");VW.classList.remove("on");void VW.offsetWidth;im.src=x.src;im.alt=x.cap;VW.querySelector("figcaption").textContent=x.cap;
-  const sr=stage.getBoundingClientRect(),gr=gbox.getBoundingClientRect();Object.assign(VW.style,{left:sr.left-gr.left+"px",top:sr.top-gr.top+"px",width:sr.width+"px",height:sr.height+"px"});
-  VW.classList.add("on");$("gal").querySelectorAll("button").forEach((y,k)=>y.setAttribute("aria-pressed",k===lbK?"true":"false"));const n=lbL.length>1;VW.querySelector(".pv").hidden=VW.querySelector(".nx").hidden=!n}
+function lbPlace(){const sr=stage.getBoundingClientRect(),gr=gbox.getBoundingClientRect();Object.assign(VW.style,{left:sr.left-gr.left+"px",top:sr.top-gr.top+"px",width:sr.width+"px",height:sr.height+"px"})}
+const lbCache={};function lbLoad(src){if(!lbCache[src]){const I=new Image();I.decoding="async";I.src=src;lbCache[src]=(I.decode?I.decode():new Promise((a,b)=>{I.onload=a;I.onerror=b})).catch(()=>{}).then(()=>I)}return lbCache[src]}
+let lbTok=0;
+function lbShow(){const x=lbL[lbK],im=VW.querySelector("img"),t=++lbTok,first=!VW.classList.contains("on");VW.querySelector("figcaption").textContent=x.cap;
+  if(first){lbPlace();im.removeAttribute("src");VW.classList.add("on")}
+  const n=lbL.length>1;VW.querySelector(".pv").hidden=VW.querySelector(".nx").hidden=!n;
+  lbLoad(x.src).then(()=>{if(t!==lbTok)return;zmReset();im.classList.remove("in");im.src=x.src;im.alt=x.cap;void im.offsetWidth;im.classList.add("in");
+    if(n){lbLoad(lbL[(lbK+1)%lbL.length].src);lbLoad(lbL[(lbK-1+lbL.length)%lbL.length].src)}})}
+// zoom : molette, pincement, double-clic / double tape, loupe ; glisser pour se déplacer
+let zS=1,zX=0,zY=0;const ZI=()=>VW.querySelector("img"),ZB=()=>VW.querySelector(".zm");
+function zApply(){const im=ZI(),w=im.offsetWidth,h=im.offsetHeight,v=VW.getBoundingClientRect(),L=v.left+im.offsetLeft+im.parentNode.offsetLeft,T=v.top+im.offsetTop+im.parentNode.offsetTop,W=w*zS,H=h*zS;
+  zX=W<=v.width?(w-W)/2:Math.min(v.left-L,Math.max(v.right-W-L,zX));zY=H<=v.height?(h-H)/2:Math.min(v.top-T,Math.max(v.bottom-H-T,zY));
+  im.style.transform=zS===1?"":"translate("+zX+"px,"+zY+"px) scale("+zS+")";VW.classList.toggle("zoomed",zS>1);ZB().setAttribute("aria-pressed",zS>1?"true":"false")}
+function zTo(s2,X,Y){const im=ZI(),r=im.getBoundingClientRect();if(X==null){X=r.left+r.width/2;Y=r.top+r.height/2}s2=Math.max(1,Math.min(8,s2));
+  const L=r.left-(zS===1?0:zX),T=r.top-(zS===1?0:zY),cx=zS===1?0:zX,cy=zS===1?0:zY,lx=(X-L-cx)/zS,ly=(Y-T-cy)/zS;zX=X-L-s2*lx;zY=Y-T-s2*ly;zS=s2;zApply()}
+function zmReset(){zS=1;zX=zY=0;const im=ZI();im.style.transform="";VW.classList.remove("zoomed");ZB().setAttribute("aria-pressed","false")}
+ZB().addEventListener("click",e=>{e.stopPropagation();zS>1?zmReset():zTo(3)});
+VW.addEventListener("wheel",e=>{if(!VW.classList.contains("on"))return;e.preventDefault();zTo(zS*Math.exp(-e.deltaY*(e.deltaMode?0.05:0.0022)),e.clientX,e.clientY)},{passive:false});
+{const pts=new Map();let p0=null,d0=0,s0=1,moved=false,lastTap=0,lx=0,ly=0;
+ VW.addEventListener("pointerdown",e=>{if(e.target.closest("button"))return;pts.set(e.pointerId,{x:e.clientX,y:e.clientY});moved=false;
+   if(pts.size===1)p0={x:e.clientX,y:e.clientY,zx:zX,zy:zY};if(pts.size===2){const[a,b]=[...pts.values()];d0=Math.hypot(a.x-b.x,a.y-b.y);s0=zS}
+   if(zS>1||pts.size===2)try{VW.setPointerCapture(e.pointerId)}catch(_){}});
+ VW.addEventListener("pointermove",e=>{if(!pts.has(e.pointerId))return;pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+   if(pts.size===2){const[a,b]=[...pts.values()];moved=true;zTo(s0*Math.hypot(a.x-b.x,a.y-b.y)/d0,(a.x+b.x)/2,(a.y+b.y)/2);return}
+   if(p0&&Math.hypot(e.clientX-p0.x,e.clientY-p0.y)>6)moved=true;if(p0&&zS>1){zX=p0.zx+e.clientX-p0.x;zY=p0.zy+e.clientY-p0.y;zApply()}});
+ const up=e=>{if(!pts.has(e.pointerId))return;pts.delete(e.pointerId);if(pts.size){p0=null;return}
+   if(e.type==="pointerup"&&p0){const dx=e.clientX-p0.x,dy=e.clientY-p0.y;
+     if(zS===1&&Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2&&lbL.length>1){VW.querySelector(dx<0?".nx":".pv").click();VW.__drag=1}
+     else if(!moved&&e.target.tagName==="IMG"){const now=performance.now();if(now-lastTap<320&&Math.hypot(e.clientX-lx,e.clientY-ly)<30){zS>1?zmReset():zTo(3,e.clientX,e.clientY);lastTap=0}else{lastTap=now;lx=e.clientX;ly=e.clientY}}
+     else if(moved)VW.__drag=1}p0=null};
+ VW.addEventListener("pointerup",up);VW.addEventListener("pointercancel",up)}
 function lbOpen(L,k){lbL=L;lbK=k;lbShow()}
 // visionneuse de la fiche : images rendues puis planches de rendu (projets activés dans VIEWER)
 function viewerList(p){const L=imgsFor(p).map(x=>({src:x.src||x.th,cap:x.cap})),it=(window.YM_PROJ||[]).find(x=>x.t===TITLE[p.k]);
   if(it&&it.o&&it.p)it.p.forEach((x,k)=>L.push({src:x.src,cap:"Planche de rendu"+(it.p.length>1?" "+(k+1):"")}));return L.map((x,k)=>({src:x.src,cap:x.cap+"  ·  "+(k+1)+" / "+L.length}))}
 $("fim").addEventListener("click",()=>{const F=$("fim"),p=P[+F.dataset.i];if(!p||!VIEWER.has(p.k))return;const L=viewerList(p);if(!L.length)return;lbOpen(L,0);const r=VW.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight)VW.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"})});
-{let x0=null,y0=0;VW.addEventListener("touchstart",e=>{if(e.touches.length!==1){x0=null;return}x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
- VW.addEventListener("touchend",e=>{if(x0===null)return;const t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;x0=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2&&lbL.length>1)VW.querySelector(dx<0?".nx":".pv").click()},{passive:true})}
-addEventListener("resize",()=>{if(!VW.classList.contains("on"))return;const sr=stage.getBoundingClientRect(),gr=gbox.getBoundingClientRect();Object.assign(VW.style,{left:sr.left-gr.left+"px",top:sr.top-gr.top+"px",width:sr.width+"px",height:sr.height+"px"})});
-function lbClose(){VW.classList.remove("on");const G=$("gal");if(G)G.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"))}
+addEventListener("resize",()=>{if(!VW.classList.contains("on"))return;lbPlace();zmReset()});
+function lbClose(){VW.classList.remove("on");lbTok++;zmReset();const G=$("gal");if(G)G.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"))}
 VW.querySelector(".x").addEventListener("click",lbClose);VW.querySelector(".pv").addEventListener("click",()=>{lbK=(lbK-1+lbL.length)%lbL.length;lbShow()});VW.querySelector(".nx").addEventListener("click",()=>{lbK=(lbK+1)%lbL.length;lbShow()});
-VW.addEventListener("click",e=>{if(e.target===VW)lbClose()});window.__lbReady=1;addEventListener("keydown",e=>{if(!VW.classList.contains("on"))return;if(e.key==="Escape")lbClose();if(e.key==="ArrowRight")VW.querySelector(".nx").click();if(e.key==="ArrowLeft")VW.querySelector(".pv").click()});
+VW.addEventListener("click",e=>{if(VW.__drag){VW.__drag=0;return}if(e.target===VW)lbClose()});window.__lbReady=1;addEventListener("keydown",e=>{if(!VW.classList.contains("on"))return;if(e.key==="Escape")lbClose();if(e.key==="+"||e.key==="=")zTo(zS*1.5);if(e.key==="-")zTo(zS/1.5);if(e.key==="0")zmReset();if(e.key==="ArrowRight")VW.querySelector(".nx").click();if(e.key==="ArrowLeft")VW.querySelector(".pv").click()});
 const holoU={map:{value:null},uTint:{value:new THREE.Color()},uDark:{value:1},uRev:{value:0},uTime:{value:0},uOp:{value:0}};
 const holoM=new THREE.ShaderMaterial({uniforms:holoU,transparent:true,depthTest:false,depthWrite:false,side:THREE.DoubleSide,
   vertexShader:"varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}",
