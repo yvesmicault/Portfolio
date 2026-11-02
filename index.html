@@ -507,7 +507,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
 .fiche .stamp{pointer-events:none}.fiche .stamp b{font-size:10px}
 /* page Agence : chronologie complète 2017 → 2026, toutes les cartes dans le flux */
 #v-agence .agt-logo{display:block;width:min(100%,640px);aspect-ratio:794.77/49.43;background:var(--ink);-webkit-mask:url(img/hm_logo.svg?v=2) left center/contain no-repeat;mask:url(img/hm_logo.svg?v=2) left center/contain no-repeat;transition:opacity .2s}#v-agence .agt-h1{line-height:0}#v-agence .agt-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}#v-agence .agt-logo:hover{opacity:1}
-#v-agence .agt-jr{text-align:left;hyphens:none}#v-agence .agt-intro{margin:-12px 0 36px;font:400 14.5px/1.65 var(--f);color:var(--ink);max-width:72ch}#v-agence .agt-note{margin:-14px 0 34px;font:400 12px/1.6 var(--m);color:var(--mute);max-width:75ch}
+#v-agence .agt-jr{text-align:left;hyphens:none}#v-agence .agt-ig{margin:-12px 0 36px}#v-agence .agt-intro{margin:0;font:400 14px/1.65 var(--f);color:var(--ink)}@media(min-width:960px){#v-agence .agt-jr{justify-self:end;width:calc((200% + 24px - 2*clamp(20px,3vw,40px))/3)}#v-agence .agt-ig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(20px,3vw,40px)}#v-agence .agt-intro{grid-column:3}}#v-agence .agt-note{margin:-14px 0 34px;font:400 12px/1.6 var(--m);color:var(--mute);max-width:75ch}
 #v-agence .agt-h{margin:0 0 16px;font:500 10.5px/1.4 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
 #v-agence .agt-fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:22px clamp(20px,3vw,40px);margin-bottom:56px}
 #v-agence .agt-f{min-width:0;border-top:2px solid var(--brick);padding-top:14px}
@@ -849,7 +849,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
   <div class="wrap">
     <a class="crumb" href="#accueil">← Accueil</a>
     <div class="ph-head"><h1 class="agt-h1"><a class="agt-logo" href="https://hamonic-masson.com/" target="_blank" rel="noopener" title="Hamonic+Masson &amp; Associés"><span class="agt-vh">Hamonic+Masson &amp; Associés</span></a></h1><p class="jr agt-jr">Une décennie de projets, de recherches et d’expériences architecturales, du concours à la mise au point technique.</p></div>
-    <p class="agt-intro">L’expérience en agence est celle d’une confrontation permanente entre les idées et leur réalité. Depuis 2017, chez Hamonic+Masson &amp; Associés, j’ai exploré cette relation à travers des projets très différents, apprenant autant de leur conception que des contraintes, des échanges et des arbitrages qui accompagnent leur développement.</p>
+    <div class="agt-ig"><p class="agt-intro">L’expérience en agence est celle d’une confrontation permanente entre les idées et leur réalité. Depuis 2017, chez Hamonic+Masson &amp; Associés, j’ai exploré cette relation à travers des projets très différents, apprenant autant de leur conception que des contraintes, des échanges et des arbitrages qui accompagnent leur développement.</p></div>
     <div id="agF"></div>
     <h3 class="agt-h">Chronologie 2017 — 2026</h3>
     <nav class="agt-i" id="agI" aria-label="Aller à l’année"></nav>
