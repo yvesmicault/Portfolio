@@ -581,9 +581,9 @@ html.fs-on,html.fs-on body{overflow:hidden}
 #gbox .fiche dl{margin:0;display:grid;gap:6px}.fiche dt{font:500 8.5px/1.2 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
 /* image de la galerie : s'ouvre par-dessus le globe, couleurs d'origine, au-dessus du trait rouge */
 #gbox .lb{position:absolute;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--veil);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s}
-#gbox .lb.on{opacity:1;pointer-events:auto}
-#gbox .lb figure{margin:0;position:relative;max-width:94%;max-height:84%;display:flex}
-#gbox .lb img{display:block;max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 18px 50px rgba(0,0,0,.22)}
+#gbox .lb.on{opacity:1;pointer-events:auto;touch-action:pan-y}#gbox .fim.zm{cursor:zoom-in}#gbox .lb{background:var(--bg)}
+#gbox .lb figure{margin:0;position:relative;width:88%;height:84%;display:flex;align-items:center;justify-content:center}
+#gbox .lb img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 18px 50px rgba(0,0,0,.22)}
 #gbox .lb.on img{animation:lbPrint .8s var(--ease) both}
 @keyframes lbPrint{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 #gbox .lb figcaption{font:400 10px/1.4 var(--m);color:var(--mute);text-align:center}
@@ -1705,7 +1705,8 @@ function angDist(a,b){const p1=a[0]*D2R,p2=b[0]*D2R,dl=(b[1]-a[1])*D2R;return Ma
 function fmtLL(ll){return Math.abs(ll[0]).toFixed(3)+"° "+(ll[0]>=0?"N":"S")+" · "+Math.abs(ll[1]).toFixed(3)+"° "+(ll[1]>=0?"E":"O")}
 let AG=[],acur=-1,WH=null;const VIS={e:1,c:1,a:0};const selI=()=>acur>=0?100+acur:cur;
 function marks(){document.querySelectorAll(".it").forEach(b=>{const i=+b.dataset.i;b.classList.toggle("on",i===selI());b.classList.toggle("hot",i===hov)})}
-function caption(i){if(i<0||i>=100)$("fim").hidden=true;if(i<0){$("tit").textContent="";$("sub").textContent="";return}if(i>=100){const a=AG[i-100];$("tit").textContent=a.t;$("sub").textContent=(a.t!==a.c?a.c+" · ":"")+a.y;return}{const g=imgsFor(P[i])[0],F=$("fim");if(g){F.src=g.th;F.alt=P[i].t;F.hidden=false}else F.hidden=true}$("tit").textContent=P[i].t;$("sub").innerHTML='<span class="ct">'+(P[i].f==="e"?"Projet d’études":"Concours")+'</span><span class="mt">'+P[i].m+"</span>"}
+var VIEWER=new Set(["varese"]);   // visionneuse de la fiche : test sur Sospesa avant d’étendre aux autres projets
+function caption(i){if(i<0||i>=100)$("fim").hidden=true;if(i<0){$("tit").textContent="";$("sub").textContent="";return}if(i>=100){const a=AG[i-100];$("tit").textContent=a.t;$("sub").textContent=(a.t!==a.c?a.c+" · ":"")+a.y;return}{const g=imgsFor(P[i])[0],F=$("fim");if(g){F.src=g.th;F.alt=P[i].t;F.hidden=false}else F.hidden=true;F.dataset.i=i;F.classList.toggle("zm",VIEWER.has(P[i].k))}$("tit").textContent=P[i].t;$("sub").innerHTML='<span class="ct">'+(P[i].f==="e"?"Projet d’études":"Concours")+'</span><span class="mt">'+P[i].m+"</span>"}
 // la plongée : le globe tourne vers le lieu, on descend, la vue s'incline et la maquette s'imprime sur place
 const WARM={varese:["varese.json","varese_env.json"],agri:["agri.json","agri_life.json?v=117"],terminus:["terminus.json?v=120"],elle:["elle.json"],ventres:["ventres.json?v=6"],crank:["crank.json?v=1"],tasty:["tasty.json?v=5"],siberian:["siberian.json?v=3"],equilibrium:["equilibrium.json?v=1"]},warmed={};
 function warm(k){if(warmed[k]||!WARM[k])return;warmed[k]=1;WARM[k].forEach(f=>{try{fetch("data/"+f,{priority:"low"}).catch(()=>{})}catch(e){}})}   // précharge la maquette dès qu'un projet est survolé ou choisi
@@ -1939,6 +1940,13 @@ function lbShow(){const x=lbL[lbK],im=VW.querySelector("img");VW.classList.remov
   const sr=stage.getBoundingClientRect(),gr=gbox.getBoundingClientRect();Object.assign(VW.style,{left:sr.left-gr.left+"px",top:sr.top-gr.top+"px",width:sr.width+"px",height:sr.height+"px"});
   VW.classList.add("on");$("gal").querySelectorAll("button").forEach((y,k)=>y.setAttribute("aria-pressed",k===lbK?"true":"false"));const n=lbL.length>1;VW.querySelector(".pv").hidden=VW.querySelector(".nx").hidden=!n}
 function lbOpen(L,k){lbL=L;lbK=k;lbShow()}
+// visionneuse de la fiche : images rendues puis planches de rendu (projets activés dans VIEWER)
+function viewerList(p){const L=imgsFor(p).map(x=>({src:x.src||x.th,cap:x.cap})),it=(window.YM_PROJ||[]).find(x=>x.t===TITLE[p.k]);
+  if(it&&it.o&&it.p)it.p.forEach((x,k)=>L.push({src:x.src,cap:"Planche de rendu"+(it.p.length>1?" "+(k+1):"")}));return L.map((x,k)=>({src:x.src,cap:x.cap+"  ·  "+(k+1)+" / "+L.length}))}
+$("fim").addEventListener("click",()=>{const F=$("fim"),p=P[+F.dataset.i];if(!p||!VIEWER.has(p.k))return;const L=viewerList(p);if(!L.length)return;lbOpen(L,0);const r=VW.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight)VW.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"})});
+{let x0=null,y0=0;VW.addEventListener("touchstart",e=>{if(e.touches.length!==1){x0=null;return}x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+ VW.addEventListener("touchend",e=>{if(x0===null)return;const t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;x0=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2&&lbL.length>1)VW.querySelector(dx<0?".nx":".pv").click()},{passive:true})}
+addEventListener("resize",()=>{if(!VW.classList.contains("on"))return;const sr=stage.getBoundingClientRect(),gr=gbox.getBoundingClientRect();Object.assign(VW.style,{left:sr.left-gr.left+"px",top:sr.top-gr.top+"px",width:sr.width+"px",height:sr.height+"px"})});
 function lbClose(){VW.classList.remove("on");const G=$("gal");if(G)G.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"))}
 VW.querySelector(".x").addEventListener("click",lbClose);VW.querySelector(".pv").addEventListener("click",()=>{lbK=(lbK-1+lbL.length)%lbL.length;lbShow()});VW.querySelector(".nx").addEventListener("click",()=>{lbK=(lbK+1)%lbL.length;lbShow()});
 VW.addEventListener("click",e=>{if(e.target===VW)lbClose()});window.__lbReady=1;addEventListener("keydown",e=>{if(!VW.classList.contains("on"))return;if(e.key==="Escape")lbClose();if(e.key==="ArrowRight")VW.querySelector(".nx").click();if(e.key==="ArrowLeft")VW.querySelector(".pv").click()});
