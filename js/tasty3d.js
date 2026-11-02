@@ -132,7 +132,7 @@ export function mount(host, opts = {}) {
     const go = () => { main.visible = !on; ex.visible = on; };
     if (on) ensureEx().then(go); else go();
   }
-  loadModel(new URL("../data/tasty.json?v=1", import.meta.url)).then(({ P, parts }) => {
+  loadModel(new URL("../data/tasty.json?v=2", import.meta.url)).then(({ P, parts }) => {
     if (!alive) return;
     build(P, parts, main, true);
     wait.style.opacity = 0; setTimeout(() => wait.remove(), 700);
@@ -169,18 +169,10 @@ export function mount(host, opts = {}) {
 
   /* ---------- vues ---------- */
   const views = {
-    ensemble: { pos: [-38, 34, 48], tgt: [2, 0, 2], fov: 34 },
-    p01: { pos: [0.75, 2.03, 38.98], tgt: [-2.23, 5.48, 27.88], fov: 35.2 },
-    p02: { pos: [15.81, 5.08, -0.8], tgt: [3.91, 6.34, -1.74], fov: 38.9 },
-    salle: { pos: [5.24, 1.67, -3.67], tgt: [0.24, 2.9, 7.17], fov: 73.9 },
-    baies: { pos: [7.48, 1.86, 0.9], tgt: [-2.09, 2.19, 8.12], fov: 48.8 },
+    ensemble: { pos: [13.7, 4.8, -1.3], tgt: [1.8, 4.8, 0.4], fov: 58.0 },
+    placette: { pos: [-20.2, 1.9, 0.2], tgt: [-8.6, 2.6, 2.9], fov: 35.2 },
+    salle: { pos: [4.2, 1.8, -4.2], tgt: [-1.1, 1.6, 6.5], fov: 73.9 },
     cylindre: { pos: [-4.54, 1.31, -1.19], tgt: [2.16, 4.5, -10.62], fov: 78.3 },
-    haut_cyl: { pos: [-3.32, 5.22, -1.1], tgt: [-1.28, 2.49, -12.6], fov: 77.0 },
-    placette: { pos: [-20.17, 1.68, 0.53], tgt: [-8.66, 3.75, 3.24], fov: 35.2 },
-    seuil: { pos: [4.96, 1.86, -2.85], tgt: [14.04, 1.74, 4.99], fov: 38.7 },
-    vigne: { pos: [-53.67, -3.23, -8.76], tgt: [-42.41, 0.71, -7.5], fov: 57.4 },
-    table: { pos: [3.12, 1.63, -4.51], tgt: [1.29, 2.34, 7.33], fov: 58.0 },
-    terrasse: { pos: [13.61, 4.83, -0.5], tgt: [2.05, 7.54, 1.27], fov: 58.0 },
   };
 
   /* ---------- image rendue posée sur la maquette ; elle se désagrège au premier geste ---------- */
