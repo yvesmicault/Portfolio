@@ -1860,6 +1860,11 @@ new ResizeObserver(size).observe(host);addEventListener("resize",size);
 const tmp=new THREE.Vector3(),nrm=new THREE.Vector3(),camN=new THREE.Vector3();let scr=[];
 function proj(ll,r){tmp.set(...v3(ll[0],ll[1],r)).applyMatrix4(globe.matrixWorld);nrm.copy(tmp).normalize();
   const vis=nrm.dot(camN.copy(cam.position).sub(tmp).normalize());tmp.project(cam);return {x:(tmp.x+1)/2*W,y:(1-tmp.y)/2*Hh,vis,z:tmp.z}}
+// le trait de rappel s'arrête au bord du disque de la maquette (bord de l'image précédente)
+function rimCut(x0,y0,x1,y1){if(!rim||rim.length<3)return {x:x1,y:y1};let t=1;const dx=x1-x0,dy=y1-y0;
+  for(let k=0;k<rim.length;k++){const A=rim[k],B=rim[(k+1)%rim.length],ex=B.x-A.x,ey=B.y-A.y,d=dx*ey-dy*ex;if(Math.abs(d)<1e-9)continue;
+    const u=((A.x-x0)*ey-(A.y-y0)*ex)/d,v=((A.x-x0)*dy-(A.y-y0)*dx)/d;if(u>0&&u<t&&v>=0&&v<=1)t=u}
+  return {x:x0+dx*t,y:y0+dy*t}}
 function overlay(){let s="";const brick=css("--brick"),ag=css("--agc"),L=[];
   const AN={};for(const a of anc)AN[a.i]=a;
   const IT=P.map((p,i)=>({i,p})).filter(o=>VIS[o.p.f]||o.p.f===fcat||o.i===cur).concat(VIS.a||fcat==="a"||acur>=0||hov>=100?AG.map((p,k)=>({i:100+k,p})).filter(o=>VIS.a||fcat==="a"||o.i===100+acur||o.i===hov):[]);
@@ -1872,7 +1877,7 @@ function overlay(){let s="";const brick=css("--brick"),ag=css("--agc"),L=[];
   scr=[];for(const q of L){const i=q.a.i,hot=i===hov||i===cur,o=q.v.toFixed(3),x=q.x+box0.x,y=q.y+box0.y;if(!(i===cur&&V.ha>.5))scr.push({i,x:q.x,y:q.y});
     const sl=selI(),hot2=i===hov||i===sl;if(q.p.f===undefined){const r=hot2?3.6:2.3;if(!(V.ha>.3))s+=`<path d="M${x} ${y-r}L${x+r} ${y}L${x} ${y+r}L${x-r} ${y}Z" fill="${ag}" opacity="${o}"/>`;if(hot2&&leaders&&!q.a.no)s+=`<path d="M${q.a.x} ${q.a.y}L${q.a.x+14} ${q.a.y}L${x} ${y}" fill="none" stroke="${ag}" stroke-width="1" opacity="${o}"/>`;continue}
     if(!(i===cur&&V.ha>.5))s+=q.p.f==="e"?`<circle cx="${x}" cy="${y}" r="${hot?4.4:3.2}" fill="${brick}" opacity="${o}"/>`:`<circle cx="${x}" cy="${y}" r="${hot?4.8:3.6}" fill="${css("--bg")}" stroke="${brick}" stroke-width="1.4" opacity="${o}"/>`;
-    if(hot&&leaders)s+=`<path d="M${q.a.x} ${q.a.y}L${q.a.x+14} ${q.a.y}L${x} ${y}" fill="none" stroke="${brick}" stroke-width="1" opacity="${o}"/>`}
+    if(hot&&leaders){const e=rimCut(q.a.x+14,q.a.y,x,y);s+=`<path d="M${q.a.x} ${q.a.y}L${q.a.x+14} ${q.a.y}L${e.x} ${e.y}" fill="none" stroke="${brick}" stroke-width="1" opacity="${o}"/>`}}
   if(fcat&&V.ha<.3)s=constel()+s;
   // sur la maquette : le bord du disque projeté à l'écran, Ouvrir / Globe accrochés à son point le plus bas
   rim=[];const D=$("dsv"),dv=mode==="site"?V.ha:mode==="dive"&&cur>=0?Math.max(0,V.ha-.6)/.4:0;
