@@ -640,6 +640,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
 #gbox .cap b,#gbox .pv b{font:300 22px/1.12 var(--f);letter-spacing:.02em;text-transform:uppercase}
 .gdw .gd-st[hidden]{display:none}.gdw .gd-c button{min-width:26px;height:26px}.gdw{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}#gbox .gdw .gd{margin:0;border:0;padding:0;display:flex;align-items:center;gap:12px}.gdw .gd[hidden]{display:none}.gdw .gd-o{margin:0}
 @media (min-width:761px){.home #gbox .gdw{position:absolute;z-index:4}}
+#gbox .gdw{display:none!important}   /* « Découvrir les projets » retiré : doublon avec la liste */
 @media (max-width:760px){.home #gbox .gdw{order:1;margin:6px 0 4px}}
 /* --- Globes : fiche, prévisualisation, frise, découverte guidée --- */
 #gbox .cap .ct{display:block;margin-top:8px;font:500 9px/1.2 var(--f);letter-spacing:.28em;text-transform:uppercase;color:var(--brick)}
