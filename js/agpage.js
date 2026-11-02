@@ -62,13 +62,14 @@
       '<h4>'+esc(p.t)+'</h4>'+
       '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p>'+
       '<p class="agt-pr">'+esc(p.n)+(su?'<span class="agt-s">'+esc(su)+'</span>':'')+'</p>'+
-      (p.co?'<p class="agt-mt">Avec '+esc(p.co)+'</p>':'')+
-      (WIN[p.id]?'<p class="agt-w">'+LAU+'Concours remporté en '+WIN[p.id][0]+'</p>':'')+
-      (st?'<p class="agt-mt">Opération : '+esc(st)+'</p>':'')+
-      (S?'<p class="agt-mt">Suite en '+yr(S)+'</p>':'')+
-      links(p)+'</div></article></li>'}
+      meta(p,st,S)+'</div></article></li>'}
+  function meta(p,st,S){var a=[];
+    if(WIN[p.id])a.push('<span class="agt-wn">Concours remporté</span>');
+    if(st)a.push(esc(st));if(S)a.push('Suite en '+yr(S));if(p.co)a.push('Avec '+esc(p.co));
+    if(p.u)a.push('<a class="agt-lk" href="'+HM+esc(p.u)+'" target="_blank" rel="noopener">Fiche de l’agence ↗</a>');
+    return a.length?'<p class="agt-mt agt-ml">'+a.join('<i> · </i>')+'</p>':''}
   /* vignette tirée de la fiche de l'agence ; emplacement vide quand il n'y a pas de fiche */
-  function tb(p){return '<div class="agt-tb">'+(p&&p.u?'<img src="img/agt/'+esc(p.id)+'.jpg" alt="" loading="lazy" decoding="async" width="360" height="240">':'')+'</div>'}
+  function tb(p){return p&&p.u?'<div class="agt-tb"><img src="img/agt/'+esc(p.id)+'.jpg" alt="" loading="lazy" decoding="async" width="360" height="240"></div>':'<div class="agt-tb agt-tb0" aria-hidden="true"><span>H+M</span></div>'}
   function feat(p){var F=FEAT[p.id];if(!F)return "";var ph=phases(p).split(/\s*→\s*/).filter(Boolean),I=F.img||[],n=I.length;
     var fig=n?'<figure class="agt-m"><button type="button" class="agt-zb" data-ag="'+esc(p.id)+'" aria-label="'+esc(p.t)+' : '+(n>1?'voir les '+n+' images':'agrandir l’image')+'"><img src="'+esc(I[0][0])+'.jpg" alt="'+esc(p.t+', '+p.c+' : '+I[0][1].toLowerCase())+'" loading="lazy" decoding="async"><span class="agt-zl">'+(n>1?'Voir les '+n+' images':'Agrandir l’image')+'</span></button><figcaption>Image : Hamonic+Masson & Associés</figcaption></figure>':"";
     function dl(rows){return '<dl>'+rows.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join("")+'</dl>'}
@@ -98,14 +99,16 @@
     "#v-agence .agt-ct li{font:400 13.5px/1.5 var(--f)}#v-agence .agt-ct b{display:block;font:500 11px/1.4 var(--m);color:var(--ink)}"+
     "#v-agence .agt-lau{width:16px;height:16px;flex:none;fill:none;stroke:var(--brick);stroke-width:1.3;stroke-linecap:round}"+
     "#v-agence .agt-w{margin:6px 0 0;display:inline-flex;align-items:center;gap:6px;font:400 11.5px/1.3 var(--m);color:var(--brick)}"+
-    "#v-agence .agt-wl{list-style:none;margin:0 0 56px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));column-gap:28px;border-top:1px solid var(--ink)}"+
-    "#v-agence .agt-wl a{display:flex;align-items:baseline;gap:12px;min-height:44px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;white-space:nowrap;overflow:hidden}"+
-    "#v-agence .agt-wl a:hover b{color:var(--brick)}#v-agence .agt-wl b{font:400 14px/1.3 var(--f);overflow:hidden;text-overflow:ellipsis}"+
     "#v-agence .agt-wy{font:400 12px/1 var(--m);color:var(--brick);font-variant-numeric:tabular-nums}#v-agence .agt-wc{margin-left:auto;font:400 11px/1.3 var(--m);color:var(--mute)}"+
-    "#v-agence .agt-c{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:16px;align-items:start}"+
-    "#v-agence .agt-tb{width:96px;aspect-ratio:3/2;margin-top:2px;background:var(--line);opacity:.4}"+
-    "#v-agence .agt-tb:has(img){background:none;opacity:1}#v-agence .agt-tb img{display:block;width:100%;height:100%;object-fit:cover}"+
-    "@media(max-width:420px){#v-agence .agt-c{grid-template-columns:72px minmax(0,1fr);column-gap:12px}#v-agence .agt-tb{width:72px}}"+
+    "#v-agence .agt-c{display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:14px;align-items:start}"+
+    "#v-agence .agt-tb{width:64px;aspect-ratio:3/2;margin-top:3px}#v-agence .agt-tb img{display:block;width:100%;height:100%;object-fit:cover}"+
+    "#v-agence .agt-tb0{display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}#v-agence .agt-tb0 span{font:400 9px/1 var(--m);letter-spacing:.12em;color:var(--mute);opacity:.7}"+
+    "#v-agence .agt-y{padding:16px 0 18px}#v-agence .agt-g{gap:14px clamp(18px,2.4vw,32px)}"+
+    "@media(min-width:1200px){#v-agence .agt-y .agt-g{grid-template-columns:repeat(3,minmax(0,1fr))}}"+
+    "#v-agence .agt-c h4{font-size:16.5px;line-height:1.25}#v-agence .agt-c .agt-eb{margin-bottom:2px;font-size:10.5px}"+
+    "#v-agence .agt-c .agt-ro{margin-top:3px;font-size:12.5px}#v-agence .agt-c .agt-pr{margin-top:2px;font-size:12.5px;line-height:1.4}"+
+    "#v-agence .agt-ml{margin-top:3px;font-size:10.5px;line-height:1.5}#v-agence .agt-ml i{font-style:normal;opacity:.6}#v-agence .agt-ml .agt-lk{padding:0;font-size:10.5px}"+
+    "#v-agence .agt-wn{color:var(--brick)}#v-agence .agt-c .agt-s{white-space:normal}"+
     "#v-agence .agt-op{margin-top:18px;padding-top:4px;border-top:1px solid var(--line)}#v-agence .agt-op dd{color:var(--mute)}";
     document.head.appendChild(st)})();
 
@@ -114,7 +117,7 @@
     L.forEach(function(p){var y=yr(p),e=ys[ys.length-1];if(!e||e.y!==y)ys.push(e={y:y,p:[]});e.p.push(p)});
     var n=AG.filter(function(p){return !p.m}).length,H=document.querySelector("#v-agence .wrap > h3.agt-h");if(H)H.textContent="Chronologie 2017 — 2026 · "+n+" projets";
     var F=FORDER.map(function(id){return AG.filter(function(p){return p.id===id})[0]}).filter(Boolean);
-    $("agF").innerHTML=F.length?'<h3 class="agt-h">Trois références développées</h3><div class="agt-fg">'+F.map(feat).join("")+'</div>'+'<h3 class="agt-h">Concours remportés · '+Object.keys(WIN).length+'</h3><ul class="agt-wl">'+Object.keys(WIN).map(function(id){var w=WIN[id];return byId(id)?'<li><a href="#agence/'+esc(id)+'"><span class="agt-wy">'+w[0]+'</span><b>'+esc(w[1])+'</b></a></li>':''}).join("")+'</ul>':"";
+    $("agF").innerHTML=F.length?'<h3 class="agt-h">Trois références développées</h3><div class="agt-fg">'+F.map(feat).join("")+'</div>':"";
     $("agI").innerHTML=ys.map(function(e){return '<button type="button" data-y="'+e.y+'">'+e.y+'<small>'+e.p.length+'</small></button>'}).join("");
     $("agT").innerHTML=ys.map(function(e){return '<section class="agt-y" aria-labelledby="agy-'+e.y+'"><h3 id="agy-'+e.y+'" tabindex="-1">'+e.y+'</h3><ul class="agt-g">'+e.p.map(card).join("")+'</ul></section>'}).join("");
     [].forEach.call($("agI").children,function(b){b.onclick=function(){var h=$("agy-"+b.dataset.y);h.scrollIntoView({block:"start"});h.focus({preventScroll:true})}});
