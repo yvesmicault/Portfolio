@@ -135,6 +135,7 @@ h2 small,.ph-head h1 small{font:400 12px var(--m);letter-spacing:0;color:var(--b
 .ct-cv{margin-top:28px}
 @media (max-width:640px){.ctw{grid-template-columns:1fr}.ct-ph{max-width:220px}.ct div{grid-template-columns:1fr;gap:4px}}
 .ph-head p{margin:0;color:var(--mute);font-size:14.5px;max-width:52ch;justify-self:end}
+.ph-head.wide{grid-template-columns:minmax(0,1fr) min(640px,55%);gap:40px}.ph-head.wide p{max-width:none;justify-self:stretch}
 .crumb{font:500 10px var(--f);letter-spacing:.3em;text-transform:uppercase;color:var(--mute);text-decoration:none;display:inline-block;margin-bottom:14px}
 .crumb:hover{color:var(--brick)}
 
@@ -405,6 +406,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
   .years{grid-template-columns:repeat(3,minmax(0,1fr))}
   .parc{grid-template-columns:minmax(0,1fr)}
   .ph-head{grid-template-columns:minmax(0,1fr)}
+  .ph-head.wide{grid-template-columns:minmax(0,1fr);gap:24px}
   .ph-head p{justify-self:start}
 }
 @media (max-width:640px){
@@ -834,7 +836,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 <section class="view page gut" id="v-concours" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Accueil</a>
-    <div class="ph-head"><h1>Concours<small id="nCon">05</small></h1><p>Le concours comme espace de recherche, entre intuition architecturale et expérimentation.</p></div>
+    <div class="ph-head wide"><h1>Concours<small id="nCon">05</small></h1><p>Le concours comme espace de recherche, entre intuition architecturale et expérimentation.</p></div>
     <div class="conc" id="conc"></div>
   </div>
 </section>
@@ -1466,7 +1468,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     // une vue choisie pendant le chargement est gardée et jouée dès que la maquette est prête
     [].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(b){b.onclick=function(){pend=b.dataset.v;[].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});uiShow(b)}});
     if(!hasGL()){g3static(host,name);return}
-    import("./js/"+name+"3d.js?v="+(name==="ventres"?"5":name==="tasty"?"216":"215")).then(function(m){
+    import("./js/"+name+"3d.js?v="+(name==="ventres"?"5":name==="tasty"?"217":"215")).then(function(m){
       if(tok!==g3seq||!document.body.contains(host))return;
       var ph=host.querySelector(".g3-load"),pt0=performance.now(),keep=window.__g3keep;window.__g3keep=null;host.__keep=keep;
       var inst;try{inst=m.mount(host)}catch(err){g3static(host,name);return}g3=inst;
@@ -1618,7 +1620,7 @@ fetch("data/globe/agri_schem.json?v=168").then(r=>r.json()).then(j=>{GEO.agri=j}
 fetch("data/globe/siberian_schem.json?v=5").then(r=>r.json()).then(j=>{GEO.siberian=j});  // Siberian Spotlight : le pavillon dans son contexte (voie ferrée, train, gare, église, forêt)
 fetch("data/globe/crank_schem.json?v=11").then(r=>r.json()).then(j=>{GEO.crank=j});  // Crank House : cabane dans un arbre, château, forêt
 fetch("data/globe/ventres_schem.json?v=13").then(r=>r.json()).then(j=>{j.logo=1;GEO.ventres=j});  // Europan 16 : le parcours et les trois centralités en couleur, les volumes du projet, la ville en trait léger
-fetch("data/globe/tasty_schem.json?v=2").then(r=>r.json()).then(j=>{GEO.tasty=j});  // Tasty Tank : cylindre, salle et murs en pisé du projet, halles existantes en léger
+fetch("data/globe/tasty_schem.json?v=3").then(r=>r.json()).then(j=>{GEO.tasty=j});  // Tasty Tank : cylindre, salle et murs en pisé du projet, halles existantes en léger
 fetch("data/globe/synergies_schem.json?v=1").then(r=>r.json()).then(j=>{j.logo=15;GEO.synergies=j});  // Europan 15 (Auby) : ville à plat, volumes simplifiés du projet, canal, sols et arbres
 fetch("data/globe/equilibrium_schem.json?v=185").then(r=>r.json()).then(j=>{GEO.equilibrium=j});  // Equilibrium : le triangle de la maquette, la pointe de Sagres (trait de côte, falaises)
 fetch("data/globe/varese_schem.json").then(r=>r.json()).then(j=>{GEO.varese=j});  // Varèse : la gare-passerelle de la maquette, le relief en courbes, voies, route, piste cyclable, arbres, volumes voisins
@@ -1706,7 +1708,7 @@ let AG=[],acur=-1,WH=null;const VIS={e:1,c:1,a:0};const selI=()=>acur>=0?100+acu
 function marks(){document.querySelectorAll(".it").forEach(b=>{const i=+b.dataset.i;b.classList.toggle("on",i===selI());b.classList.toggle("hot",i===hov)})}
 function caption(i){if(i<0||i>=100)$("fim").hidden=true;if(i<0){$("tit").textContent="";$("sub").textContent="";return}if(i>=100){const a=AG[i-100];$("tit").textContent=a.t;$("sub").textContent=(a.t!==a.c?a.c+" · ":"")+a.y;return}{const g=imgsFor(P[i])[0],F=$("fim");if(g){F.src=g.th;F.alt=P[i].t;F.hidden=false}else F.hidden=true}$("tit").textContent=P[i].t;$("sub").innerHTML='<span class="ct">'+(P[i].f==="e"?"Projet d’études":"Concours")+'</span><span class="mt">'+P[i].m+"</span>"}
 // la plongée : le globe tourne vers le lieu, on descend, la vue s'incline et la maquette s'imprime sur place
-const WARM={varese:["varese.json","varese_env.json"],agri:["agri.json","agri_life.json?v=117"],terminus:["terminus.json?v=120"],elle:["elle.json"],ventres:["ventres.json?v=6"],crank:["crank.json?v=1"],tasty:["tasty.json?v=2"],siberian:["siberian.json?v=3"],equilibrium:["equilibrium.json?v=1"]},warmed={};
+const WARM={varese:["varese.json","varese_env.json"],agri:["agri.json","agri_life.json?v=117"],terminus:["terminus.json?v=120"],elle:["elle.json"],ventres:["ventres.json?v=6"],crank:["crank.json?v=1"],tasty:["tasty.json?v=3"],siberian:["siberian.json?v=3"],equilibrium:["equilibrium.json?v=1"]},warmed={};
 function warm(k){if(warmed[k]||!WARM[k])return;warmed[k]=1;WARM[k].forEach(f=>{try{fetch("data/"+f,{priority:"low"}).catch(()=>{})}catch(e){}})}   // précharge la maquette dès qu'un projet est survolé ou choisi
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){var f=document.querySelector(".g3.fs .g3-fs");if(f)f.click()}});
 function toStage(){if(innerWidth<=760){scrollTo({top:0,behavior:"smooth"});setTimeout(()=>{if(scrollY>4)scrollTo({top:0,behavior:"smooth"})},350)}}

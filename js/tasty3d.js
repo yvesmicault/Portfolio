@@ -132,7 +132,7 @@ export function mount(host, opts = {}) {
     const go = () => { main.visible = !on; ex.visible = on; };
     if (on) ensureEx().then(go); else go();
   }
-  loadModel(new URL("../data/tasty.json?v=2", import.meta.url)).then(({ P, parts }) => {
+  loadModel(new URL("../data/tasty.json?v=3", import.meta.url)).then(({ P, parts }) => {
     if (!alive) return;
     build(P, parts, main, true);
     wait.style.opacity = 0; setTimeout(() => wait.remove(), 700);
