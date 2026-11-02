@@ -506,7 +506,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
 .stamp b{font:600 12px/1 var(--m);letter-spacing:.3em;text-transform:uppercase;margin-right:-.3em}.stamp small{font:400 8px/1 var(--m);letter-spacing:.08em;white-space:nowrap}
 .fiche .stamp{pointer-events:none}.fiche .stamp b{font-size:10px}
 /* page Agence : chronologie complète 2017 → 2026, toutes les cartes dans le flux */
-#v-agence .agt-logo{float:right;display:block;width:clamp(240px,24vw,320px);aspect-ratio:911/57;margin:6px 0 0 24px;background:var(--ink);-webkit-mask:url(img/hm_logo.svg) center/contain no-repeat;mask:url(img/hm_logo.svg) center/contain no-repeat;opacity:.92;transition:opacity .2s}#v-agence .agt-logo:hover{opacity:1}@media(max-width:760px){#v-agence .agt-logo{float:none;width:min(240px,70vw);margin:0 0 20px}}
+#v-agence .agt-logo{display:block;width:min(100%,640px);aspect-ratio:911/57;background:var(--ink);-webkit-mask:url(img/hm_logo.svg) left center/contain no-repeat;mask:url(img/hm_logo.svg) left center/contain no-repeat;transition:opacity .2s}#v-agence .agt-h1{line-height:0}#v-agence .agt-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}#v-agence .agt-logo:hover{opacity:1}
 #v-agence .agt-note{margin:-14px 0 34px;font:400 12px/1.6 var(--m);color:var(--mute);max-width:75ch}
 #v-agence .agt-h{margin:0 0 16px;font:500 10.5px/1.4 var(--f);letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
 #v-agence .agt-fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:22px clamp(20px,3vw,40px);margin-bottom:56px}
@@ -848,8 +848,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 <section class="view page gut" id="v-agence" hidden>
   <div class="wrap">
     <a class="crumb" href="#accueil">← Accueil</a>
-    <a class="agt-logo" href="https://hamonic-masson.com/" target="_blank" rel="noopener" aria-label="Hamonic+Masson &amp; Associés" title="Hamonic+Masson &amp; Associés"></a>
-    <div class="ph-head"><h1>Parcours chez Hamonic+Masson</h1><p class="jr">L’expérience en agence est celle d’une confrontation permanente entre les idées et leur réalité. Depuis 2017, chez Hamonic+Masson &amp; Associés, j’ai exploré cette relation à travers des projets très différents, apprenant autant de leur conception que des contraintes, des échanges et des arbitrages qui accompagnent leur développement.</p></div>
+    <div class="ph-head"><h1 class="agt-h1"><a class="agt-logo" href="https://hamonic-masson.com/" target="_blank" rel="noopener" title="Hamonic+Masson &amp; Associés"><span class="agt-vh">Hamonic+Masson &amp; Associés</span></a></h1><p class="jr">L’expérience en agence est celle d’une confrontation permanente entre les idées et leur réalité. Depuis 2017, chez Hamonic+Masson &amp; Associés, j’ai exploré cette relation à travers des projets très différents, apprenant autant de leur conception que des contraintes, des échanges et des arbitrages qui accompagnent leur développement.</p></div>
     <p class="agt-note">Une décennie de projets, de recherches et d’expériences architecturales, du concours à la mise au point technique.</p>
     <div id="agF"></div>
     <h3 class="agt-h">Chronologie 2017 — 2026</h3>
