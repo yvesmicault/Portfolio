@@ -10,7 +10,7 @@
   /* fiches développées : uniquement des faits relevés sur les fiches publiques (consultées le 28/10/2026) ou dans les CV */
   /* fiches développées : ma participation (CV, réponses d'Yves) séparée de l'opération (fiches publiques de l'agence) */
   var FEAT={
-    "metamorphose":{per:"D’octobre 2017 à l’été 2019",
+    "metamorphose":{per:"",
       ct:[["Concours", "Concours mené en chef de projet, de l’esquisse au rendu ; projet lauréat"], ["Conception", "Conception architecturale du projet et présentation à la maîtrise d’ouvrage en workshop"], ["Production", "Maquette numérique et études graphiques"], ["Suite des études", "Contribution aux études de développement"]],
       op:[["Maîtrise d’ouvrage","Groupe Giboire"],
           ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
@@ -28,7 +28,7 @@
           ["Jalons","Lauréat du concours international Inventons la Métropole du Grand Paris 2 en 2019"],
           ["État","Livré en 2024"]],
       img:[["img/agx/2017-high-garden","Perspective du projet"],["img/agx/2019-high-garden-photo-1","Le bâtiment livré","photo © Florian Bouziges"],["img/agx/2019-high-garden-photo-2","Façade et balcons","photo © Florian Bouziges"],["img/agx/2019-high-garden-photo-3","Vue depuis le jardin","photo © Élise Robaglia"],["img/agx/2019-high-garden-photo-4","Les balcons filants","photo © Élise Robaglia"],["img/agx/2019-high-garden-planche-1","Planche du concours 1 : parti urbain"],["img/agx/2019-high-garden-planche-2","Planche du concours 2 : un espace public augmenté"],["img/agx/2019-high-garden-planche-3","Planche du concours 3 : un événement"]]},
-    "le-cabanon-ideal":{per:"Trois ans",
+    "le-cabanon-ideal":{per:"",
       ct:[["Concours", "Projet porté en chef de projet et remporté au concours"], ["Conception", "Conception architecturale, de l’esquisse au PRO / DCE"], ["Production", "Plans, images et détails ; dossiers de concours, d’APS, de permis de construire et de PRO / DCE"], ["Suite des études", "Coordination des bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)"]],
       op:[["Maîtrise d’ouvrage","BNP Paribas Real Estate Expertise"],
           ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire) + Boris Bouchet Architectes"],
