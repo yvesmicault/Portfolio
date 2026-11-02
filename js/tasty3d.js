@@ -100,7 +100,8 @@ export function mount(host, opts = {}) {
     const pos = new THREE.BufferAttribute(P, 3);
     const mesh = (ix, color, extra = {}, glass = false) => {
       const geo = new THREE.BufferGeometry(); geo.setAttribute("position", pos); geo.setIndex(new THREE.BufferAttribute(ix, 1));
-      const g2 = geo.toNonIndexed(); g2.computeVertexNormals(); geo.dispose();
+      let g2 = geo.toNonIndexed(); g2.computeVertexNormals(); geo.dispose();
+      if (extra.crease) { const g3 = toCreasedNormals(g2, 0.5); g2.dispose(); g2 = g3; } delete extra.crease;
       const m = new THREE.MeshLambertMaterial(Object.assign({ color, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }, extra));
       if (glass) m.onBeforeCompile = (sh) => {   // polycarbonate alvéolaire : fines cannelures verticales et grain
         sh.vertexShader = "varying vec3 vWP;\n" + sh.vertexShader.replace("#include <begin_vertex>", "#include <begin_vertex>\nvWP=(modelMatrix*vec4(transformed,1.)).xyz;");
@@ -117,7 +118,11 @@ export function mount(host, opts = {}) {
     };
     if (isMain) { const ground = new THREE.Mesh(new THREE.CircleGeometry(900, 96).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: C.terrain })); ground.position.y = -9; ground.userData.glass = true; g.add(ground); }
     if (parts.t && parts.t.length) mesh(parts.t, C.terrain, { polygonOffsetFactor: 3, polygonOffsetUnits: 3 });
-    mesh(parts.s, C.model);
+    // matières en teintes sobres : pisé, Corten, béton, métal, bois, lumière ; le reste en blanc
+    const MAT = dark ? { s: "#23272a", pi: "#4a4238", co: "#5a3a2e", be: "#30343a", me: "#3a4046", bo: "#4a3e32", li: "#5a5240" }
+                     : { s: "#f6f4f0", pi: "#ddcbb0", co: "#c4927a", be: "#d9d7d2", me: "#a4a8ac", bo: "#c9a985", li: "#f3e6c8" };
+    for (const k in MAT) if (parts[k] && parts[k].length) mesh(parts[k], new THREE.Color(MAT[k]), { crease: 1 });
+    if (parts.s && !parts.pi) mesh(parts.s, C.model);
     if (false && parts.g && parts.g.length) mesh(parts.g, C.glass, { transparent: true, opacity: dark ? 0.7 : 0.82, depthWrite: false }, true);
     lines(parts.pl, C.ink, dark ? 0.95 : 0.8);
     if (parts.pd) lines(parts.pd, C.ink, dark ? 0.6 : 0.46, 16, 0);
@@ -157,7 +162,7 @@ export function mount(host, opts = {}) {
     const go = () => { main.visible = !on; ex.visible = on; };
     if (on) ensureEx().then(go); else go();
   }
-  loadModel(new URL("../data/tasty.json?v=4", import.meta.url)).then(({ P, parts, meta }) => {
+  loadModel(new URL("../data/tasty.json?v=5", import.meta.url)).then(({ P, parts, meta }) => {
     if (!alive) return;
     build(P, parts, main, true);
     land(parts, meta.trees || [], P);
@@ -197,6 +202,7 @@ export function mount(host, opts = {}) {
   const views = {
     ensemble: { pos: [12.4, 5.6, -3.91], tgt: [2.98, 5.72, -0.58], fov: 45.0 },
     salle: { pos: [4.2, 1.8, -4.2], tgt: [-1.1, 1.6, 6.5], fov: 73.9 },
+    vers: { pos: [5, 1.7, 3.9], tgt: [-5.8, 2.5, -6.9], fov: 78.3 },
     cylindre: { pos: [-4.54, 1.31, -1.19], tgt: [2.16, 4.5, -10.62], fov: 78.3 },
   };
 
