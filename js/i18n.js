@@ -80,6 +80,7 @@
     "Concours remportés · 13": "Competitions won · 13", "Concours remporté en 2020": "Competition won in 2020", "Concours remporté en 2024": "Competition won in 2024", "Concours remporté en 2025": "Competition won in 2025", "Archives de Seine-et-Marne": "Seine-et-Marne archives", "Siège du Groupe Angevin": "Groupe Angevin headquarters", "Cité administrative": "Cité administrative",
     "Vue aérienne du bâtiment livré": "Aerial view of the completed building", "Depuis le boulevard et le tramway": "From the boulevard and the tramway", "Terrasses et patio": "Terraces and patio", "Le passage couvert": "The covered passage", "La serre et le jardin": "The greenhouse and garden", "Perspective du concours : rez-de-chaussée": "Competition view: ground floor", "Perspective du concours : bureaux": "Competition view: offices",
     "Concours remporté": "Competition won",
+    "Parcours chez Hamonic+Masson": "Career at Hamonic+Masson",
     "Ma participation": "My involvement", "Mes contributions": "My contributions", "Environ trois ans, du concours au PRO / DCE": "About three years, from competition to technical design / tender",
     "Production des plans, images et détails, de l’esquisse au PRO / DCE": "Drawings, images and details, from sketch design to technical design / tender",
     "Coordination des bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)": "Coordination of the engineering consultants: CEC WRD (building services and thermal), Inddigo (environment), Magelan (technical studies)",
