@@ -177,7 +177,7 @@ export function mount(host, opts = {}) {
 
   /* ---------- image rendue posée sur la maquette ; elle se désagrège au premier geste ---------- */
   const RENDU = new URL("../img/rendu/", import.meta.url);
-  const MEDIA = {};   // rendus à venir
+  const MEDIA = { ensemble: { img: "tasty_ensemble.jpg" }, salle: { img: "tasty_salle.jpg" }, cylindre: { img: "tasty_cylindre.jpg" } };   // rendus VizMaker d’Yves (02/11)
   const heroC = document.createElement("canvas"); heroC.className = "g3-hero"; host.appendChild(heroC);
   const hx = heroC.getContext("2d");
   let hero = null, lastPtr = null;

@@ -1058,7 +1058,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   var CONC=[
     {org:"Europan 16",t:"Les petits ventres-villes",s:"Limoges · mars 2021 · équipe : collectif ITERA · 3 panneaux A1",res:"Mentionné",g3:"ventres",o:1,eu:[["Le projet sur le site Europan","https://www.europan-europe.eu/fr/project-and-processes/les-petits-ventres-villes"],["Échanges Europan autour du projet","https://www.europan-europe.eu/fr/exchanges/les-petits-ventres-villes"]],docs:[["ventres_axo","Axonométrie d’ensemble"],["ventres_manege","Zoom · le Manège"],["ventres_grdf","Zoom · GRDF"],["ventres_enedis","Zoom · Enedis"]].map(function(d){return {src:"img/doc/"+d[0]+".jpg",m:"img/doc/m_"+d[0]+".jpg",th:"img/t/"+d[0]+".jpg",cap:d[1]}}),txt:TXT_VENTRES,txtEn:TXT_VENTRES_EN,p:pan(["ventres1","ventres2","ventres3"],"Les petits ventres-villes")},
     {org:"YAC · Tree House Module",t:"The Crank House",g3:"crank",thM:"img/rendu/crank_nuit.jpg",lay:"a1",o:1,txt:TXT_CRANK,txtEn:TXT_CRANK_EN,s:"Cabane nomade, sites de châteaux · juin 2020",res:null,p:pan(["crank01","crank08","crank09","crank10","crank11","crank12","crank13"],"The Crank House")},
-    {org:"Bee Breeders · Monte d’Oiro Wine Tasting Room",t:"Tasty Tank",s:"Alenquer, Portugal · 2020 · 4 planches",res:null,g3:"tasty",o:1,thM:"img/t/tasty_perspective.jpg",txt:TXT_TASTY,txtEn:TXT_TASTY_EN,p:pan(["tasty01","tasty02","tasty03","tasty04"],"Tasty Tank")},
+    {org:"Bee Breeders · Monte d’Oiro Wine Tasting Room",t:"Tasty Tank",s:"Alenquer, Portugal · 2020 · 4 planches",res:null,g3:"tasty",o:1,thM:"img/rendu/tasty_ensemble.jpg",txt:TXT_TASTY,txtEn:TXT_TASTY_EN,p:pan(["tasty01","tasty02","tasty03","tasty04"],"Tasty Tank")},
     {org:"Europan 15",t:"Synergies latentes",s:"Auby · 2019 · équipe : Yves Micault, Nathanaël Pinard, Marc Viaud · 3 panneaux A1",res:null,g3:"synergies",o:1,docs:[["synergies_rive_sud","Rive sud"],["synergies_rive_nord","Rive nord"],["synergies_axo_zoom","Axonométrie · zoom 1"],["synergies_axo_bureau","Axonométrie · bureau"],["synergies_interface","Zoom · interface"],["synergies_base_nautique","Zoom · base nautique"]].map(function(d){return {src:"img/doc/"+d[0]+".jpg",m:"img/doc/m_"+d[0]+".jpg",th:"img/t/"+d[0]+".jpg",cap:d[1]}}),txt:TXT_SYN,txtEn:TXT_SYN_EN,p:pan(["synergies1","synergies2","synergies3"],"Synergies latentes")},
     {org:"Bee Breeders · Transiberian Pit Stops",t:"Siberian Spotlight",s:"Novembre 2016 · 4 panneaux A1",res:"Mention honorable",g3:"siberian",o:1,thM:"img/rendu/siberian_face.jpg",txt:TXT_SIB,txtEn:TXT_SIB_EN,p:pan(["siberian01","siberian02","siberian03","siberian04"],"Siberian Spotlight")},
     {org:"ArkxSite · Site Landmark",t:"Equilibrium",s:"Sagres, Portugal · 2016 · 1 planche",res:null,g3:"equilibrium",o:1,thM:"img/rendu/equilibrium_ensemble.jpg",txt:TXT_EQUI,txtEn:TXT_EQUI_EN,p:pan(["equilibrium"],"Equilibrium")}
@@ -1427,12 +1427,12 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     im.addEventListener("touchend",function(e){if(sx==null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40)go(c+(d<0?1:-1));sx=null},{passive:true});
   }
   // première image posée tout de suite, la maquette se charge derrière
-  var G3IMG={siberian:"siberian_face.jpg",crank:"crank_nuit.jpg",equilibrium:"equilibrium_ensemble.jpg",varese:"varese_parvis.jpg",agri:"agri_ensemble.jpg?v=2",terminus:"terminus_ensemble.jpg",elle:"elle_ensemble.jpg"};
+  var G3IMG={tasty:"tasty_ensemble.jpg",siberian:"siberian_face.jpg",crank:"crank_nuit.jpg",equilibrium:"equilibrium_ensemble.jpg",varese:"varese_parvis.jpg",agri:"agri_ensemble.jpg?v=2",terminus:"terminus_ensemble.jpg",elle:"elle_ensemble.jpg"};
   var G3UI={
     varese:{auto:1,v:[["parvis","Depuis le parvis"],["ensemble","Vue d'ensemble"],["hall","La nef"],["parc","Au-dessus du parc"]],note:"Maquette tirée du modèle SketchUp du projet (2013–2014), allégée pour le web. Environnement redessiné simplement ; trains et bus ajoutés. Images rendues à partir de la maquette."},
     agri:{v:[["ensemble","Vue d'ensemble"],["nuit","Au ras des champs"]],note:"Maquette tirée du modèle SketchUp du projet (2014), allégée pour le web. La ville autour vient du même modèle."},
     terminus:{v:[["ensemble","Vue d'ensemble"],["facade","Les deux peaux"],["interieur","Les bains thermaux"]],note:"Maquette tirée du modèle SketchUp du projet (2016), allégée pour le web : mobilier retiré. La ville et les arbres viennent du même modèle."},
-    tasty:{auto:1,norender:1,v:[["ensemble","Sous la charpente"],["placette","Depuis la place basse"],["salle","La salle de dégustation"],["cylindre","Le cylindre"]],note:"Maquette tirée du modèle SketchUp du projet (2020), allégée pour le web. Bouteilles du cylindre retirées."},
+    tasty:{auto:1,v:[["ensemble","Sous la charpente"],["placette","Depuis la place basse"],["salle","La salle de dégustation"],["cylindre","Le cylindre"]],note:"Maquette tirée du modèle SketchUp du projet (2020), allégée pour le web. Bouteilles du cylindre retirées."},
     crank:{auto:1,norender:1,v:[["ensemble","Vue d'ensemble"]],note:"Maquette tirée du modèle SketchUp du projet (2020) : façade, structure et intérieur, allégés pour le web."},
     siberian:{auto:1,v:[["face","Vue de face"],["ensemble","Vue d'ensemble"]],note:"Maquette tirée du modèle SketchUp du projet (2016), allégée pour le web : structure, façades et aménagement intérieur."},
     ventres:{auto:1,norender:1,v:[["ensemble","Vue d'ensemble"],["parcours","Le parcours"],["jacobins","Places des Jacobins"],["friche","Friche urbaine"],["belvedere","Quartier belvédère"]],note:"Maquette tirée du modèle SketchUp du projet (2021), allégée pour le web : véhicules, silhouettes et mobilier retirés, terrain simplifié. Point de vue et annotations repris de l’axonométrie des planches."},
@@ -1468,7 +1468,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     // une vue choisie pendant le chargement est gardée et jouée dès que la maquette est prête
     [].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(b){b.onclick=function(){pend=b.dataset.v;[].forEach.call(host.querySelectorAll(".g3-ui button[data-v]"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});uiShow(b)}});
     if(!hasGL()){g3static(host,name);return}
-    import("./js/"+name+"3d.js?v="+(name==="ventres"?"5":name==="tasty"?"217":"215")).then(function(m){
+    import("./js/"+name+"3d.js?v="+(name==="ventres"?"5":name==="tasty"?"218":"215")).then(function(m){
       if(tok!==g3seq||!document.body.contains(host))return;
       var ph=host.querySelector(".g3-load"),pt0=performance.now(),keep=window.__g3keep;window.__g3keep=null;host.__keep=keep;
       var inst;try{inst=m.mount(host)}catch(err){g3static(host,name);return}g3=inst;
@@ -1925,7 +1925,7 @@ function drawFx(){fc.clearRect(0,0,W,Hh);return;const cx=W/2,cy=Hh/2,Mx=Math.hyp
 /* ---------- galerie et écran holographique : l'image se projette au-dessus du disque, la maquette s'efface ---------- */
 function imgsFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]),o=[];if(!it)return o;
   if(it.g3==="crank")return [{th:"img/rendu/crank_nuit.jpg",cap:"Perspective"}];
-  if(it.g3==="tasty")return [{th:"img/rendu/tasty_perspective.jpg",cap:"Perspective"}];
+  if(it.g3==="tasty")return [{th:"img/rendu/tasty_ensemble.jpg",cap:"Perspective"}];
   const U=(window.YM_G3UI||{})[it.g3];if(!U&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&U.norender&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&!U.norender)U.v.filter(([k])=>(it.g3!=="siberian"||k==="face"||k==="ensemble")&&!(it.g3==="varese"&&k==="parvis2")).forEach(([k,lab])=>{const f=it.g3==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":it.g3+"_"+k+".jpg"+(it.g3==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"");o.push({th:"img/rendu/"+f,src:"img/rendu/"+f,cap:lab})});return o}   // uniquement les images rendues, pas les panneaux (Yves)
 function gallery(i){i=-1;const G=$("gal");   // plus de galerie dans la fiche (Yves, 01/11) : une seule illustration en tête
  holoOff(true);if(typeof lbClose==="function"&&window.__lbReady)lbClose();if(i<0){G.hidden=true;G.classList.remove("vis");G.innerHTML="";return}
