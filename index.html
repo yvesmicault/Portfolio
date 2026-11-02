@@ -585,7 +585,7 @@ html.fs-on,html.fs-on body{overflow:hidden}
 #gbox .lb figure{margin:0;position:relative;width:88%;height:84%;display:flex;align-items:center;justify-content:center}
 #gbox .lb img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 18px 50px rgba(0,0,0,.22)}
 #gbox .lb img.in{animation:lbPrint .6s var(--ease) both}#gbox .lb img{transform-origin:0 0;will-change:transform;cursor:zoom-in;-webkit-user-drag:none;user-select:none}#gbox .lb.zoomed{touch-action:none}#gbox .lb.zoomed img{cursor:grab;animation:none;clip-path:none;box-shadow:none}#gbox .lb.zoomed figcaption{opacity:0}
-#gbox .lb .pv{right:auto;width:auto}#gbox .lb .nx{left:auto;width:auto}#gbox .lb .zm{right:4px;bottom:4px;display:grid;place-items:center}#gbox .lb .zm[aria-pressed="true"] .pl{display:none}#gbox .lb .zm[aria-pressed="true"]{color:var(--brick)}#gbox .lb figure{z-index:0}#gbox .lb button{z-index:1}
+#gbox.lbon #ov{visibility:hidden}#gbox .lb .pv{right:auto;width:auto}#gbox .lb .nx{left:auto;width:auto}#gbox .lb .zm{right:4px;bottom:4px;display:grid;place-items:center}#gbox .lb .zm[aria-pressed="true"] .pl{display:none}#gbox .lb .zm[aria-pressed="true"]{color:var(--brick)}#gbox .lb figure{z-index:0}#gbox .lb button{z-index:1}
 @keyframes lbPrint{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 #gbox .lb figcaption{font:400 10px/1.4 var(--m);color:var(--mute);text-align:center}
 #gbox .lb button{position:absolute;border:0;background:none;color:var(--mute);font:300 22px/1 var(--f);cursor:pointer;padding:8px}
@@ -1941,7 +1941,7 @@ function lbPlace(){const sr=stage.getBoundingClientRect(),gr=gbox.getBoundingCli
 const lbCache={};function lbLoad(src){if(!lbCache[src]){const I=new Image();I.decoding="async";I.src=src;lbCache[src]=(I.decode?I.decode():new Promise((a,b)=>{I.onload=a;I.onerror=b})).catch(()=>{}).then(()=>I)}return lbCache[src]}
 let lbTok=0;
 function lbShow(){const x=lbL[lbK],im=VW.querySelector("img"),t=++lbTok,first=!VW.classList.contains("on");VW.querySelector("figcaption").textContent=x.cap;
-  if(first){lbPlace();im.removeAttribute("src");VW.classList.add("on")}
+  if(first){lbPlace();im.removeAttribute("src");VW.classList.add("on");gbox.classList.add("lbon")}
   const n=lbL.length>1;VW.querySelector(".pv").hidden=VW.querySelector(".nx").hidden=!n;
   lbLoad(x.src).then(()=>{if(t!==lbTok)return;zmReset();im.classList.remove("in");im.src=x.src;im.alt=x.cap;void im.offsetWidth;im.classList.add("in");
     if(n){lbLoad(lbL[(lbK+1)%lbL.length].src);lbLoad(lbL[(lbK-1+lbL.length)%lbL.length].src)}})}
@@ -1974,7 +1974,7 @@ function viewerList(p){const L=imgsFor(p).map(x=>({src:x.src||x.th,cap:x.cap})),
   if(it&&it.o&&it.p)it.p.forEach((x,k)=>L.push({src:x.src,cap:"Planche de rendu"+(it.p.length>1?" "+(k+1):"")}));return L.map((x,k)=>({src:x.src,cap:x.cap+"  ·  "+(k+1)+" / "+L.length}))}
 $("fim").addEventListener("click",()=>{const F=$("fim"),p=P[+F.dataset.i];if(!p||!VIEWER.has(p.k))return;const L=viewerList(p);if(!L.length)return;lbOpen(L,0);const r=VW.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight)VW.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"})});
 addEventListener("resize",()=>{if(!VW.classList.contains("on"))return;lbPlace();zmReset()});
-function lbClose(){VW.classList.remove("on");lbTok++;zmReset();const G=$("gal");if(G)G.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"))}
+function lbClose(){VW.classList.remove("on");gbox.classList.remove("lbon");lbTok++;zmReset();const G=$("gal");if(G)G.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"))}
 VW.querySelector(".x").addEventListener("click",lbClose);VW.querySelector(".pv").addEventListener("click",()=>{lbK=(lbK-1+lbL.length)%lbL.length;lbShow()});VW.querySelector(".nx").addEventListener("click",()=>{lbK=(lbK+1)%lbL.length;lbShow()});
 VW.addEventListener("click",e=>{if(VW.__drag){VW.__drag=0;return}if(e.target===VW)lbClose()});window.__lbReady=1;addEventListener("keydown",e=>{if(!VW.classList.contains("on"))return;if(e.key==="Escape")lbClose();if(e.key==="+"||e.key==="=")zTo(zS*1.5);if(e.key==="-")zTo(zS/1.5);if(e.key==="0")zmReset();if(e.key==="ArrowRight")VW.querySelector(".nx").click();if(e.key==="ArrowLeft")VW.querySelector(".pv").click()});
 const holoU={map:{value:null},uTint:{value:new THREE.Color()},uDark:{value:1},uRev:{value:0},uTime:{value:0},uOp:{value:0}};
