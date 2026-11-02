@@ -1219,6 +1219,23 @@
    ],
    "id": "chevilly-larue",
    "pub": []
+  },
+  {
+   "t": "Nová Budějárna",
+   "c": "Prague, République tchèque",
+   "y": "2026",
+   "n": "Concours international d’urbanisme et d’architecture : quartier mixte à dominante résidentielle",
+   "s": "Secteur d’environ 4 ha",
+   "ph": "Concours",
+   "r": "Chef de projet",
+   "src": "fiche-yves",
+   "ll": [
+    50.044,
+    14.449
+   ],
+   "st": "Équipe finaliste, second tour",
+   "id": "prague-nova-budejarna",
+   "pub": []
   }
  ]
 }
