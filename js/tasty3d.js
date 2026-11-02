@@ -123,6 +123,31 @@ export function mount(host, opts = {}) {
     if (parts.pd) lines(parts.pd, C.ink, dark ? 0.6 : 0.46, 16, 0);
   }
 
+  // paysage : rangs de vigne sur le terrain, quelques arbres isolés (couronnes facettées, comme Varèse)
+  function land(parts, trees, P) {
+    if (parts.vl && parts.vl.length) {
+      const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(P, 3)); geo.setIndex(new THREE.BufferAttribute(parts.vl, 1));
+      const op = (dark ? 0.55 : 0.6) * LK, m = new THREE.LineBasicMaterial({ color: new THREE.Color(dark ? "#6f9a7c" : "#7f9a66"), transparent: true, opacity: op });
+      fade.push({ m, op, near: 1e9, lo: 0.25 });
+      main.add(new THREE.LineSegments(geo, m));
+    }
+    const crownGeo = new THREE.IcosahedronGeometry(2.6, 1), cp = crownGeo.getAttribute("position"), jr = mulberry(77);
+    for (let i = 0; i < cp.count; i++) { const f = 0.86 + jr() * 0.26; cp.setXYZ(i, cp.getX(i) * f, cp.getY(i) * f * 0.92, cp.getZ(i) * f); }
+    crownGeo.computeVertexNormals();
+    const crownE = new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.6, 0));
+    const trunkGeo = new THREE.CylinderGeometry(0.16, 0.22, 1, 5);
+    const crownMs = (dark ? ["#2f4a38", "#36533f", "#2a4232"] : ["#b9cba6", "#c6d6b2", "#aec29b"]).map((h) => new THREE.MeshLambertMaterial({ color: new THREE.Color(h), flatShading: true }));
+    const trunkM = new THREE.MeshLambertMaterial({ color: new THREE.Color(dark ? "#5a4d40" : "#8a7a68") });
+    const em = new THREE.LineBasicMaterial({ color: C.ink, transparent: true, opacity: 0.32 * LK });
+    const tr = mulberry(5);
+    trees.forEach((t) => {
+      const k = Math.min(1.4, Math.max(0.55, t[3] / 6.4)), h = 4.2 * k;
+      const tk = new THREE.Mesh(trunkGeo, trunkM); tk.scale.set(1, h, 1); tk.position.set(t[0], t[1] + h / 2, t[2]); main.add(tk);
+      const c = new THREE.Mesh(crownGeo, crownMs[Math.floor(tr() * 3)]); c.scale.setScalar(k); c.position.set(t[0], t[1] + h + 1.2 * k, t[2]); c.rotation.y = tr() * 3; main.add(c);
+      const e = new THREE.LineSegments(crownE, em); e.scale.copy(c.scale); e.position.copy(c.position); e.rotation.copy(c.rotation); main.add(e);
+    });
+  }
+
   let exLoad = null;
   function ensureEx() {
     return Promise.resolve();
@@ -132,9 +157,10 @@ export function mount(host, opts = {}) {
     const go = () => { main.visible = !on; ex.visible = on; };
     if (on) ensureEx().then(go); else go();
   }
-  loadModel(new URL("../data/tasty.json?v=3", import.meta.url)).then(({ P, parts }) => {
+  loadModel(new URL("../data/tasty.json?v=4", import.meta.url)).then(({ P, parts, meta }) => {
     if (!alive) return;
     build(P, parts, main, true);
+    land(parts, meta.trees || [], P);
     wait.style.opacity = 0; setTimeout(() => wait.remove(), 700);
     shadows();
     if (!MEDIA.ensemble) heroC.style.opacity = 1;
@@ -169,15 +195,14 @@ export function mount(host, opts = {}) {
 
   /* ---------- vues ---------- */
   const views = {
-    ensemble: { pos: [13.7, 4.8, -1.3], tgt: [1.8, 4.8, 0.4], fov: 58.0 },
-    placette: { pos: [-20.2, 1.9, 0.2], tgt: [-8.6, 2.6, 2.9], fov: 35.2 },
+    ensemble: { pos: [12.4, 5.6, -3.91], tgt: [2.98, 5.72, -0.58], fov: 45.0 },
     salle: { pos: [4.2, 1.8, -4.2], tgt: [-1.1, 1.6, 6.5], fov: 73.9 },
     cylindre: { pos: [-4.54, 1.31, -1.19], tgt: [2.16, 4.5, -10.62], fov: 78.3 },
   };
 
   /* ---------- image rendue posée sur la maquette ; elle se désagrège au premier geste ---------- */
   const RENDU = new URL("../img/rendu/", import.meta.url);
-  const MEDIA = { ensemble: { img: "tasty_ensemble.jpg?v=2" }, salle: { img: "tasty_salle.jpg" }, cylindre: { img: "tasty_cylindre.jpg" } };   // rendus VizMaker d’Yves (02/11)
+  const MEDIA = { ensemble: { img: "tasty_ensemble.jpg?v=2" }, salle: { img: "tasty_salle.jpg?v=2" }, cylindre: { img: "tasty_cylindre.jpg" } };   // rendus VizMaker d’Yves (02/11)
   const heroC = document.createElement("canvas"); heroC.className = "g3-hero"; host.appendChild(heroC);
   const hx = heroC.getContext("2d");
   let hero = null, lastPtr = null;
