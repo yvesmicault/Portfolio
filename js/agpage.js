@@ -54,10 +54,10 @@
   function byId(id){return AG.filter(function(q){return q.id===id})[0]}
   function card(p){
     var ph=phases(p),su=surf(p),st=status(p),M=p.m&&byId(p.m),S=AG.filter(function(q){return q.m===p.id})[0];
-    if(M)return '<li><article class="agt-c agt-sx" id="ag-'+esc(p.id)+'" tabindex="-1"><p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(M.t)+' (suite)</h4>'+
+    if(M)return '<li><article class="agt-c agt-sx" id="ag-'+esc(p.id)+'" tabindex="-1">'+tb(null)+'<div class="agt-tx"><p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(M.t)+' (suite)</h4>'+
       '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p><p class="agt-pr">'+esc(p.n)+'</p>'+
-      '<p class="agt-ft"><a class="agt-lk" href="#agence/'+esc(M.id)+'">Voir la référence de '+yr(M)+'</a></p></article></li>';
-    return '<li><article class="agt-c" id="ag-'+esc(p.id)+'" tabindex="-1">'+
+      '<p class="agt-ft"><a class="agt-lk" href="#agence/'+esc(M.id)+'">Voir la référence de '+yr(M)+'</a></p></div></article></li>';
+    return '<li><article class="agt-c" id="ag-'+esc(p.id)+'" tabindex="-1">'+tb(p)+'<div class="agt-tx">'+
       '<p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p>'+
       '<h4>'+esc(p.t)+'</h4>'+
       '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p>'+
@@ -66,7 +66,9 @@
       (WIN[p.id]?'<p class="agt-w">'+LAU+'Concours remporté en '+WIN[p.id][0]+'</p>':'')+
       (st?'<p class="agt-mt">Opération : '+esc(st)+'</p>':'')+
       (S?'<p class="agt-mt">Suite en '+yr(S)+'</p>':'')+
-      links(p)+'</article></li>'}
+      links(p)+'</div></article></li>'}
+  /* vignette tirée de la fiche de l'agence ; emplacement vide quand il n'y a pas de fiche */
+  function tb(p){return '<div class="agt-tb">'+(p&&p.u?'<img src="img/agt/'+esc(p.id)+'.jpg" alt="" loading="lazy" decoding="async" width="360" height="240">':'')+'</div>'}
   function feat(p){var F=FEAT[p.id];if(!F)return "";var ph=phases(p).split(/\s*→\s*/).filter(Boolean),I=F.img||[],n=I.length;
     var fig=n?'<figure class="agt-m"><button type="button" class="agt-zb" data-ag="'+esc(p.id)+'" aria-label="'+esc(p.t)+' : '+(n>1?'voir les '+n+' images':'agrandir l’image')+'"><img src="'+esc(I[0][0])+'.jpg" alt="'+esc(p.t+', '+p.c+' : '+I[0][1].toLowerCase())+'" loading="lazy" decoding="async"><span class="agt-zl">'+(n>1?'Voir les '+n+' images':'Agrandir l’image')+'</span></button><figcaption>Image : Hamonic+Masson & Associés</figcaption></figure>':"";
     function dl(rows){return '<dl>'+rows.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join("")+'</dl>'}
@@ -100,6 +102,10 @@
     "#v-agence .agt-wl a{display:flex;align-items:baseline;gap:12px;min-height:44px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;white-space:nowrap;overflow:hidden}"+
     "#v-agence .agt-wl a:hover b{color:var(--brick)}#v-agence .agt-wl b{font:400 14px/1.3 var(--f);overflow:hidden;text-overflow:ellipsis}"+
     "#v-agence .agt-wy{font:400 12px/1 var(--m);color:var(--brick);font-variant-numeric:tabular-nums}#v-agence .agt-wc{margin-left:auto;font:400 11px/1.3 var(--m);color:var(--mute)}"+
+    "#v-agence .agt-c{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:16px;align-items:start}"+
+    "#v-agence .agt-tb{width:96px;aspect-ratio:3/2;margin-top:2px;background:var(--line);opacity:.4}"+
+    "#v-agence .agt-tb:has(img){background:none;opacity:1}#v-agence .agt-tb img{display:block;width:100%;height:100%;object-fit:cover}"+
+    "@media(max-width:420px){#v-agence .agt-c{grid-template-columns:72px minmax(0,1fr);column-gap:12px}#v-agence .agt-tb{width:72px}}"+
     "#v-agence .agt-op{margin-top:18px;padding-top:4px;border-top:1px solid var(--line)}#v-agence .agt-op dd{color:var(--mute)}";
     document.head.appendChild(st)})();
 
