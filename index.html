@@ -1707,7 +1707,7 @@ function angDist(a,b){const p1=a[0]*D2R,p2=b[0]*D2R,dl=(b[1]-a[1])*D2R;return Ma
 function fmtLL(ll){return Math.abs(ll[0]).toFixed(3)+"° "+(ll[0]>=0?"N":"S")+" · "+Math.abs(ll[1]).toFixed(3)+"° "+(ll[1]>=0?"E":"O")}
 let AG=[],acur=-1,WH=null;const VIS={e:1,c:1,a:0};const selI=()=>acur>=0?100+acur:cur;
 function marks(){document.querySelectorAll(".it").forEach(b=>{const i=+b.dataset.i;b.classList.toggle("on",i===selI());b.classList.toggle("hot",i===hov)})}
-var VIEWER=new Set(["varese"]);   // visionneuse de la fiche : test sur Sospesa avant d’étendre aux autres projets
+var VIEWER={has:()=>true};   // visionneuse de la fiche : tous les projets du globe
 function caption(i){if(i<0||i>=100)$("fim").hidden=true;if(i<0){$("tit").textContent="";$("sub").textContent="";return}if(i>=100){const a=AG[i-100];$("tit").textContent=a.t;$("sub").textContent=(a.t!==a.c?a.c+" · ":"")+a.y;return}{const g=imgsFor(P[i])[0],F=$("fim");if(g){F.src=g.th;F.alt=P[i].t;F.hidden=false}else F.hidden=true;F.dataset.i=i;F.classList.toggle("zm",VIEWER.has(P[i].k))}$("tit").textContent=P[i].t;$("sub").innerHTML='<span class="ct">'+(P[i].f==="e"?"Projet d’études":"Concours")+'</span><span class="mt">'+P[i].m+"</span>"}
 // la plongée : le globe tourne vers le lieu, on descend, la vue s'incline et la maquette s'imprime sur place
 const WARM={varese:["varese.json","varese_env.json"],agri:["agri.json","agri_life.json?v=117"],terminus:["terminus.json?v=120"],elle:["elle.json"],ventres:["ventres.json?v=6"],crank:["crank.json?v=1"],tasty:["tasty.json?v=5"],siberian:["siberian.json?v=3"],equilibrium:["equilibrium.json?v=1"]},warmed={};
