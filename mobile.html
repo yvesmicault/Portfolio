@@ -11,6 +11,13 @@ html.m2 nav#nav a{display:flex!important;justify-content:space-between;align-ite
 html.m2 nav#nav a::after{content:"→";letter-spacing:0;color:var(--mute);font-weight:400}
 html.m2 nav#nav a[aria-current="page"]{color:var(--brick)!important}
 html.m2.mopen{overflow:hidden}
+html.m2 #ov path{display:none!important}
+html.m2 .view.home{transform:none!important;animation:none!important}
+html.m2 #gbox .side:has(.fiche.on){position:fixed!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;width:auto!important;z-index:40;margin:0!important;padding:14px max(18px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 12px) max(18px,env(safe-area-inset-left,0px))!important;background:var(--bg);border-top:1px solid var(--ink);max-height:42vh;overflow:auto;gap:8px}
+html.m2 #gbox .side:has(.fiche.on) :is(.fim,.gin,.pv,.gal,.hint,.fiche>p,.fiche>dl,.fiche .rs){display:none!important}
+html.m2 #gbox .side:has(.fiche.on) .cap{display:block!important;margin:0}
+html.m2 #gbox .side:has(.fiche.on) .fiche{margin:0;padding:0;border:0}
+html.m2 #gbox .side:has(.fiche.on) .fa{margin-top:6px}
 html.m2 #gbox #list{display:none!important}
 .mbt{display:none}
 html.m2 .mbt{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin-right:-8px;background:none;border:0;color:var(--ink);cursor:pointer}
