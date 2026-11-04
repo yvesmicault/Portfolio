@@ -11,6 +11,7 @@ html.m2 nav#nav a{display:flex!important;justify-content:space-between;align-ite
 html.m2 nav#nav a::after{content:"→";letter-spacing:0;color:var(--mute);font-weight:400}
 html.m2 nav#nav a[aria-current="page"]{color:var(--brick)!important}
 html.m2.mopen{overflow:hidden}
+html.m2 #gbox #list{display:none!important}
 .mbt{display:none}
 html.m2 .mbt{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin-right:-8px;background:none;border:0;color:var(--ink);cursor:pointer}
 .mbt svg{width:22px;height:22px;overflow:visible}
@@ -2095,5 +2096,7 @@ nav.addEventListener("click",e=>{if(e.target.closest("a"))set(false)});
 document.querySelector(".bar .name").addEventListener("click",()=>set(false));
 addEventListener("keydown",e=>{if(e.key==="Escape")set(false)});
 addEventListener("hashchange",()=>set(false));
+const fx=()=>{const p=document.querySelector("#gin p");if(p&&/Survolez/.test(p.textContent))p.textContent="Ce globe situe mes projets d’études et mes concours. Touchez un repère pour lire sa fiche.";else if(p&&/Hover/.test(p.textContent))p.textContent=p.textContent.replace(/Hover over a marker to locate it, select it/,"Tap a marker to read its sheet").replace(/Hover over a marker.*?sheet\./,"Tap a marker to read its sheet.")};
+setTimeout(fx,600);document.getElementById("lng").addEventListener("click",()=>setTimeout(fx,300));
 })();
 </script></body></html>
