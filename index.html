@@ -893,9 +893,9 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
       </div>
       <div class="cvcard">
         <h3>CV &amp; références</h3>
-        <button type="button" class="cov" id="cvOpen" style="width:100%"><img src="img/t/cv01.jpg?v=1104" alt="Couverture du CV 2026"></button>
+        <button type="button" class="cov" id="cvOpen" style="width:100%"><img src="img/t/cv01.jpg?v=1104b" alt="Couverture du CV 2026"></button>
         <b>CV 2026</b><span class="s">A3 plié · parcours et références en agence</span>
-        <div class="row-btn"><button class="btn" type="button" id="cvRead">Lire</button><a class="btn dl" href="doc/CV_2026_Yves_Micault.pdf?v=1104" download="CV_2026_Yves_Micault.pdf">Télécharger le PDF ↓</a></div>
+        <div class="row-btn"><button class="btn" type="button" id="cvRead">Lire</button><a class="btn dl" href="doc/CV_2026_Yves_Micault.pdf?v=1104b" download="CV_2026_Yves_Micault.pdf">Télécharger le PDF ↓</a></div>
       </div>
     </div>
   </div>
@@ -914,7 +914,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
           <div><dt>En agence</dt><dd><a href="https://hamonic-masson.com/architecte/micault/" target="_blank" rel="noopener">Hamonic + Masson ↗</a></dd></div>
           <div><dt>Disponible</dt><dd>À partir de janvier 2027</dd></div>
         </dl>
-        <div class="row-btn ct-cv"><a class="btn dl" href="doc/CV_2026_Yves_Micault.pdf?v=1104" download="CV_2026_Yves_Micault.pdf">Télécharger le CV ↓</a></div>
+        <div class="row-btn ct-cv"><a class="btn dl" href="doc/CV_2026_Yves_Micault.pdf?v=1104b" download="CV_2026_Yves_Micault.pdf">Télécharger le CV ↓</a></div>
       </aside>
       <div class="pf-txt">
         <p class="pf-lead">« L’architecture ne se résume pas à ce que l’on construit, mais à ce que l’on rend possible. »</p>
@@ -940,7 +940,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 </section>
 </main>
 
-<footer class="gut"><div class="wrap"><span class="ft-id">Yves Micault · Architecte HMONP · Marseille</span><span class="ft-ct"><a href="mailto:ymicault@gmail.com">ymicault@gmail.com</a><a href="doc/CV_2026_Yves_Micault.pdf?v=1104" download="CV_2026_Yves_Micault.pdf">CV (PDF)</a><span>© 2026</span></span></div></footer>
+<footer class="gut"><div class="wrap"><span class="ft-id">Yves Micault · Architecte HMONP · Marseille</span><span class="ft-ct"><a href="mailto:ymicault@gmail.com">ymicault@gmail.com</a><a href="doc/CV_2026_Yves_Micault.pdf?v=1104b" download="CV_2026_Yves_Micault.pdf">CV (PDF)</a><span>© 2026</span></span></div></footer>
 
 <div class="viewer gut" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
   <div class="v-top">
@@ -960,7 +960,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
   var pad=function(n){return (n<10?"0":"")+n};
   var R=function(a,b){var o=[];for(var i=a;i<=b;i++)o.push(i);return o};
   var mk=function(dir,pre,label){return function(arr){return arr.map(function(n){return {src:"img/"+dir+"/"+pre+pad(n)+".jpg",th:"img/t/"+pre+pad(n)+".jpg",cap:label+", page "+n}})}};
-  var bk=mk("book","bk","Book portfolio"),pf=mk("pfe","pfe","Book PFE"),cvi=mk("cvi","cvi","CV illustré"),cv0=mk("cv","cv","CV 2026"),cv=function(arr){return cv0(arr).map(function(o){o.src+="?v=1104";o.th+="?v=1104";return o})};
+  var bk=mk("book","bk","Book portfolio"),pf=mk("pfe","pfe","Book PFE"),cvi=mk("cvi","cvi","CV illustré"),cv0=mk("cv","cv","CV 2026"),cv=function(arr){return cv0(arr).map(function(o){o.src+="?v=1104b";o.th+="?v=1104b";return o})};
 var TXT_TERM='<p class="lead">Au bord de la baie de Jægersø, à Ishøj, au sud de Copenhague, le terminus du Lightrail rejoint le littoral. Une usine de macroalgues y transforme la ressource cultivée dans le bassin en plastique destiné à LEGO, et s’associe à une médiathèque et une auberge de jeunesse : une architecture qui mêle l’industrie et le loisir pour révéler un paysage sauvage.</p>'
  +'<div class="ch"><h3><i>01</i>Reconquérir le littoral</h3><p>Les zones pavillonnaires d’Ishøj s’arrêtent pour laisser place à un sol humide et marécageux autour des bassins, où se concentrent déjà le port de plaisance, des campings et des terrains de sport. Ce site isolé ne profite pas de son ouverture sur l’Øresund. Un pipeline aérien trace le parcours depuis la gare : il se superpose aux flux piétons et cyclables, puis se détache dans le marais et guide le promeneur, tel un fil d’Ariane, jusqu’au bord de l’eau, en acheminant la ressource cultivée dans le bassin.</p></div>'
  +'<div class="ch"><h3><i>02</i>Le quai et l’accroche</h3><p>Le premier geste est un quai : une dalle de béton sur pilotis qui survole le bassin pour donner une sensation de flottement. Elle relie l’espace maritime et l’espace terrestre, et sert de socle au projet. En front de bassin, elle se déforme pour accueillir des assises, des bains de soleil et des accès à l’eau ; au droit de l’usine, elle se creuse en bassins de refroidissement. L’accroche prend appui sur les flux existants et guide l’usager jusqu’à l’édifice.</p></div>'
@@ -1054,7 +1054,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     {t:"Book portfolio",s:"Études 2010–2014 · 64 pages · 2014",pages:bk(R(1,64))},
     {t:"CV illustré",s:"24 pages A4 · 2016",pages:cvi(R(1,24))}
   ];
-  var CV26={t:"CV 2026",pages:cv([1,2,3,4]),pdf:"doc/CV_2026_Yves_Micault.pdf?v=1104"};
+  var CV26={t:"CV 2026",pages:cv([1,2,3,4]),pdf:"doc/CV_2026_Yves_Micault.pdf?v=1104b"};
   var CYC=[
     {c:"Master 1",d:"Domaine EVAN · 2013–2014",s1:[{t:"Sospesa",g3:"varese",txt:TXT_VARESE,txtEn:TXT_VARESE_EN,thM:"img/t/varese_parvis_color.jpg",s:"Projet de gare · Varèse, Italie · S7 · 2013–2014",o:1,fmt:"356,7 × 84,1 cm chacun",p:pan(["varese01","varese02"],"Sospesa",[[356.7,84.1],[356.7,84.1]])}],s2:[{t:"Champ libre",g3:"agri",txt:TXT_AGRI,txtEn:TXT_AGRI_EN,thM:"img/t/agri_ensemble.jpg?v=2",s:"Usines Michelin · Clermont-Ferrand · S8 · 2013–2014",o:1,fmt:"assemblage de 14 planches A1 verticales (59,4 × 84,1 cm), 7 de large sur 2 de haut",p:pan(["agri08"],"Champ libre",[[415.8,168.2]])}]},
     {c:"Master 2",d:"Domaine EVAN · PFE · 2015–2016",ol:"Semestres 1 et 2 · S9 et S10 · projet de fin d'études",one:[{t:"Terminus",g3:"terminus",bk:14,txt:TXT_TERM,txtEn:TXT_TERM_EN,s:"Projet de fin d'études en équipe à trois · Copenhague · S9 et S10 · 2015–2016",thM:"img/t/terminus_interieur_w.jpg",o:1,fmt:"assemblage de 6 panneaux verticaux (84,1 × 180 cm) : perspective Sud puis planches 1 à 5",p:pan(["term_all"],"Terminus",[[504.6,180]])},{t:"Elle",g3:"elle",bk:24,txt:TXT_ELLE,txtEn:TXT_ELLE_EN,s:"Projet de fin d'études en équipe à trois · Copenhague · S9 et S10 · 2015–2016",thM:"img/t/elle_ensemble_w.jpg",o:1,fmt:"assemblage de 8 panneaux verticaux (84,1 × 180 cm) : perspective Nord puis planches 1 à 7",p:pan(["elle_all"],"Elle",[[672.8,180]])}]}
