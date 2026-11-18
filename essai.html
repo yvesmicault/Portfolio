@@ -844,7 +844,9 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 .hv-d .hv-o figcaption{opacity:1;padding:20px 8px 7px}.hv-o figcaption small{max-height:0;overflow:hidden;transition:max-height .3s}.hv-o:hover figcaption small{max-height:2em}
 @media (max-width:760px){.hv-f .lg{display:none}}
 .hv-fly{position:fixed;z-index:60;pointer-events:none;background:center/cover no-repeat;opacity:1;transition:transform .95s cubic-bezier(.6,0,.2,1),width .95s cubic-bezier(.6,0,.2,1),height .95s cubic-bezier(.6,0,.2,1),border-radius .95s,opacity .5s .5s}
-/* page Savoir-faire */
+/* page Compétences */
+.sf-k2{display:flex;flex-wrap:wrap;gap:12px 48px;align-items:baseline;padding:14px 0 16px;border-bottom:1px solid var(--line);margin:0 0 44px}.sf-k2 div{display:flex;align-items:baseline;gap:12px}.sf-k2 b{font:300 30px/1 var(--f);color:var(--ink)}.sf-k2 span{font:400 12px/1.4 var(--m);color:var(--mute)}
+.sf-ia{margin:-46px 0 60px;font:400 12px/1.6 var(--m);color:var(--mute)}.sf-ia span{color:var(--brick);letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;margin-right:14px}
 .sf .ph-head p{max-width:62ch}
 .sf-k{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line);margin:8px 0 56px}
 .sf-k div{padding:22px 20px 22px 0;border-right:1px solid var(--line)}.sf-k div:last-child{border-right:0}.sf-k div+div{padding-left:20px}
@@ -1010,6 +1012,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
   <div class="wrap sf">
     <a class="crumb" href="#accueil">← Accueil</a>
     <div class="ph-head wide"><h1>Compétences</h1><p>Architecte HMONP avec près de dix ans d’expérience en agence, spécialisé dans la conception et le développement de projets de logements, d’équipements et d’opérations urbaines. Expérience de l’esquisse aux études de projet et aux dossiers d’appel d’offres.</p></div>
+    <div class="sf-k2 sf-rv"><div><b>10 ans</b><span>d’expérience en agence</span></div><div><b>63</b><span>projets chez Hamonic+Masson, concours pour la plupart</span></div></div>
     <h2 class="sf-h sf-rv">Ce que j’apporte en agence</h2>
     <div class="sf-a">
       <article class="sf-rv"><i>01</i><h3>Mener un projet</h3><p>Chef de projet chez Hamonic + Masson : pilotage des études, coordination des équipes et des bureaux d’études, suivi des délais et des livrables.</p><a class="sf-p" href="#hm/metamorphose"><img src="img/hm/metamorphose/07_t.jpg" alt="" loading="lazy"><span><b>Métamorphose</b><small>Angers · Chef de projet · Concours → études · Lauréat en 2018, livré en 2025</small></span></a></article>
@@ -1019,15 +1022,16 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
     </div>
     <h2 class="sf-h sf-rv">Domaines</h2>
     <div class="sf-c">
-      <div class="sf-rv"><h3>Conception</h3><ul><li>Analyse de site</li><li>Études de faisabilité</li><li>Programme et surfaces</li><li>Implantation / volumétrie</li><li>Conception des plans</li></ul></div>
-      <div class="sf-rv"><h3>Représentation</h3><ul><li>Modélisation 3D</li><li>BIM / ArchiCAD</li><li>Pièces graphiques</li><li>Supports de présentation</li></ul></div>
-      <div class="sf-rv"><h3>Pilotage</h3><ul><li>Pilotage des études</li><li>Coordination d’équipe</li><li>Coordination BET</li><li>Synthèse technique</li><li>Analyse réglementaire</li><li>Suivi des délais et livrables</li></ul></div>
+      <div class="sf-rv"><h3>Conception</h3><ul><li>Analyse de site</li><li>Études de faisabilité</li><li>Programme et surfaces</li><li>Implantation / volumétrie</li><li>Conception des plans</li><li>Esquisses de concours</li><li>Développement APS / APD</li></ul></div>
+      <div class="sf-rv"><h3>Représentation</h3><ul><li>Modélisation 3D</li><li>BIM / ArchiCAD</li><li>Pièces graphiques</li><li>Supports de présentation</li><li>Rendus et perspectives</li><li>Planches de concours</li></ul></div>
+      <div class="sf-rv"><h3>Pilotage</h3><ul><li>Pilotage des études</li><li>Coordination d’équipe</li><li>Coordination BET</li><li>Synthèse technique</li><li>Analyse réglementaire</li><li>Suivi des délais et livrables</li><li>Dossiers de permis de construire</li><li>Dossiers PRO / DCE</li></ul></div>
     </div>
     <h2 class="sf-h sf-rv">Outils</h2>
     <div class="sf-o sf-rv">
       <div><small>BIM</small><b>Archicad</b></div><div><small>DAO</small><b>AutoCAD</b></div><div><small>3D</small><b>SketchUp</b></div><div><small>Rendu</small><b>Enscape</b></div><div><small>Rendu</small><b>D5 Render</b></div>
       <div><small>Mise en page</small><b>InDesign</b></div><div><small>Image</small><b>Photoshop</b></div><div><small>Graphisme</small><b>Illustrator</b></div><div><small>SIG</small><b>QGIS</b></div><div><small>Organisation</small><b>Notion</b></div>
     </div>
+    <p class="sf-ia sf-rv"><span>Intelligence artificielle</span>Développement d’outils IA pour l’architecture · Claude · ChatGPT · Nano Banana · Kling</p>
     <div class="sf-l sf-rv">
       <div><h3>Langues</h3><p>Français, natif · Anglais, bilingue</p></div>
       <div><h3>Mobilité</h3><p>Permis B · voiture et moto · disponible à partir de janvier 2027</p></div>
@@ -2420,7 +2424,7 @@ new MutationObserver(theme).observe(document.documentElement,{attributes:true,at
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
 <script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=24"></script>
-<script charset="utf-8" src="js/i18n.js?v=228"></script>
+<script charset="utf-8" src="js/i18n.js?v=229"></script>
 
 
 <script>
