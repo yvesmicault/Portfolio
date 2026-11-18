@@ -1,6 +1,7 @@
 <!doctype html><html lang="fr"><head>
 <script>if(/^(#accueil)?$/.test(location.hash)){document.documentElement.classList.add("boot");setTimeout(function(){document.documentElement.classList.remove("boot")},4000)}</script>
 <style>html.boot #gbox .stage,html.boot #gbox .side,html.boot #gbox .list,html.boot #gbox #ov,html.boot #gbox .gdw,html.boot #gbox .dact,html.boot #gbox #dsv{opacity:0!important;transition:none!important}</style><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}html{overflow-y:scroll;scrollbar-gutter:stable}#fz{display:none!important}
+#v-profil .pf-side .ct div{grid-template-columns:84px minmax(0,1fr)}#v-profil .pf-side .ct dd{font-size:13.5px;white-space:nowrap}
 /* Profil : parcours en une seule frise */
 #v-profil .pf{grid-template-columns:minmax(0,240px) minmax(0,1fr) 168px;max-width:none}
 .pf-docs{position:sticky;top:80px;display:grid;gap:26px;padding-left:22px;border-left:1px solid var(--line)}
@@ -1601,7 +1602,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     var L=D.L,i=-1;L.forEach(function(p,k){if(p.id===id)i=k});if(i<0){location.replace("#agence");return}
     var p=L[i],V=D.V[p.id]||[],prev=L[i-1],next=L[i+1],y=String(p.y).slice(0,4),HU="https://hamonic-masson.com/projet/";
     var crd=function(t){var m=String(t||"").match(/(?:©|cr[ée]dit\s*:?)\s*(.+)$/i);return m?m[1].replace(/^[\s:]+/,"").trim():""};
-    var HMA="Hamonic+Masson & Associés",pg=V.map(function(v,k){var c=crd(v[2])||"";return {src:"img/hm/"+p.id+"/"+v[0]+".jpg",th:"img/hm/"+p.id+"/"+v[0]+"_t.jpg",cr:c,cap:p.t+" · "+(k+1)+"/"+V.length+" · © "+(c&&!/hamonic|^hma$/i.test(c)?c+" / "+HMA:HMA),r:v[1]}});
+    var HMA="Hamonic+Masson & Associés",pg=V.map(function(v,k){var c=crd(v[2])||"";return {src:"img/hm/"+p.id+"/"+v[0]+"_h.jpg",md:"img/hm/"+p.id+"/"+v[0]+".jpg",th:"img/hm/"+p.id+"/"+v[0]+"_t.jpg",cr:c,cap:p.t+" · "+(k+1)+"/"+V.length+" · © "+(c&&!/hamonic|^hma$/i.test(c)?c+" / "+HMA:HMA),r:v[1]}});
     var ph=[];pg.forEach(function(x){if(x.cr&&!/hamonic|^hma$/i.test(x.cr)&&!ph.some(function(q){return q.toLowerCase()===x.cr.toLowerCase()}))ph.push(x.cr)});
     var rows=[["Programme",p.n],["Surface",p.s],["Emplacement",p.c],["Phases suivies",p.ph],["Statut",p.st],["Rôle",p.r]].filter(function(x){return x[1]});
     var X=D.X[p.id]||{t:[],c:[]},esc=function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;")},cr=X.c.filter(function(c){return /perspectiv|photograph|film|rendering/i.test(c[0])});
@@ -1612,7 +1613,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     if(X.t.length)h+='<div class="pj-sec"><b>Présentation</b><span>texte publié par Hamonic+Masson</span></div><div class="hm-tx"'+(X.en?' lang="en"':'')+'>'+X.t.map(function(t){return '<p>'+esc(t)+'</p>'}).join("")+'</div>';
     if(X.c.length)h+='<div class="pj-sec"><b>Équipe</b><span>d’après la fiche de l’agence</span></div><dl class="hm-eq">'+X.c.map(function(c){return '<div><dt>'+esc(c[0])+'</dt><dd>'+esc(c[1])+'</dd></div>'}).join("")+'</dl>';
     if(pg.length>1)h+='<div class="pj-sec"><b>Visuels</b><span>'+pg.length+' visuels publiés par Hamonic+Masson · cliquer pour agrandir</span></div><div class="hm-g">'+(function(){var n=innerWidth<=760?2:3,C=[],Hc=[];for(var c=0;c<n;c++){C.push("");Hc.push(0)}
-      pg.slice(1).forEach(function(x,k){var j=Hc.indexOf(Math.min.apply(null,Hc));C[j]+='<button type="button" data-k="'+(k+1)+'" title="'+esc(x.cap)+'" style="aspect-ratio:'+x.r+'"><img loading="lazy" decoding="async" src="'+(innerWidth>760?x.src:x.th)+'" alt=""></button>';Hc[j]+=1/x.r});
+      pg.slice(1).forEach(function(x,k){var j=Hc.indexOf(Math.min.apply(null,Hc));C[j]+='<button type="button" data-k="'+(k+1)+'" title="'+esc(x.cap)+'" style="aspect-ratio:'+x.r+'"><img loading="lazy" decoding="async" src="'+(innerWidth>760?x.md:x.th)+'" alt=""></button>';Hc[j]+=1/x.r});
       return C.map(function(c){return '<div>'+c+'</div>'}).join("")})()+'</div>';
     h+='<p class="hm-ip">Projet et visuels : © Hamonic+Masson &amp; Associés</p>';
     h+='<div class="pj-nav">'+(prev?'<a href="#hm/'+prev.id+'">← '+prev.t+'<span>'+prev.c+' · '+String(prev.y).slice(0,4)+'</span></a>':'<span></span>')+(next?'<a class="nx" href="#hm/'+next.id+'">'+next.t+' →<span>'+next.c+' · '+String(next.y).slice(0,4)+'</span></a>':'')+'</div>';
