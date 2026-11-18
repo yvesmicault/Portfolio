@@ -71,7 +71,10 @@
     if(p.u)a.push('<a class="agt-lk" href="'+HM+esc(p.u)+'" target="_blank" rel="noopener">Fiche de l’agence ↗</a>');
     return a.length?'<p class="agt-mt agt-ml">'+a.join('<i> · </i>')+'</p>':''}
   /* vignette tirée de la fiche de l'agence ; emplacement vide quand il n'y a pas de fiche */
-  function tb(p){return p&&p.u?'<div class="agt-tb"><img src="img/agt/'+esc(p.id)+'.jpg" alt="" loading="lazy" decoding="async" width="360" height="240"></div>':'<div class="agt-tb agt-tb0" aria-hidden="true"><span>H+M</span></div>'}
+  function tb(p){var E=document.getElementById("v-hm");
+    if(E&&(!p||!p.u)){var src=!p?"":p.img&&p.img.length?"img/agx/"+p.img[0]+"_t.jpg":p.im?"img/ag/"+p.im+".jpg":"";
+      return src?'<div class="agt-tb"><img src="'+esc(src)+'" alt="" loading="lazy" decoding="async" width="360" height="240"></div>':'<div class="agt-tb agt-tbx" aria-hidden="true"></div>'}
+    return p&&p.u?'<div class="agt-tb"><img src="img/agt/'+esc(p.id)+'.jpg" alt="" loading="lazy" decoding="async" width="360" height="240"></div>':'<div class="agt-tb agt-tb0" aria-hidden="true"><span>H+M</span></div>'}
   function feat(p){var F=FEAT[p.id];if(!F)return "";var ph=phases(p).split(/\s*→\s*/).filter(Boolean),I=F.img||[],n=I.length;
     var fig=n?'<figure class="agt-m"><button type="button" class="agt-zb" data-ag="'+esc(p.id)+'" aria-label="'+esc(p.t)+' : '+(n>1?'voir les '+n+' images':'agrandir l’image')+'"><img src="'+esc(I[0][0])+'.jpg" alt="'+esc(p.t+', '+p.c+' : '+I[0][1].toLowerCase())+'" loading="lazy" decoding="async"><span class="agt-zl">'+(n>1?'Voir les '+n+' images':'Agrandir l’image')+'</span></button><figcaption>Image : Hamonic+Masson & Associés</figcaption></figure>':"";
     function dl(rows){return '<dl>'+rows.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join("")+'</dl>'}
@@ -104,7 +107,7 @@
     "#v-agence .agt-wy{font:400 12px/1 var(--m);color:var(--brick);font-variant-numeric:tabular-nums}#v-agence .agt-wc{margin-left:auto;font:400 11px/1.3 var(--m);color:var(--mute)}"+
     "#v-agence .agt-c{display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:14px;align-items:start}"+
     "#v-agence .agt-tb{width:64px;aspect-ratio:3/2;margin-top:3px}#v-agence .agt-tb img{display:block;width:100%;height:100%;object-fit:cover}"+
-    "#v-agence .agt-tb0{display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}#v-agence .agt-tb0 span{font:400 9px/1 var(--m);letter-spacing:.12em;color:var(--mute);opacity:.7}"+
+    "#v-agence .agt-tbx{visibility:hidden}#v-agence .agt-tb0{display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}#v-agence .agt-tb0 span{font:400 9px/1 var(--m);letter-spacing:.12em;color:var(--mute);opacity:.7}"+
     "#v-agence .agt-y{padding:16px 0 18px}#v-agence .agt-g{gap:14px clamp(18px,2.4vw,32px)}"+
     "@media(min-width:1200px){#v-agence .agt-y .agt-g{grid-template-columns:repeat(3,minmax(0,1fr))}}"+
     "#v-agence .agt-c h4{font-size:16.5px;line-height:1.25}#v-agence .agt-c .agt-eb{margin-bottom:2px;font-size:10.5px}"+
