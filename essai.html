@@ -2,6 +2,7 @@
 <script>if(/^(#accueil)?$/.test(location.hash)){document.documentElement.classList.add("boot");setTimeout(function(){document.documentElement.classList.remove("boot")},4000)}</script>
 <style>html.boot #gbox .stage,html.boot #gbox .side,html.boot #gbox .list,html.boot #gbox #ov,html.boot #gbox .gdw,html.boot #gbox .dact,html.boot #gbox #dsv{opacity:0!important;transition:none!important}</style><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}html{overflow-y:scroll;scrollbar-gutter:stable}#fz{display:none!important}
 #v-profil .pf-side .ct div{grid-template-columns:84px minmax(0,1fr)}#v-profil .pf-side .ct dd{font-size:13.5px;white-space:nowrap}
+#v-agence a.agt-fl{color:inherit;text-decoration:none;display:block}#v-agence h4 a.agt-fl{display:inline;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s,color .2s}#v-agence h4 a.agt-fl:hover{color:var(--brick);background-size:100% 1px}#v-agence a.agt-fl img{transition:transform .5s var(--ease)}#v-agence a.agt-fl:hover img{transform:scale(1.04)}#v-agence .agt-tb{overflow:hidden}
 /* Profil : parcours en une seule frise */
 #v-profil .pf{grid-template-columns:minmax(0,240px) minmax(0,1fr) 168px;max-width:none}
 .pf-docs{position:sticky;top:80px;display:grid;gap:26px;padding-left:22px;border-left:1px solid var(--line)}
@@ -2415,7 +2416,7 @@ function hrefFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]);re
 new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme","data-eff"]});matchMedia("(prefers-color-scheme: dark)").addEventListener("change",theme);
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
-<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=24"></script>
+<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=25"></script>
 <script charset="utf-8" src="js/i18n.js?v=234"></script>
 
 

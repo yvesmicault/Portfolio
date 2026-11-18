@@ -52,14 +52,16 @@
     if(p.u)a.push('<a class="agt-lk" href="'+HM+esc(p.u)+'" target="_blank" rel="noopener">Fiche de l’agence ↗</a>');
     return a.length?'<p class="agt-ft">'+a.join("")+'</p>':""}
   function byId(id){return AG.filter(function(q){return q.id===id})[0]}
+  var FICHE={"abidjan":1,"casa-anfa":1,"chateau-septfontaines":1,"cite-administrative":1,"clermont-ferrand":1,"coeur-de-carnoles":1,"evry":1,"harmony-of-the-sky":1,"high-garden":1,"l-hay-les-roses":1,"la-meridionale":1,"le-cabanon-ideal":1,"les-anciens-thermes":1,"lille":1,"metamorphose":1,"panora-marne":1,"port-marianne-lot-7a":1,"quai-simonovskaia":1,"siege-du-groupe-angevin":1,"snow-white-tower":1,"station-service":1,"tour-alta":1};
+  function fl(p,x){return FICHE[p.id]?'<a class="agt-fl" href="#hm/'+esc(p.id)+'">'+x+'</a>':x}
   function card(p){
     var ph=phases(p),su=surf(p),st=status(p),M=p.m&&byId(p.m),S=AG.filter(function(q){return q.m===p.id})[0];
     if(M)return '<li><article class="agt-c agt-sx" id="ag-'+esc(p.id)+'" tabindex="-1">'+tb(null)+'<div class="agt-tx"><p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(M.t)+' (suite)</h4>'+
       '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p><p class="agt-pr">'+esc(p.n)+'</p>'+
       '<p class="agt-ft"><a class="agt-lk" href="#agence/'+esc(M.id)+'">Voir la référence de '+yr(M)+'</a></p></div></article></li>';
-    return '<li><article class="agt-c" id="ag-'+esc(p.id)+'" tabindex="-1">'+tb(p)+'<div class="agt-tx">'+
+    return '<li><article class="agt-c" id="ag-'+esc(p.id)+'" tabindex="-1">'+fl(p,tb(p))+'<div class="agt-tx">'+
       '<p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p>'+
-      '<h4>'+esc(p.t)+'</h4>'+
+      '<h4>'+fl(p,esc(p.t))+'</h4>'+
       '<p class="agt-ro"><b>'+esc(role(p))+'</b>'+(ph?'<span>'+esc(ph)+'</span>':'')+'</p>'+
       '<p class="agt-pr">'+esc(p.n)+(su?'<span class="agt-s">'+esc(su)+'</span>':'')+'</p>'+
       meta(p,st,S)+'</div></article></li>'}
@@ -126,5 +128,5 @@
   function deep(){var m=/^#agence\/(.+)$/.exec(location.hash);if(!m||!AG.length)return;var el=$("ag-"+decodeURIComponent(m[1]));
     if(el)requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.focus({preventScroll:true})})}
   addEventListener("hashchange",deep);
-  fetch("data/globe/agence.json?v=15").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
+  fetch("data/globe/agence.json?v=16").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
 })();
