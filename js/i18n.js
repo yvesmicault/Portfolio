@@ -7,6 +7,7 @@
     /* accueil : modes d'affichage, Parcours */
     "Ce globe situe mes projets d’études, mes concours et les projets Hamonic+Masson publiés par l’agence. Survolez un repère pour le situer, sélectionnez-le pour lire sa fiche.": "This globe locates my study projects, my competitions and the Hamonic+Masson projects published by the practice. Hover over a marker to locate it, select it to read its sheet.",
     "Ce globe situe mes projets d’études, mes concours et les projets Hamonic+Masson publiés par l’agence. Touchez un repère pour lire sa fiche.": "This globe locates my study projects, my competitions and the Hamonic+Masson projects published by the practice. Tap a marker to read its sheet.",
+    "Rôle": "Role", "Statut": "Status", "Logement": "Housing", "Mixte": "Mixed use", "Équipement": "Public facility", "Urbanisme": "Urban design", "Espace public": "Public space", "Livré": "Completed", "Arrêté": "Halted", "Projet personnel": "Personal project", "Étude": "Study", "Effacer": "Clear", "Situer sur le globe": "Locate on the globe", "Visuels": "Visuals", "Classer par": "Sort by", "Période": "Period", "Cadre": "Context", "Liste": "List", "Autre": "Other", "Observatoire": "Observatory", "Galerie": "Gallery",
     "Bibliothèque": "Library", "Tous": "All", "Nom": "Name", "Lieu": "Place", "Feuilleter": "Browse",
     "Projet de fin d’études": "Final degree project", "Terminus et Elle, Copenhague · 38 pages A4 · 2016": "Terminus and Elle, Copenhagen · 38 A4 pages · 2016",
     /* Tasty Tank */
