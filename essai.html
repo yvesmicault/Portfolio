@@ -651,7 +651,7 @@ body:has(#v-accueil:not([hidden])) > footer{display:none}
   .home .wrap.hg > div:last-child{position:absolute;inset:0;display:block}
   .home #gbox{position:absolute;inset:0;display:block;padding:0}
   .home #gbox .list{position:absolute;left:0;top:clamp(12px,3vh,28px);width:240px;max-height:calc(100% - 24px);overflow-y:auto}
-  .home #gbox .list.full{overflow:hidden;display:flex;flex-direction:column}.home #gbox .list.full #cA{margin-top:4px;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+  .home #gbox .list.full{overflow:hidden;display:flex;flex-direction:column}.home #gbox .list.full #cA{margin-top:4px}
   .home #gbox .side{position:absolute;right:0;top:clamp(12px,3vh,28px);bottom:12px;width:230px;margin:0;overflow-y:auto}
   .home #gbox .stage{position:absolute;max-width:none;aspect-ratio:auto;margin:0}}
 /* téléphone : tout en colonne, globe d'abord, taille posée en JS (Safari) */
@@ -826,6 +826,10 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 @media (prefers-reduced-motion:reduce){.hv-c{animation:none}}
 .hv-r u{text-decoration:none}@media (min-width:761px){.hv-r .rl{display:none}}@media (max-width:760px){.hv-t .rl{display:none}}
 /* fiche projet Hamonic+Masson */
+.hm-f{margin:0}.hm-f figcaption{margin-top:8px;font:400 10.5px/1.4 var(--m);color:var(--mute)}
+.hm-tx{columns:2 340px;column-gap:48px;margin:0 0 34px}.hm-tx p{margin:0 0 14px;font:400 14px/1.65 var(--f);break-inside:avoid-column}
+.hm-eq{margin:0 0 34px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px 32px}.hm-eq div{border-top:1px solid var(--line);padding-top:7px}.hm-eq dt{font:500 9.5px var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}.hm-eq dd{margin:0;font:400 12px/1.45 var(--m)}
+.hm-ip{margin:30px 0 0;padding-top:12px;border-top:1px solid var(--line);font:400 11px/1.5 var(--m);color:var(--mute);max-width:820px}.hm-ip a{color:inherit}
 .hm-hero{all:unset;display:block;width:100%;cursor:zoom-in;overflow:hidden;background:var(--line)}
 .hm-hero img{display:block;width:100%;height:min(68vh,62vw);object-fit:cover;transition:transform 1.4s var(--ease)}.hm-hero:hover img{transform:scale(1.02)}
 .hm-hero:focus-visible,.hm-g button:focus-visible{outline:2px solid var(--brick);outline-offset:3px}
@@ -848,6 +852,10 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 .hv-o figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 7px;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff;font:500 9.5px/1.25 var(--f);letter-spacing:.12em;text-transform:uppercase;opacity:0;transition:opacity .3s}.hv-o figcaption small{display:block;font:400 9.5px/1.3 var(--m);letter-spacing:0;text-transform:none;opacity:.85}
 .hv-o:hover figcaption,.hv-o:focus-visible figcaption{opacity:1}.hv-o:focus-visible{outline:2px solid var(--brick);outline-offset:2px}
 @media (max-width:760px){.hv-z{overflow-y:auto;overscroll-behavior:contain}.hv-o figcaption{opacity:1;padding:12px 6px 5px;font-size:8.5px}.hv-o figcaption small{display:none}.hmode button{padding:8px 7px;letter-spacing:.06em}}
+/* Observatoire : les projets Hamonic+Masson en deux colonnes compactes, la colonne tient sur un écran */
+#gbox .list #cA{display:grid;grid-auto-flow:column;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:14px}
+#gbox .list #cA .it{padding:5px 0}#gbox .list #cA .it{display:flex;align-items:center;min-height:24px}#gbox .list #cA .it b{font-size:9.5px;line-height:1.25;letter-spacing:.06em}#gbox .list #cA .it span{display:none}
+#gbox .list.cmp .it{padding:4px 0}#gbox .list.cmp #cE .it,#gbox .list.cmp #cC .it{display:flex;align-items:baseline;gap:8px}#gbox .list.cmp #cE .it span,#gbox .list.cmp #cC .it span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#gbox .list.cmp h3{margin:12px 0 4px}
 .hv-s{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
 .hv-s label{position:relative;display:flex;align-items:center;gap:8px;font:500 10px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
 .hv-s select{-webkit-appearance:none;appearance:none;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;color:var(--ink);font:400 11.5px/1.2 var(--m);padding:5px 16px 5px 0;cursor:pointer;max-width:190px}
@@ -868,14 +876,14 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 .hv-f button.on{color:var(--ink);border-color:var(--brick)}.hv-f sup{font:400 9px var(--m);letter-spacing:0;margin-left:3px;vertical-align:4px}
 .hv-f .sp{flex:1}.hv-f span{color:var(--mute);font-family:var(--m);letter-spacing:0;text-transform:none}
 .hv-l{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;position:relative}
-.hv-r{position:absolute;left:0;right:0;display:grid;grid-template-columns:84px minmax(0,1.4fr) minmax(0,1fr) minmax(0,1.2fr) 52px;gap:16px;align-items:center;height:64px;padding:0 4px;border-bottom:1px solid var(--line);cursor:pointer;transition:transform .8s cubic-bezier(.2,.9,.25,1),opacity .5s,background .25s}
+.hv-r{position:absolute;left:0;right:0;display:grid;grid-template-columns:84px minmax(0,1.4fr) minmax(0,1fr) minmax(0,1.2fr) 120px 52px;gap:16px;align-items:center;height:64px;padding:0 4px;border-bottom:1px solid var(--line);cursor:pointer;transition:transform .8s cubic-bezier(.2,.9,.25,1),opacity .5s,background .25s}
 .hv-r:hover{background:color-mix(in srgb,var(--ink) 4%,transparent)}
 .hv-r .th{width:84px;height:52px;background:var(--line) center/cover no-repeat;position:relative}
 .hv-r b{font:500 12px/1.25 var(--f);letter-spacing:.12em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hv-r span{font:400 11px/1.35 var(--m);color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hv-r em{font:400 11px var(--m);font-style:normal;color:var(--mute);text-align:right}
 .hv-r .k{display:flex;align-items:center;gap:8px}.hv-r .k i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--brick)}.hv-r .k i.c{background:none;border:1.5px solid var(--brick);box-sizing:border-box}.hv-r .k i.a{border-radius:0;transform:rotate(45deg);background:var(--agc);width:6px;height:6px}
-@media (max-width:760px){.hv-r{grid-template-columns:64px minmax(0,1fr) 40px;height:60px;gap:12px}.hv-r .th{width:64px;height:44px}.hv-r .pr,.hv-r .k{display:none}.hv-s{gap:8px 14px}.hv-s label{letter-spacing:.1em}.hv-s select{max-width:130px}.hv-g{gap:10px}.hv-k .hv-t{margin-bottom:10px}.hmode{font-size:10px;letter-spacing:.14em}.hmode button{padding:8px 11px}}
+@media (max-width:760px){.hv-r{grid-template-columns:64px minmax(0,1fr) 40px;height:60px;gap:12px}.hv-r .th{width:64px;height:44px}.hv-r .pr,.hv-r .k,.hv-r .sf{display:none}.hv-s{gap:8px 14px}.hv-s label{letter-spacing:.1em}.hv-s select{max-width:130px}.hv-g{gap:10px}.hv-k .hv-t{margin-bottom:10px}.hmode{font-size:10px;letter-spacing:.14em}.hmode button{padding:8px 11px}}
 </style>
 
 <script>(function(){var R=document.documentElement,t=null;try{t=localStorage.getItem("ym-theme")}catch(e){}if(t)R.dataset.theme=t;R.dataset.eff=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")})();</script>
@@ -1526,19 +1534,25 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   }
 
   /* ---------- fiche d'un projet Hamonic+Masson publié par l'agence ---------- */
-  var HMD=null;function hmData(){return HMD||(HMD=Promise.all([fetch("data/globe/agence.json").then(function(r){return r.json()}),fetch("data/globe/hm-visuels.json?v=1").then(function(r){return r.json()})]).then(function(a){return {L:a[0].p.filter(function(p){return p.u}),V:a[1]}}))}
+  var HMD=null;function hmData(){return HMD||(HMD=Promise.all([fetch("data/globe/agence.json").then(function(r){return r.json()}),fetch("data/globe/hm-visuels.json?v=2").then(function(r){return r.json()}),fetch("data/globe/hm-textes.json?v=1").then(function(r){return r.json()}).catch(function(){return {}})]).then(function(a){return {L:a[0].p.filter(function(p){return p.u}),V:a[1],X:a[2]}}))}
   function hmPage(id){var P=$("hmp");P.innerHTML="";hmData().then(function(D){if(location.hash.slice(1).split("/")[0]!=="hm")return;
     var L=D.L,i=-1;L.forEach(function(p,k){if(p.id===id)i=k});if(i<0){location.replace("#agence");return}
     var p=L[i],V=D.V[p.id]||[],prev=L[i-1],next=L[i+1],y=String(p.y).slice(0,4),HU="https://hamonic-masson.com/projet/";
-    var pg=V.map(function(v,k){return {src:"img/hm/"+p.id+"/"+v[0]+".jpg",th:"img/hm/"+p.id+"/"+v[0]+"_t.jpg",cap:p.t+" · "+(k+1)+"/"+V.length,r:v[1]}});
-    var rows=[["Programme",p.n],["Surface",p.s],["Emplacement",p.c],["Phase",p.ph],["Statut",p.st],["Rôle",p.r]].filter(function(x){return x[1]});
+    var crd=function(t){var m=String(t||"").match(/(?:©|cr[ée]dit\s*:?)\s*(.+)$/i);return m?m[1].replace(/^[\s:]+/,"").trim():""};
+    var HMA="Hamonic+Masson & Associés",pg=V.map(function(v,k){var c=crd(v[2])||"";return {src:"img/hm/"+p.id+"/"+v[0]+".jpg",th:"img/hm/"+p.id+"/"+v[0]+"_t.jpg",cr:c,cap:p.t+" · "+(k+1)+"/"+V.length+" · © "+(c&&!/hamonic|^hma$/i.test(c)?c+" / "+HMA:HMA),r:v[1]}});
+    var ph=[];pg.forEach(function(x){if(x.cr&&!/hamonic|^hma$/i.test(x.cr)&&!ph.some(function(q){return q.toLowerCase()===x.cr.toLowerCase()}))ph.push(x.cr)});
+    var rows=[["Programme",p.n],["Surface",p.s],["Emplacement",p.c],["Phases suivies",p.ph],["Statut",p.st],["Rôle",p.r]].filter(function(x){return x[1]});
+    var X=D.X[p.id]||{t:[],c:[]},esc=function(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;")},cr=X.c.filter(function(c){return /perspectiv|photograph|film|rendering/i.test(c[0])});
     var u=p.u.indexOf("../")===0?"https://hamonic-masson.com/"+p.u.slice(3):HU+p.u;
     var h='<a class="crumb" href="#agence">← Hamonic+Masson</a><div class="pj-head"><span class="fam">Hamonic+Masson · '+p.r+'</span><h1>'+p.t+'</h1><span class="s">'+p.c+' · '+y+'</span></div>';
-    if(pg[0])h+='<button type="button" class="hm-hero" data-k="0"><img src="'+pg[0].src+'" alt="'+p.t+'"></button>';
+    if(pg[0])h+='<figure class="hm-f"><button type="button" class="hm-hero" data-k="0"><img src="'+pg[0].src+'" alt="'+p.t+'"></button><figcaption>'+(pg[0].cr&&!/hamonic|^hma$/i.test(pg[0].cr)?'© '+esc(pg[0].cr)+' · ':'')+'Projet © Hamonic+Masson &amp; Associés'+(cr.length?' · '+cr.map(function(c){return esc(c[0])+' : '+esc(c[1])}).join(' · '):'')+'</figcaption></figure>';
     h+='<div class="hm-id"><dl>'+rows.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'}).join("")+'</dl><div class="hm-ln"><a href="#accueil" data-glo="'+p.id+'">Situer sur le globe <span aria-hidden="true">→</span></a><a href="'+u+'" target="_blank" rel="noopener">Fiche sur hamonic-masson.com <span aria-hidden="true">↗</span></a></div></div>';
+    if(X.t.length)h+='<div class="pj-sec"><b>Présentation</b><span>texte publié par Hamonic+Masson</span></div><div class="hm-tx"'+(X.en?' lang="en"':'')+'>'+X.t.map(function(t){return '<p>'+esc(t)+'</p>'}).join("")+'</div>';
+    if(X.c.length)h+='<div class="pj-sec"><b>Équipe</b><span>d’après la fiche de l’agence</span></div><dl class="hm-eq">'+X.c.map(function(c){return '<div><dt>'+esc(c[0])+'</dt><dd>'+esc(c[1])+'</dd></div>'}).join("")+'</dl>';
     if(pg.length>1)h+='<div class="pj-sec"><b>Visuels</b><span>'+pg.length+' visuels publiés par Hamonic+Masson · cliquer pour agrandir</span></div><div class="hm-g">'+(function(){var n=innerWidth<=760?2:3,C=[],Hc=[];for(var c=0;c<n;c++){C.push("");Hc.push(0)}
-      pg.slice(1).forEach(function(x,k){var j=Hc.indexOf(Math.min.apply(null,Hc));C[j]+='<button type="button" data-k="'+(k+1)+'" style="aspect-ratio:'+x.r+'"><img loading="lazy" decoding="async" src="'+(innerWidth>760?x.src:x.th)+'" alt=""></button>';Hc[j]+=1/x.r});
+      pg.slice(1).forEach(function(x,k){var j=Hc.indexOf(Math.min.apply(null,Hc));C[j]+='<button type="button" data-k="'+(k+1)+'" title="'+esc(x.cap)+'" style="aspect-ratio:'+x.r+'"><img loading="lazy" decoding="async" src="'+(innerWidth>760?x.src:x.th)+'" alt=""></button>';Hc[j]+=1/x.r});
       return C.map(function(c){return '<div>'+c+'</div>'}).join("")})()+'</div>';
+    h+='<p class="hm-ip">Projet et visuels : © Hamonic+Masson &amp; Associés architectes. La propriété intellectuelle du projet et des images appartient à l’agence ; Yves Micault y a participé en tant '+(/^[aeiouéèh]/i.test(p.r)?'qu’':'que ')+p.r.toLowerCase()+'. Images reproduites depuis <a href="'+u+'" target="_blank" rel="noopener">hamonic-masson.com</a>'+(ph.length||cr.length?', avec les crédits indiqués par l’agence : '+ph.concat(cr.filter(function(c){return ph.indexOf(c[1])<0}).map(function(c){return c[1]})).map(esc).join(", "):"")+'.</p>';
     h+='<div class="pj-nav">'+(prev?'<a href="#hm/'+prev.id+'">← '+prev.t+'<span>'+prev.c+' · '+String(prev.y).slice(0,4)+'</span></a>':'<span></span>')+(next?'<a class="nx" href="#hm/'+next.id+'">'+next.t+' →<span>'+next.c+' · '+String(next.y).slice(0,4)+'</span></a>':'')+'</div>';
     P.innerHTML=h;
     [].forEach.call(P.querySelectorAll("[data-k]"),function(b){b.onclick=function(){openV(p.t,pg,+b.getAttribute("data-k"),{},b)}});
@@ -1884,11 +1898,11 @@ function ficheAg(k){const F=$("fiche");gallery(-1);if(k<0){F.classList.remove("o
   const rows=[["Programme",p.n],["Surface",p.s],["Phase",p.ph]].concat(p.st?[["Statut",p.st]]:[],[["Rôle",p.r]]);
   F.innerHTML="<p>Agence · Hamonic+Masson</p>"+(src?'<div class="agf'+(conf?" conf":"")+'"><img src="'+src+'" alt="">'+(conf?'<span class="stamp"><b>Confidentiel</b><small>non publié par l’agence</small></span>':"")+"</div>":"")+"<dl>"+rows.map(([a,b])=>"<div><dt>"+a+"</dt><dd>"+b+"</dd></div>").join("")+"</dl>"+(p.u?'<div class="fa"><a class="op" href="#hm/'+p.id+'"><span>Ouvrir le projet</span><i>→</i></a></div><a class="agl" href="'+HMU+p.u+'" target="_blank" rel="noopener">Fiche sur hamonic-masson.com ↗</a>':"");
   F.classList.add("on","ag");requestAnimationFrame(()=>{F.classList.add("vis");size()})}
-fetch("data/globe/hm-visuels.json?v=1").then(r=>r.json()).then(j=>{window.HMV=j}).catch(()=>{});
+fetch("data/globe/hm-visuels.json?v=2").then(r=>r.json()).then(j=>{window.HMV=j}).catch(()=>{});
 fetch("data/globe/agence.json").then(r=>r.json()).then(j=>{AG=j.p.filter(p=>p.u);$("agN").textContent=AG.length;const C=$("cA");
-  AG.forEach((p,k)=>{const b=document.createElement("button");b.type="button";b.className="it";b.dataset.i=100+k;b.dataset.c="a";b.innerHTML="<b>"+p.t+"</b><span>"+p.c+" · "+String(p.y).slice(0,4)+"</span>";
+  AG.forEach((p,k)=>{const b=document.createElement("button");b.type="button";b.className="it";b.dataset.i=100+k;b.dataset.c="a";b.title=p.t+" · "+p.c+" · "+String(p.y).slice(0,4);b.innerHTML="<b>"+p.t+"</b><span>"+p.c+" · "+String(p.y).slice(0,4)+"</span>";
     b.addEventListener("click",()=>chooseAg(k));b.addEventListener("pointerenter",()=>setHov(100+k));b.addEventListener("pointerleave",()=>setHov(-1));b.addEventListener("focus",()=>setHov(100+k));b.addEventListener("blur",()=>setHov(-1));C.appendChild(b)});
-  window.agRows=()=>0;window.agBuild=()=>{};marks();size();buildFrise()});
+  C.style.gridTemplateRows="repeat("+Math.ceil(AG.length/2)+",auto)";window.agRows=()=>0;window.agBuild=()=>{};marks();size();buildFrise();fitList()});
 document.querySelectorAll("#list .fo").forEach(b=>b.addEventListener("click",()=>{const o=b.getAttribute("aria-expanded")!=="true";b.setAttribute("aria-expanded",o);$({e:"cE",c:"cC",a:"cA"}[b.dataset.f]).classList.toggle("fold",!o);fitStage()}));
 document.querySelectorAll("#list .tg").forEach(b=>b.addEventListener("click",()=>{const f=b.dataset.f,on=!VIS[f];VIS[f]=on?1:0;b.setAttribute("aria-pressed",on);$({e:"cE",c:"cC",a:"cA"}[f]).classList.toggle("off",!on)}));
 
@@ -1968,7 +1982,7 @@ let W=1,Hh=1,box0={x:0,y:0},anc=[],leaders=true;const fx=$("fx"),fc=fx.getContex
 function size(){if(!host.clientWidth||!host.clientHeight)return;W=host.clientWidth;Hh=host.clientHeight;R.setSize(W,Hh,false);cam.aspect=W/Hh;cam.updateProjectionMatrix();
   const dp=Math.min(2,devicePixelRatio);fx.width=W*dp;fx.height=Hh*dp;fc.setTransform(dp,0,0,dp,0,0);
   const gr=gbox.getBoundingClientRect(),sr=stage.getBoundingClientRect();box0={x:sr.left-gr.left,y:sr.top-gr.top};ov.setAttribute("viewBox","0 0 "+gr.width+" "+gr.height);
-  const lr=$("list").getBoundingClientRect(),cr=$("cA").getBoundingClientRect();anc=[...document.querySelectorAll(".it")].filter(b=>{if(!b.offsetParent)return false;const r=b.getBoundingClientRect(),q=b.dataset.c==="a"?cr:lr;return r.bottom>q.top+4&&r.top<q.bottom-4}).map(b=>{const r=b.getBoundingClientRect();return {i:+b.dataset.i,x:r.right-gr.left+6,y:r.top+r.height/2-gr.top}});
+  const lr=$("list").getBoundingClientRect(),cr=$("cA").getBoundingClientRect();anc=[...document.querySelectorAll(".it")].filter(b=>{if(!b.offsetParent)return false;const r=b.getBoundingClientRect(),q=b.dataset.c==="a"?cr:lr;return r.bottom>q.top+4&&r.top<q.bottom-4}).map(b=>{const r=b.getBoundingClientRect();return {i:+b.dataset.i,x:(b.dataset.c==="a"?cr.right:r.right)-gr.left+6,y:r.top+r.height/2-gr.top}});
   leaders=$("list").getBoundingClientRect().right<=sr.left+4;
   const ca=$("cA");if(ca&&ca.offsetParent){const r=ca.getBoundingClientRect();wAnc={x:r.right-gr.left+6,y:r.top+r.height/2-gr.top}}else wAnc=null}
 let wAnc=null,wIn=false;
@@ -2153,6 +2167,7 @@ new MutationObserver(()=>{if(!home.hidden&&gPause){gPause=false;requestAnimation
 // retour à l'accueil (menu, logo, bouton précédent) : le globe revient entier, dézoomé, sans projet choisi
 // taille du globe calculée en pixels : Safari (iPad) gère mal « hauteur 100 % + aspect-ratio » dans la grille
 const stageEl=document.querySelector("#gbox .stage");
+function fitList(){const L=$("list");if(!L)return;const was=L.classList.contains("cmp");L.classList.remove("cmp");if(L.scrollHeight>L.clientHeight+2)L.classList.add("cmp");if(was!==L.classList.contains("cmp"))requestAnimationFrame(()=>{try{size()}catch(e){}})}
 function fitStage(){if(!stageEl)return;const g=$("gbox");
   if(innerWidth<=760){["left","top"].forEach(k=>stageEl.style[k]="");["top","left","width","right","bottom"].forEach(k=>g.querySelector(".side").style[k]="");
     $("dsv").style.clipPath="";const w=g.clientWidth||document.documentElement.clientWidth-32,s=Math.floor(Math.max(200,Math.min(w,(document.documentElement.clientHeight||innerHeight)*.62)));stageEl.style.width=stageEl.style.height=s+"px";return}
@@ -2161,7 +2176,7 @@ function fitStage(){if(!stageEl)return;const g=$("gbox");
   if(wide)["top","left","width","right","bottom"].forEach(k=>sd.style[k]="");
   else{const t=L.offsetTop+L.offsetHeight+16;Object.assign(sd.style,{left:"0px",right:"auto",width:lw+"px",top:t+"px",bottom:"12px"});L.style.maxHeight=""}
   const x0=lw+gap,x1=W-(wide?sd.offsetWidth+gap:0),pad=16,s=Math.floor(Math.max(160,Math.min(x1-x0,H-2*pad)));
-  if(wide&&innerWidth>1060){const t=sd.offsetTop;Object.assign(L.style,{top:t+"px",height:(H-t-12)+"px",maxHeight:"none"});L.classList.add("full");if(window.agBuild)agBuild()}else{["top","height","maxHeight"].forEach(k=>L.style[k]="");L.classList.remove("full")}
+  if(wide&&innerWidth>1060){const t=sd.offsetTop;Object.assign(L.style,{top:t+"px",height:(H-t-12)+"px",maxHeight:"none"});L.classList.add("full");if(window.agBuild)agBuild()}else{["top","height","maxHeight"].forEach(k=>L.style[k]="");L.classList.remove("full")}fitList();
   Object.assign(stageEl.style,{width:s+"px",height:s+"px",left:Math.round(x0+(x1-x0-s)/2)+"px",top:Math.round((H-s)/2)+"px"});
   $("dsv").style.clipPath="inset(0 "+Math.max(0,Math.round(W-x1))+"px 0 "+Math.round(x0)+"px)";
   const gw=g.querySelector(".gdw");if(gw)Object.assign(gw.style,{left:Math.round(x0+(x1-x0-s)/2)+"px",width:s+"px",top:Math.round((H-s)/2+s-34)+"px"})}   // découverte guidée : sous le globe
@@ -2188,11 +2203,14 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
   let IT=null;
   function items(){if(IT&&IT.n===AG.length&&IT.h===!!window.HMV)return IT.L;const o=[];
     P.forEach((p,i)=>{const im=imgsFor(p)[0];o.push({key:"p"+i,f:p.f,t:TITLE[p.k]||p.t,c:p.c||"",y:p.y1||p.y0||0,img:im?(im.th||im.src):"",pr:(p.m||"").split(" · ").slice(1,3).join(" · "),
-      prog:PK[p.k]||"",role:"Projet personnel",stat:p.f==="e"?"Étude":"Concours",go:()=>{location.hash=hrefFor(p)}})});
-    AG.forEach((p,k)=>{const V=window.HMV&&HMV[p.id],im=V&&V.length?"img/hm/"+p.id+"/"+V[0][0]+"_t.jpg":p.img&&p.img.length?"img/agx/"+p.img[0]+".jpg":p.im?"img/ag/"+p.im+".jpg":"";o.push({key:"a"+k,f:"a",t:p.t,c:p.c||"",y:+String(p.y).slice(0,4)||0,img:im,r:p.r||"",pr:[p.n,p.s].filter(Boolean).join(" · "),
+      prog:PK[p.k]||"",role:"Projet personnel",sf:(()=>{const x=(p.id||[]).find(z=>z[0]==="Surface");return x&&x[1]!=="—"?x[1]:""})(),stat:p.f==="e"?"Étude":"Concours",go:()=>{location.hash=hrefFor(p)}})});
+    AG.forEach((p,k)=>{const V=window.HMV&&HMV[p.id],im=V&&V.length?"img/hm/"+p.id+"/"+V[0][0]+"_t.jpg":p.img&&p.img.length?"img/agx/"+p.img[0]+".jpg":p.im?"img/ag/"+p.im+".jpg":"";o.push({key:"a"+k,f:"a",t:p.t,c:p.c||"",y:+String(p.y).slice(0,4)||0,img:im,r:p.r||"",pr:p.n||"",sf:p.s||"",
       prog:progAg(p.n||""),role:p.r||"",stat:statAg(p.st||""),go:()=>{location.hash="#hm/"+p.id}})});
-    IT={n:AG.length,h:!!window.HMV,L:o};return o}
+    o.forEach(x=>x.sv=sfv(x.sf));IT={n:AG.length,h:!!window.HMV,L:o};return o}
   const mob=()=>innerWidth<=760;
+  /* surface : texte publié tel quel, valeur en m² pour trier et classer */
+  const sfv=t=>{const m=String(t||"").match(/(\d[\d\s\u202f\u00a0.,]*)\s*(m²|m2|ha)/i);if(!m)return 0;const n=parseFloat(m[1].replace(/[\s\u202f\u00a0]/g,"").replace(",","."));return /ha/i.test(m[2])?-n:n};
+  const SB=v=>v<0?"Échelle urbaine (ha)":!v?"Non communiquée":v<5000?"Moins de 5 000 m²":v<15000?"5 000 à 15 000 m²":v<30000?"15 000 à 30 000 m²":"Plus de 30 000 m²";
   function place(){const b=box.getBoundingClientRect(),a=st.getBoundingClientRect();
     if(mob()){/* téléphone : sélecteur en haut, calque sur toute la largeur */
       const top=a.top-b.top+46;Object.assign(sw.style,{left:"0px",top:a.top-b.top+2+"px",transform:""});
@@ -2245,7 +2263,7 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
     S.querySelector(".rz").onclick=()=>{bP=bR=bT="";cb()}}
   /* ---- bibliothèque : chaque projet est un objet ; il se range de lui-même selon le classement et les filtres ---- */
   let dG="f";const PER=y=>y<2017?"2010 – 2016":y<2020?"2017 – 2019":y<2023?"2020 – 2022":"2023 – 2026";
-  const GK={f:["Cadre",o=>({e:"Études",c:"Concours",a:"Hamonic+Masson"})[o.f]],prog:["Programme",o=>o.prog||"Autre"],role:["Rôle",o=>o.role],stat:["Statut",o=>o.stat],per:["Période",o=>PER(o.y)]};
+  const GK={f:["Cadre",o=>({e:"Études",c:"Concours",a:"Hamonic+Masson"})[o.f]],prog:["Programme",o=>o.prog||"Autre"],role:["Rôle",o=>o.role],stat:["Statut",o=>o.stat],per:["Période",o=>PER(o.y)],sf:["Surface",o=>SB(o.sv)]};
   const DC=new Map();
   function bib(){const A=items(),W=hv.clientWidth,H=hv.clientHeight;if(!W||!H)return;
     let d=hv.querySelector(".hv-d");
@@ -2256,7 +2274,7 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
     filters(S,A,bib);
     const ok=o=>(!bP||o.prog===bP)&&(!bR||o.role===bR)&&(!bT||o.stat===bT),gf=GK[dG][1];
     const L=A.filter(ok).sort((a,b)=>b.y-a.y||a.t.localeCompare(b.t)),G=[];L.forEach(o=>{const g=gf(o);let x=G.find(q=>q.k===g);if(!x)G.push(x={k:g,L:[]});x.L.push(o)});
-    if(dG==="per")G.sort((a,b)=>b.k.localeCompare(a.k));else if(dG!=="f")G.sort((a,b)=>b.L.length-a.L.length||a.k.localeCompare(b.k,"fr"));
+    if(dG==="per")G.sort((a,b)=>b.k.localeCompare(a.k));else if(dG==="sf"){const O=["Moins de 5 000 m²","5 000 à 15 000 m²","15 000 à 30 000 m²","Plus de 30 000 m²","Échelle urbaine (ha)","Non communiquée"];G.sort((a,b)=>O.indexOf(a.k)-O.indexOf(b.k))}else if(dG!=="f")G.sort((a,b)=>b.L.length-a.L.length||a.k.localeCompare(b.k,"fr"));
     const zw=Z.clientWidth,zh=Z.clientHeight,gap=8,hd=34,pos=new Map(),heads=[];let total=0;
     if(!mob()&&G.length){/* ordinateur : une colonne par groupe, largeur selon le nombre de projets ; la plus grande taille d'objet qui tienne à l'écran */
       const gg=28,R=.74,fit=sz=>{const rows=Math.max(1,Math.floor((zh-hd+gap)/(sz*R+gap)));const N=G.map(g=>Math.ceil(g.L.length/rows));return {N,w:N.reduce((t,n)=>t+n*sz+(n-1)*gap,0)+gg*(G.length-1)}};
@@ -2284,11 +2302,11 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
 
   function lst(){const A=items(),ok=o=>(!bP||o.prog===bP)&&(!bR||o.role===bR)&&(!bT||o.stat===bT),B=A.filter(ok),cn=f=>B.filter(o=>f==="all"||o.f===f).length;
     let L=B.filter(o=>bF==="all"||o.f===bF);
-    L.sort(bS==="y"?(a,b)=>b.y-a.y||a.t.localeCompare(b.t):bS==="t"?(a,b)=>a.t.localeCompare(b.t,"fr"):(a,b)=>a.c.localeCompare(b.c,"fr")||b.y-a.y);
+    L.sort(bS==="s"?(a,b)=>(b.sv>0?b.sv:b.sv<0?-1:-2)-(a.sv>0?a.sv:a.sv<0?-1:-2)||b.y-a.y:bS==="y"?(a,b)=>b.y-a.y||a.t.localeCompare(b.t):bS==="t"?(a,b)=>a.t.localeCompare(b.t,"fr"):(a,b)=>a.c.localeCompare(b.c,"fr")||b.y-a.y);
     let b=hv.querySelector(".hv-b");
     if(!b){b=document.createElement("div");b.className="hv-b";b.innerHTML='<div class="hv-f"></div><div class="hv-s"></div><div class="hv-l"></div>';hv.appendChild(b)}
     const F=b.querySelector(".hv-f"),S=b.querySelector(".hv-s"),Lh=b.querySelector(".hv-l");
-    F.innerHTML=[["all","Tous"],["e","Études"],["c","Concours"],["a","Hamonic+Masson"]].map(([k,t])=>`<button data-bf="${k}" class="${bF===k?"on":""}">${t}<sup>${cn(k)}</sup></button>`).join("")+'<b class="sp"></b>'+[["y","Date"],["t","Nom"],["c","Lieu"]].map(([k,t])=>`<button data-bs="${k}" class="${bS===k?"on":""}">${t}</button>`).join("");
+    F.innerHTML=[["all","Tous"],["e","Études"],["c","Concours"],["a","Hamonic+Masson"]].map(([k,t])=>`<button data-bf="${k}" class="${bF===k?"on":""}">${t}<sup>${cn(k)}</sup></button>`).join("")+'<b class="sp"></b>'+[["y","Date"],["t","Nom"],["c","Lieu"],["s","Surface"]].map(([k,t])=>`<button data-bs="${k}" class="${bS===k?"on":""}">${t}</button>`).join("");
     F.querySelectorAll("[data-bf]").forEach(x=>x.onclick=()=>{bF=x.dataset.bf;lst()});F.querySelectorAll("[data-bs]").forEach(x=>x.onclick=()=>{bS=x.dataset.bs;lst()});
     filters(S,A,lst);
     const rh=mob()?60:64;
@@ -2296,7 +2314,7 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
     const R_=new Map([...inner.children].map(e=>[e.dataset.k,e])),seen=new Set();
     L.forEach((o,i)=>{let e=R_.get(o.key),fresh=!e||e.style.opacity==="0";
       if(!e){e=document.createElement("div");e.className="hv-r";e.dataset.k=o.key;e.tabIndex=0;
-        e.innerHTML=`<div class="th" style="${o.img?`background-image:url('${o.img}')`:""}"></div><div style="min-width:0;display:grid;gap:4px"><b>${o.t}</b><span>${o.c}${o.r?"<u class=\"rl\"> · "+o.r+"</u>":""}</span></div><div class="k"><i class="${o.f}"></i><span>${o.r?o.r+" · H+M":CAT[o.f]}</span></div><span class="pr">${o.pr}</span><em>${o.y||""}</em>`;
+        e.innerHTML=`<div class="th" style="${o.img?`background-image:url('${o.img}')`:""}"></div><div style="min-width:0;display:grid;gap:4px"><b>${o.t}</b><span>${o.c}${o.r?"<u class=\"rl\"> · "+o.r+"</u>":""}</span></div><div class="k"><i class="${o.f}"></i><span>${o.r?o.r+" · H+M":CAT[o.f]}</span></div><span class="pr">${o.pr}</span><span class="sf">${o.sf||"—"}</span><em>${o.y||""}</em>`;
         e.onclick=()=>o.go();e.onkeydown=ev=>{if(ev.key==="Enter")o.go()};inner.appendChild(e)}
       seen.add(o.key);if(fresh){e.style.transition="none";e.style.opacity=0;e.style.transform=`translateY(${i*rh+18}px)`;e.offsetWidth;e.style.transition=""}
       e.style.transitionDelay=Math.min(i,14)*28+"ms";e.style.transform=`translateY(${i*rh}px)`;e.style.opacity=1;e.style.pointerEvents="";e.tabIndex=0});
