@@ -1,4 +1,23 @@
-<!doctype html><html lang="fr"><head><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}html{overflow-y:scroll;scrollbar-gutter:stable}#fz{display:none!important}</style><style id="m2css">
+<!doctype html><html lang="fr"><head><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}html{overflow-y:scroll;scrollbar-gutter:stable}#fz{display:none!important}
+/* Profil : parcours en une seule frise */
+#v-profil .pf{grid-template-columns:minmax(0,240px) minmax(0,1fr) 168px;max-width:none}
+.pf-docs{position:sticky;top:80px;display:grid;gap:26px;padding-left:22px;border-left:1px solid var(--line)}
+.pf-docs .cov{width:100%;padding:0;border:0;background:none;cursor:pointer}.pf-docs .cov img{width:100%;height:auto;transition:transform .5s var(--ease)}.pf-docs .cov:hover img{transform:translateY(-3px)}
+.pf-docs .cvcard b{font-size:12px;margin-top:10px}.pf-docs .row-btn{gap:6px}.pf-docs .btn{padding:7px 10px;font-size:10px}
+.tl-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 30px;margin-top:64px}.tl-h .sf-h{margin:0}
+.tl-f{display:flex;flex-wrap:wrap;gap:4px}.tl-f button{border:1px solid var(--line);background:none;color:var(--mute);font:400 11px var(--m);padding:6px 11px;border-radius:99px;cursor:pointer;transition:all .3s}.tl-f button.on,.tl-f button:hover{color:var(--ink);border-color:var(--ink)}
+.tl{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--ink);position:relative}
+.tl::before{content:"";position:absolute;left:150px;top:0;bottom:0;width:1px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:150px 120px minmax(0,1fr);align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);position:relative;transition:opacity .45s var(--ease),background .3s;max-height:200px}
+.tl li::before{content:"";position:absolute;left:146px;top:19px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1.5px solid var(--ink);transition:background .3s}
+.tl li[data-t="d"]::before{border-color:var(--brick)}.tl li:hover::before{background:var(--ink)}.tl li[data-t="d"]:hover::before{background:var(--brick)}
+.tl li:hover{background:color-mix(in srgb,var(--ink) 3%,transparent)}
+.tl .d{font:400 11.5px var(--m);color:var(--mute)}.tl i{font:400 10.5px var(--m);font-style:normal;color:var(--mute);padding-left:26px;letter-spacing:.04em}.tl li[data-t="d"] i{color:var(--brick)}
+.tl b{font-weight:500;font-size:15px}.tl em{display:block;font-style:normal;font-size:13px;color:var(--mute);margin-top:2px}.tl .agt-pl{display:inline-block;margin-top:4px;font:400 11px var(--m);color:var(--brick)}
+.tl li.off{opacity:.16}
+@media (max-width:1060px){#v-profil .pf{grid-template-columns:minmax(0,1fr)}.pf-docs{position:static;border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:22px;grid-template-columns:repeat(2,minmax(0,200px))}}
+@media (max-width:760px){.tl::before,.tl li::before{display:none}.tl li{grid-template-columns:auto minmax(0,1fr);gap:2px 12px}.tl i{padding-left:0;text-align:right}.tl li>div{grid-column:1/-1}}
+</style><style id="m2css">
 @media (max-width:760px){
 html.m2 .bar .wrap{display:flex!important;align-items:center;justify-content:space-between;height:56px!important;padding:0!important;gap:10px!important}
 html.m2 .bar .bar-r{gap:4px}
@@ -846,7 +865,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 .hv-fly{position:fixed;z-index:60;pointer-events:none;background:center/cover no-repeat;opacity:1;transition:transform .95s cubic-bezier(.6,0,.2,1),width .95s cubic-bezier(.6,0,.2,1),height .95s cubic-bezier(.6,0,.2,1),border-radius .95s,opacity .5s .5s}
 /* page Compétences */
 .sf-k2{display:flex;flex-wrap:wrap;gap:12px 48px;align-items:baseline;padding:14px 0 16px;border-bottom:1px solid var(--line);margin:0 0 44px}.sf-k2 div{display:flex;align-items:baseline;gap:12px}.sf-k2 b{font:300 30px/1 var(--f);color:var(--ink)}.sf-k2 span{font:400 12px/1.4 var(--m);color:var(--mute)}
-.sf-ia{margin:-46px 0 60px;font:400 12px/1.6 var(--m);color:var(--mute)}.sf-ia span{color:var(--brick);letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;margin-right:14px}
+.sf-ia{margin:-44px 0 60px}.sf-ia b{display:block;font:500 10.5px/1.4 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}.sf-ia p{margin:4px 0 0;font-size:13.5px;line-height:1.55;color:var(--mute)}
 .sf .ph-head p{max-width:62ch}
 .sf-k{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line);margin:8px 0 56px}
 .sf-k div{padding:22px 20px 22px 0;border-right:1px solid var(--line)}.sf-k div:last-child{border-right:0}.sf-k div+div{padding-left:20px}
@@ -1012,11 +1031,11 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
   <div class="wrap sf">
     <a class="crumb" href="#accueil">← Accueil</a>
     <div class="ph-head wide"><h1>Compétences</h1><p>Architecte HMONP avec près de dix ans d’expérience en agence, spécialisé dans la conception et le développement de projets de logements, d’équipements et d’opérations urbaines. Expérience de l’esquisse aux études de projet et aux dossiers d’appel d’offres.</p></div>
-    <div class="sf-k2 sf-rv"><div><b>10 ans</b><span>d’expérience en agence</span></div><div><b>63</b><span>projets chez Hamonic+Masson, concours pour la plupart</span></div></div>
+    <div class="sf-k2 sf-rv"><div><b>10 ans</b><span>d’expérience en agence</span></div><div><b>61</b><span>projets chez Hamonic+Masson, concours pour la plupart</span></div></div>
     <h2 class="sf-h sf-rv">Ce que j’apporte en agence</h2>
     <div class="sf-a">
       <article class="sf-rv"><i>01</i><h3>Mener un projet</h3><p>Chef de projet chez Hamonic + Masson : pilotage des études, coordination des équipes et des bureaux d’études, suivi des délais et des livrables.</p><a class="sf-p" href="#hm/metamorphose"><img src="img/hm/metamorphose/07_t.jpg" alt="" loading="lazy"><span><b>Métamorphose</b><small>Angers · Chef de projet · Concours → études · Lauréat en 2018, livré en 2025</small></span></a></article>
-      <article class="sf-rv"><i>02</i><h3>La culture du concours</h3><p>63 projets en agence depuis 2017, concours pour la plupart, à toutes les échelles, du logement à l’opération urbaine.</p><a class="sf-p" href="#hm/panora-marne"><img src="img/hm/panora-marne/02_t.jpg" alt="" loading="lazy"><span><b>Panora’Marne</b><small>Villiers-sur-Marne · Assistant chef de projet · Concours</small></span></a><a class="sf-all" href="#agence">Tous les projets en agence →</a></article>
+      <article class="sf-rv"><i>02</i><h3>La culture du concours</h3><p>61 projets en agence depuis 2017, concours pour la plupart, à toutes les échelles, du logement à l’opération urbaine.</p><a class="sf-p" href="#hm/panora-marne"><img src="img/hm/panora-marne/02_t.jpg" alt="" loading="lazy"><span><b>Panora’Marne</b><small>Villiers-sur-Marne · Assistant chef de projet · Concours</small></span></a><a class="sf-all" href="#agence">Tous les projets en agence →</a></article>
       <article class="sf-rv"><i>03</i><h3>De l’esquisse au DCE</h3><p>Faisabilité, implantation, conception des plans, synthèse technique et analyse réglementaire, jusqu’aux dossiers d’appel d’offres.</p><a class="sf-p" href="#hm/le-cabanon-ideal"><img src="img/hm/le-cabanon-ideal/01_t.jpg" alt="" loading="lazy"><span><b>Le Cabanon idéal</b><small>Marseille · Chef de projet · Concours → APS → permis → PRO/DCE · Arrêté faute de financement</small></span></a></article>
       <article class="sf-rv"><i>04</i><h3>Le BIM au quotidien</h3><p>ArchiCAD en maquette numérique, modélisation 3D, pièces graphiques et supports de présentation.</p></article>
     </div>
@@ -1031,7 +1050,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
       <div><small>BIM</small><b>Archicad</b></div><div><small>DAO</small><b>AutoCAD</b></div><div><small>3D</small><b>SketchUp</b></div><div><small>Rendu</small><b>Enscape</b></div><div><small>Rendu</small><b>D5 Render</b></div>
       <div><small>Mise en page</small><b>InDesign</b></div><div><small>Image</small><b>Photoshop</b></div><div><small>Graphisme</small><b>Illustrator</b></div><div><small>SIG</small><b>QGIS</b></div><div><small>Organisation</small><b>Notion</b></div>
     </div>
-    <p class="sf-ia sf-rv"><span>Intelligence artificielle</span>Développement d’outils IA pour l’architecture · Claude · ChatGPT · Nano Banana · Kling</p>
+    <div class="sf-ia sf-rv"><b>Outils IA</b><p>Maîtrise des outils d’IA générative appliqués à l’architecture : Claude, ChatGPT, Nano Banana, Kling, Higgsfield.</p></div>
     <div class="sf-l sf-rv">
       <div><h3>Langues</h3><p>Français, natif · Anglais, bilingue</p></div>
       <div><h3>Mobilité</h3><p>Permis B · voiture et moto · disponible à partir de janvier 2027</p></div>
@@ -1053,68 +1072,38 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
           <div><dt>En agence</dt><dd><a href="https://hamonic-masson.com/architecte/micault/" target="_blank" rel="noopener">Hamonic + Masson ↗</a></dd></div>
           <div><dt>Disponible</dt><dd>À partir de janvier 2027</dd></div>
         </dl>
-        <div class="row-btn ct-cv"><a class="btn dl" href="doc/CV_2026_Yves_Micault.pdf?v=1104b" download="CV_2026_Yves_Micault.pdf">Télécharger le CV ↓</a></div>
       </aside>
       <div class="pf-txt">
         <p class="pf-lead">« L’architecture ne se résume pas à ce que l’on construit, mais à ce que l’on rend possible. »</p>
         <div class="pf-body"><p>Mon parcours s’est construit entre Reims, Clermont-Ferrand et Moscou, au fil d’une formation qui m’a progressivement amené à considérer l’architecture au-delà du seul acte de bâtir. Le master EVAN, consacré aux relations entre ville, architecture et nature, a notamment nourri une réflexion sur les territoires, leurs transformations et les liens parfois fragiles qui unissent le paysage, le bâti et les usages.</p><p>Depuis 2017, cette approche s’est enrichie d’une pratique professionnelle au sein de l’agence Hamonic + Masson, à Paris puis à Marseille. De la conception aux phases de développement technique, à travers des projets de logements, d’équipements et d’opérations urbaines, j’ai appris à confronter l’intention architecturale à la complexité du réel. Cette expérience, aujourd’hui portée par des responsabilités de chef de projet, m’a convaincu que la rigueur constructive et la sensibilité architecturale ne s’opposent pas, mais se nourrissent mutuellement.</p><p>Je considère l’architecture moins comme la production d’un objet que comme une manière de révéler les qualités d’un lieu et d’en imaginer les possibles. Chaque territoire porte une histoire, des usages, des contraintes et des ressources qui méritent d’être observés avant d’être transformés. Le projet devient alors un travail de lecture et d’interprétation, une recherche d’équilibre entre ce qui préexiste et ce qui peut advenir.</p><p>Cette conviction nourrit une attention particulière aux relations que l’architecture établit : entre le bâti et le paysage, entre l’intime et le collectif, entre la permanence des lieux et l’évolution des modes de vie. J’aspire à une architecture à la fois sensible et rationnelle, capable de répondre aux réalités de son époque sans renoncer à la simplicité de ses intentions.</p><p>Car la justesse d’un projet ne tient pas seulement à ce qu’il apporte, mais aussi à la manière dont il trouve sa place, dialogue avec ce qui l’entoure et laisse ouvertes les possibilités de demain.</p></div>
 
-        <ol class="pf-tl" aria-label="Parcours en bref">
-          <li><b>2009</b><span>BTCA, Reims</span></li>
-          <li><b>2013</b><span>Licence, Clermont-Ferrand</span></li>
-          <li><b>2014</b><span>Institut d'architecture de Moscou</span></li>
-          <li><b>2016</b><span>Diplôme, master EVAN</span></li>
-          <li><b>2017</b><span>Hamonic + Masson</span></li>
-          <li><b>2021</b><span>Europan 16, mentionné</span></li>
-          <li><b>2023</b><span>HMONP</span></li>
-          <li class="nx"><b>2027</b><span>…</span></li>
-        </ol>
       </div>
+      <aside class="pf-docs">
+        <div class="cvcard"><button type="button" class="cov" id="cvOpen"><img src="img/t/cv01.jpg?v=1104b" alt="Couverture du CV 2026"></button>
+          <b>CV 2026</b><span class="s">A3 plié · références en agence</span>
+          <div class="row-btn"><button class="btn" type="button" id="cvRead">Lire</button><a class="btn dl" href="doc/CV_2026_Yves_Micault.pdf?v=1104b" download="CV_2026_Yves_Micault.pdf">PDF ↓</a></div></div>
+        <div class="cvcard pfe"><button type="button" class="cov" id="pfeOpen"><img id="pfeCov" alt="Couverture du book PFE"></button>
+          <b>Book PFE</b><span class="s">Terminus et Elle · 38 p. · 2016</span>
+          <div class="row-btn"><button class="btn" type="button" id="pfeRead">Feuilleter</button></div></div>
+      </aside>
     </div>
-    <h2 class="sf-h pf-ph">Parcours</h2>
-    <div class="parc">
-      <div>
-        <h3>Expérience</h3>
-        <ol>
-          <li><span>Depuis mars 2017</span><div>Hamonic + Masson Architectes, Paris · Marseille<em>Architecte / chef de projet, conception et études</em><a class="agt-pl" href="#agence">Voir mes projets en agence →</a></div></li>
-          <li><span>2016</span><div>ENSACF, Clermont-Ferrand<em>Monitorat en projet architectural et morphologie urbaine</em></div></li>
-          <li><span>Nov. 2015</span><div>Epicentre Faktory, Clermont-Ferrand<em>Conférence sur l'agriculture urbaine</em></div></li>
-          <li class="sub">Premières expériences professionnelles</li>
-          <li><span>Avr.–juil. 2015</span><div>Megabudka, Moscou</div></li>
-          <li><span>Fév.–mars 2013</span><div>Neumann Architecte, Riom</div></li>
-          <li><span>Mai–juin 2012</span><div>Asylum, Lyon</div></li>
-          <li><span>Fév. 2011</span><div>B+A Planchon, Châlons-en-Champagne</div></li>
-        </ol>
-      </div>
-      <div>
-        <h3>Formation</h3>
-        <ol>
-          <li><span>2022 — 2023</span><div>HMONP<em>ENSA Clermont-Ferrand</em></div></li>
-          <li><span>2015 — 2016</span><div>Diplôme d'architecte DE<em>ENSA Clermont-Ferrand, master 2 EVAN</em></div></li>
-          <li><span>2014 — 2015</span><div>Institut d'architecture de Moscou, МАРХИ</div></li>
-          <li><span>2009 — 2013</span><div>Licence en architecture<em>ENSA Clermont-Ferrand</em></div></li>
-        </ol>
-      </div>
-      <div>
-        <h3>Distinctions</h3>
-        <ol>
-          <li><span>Mars 2021</span><div>Europan 16, Limoges<em>Les petits ventres-villes · mentionné</em></div></li>
-          <li><span>Nov. 2016</span><div>Bee Breeders · Transiberian Pit Stops<em>Siberian Spotlight · mention honorable</em></div></li>
-        </ol>
-      </div>
-      <div class="docs"><div class="cvcard">
-        <h3>CV &amp; références</h3>
-        <button type="button" class="cov" id="cvOpen" style="width:100%"><img src="img/t/cv01.jpg?v=1104b" alt="Couverture du CV 2026"></button>
-        <b>CV 2026</b><span class="s">A3 plié · parcours et références en agence</span>
-        <div class="row-btn"><button class="btn" type="button" id="cvRead">Lire</button><a class="btn dl" href="doc/CV_2026_Yves_Micault.pdf?v=1104b" download="CV_2026_Yves_Micault.pdf">PDF ↓</a></div>
-      </div>
-      <div class="cvcard pfe">
-        <h3>Projet de fin d’études</h3>
-        <button type="button" class="cov" id="pfeOpen" style="width:100%"><img id="pfeCov" alt="Couverture du book PFE"></button>
-        <b>Book PFE</b><span class="s">Terminus et Elle, Copenhague · 38 pages A4 · 2016</span>
-        <div class="row-btn"><button class="btn" type="button" id="pfeRead">Feuilleter</button></div>
-      </div></div>
-    </div>
+    <div class="tl-h"><h2 class="sf-h">Parcours</h2><div class="tl-f" role="group" aria-label="Filtrer le parcours"><button type="button" class="on" data-t="">Tout</button><button type="button" data-t="x">Expérience</button><button type="button" data-t="f">Formation</button><button type="button" data-t="d">Distinctions</button></div></div>
+    <ol class="tl">
+      <li data-t="x"><span class="d">Depuis mars 2017</span><i>Expérience</i><div><b>Hamonic + Masson Architectes, Paris · Marseille</b><em>Architecte chef de projet, conception et études</em><a class="agt-pl" href="#agence">Voir mes projets en agence →</a></div></li>
+      <li data-t="f"><span class="d">2022 — 2023</span><i>Formation</i><div><b>HMONP</b><em>ENSA Clermont-Ferrand</em></div></li>
+      <li data-t="d"><span class="d">Mars 2021</span><i>Distinction</i><div><b>Europan 16, Limoges</b><em>Les petits ventres-villes · mentionné</em><a class="agt-pl" href="#projet/les-petits-ventres-villes">Voir le projet →</a></div></li>
+      <li data-t="d"><span class="d">Nov. 2016</span><i>Distinction</i><div><b>Bee Breeders · Transiberian Pit Stops</b><em>Siberian Spotlight · mention honorable</em></div></li>
+      <li data-t="x"><span class="d">2016</span><i>Expérience</i><div><b>ENSACF, Clermont-Ferrand</b><em>Monitorat en projet architectural et morphologie urbaine</em></div></li>
+      <li data-t="f"><span class="d">2015 — 2016</span><i>Formation</i><div><b>Diplôme d’architecte DE</b><em>ENSA Clermont-Ferrand, master 2 EVAN</em></div></li>
+      <li data-t="x"><span class="d">Nov. 2015</span><i>Expérience</i><div><b>Epicentre Faktory, Clermont-Ferrand</b><em>Conférence sur l’agriculture urbaine</em></div></li>
+      <li data-t="x"><span class="d">Avr.–juil. 2015</span><i>Expérience</i><div><b>Megabudka, Moscou</b><em>Première expérience professionnelle</em></div></li>
+      <li data-t="f"><span class="d">2014 — 2015</span><i>Formation</i><div><b>Institut d’architecture de Moscou, МАРХИ</b></div></li>
+      <li data-t="x"><span class="d">Fév.–mars 2013</span><i>Expérience</i><div><b>Neumann Architecte, Riom</b><em>Première expérience professionnelle</em></div></li>
+      <li data-t="f"><span class="d">2009 — 2013</span><i>Formation</i><div><b>Licence en architecture</b><em>ENSA Clermont-Ferrand</em></div></li>
+      <li data-t="x"><span class="d">Mai–juin 2012</span><i>Expérience</i><div><b>Asylum, Lyon</b><em>Première expérience professionnelle</em></div></li>
+      <li data-t="x"><span class="d">Fév. 2011</span><i>Expérience</i><div><b>B+A Planchon, Châlons-en-Champagne</b><em>Première expérience professionnelle</em></div></li>
+      <li data-t="f"><span class="d">2009</span><i>Formation</i><div><b>BTCA, Reims</b></div></li>
+    </ol>
   </div>
 </section>
 <!-- PROJET -->
@@ -2424,7 +2413,7 @@ new MutationObserver(theme).observe(document.documentElement,{attributes:true,at
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
 <script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=24"></script>
-<script charset="utf-8" src="js/i18n.js?v=230"></script>
+<script charset="utf-8" src="js/i18n.js?v=231"></script>
 
 
 <script>
@@ -2443,4 +2432,5 @@ addEventListener("hashchange",()=>set(false));
 const fx=()=>{const p=document.querySelector("#gin p");if(p&&/Survolez/.test(p.textContent))p.textContent="Ce globe situe mes projets d’études, mes concours et les projets Hamonic+Masson publiés par l’agence. Touchez un repère pour lire sa fiche.";else if(p&&/Hover/.test(p.textContent))p.textContent=p.textContent.replace(/Hover over a marker to locate it, select it/,"Tap a marker to read its sheet").replace(/Hover over a marker.*?sheet\./,"Tap a marker to read its sheet.")};
 setTimeout(fx,600);document.getElementById("lng").addEventListener("click",()=>setTimeout(fx,300));
 })();
-</script></body></html>
+</script><script>document.addEventListener("click",function(e){var b=e.target.closest(".tl-f button");if(!b)return;var t=b.dataset.t;b.parentNode.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)});document.querySelectorAll("#v-profil .tl li").forEach(function(l){l.classList.toggle("off",!!t&&l.dataset.t!==t)})});</script>
+</body></html>
