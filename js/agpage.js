@@ -53,7 +53,7 @@
     return a.length?'<p class="agt-ft">'+a.join("")+'</p>':""}
   function byId(id){return AG.filter(function(q){return q.id===id})[0]}
   var FICHE={"abidjan":1,"casa-anfa":1,"chateau-septfontaines":1,"cite-administrative":1,"clermont-ferrand":1,"coeur-de-carnoles":1,"evry":1,"harmony-of-the-sky":1,"high-garden":1,"l-hay-les-roses":1,"la-meridionale":1,"le-cabanon-ideal":1,"les-anciens-thermes":1,"lille":1,"metamorphose":1,"panora-marne":1,"port-marianne-lot-7a":1,"quai-simonovskaia":1,"siege-du-groupe-angevin":1,"snow-white-tower":1,"station-service":1,"tour-alta":1};
-  function fl(p,x){return FICHE[p.id]?'<a class="agt-fl" href="#hm/'+esc(p.id)+'">'+x+'</a>':x}
+  function fl(p,x){return FICHE[p.id]&&document.getElementById("v-hm")?'<a class="agt-fl" href="#hm/'+esc(p.id)+'">'+x+'</a>':x}
   function card(p){
     var ph=phases(p),su=surf(p),st=status(p),M=p.m&&byId(p.m),S=AG.filter(function(q){return q.m===p.id})[0];
     if(M)return '<li><article class="agt-c agt-sx" id="ag-'+esc(p.id)+'" tabindex="-1">'+tb(null)+'<div class="agt-tx"><p class="agt-eb">'+yr(p)+' · '+esc(p.c)+'</p><h4>'+esc(M.t)+' (suite)</h4>'+
