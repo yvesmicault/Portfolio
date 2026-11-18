@@ -1,4 +1,6 @@
-<!doctype html><html lang="fr"><head><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}html{overflow-y:scroll;scrollbar-gutter:stable}#fz{display:none!important}
+<!doctype html><html lang="fr"><head>
+<script>if(/^(#accueil)?$/.test(location.hash)){document.documentElement.classList.add("boot");setTimeout(function(){document.documentElement.classList.remove("boot")},4000)}</script>
+<style>html.boot #gbox .stage,html.boot #gbox .side,html.boot #gbox .list,html.boot #gbox #ov,html.boot #gbox .gdw,html.boot #gbox .dact,html.boot #gbox #dsv{opacity:0!important;transition:none!important}</style><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}html{overflow-y:scroll;scrollbar-gutter:stable}#fz{display:none!important}
 /* Profil : parcours en une seule frise */
 #v-profil .pf{grid-template-columns:minmax(0,240px) minmax(0,1fr) 168px;max-width:none}
 .pf-docs{position:sticky;top:80px;display:grid;gap:26px;padding-left:22px;border-left:1px solid var(--line)}
@@ -185,7 +187,7 @@ h2 small,.ph-head h1 small{font:400 12px var(--m);letter-spacing:0;color:var(--b
 .ct-cv{margin-top:28px}
 @media (max-width:640px){.ctw{grid-template-columns:1fr}.ct-ph{max-width:220px}.ct div{grid-template-columns:1fr;gap:4px}}
 .ph-head p{margin:0;color:var(--mute);font-size:14.5px;max-width:52ch;justify-self:end}
-.ph-head.wide{grid-template-columns:minmax(0,1fr) min(640px,55%);gap:40px}.ph-head.wide p{max-width:none;justify-self:stretch;text-align:right}.ph-head p.jr{text-align:justify;text-align-last:left}
+.ph-head.wide{grid-template-columns:minmax(0,1fr) min(640px,55%);gap:40px}.ph-head.wide p{max-width:none;justify-self:stretch;text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto}.ph-head p.jr{text-align:justify;text-align-last:left}
 .crumb{font:500 10px var(--f);letter-spacing:.3em;text-transform:uppercase;color:var(--mute);text-decoration:none;display:inline-block;margin-bottom:14px}
 .crumb:hover{color:var(--brick)}
 
@@ -866,7 +868,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 /* page Compétences */
 .sf-k2{display:flex;flex-wrap:wrap;gap:12px 48px;align-items:baseline;padding:14px 0 16px;border-bottom:1px solid var(--line);margin:0 0 44px}.sf-k2 div{display:flex;align-items:baseline;gap:12px}.sf-k2 b{font:300 30px/1 var(--f);color:var(--ink)}.sf-k2 span{font:400 12px/1.4 var(--m);color:var(--mute)}
 .sf-ia{margin:-44px 0 60px}.sf-ia b{display:block;font:500 10.5px/1.4 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}.sf-ia p{margin:4px 0 0;font-size:13.5px;line-height:1.55;color:var(--mute)}
-.sf .ph-head p{max-width:62ch}
+.sf .ph-head p{max-width:62ch;justify-self:end}
 .sf-k{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line);margin:8px 0 56px}
 .sf-k div{padding:22px 20px 22px 0;border-right:1px solid var(--line)}.sf-k div:last-child{border-right:0}.sf-k div+div{padding-left:20px}
 .sf-k b{display:block;font:300 clamp(30px,3.6vw,52px)/1 var(--f);letter-spacing:.02em;color:var(--ink)}.sf-k span{display:block;margin-top:10px;font:400 12px/1.45 var(--m);color:var(--mute);max-width:24ch}
@@ -890,7 +892,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 .sf-a article{display:flex;flex-direction:column}.sf-a .sf-p{display:grid;font:inherit;color:inherit;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;margin-top:auto;padding-top:18px;text-decoration:none;color:inherit}
 .sf-p img{width:64px;height:48px;object-fit:cover;display:block;transition:transform .5s var(--ease)}.sf-p:hover img{transform:scale(1.06)}
 .sf-p b{display:block;font:500 10.5px/1.3 var(--f);letter-spacing:.14em;text-transform:uppercase}.sf-p small{display:block;margin-top:3px;font:400 10.5px/1.4 var(--m);color:var(--mute)}.sf-p:hover b{color:var(--brick)}
-.sf-a p{margin-bottom:4px}.sf-a .sf-all{margin-top:8px}
+.sf-a p{margin-bottom:4px}.sf-tl{margin-top:auto;padding-top:18px;font:400 11px var(--m);color:var(--mute);letter-spacing:.04em}.sf-a .sf-all{margin-top:8px}
 .sf-rv{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.sf-rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.sf-rv{opacity:1;transform:none;transition:none}}
 .pf-ph{margin:56px 0 18px;padding-top:18px;border-top:1px solid var(--ink)}
@@ -1034,10 +1036,10 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
     <div class="sf-k2 sf-rv"><div><b>10 ans</b><span>d’expérience en agence</span></div><div><b>61</b><span>projets chez Hamonic+Masson</span></div></div>
     <h2 class="sf-h sf-rv">Ce que j’apporte en agence</h2>
     <div class="sf-a">
-      <article class="sf-rv"><i>01</i><h3>Mener un projet</h3><p>Chef de projet chez Hamonic + Masson : pilotage des études, coordination des équipes et des bureaux d’études, suivi des délais et des livrables.</p><a class="sf-p" href="#hm/metamorphose"><img src="img/hm/metamorphose/07_t.jpg" alt="" loading="lazy"><span><b>Métamorphose</b><small>Angers · Chef de projet · Concours → études · Lauréat en 2018, livré en 2025</small></span></a></article>
-      <article class="sf-rv"><i>02</i><h3>La culture du concours</h3><p>61 projets en agence depuis 2017, concours pour la plupart, à toutes les échelles, du logement à l’opération urbaine.</p><a class="sf-p" href="#hm/panora-marne"><img src="img/hm/panora-marne/02_t.jpg" alt="" loading="lazy"><span><b>Panora’Marne</b><small>Villiers-sur-Marne · Assistant chef de projet · Concours</small></span></a><a class="sf-all" href="#agence">Tous les projets en agence →</a></article>
-      <article class="sf-rv"><i>03</i><h3>De l’esquisse au DCE</h3><p>Faisabilité, implantation, conception des plans, synthèse technique et analyse réglementaire, jusqu’aux dossiers d’appel d’offres.</p><a class="sf-p" href="#hm/le-cabanon-ideal"><img src="img/hm/le-cabanon-ideal/01_t.jpg" alt="" loading="lazy"><span><b>Le Cabanon idéal</b><small>Marseille · Chef de projet · Concours → APS → permis → PRO/DCE</small></span></a></article>
-      <article class="sf-rv"><i>04</i><h3>Concevoir dans SketchUp, fiabiliser dans Archicad</h3><p>Les idées se cherchent dans SketchUp : maquettes d’étude, façades, principes, ambiances. Archicad fige les avancées, produit les plans et vérifie surfaces et échelle. La maquette repart ensuite dans SketchUp pour poursuivre les études, puis porte le BIM des phases suivantes.</p></article>
+      <article class="sf-rv"><i>01</i><h3>Porter un projet jusqu’au bout</h3><p>Tenir l’intention de départ tout en arbitrant au quotidien : coordonner l’équipe et les bureaux d’études, tenir les délais et la qualité des livrables. Chef de projet chez Hamonic+Masson.</p><a class="sf-p" href="#hm/metamorphose"><img src="img/hm/metamorphose/07_t.jpg" alt="" loading="lazy"><span><b>Métamorphose</b><small>Angers · Chef de projet · Concours → études · Lauréat en 2018, livré en 2025</small></span></a></article>
+      <article class="sf-rv"><i>02</i><h3>Trouver l’idée juste, vite</h3><p>Lire un site et un programme, trouver l’idée qui les relie et la rendre lisible en quelques semaines. 61 projets en agence depuis 2017, du logement à l’opération urbaine.</p><a class="sf-p" href="#hm/panora-marne"><img src="img/hm/panora-marne/02_t.jpg" alt="" loading="lazy"><span><b>Panora’Marne</b><small>Villiers-sur-Marne · Assistant chef de projet · Concours</small></span></a><a class="sf-all" href="#agence">Tous les projets en agence →</a></article>
+      <article class="sf-rv"><i>03</i><h3>Garder l’idée jusqu’au DCE</h3><p>Faire passer l’idée du concours à l’épreuve du réel, règlement, technique, économie, sans qu’elle se dilue, de l’esquisse aux dossiers d’appel d’offres.</p><a class="sf-p" href="#hm/le-cabanon-ideal"><img src="img/hm/le-cabanon-ideal/01_t.jpg" alt="" loading="lazy"><span><b>Le Cabanon idéal</b><small>Marseille · Chef de projet · Concours → APS → permis → PRO/DCE</small></span></a></article>
+      <article class="sf-rv"><i>04</i><h3>Explorer et fiabiliser, en allers-retours</h3><p>Expérimenter librement volumes, façades et ambiances, puis fixer et vérifier chaque avancée (plans, surfaces, échelle) sans s’interdire de rouvrir l’étude. Un projet qui avance vite et reste juste.</p><span class="sf-tl">SketchUp ↔ Archicad</span></article>
     </div>
     <h2 class="sf-h sf-rv">Domaines</h2>
     <div class="sf-c">
@@ -2401,7 +2403,7 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
   new ResizeObserver(()=>{place();if(HM!=="glo")draw()}).observe(box);addEventListener("resize",place);setTimeout(place,300);
   window.YM_MODE=setM;
   /* l'accueil s'ouvre sur la galerie */
-  setTimeout(()=>{if(HM==="glo"&&cur<0&&acur<0&&/^(#accueil)?$/.test(location.hash))setM("gal")},60);
+  setTimeout(()=>{if(HM==="glo"&&cur<0&&acur<0&&/^(#accueil)?$/.test(location.hash))setM("gal");requestAnimationFrame(()=>requestAnimationFrame(()=>document.documentElement.classList.remove("boot")))},60);
   /* quand les projets de l'agence et leurs visuels arrivent, on recompose */
   {let n=0;const w=setInterval(()=>{n++;if((AG.length&&window.HMV)||n>60){clearInterval(w);gKey="";IT=null;if(HM!=="glo")draw()}},150)}
   window.YM_AG=id=>{const k=AG.findIndex(p=>p.id===id);if(k<0)return;setM("glo");setTimeout(()=>chooseAg(k),HM==="glo"?0:420)};
@@ -2413,7 +2415,7 @@ new MutationObserver(theme).observe(document.documentElement,{attributes:true,at
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
 <script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=24"></script>
-<script charset="utf-8" src="js/i18n.js?v=233"></script>
+<script charset="utf-8" src="js/i18n.js?v=234"></script>
 
 
 <script>
