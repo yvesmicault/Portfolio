@@ -1623,7 +1623,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
     if(pg.length>1)h+='<div class="pj-sec"><b>Visuels</b><span>'+pg.length+' visuels publiés par Hamonic+Masson · cliquer pour agrandir</span></div><div class="hm-g">'+(function(){var n=innerWidth<=760?2:3,C=[],Hc=[];for(var c=0;c<n;c++){C.push("");Hc.push(0)}
       pg.slice(1).forEach(function(x,k){var j=Hc.indexOf(Math.min.apply(null,Hc));C[j]+='<button type="button" data-k="'+(k+1)+'" title="'+esc(x.cap)+'" style="aspect-ratio:'+x.r+'"><img loading="lazy" decoding="async" src="'+(innerWidth>760?x.src:x.th)+'" alt=""></button>';Hc[j]+=1/x.r});
       return C.map(function(c){return '<div>'+c+'</div>'}).join("")})()+'</div>';
-    h+='<p class="hm-ip">Projet et visuels : © Hamonic+Masson &amp; Associés architectes. La propriété intellectuelle du projet et des images appartient à l’agence ; Yves Micault y a participé en tant '+(/^[aeiouéèh]/i.test(p.r)?'qu’':'que ')+p.r.toLowerCase()+'. Images reproduites depuis <a href="'+u+'" target="_blank" rel="noopener">hamonic-masson.com</a>'+(ph.length||cr.length?', avec les crédits indiqués par l’agence : '+ph.concat(cr.filter(function(c){return ph.indexOf(c[1])<0}).map(function(c){return c[1]})).map(esc).join(", "):"")+'.</p>';
+    h+='<p class="hm-ip">Projet et visuels : © Hamonic+Masson &amp; Associés</p>';
     h+='<div class="pj-nav">'+(prev?'<a href="#hm/'+prev.id+'">← '+prev.t+'<span>'+prev.c+' · '+String(prev.y).slice(0,4)+'</span></a>':'<span></span>')+(next?'<a class="nx" href="#hm/'+next.id+'">'+next.t+' →<span>'+next.c+' · '+String(next.y).slice(0,4)+'</span></a>':'')+'</div>';
     P.innerHTML=h;
     [].forEach.call(P.querySelectorAll("[data-k]"),function(b){b.onclick=function(){openV(p.t,pg,+b.getAttribute("data-k"),{},b)}});
@@ -2424,7 +2424,7 @@ new MutationObserver(theme).observe(document.documentElement,{attributes:true,at
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
 <script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=24"></script>
-<script charset="utf-8" src="js/i18n.js?v=229"></script>
+<script charset="utf-8" src="js/i18n.js?v=230"></script>
 
 
 <script>
