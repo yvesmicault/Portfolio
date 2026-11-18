@@ -846,7 +846,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 .hv-fly{position:fixed;z-index:60;pointer-events:none;background:center/cover no-repeat;opacity:1;transition:transform .95s cubic-bezier(.6,0,.2,1),width .95s cubic-bezier(.6,0,.2,1),height .95s cubic-bezier(.6,0,.2,1),border-radius .95s,opacity .5s .5s}
 /* page Savoir-faire */
 .sf .ph-head p{max-width:62ch}
-.sf-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line);margin:8px 0 56px}
+.sf-k{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line);margin:8px 0 56px}
 .sf-k div{padding:22px 20px 22px 0;border-right:1px solid var(--line)}.sf-k div:last-child{border-right:0}.sf-k div+div{padding-left:20px}
 .sf-k b{display:block;font:300 clamp(30px,3.6vw,52px)/1 var(--f);letter-spacing:.02em;color:var(--ink)}.sf-k span{display:block;margin-top:10px;font:400 12px/1.45 var(--m);color:var(--mute);max-width:24ch}
 .sf-h{margin:0 0 18px;font:500 11px/1 var(--f);letter-spacing:.3em;text-transform:uppercase;color:var(--brick)}
@@ -928,7 +928,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
   <div class="wrap">
     <a class="name" href="#accueil" title="Retour à l’accueil">Yves <span>Micault</span><small>Architecte HMONP</small></a>
     <nav aria-label="Navigation" id="nav">
-      <a href="#etudes">Études</a><a href="#concours">Concours</a><a href="#agence">Hamonic+Masson</a><a href="#savoir-faire">Savoir-faire</a><a href="#profil">Profil</a></nav><div class="bar-r"><button type="button" class="thm" id="thm" aria-label="Passer en mode sombre" title="Jour / nuit"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></button><button type="button" class="lng" id="lng" data-no-i18n data-cur="fr" aria-label="Switch the site to English" title="FR / EN"><span data-l="fr">FR</span><i>/</i><span data-l="en">EN</span></button></div>
+      <a href="#etudes">Études</a><a href="#concours">Concours</a><a href="#agence">Hamonic+Masson</a><a href="#competences">Compétences</a><a href="#profil">Profil</a></nav><div class="bar-r"><button type="button" class="thm" id="thm" aria-label="Passer en mode sombre" title="Jour / nuit"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></button><button type="button" class="lng" id="lng" data-no-i18n data-cur="fr" aria-label="Switch the site to English" title="FR / EN"><span data-l="fr">FR</span><i>/</i><span data-l="en">EN</span></button></div>
   </div>
 </header>
 
@@ -1006,24 +1006,23 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 </section>
 
 <!-- SAVOIR-FAIRE -->
-<section class="view page gut" id="v-savoir-faire" hidden>
+<section class="view page gut" id="v-competences" hidden>
   <div class="wrap sf">
     <a class="crumb" href="#accueil">← Accueil</a>
-    <div class="ph-head wide"><h1>Savoir-faire</h1><p>Architecte HMONP avec près de dix ans d’expérience en agence, spécialisé dans la conception et le développement de projets de logements, d’équipements et d’opérations urbaines. Expérience de l’esquisse aux études de projet et aux dossiers d’appel d’offres.</p></div>
+    <div class="ph-head wide"><h1>Compétences</h1><p>Architecte HMONP avec près de dix ans d’expérience en agence, spécialisé dans la conception et le développement de projets de logements, d’équipements et d’opérations urbaines. Expérience de l’esquisse aux études de projet et aux dossiers d’appel d’offres.</p></div>
     <div class="sf-k sf-rv">
       <div><b>2017</b><span>chez Hamonic+Masson, aujourd’hui chef de projet</span></div>
       <div><b>63</b><span>projets en agence, concours pour la plupart</span></div>
-      <div><b>150 000 m²</b><span>la plus grande opération, Panora’Marne</span></div>
       <div><b>2</b><span>distinctions en concours personnels</span></div>
     </div>
     <h2 class="sf-h sf-rv">Ce que j’apporte en agence</h2>
     <div class="sf-a">
       <article class="sf-rv"><i>01</i><h3>Mener un projet</h3><p>Chef de projet chez Hamonic + Masson : pilotage des études, coordination des équipes et des bureaux d’études, suivi des délais et des livrables.</p><a class="sf-p" href="#hm/metamorphose"><img src="img/hm/metamorphose/07_t.jpg" alt="" loading="lazy"><span><b>Métamorphose</b><small>Angers · Chef de projet · Concours → études · Lauréat en 2018, livré en 2025</small></span></a></article>
-      <article class="sf-rv"><i>02</i><h3>La culture du concours</h3><p>63 projets en agence depuis 2017, concours pour la plupart, à toutes les échelles : du logement à l’opération urbaine de 150 000 m².</p><a class="sf-p" href="#hm/panora-marne"><img src="img/hm/panora-marne/02_t.jpg" alt="" loading="lazy"><span><b>Panora’Marne</b><small>Villiers-sur-Marne · Assistant chef de projet · Concours</small></span></a><a class="sf-all" href="#agence">Tous les projets en agence →</a></article>
+      <article class="sf-rv"><i>02</i><h3>La culture du concours</h3><p>63 projets en agence depuis 2017, concours pour la plupart, à toutes les échelles, du logement à l’opération urbaine.</p><a class="sf-p" href="#hm/panora-marne"><img src="img/hm/panora-marne/02_t.jpg" alt="" loading="lazy"><span><b>Panora’Marne</b><small>Villiers-sur-Marne · Assistant chef de projet · Concours</small></span></a><a class="sf-all" href="#agence">Tous les projets en agence →</a></article>
       <article class="sf-rv"><i>03</i><h3>De l’esquisse au DCE</h3><p>Faisabilité, implantation, conception des plans, synthèse technique et analyse réglementaire, jusqu’aux dossiers d’appel d’offres.</p><a class="sf-p" href="#hm/le-cabanon-ideal"><img src="img/hm/le-cabanon-ideal/01_t.jpg" alt="" loading="lazy"><span><b>Le Cabanon idéal</b><small>Marseille · Chef de projet · Concours → APS → permis → PRO/DCE · Arrêté faute de financement</small></span></a></article>
       <article class="sf-rv"><i>04</i><h3>Le BIM au quotidien</h3><p>ArchiCAD en maquette numérique, modélisation 3D, pièces graphiques et supports de présentation.</p></article>
     </div>
-    <h2 class="sf-h sf-rv">Compétences</h2>
+    <h2 class="sf-h sf-rv">Domaines</h2>
     <div class="sf-c">
       <div class="sf-rv"><h3>Conception</h3><ul><li>Analyse de site</li><li>Études de faisabilité</li><li>Programme et surfaces</li><li>Implantation / volumétrie</li><li>Conception des plans</li></ul></div>
       <div class="sf-rv"><h3>Représentation</h3><ul><li>Modélisation 3D</li><li>BIM / ArchiCAD</li><li>Pièces graphiques</li><li>Supports de présentation</li></ul></div>
@@ -1750,12 +1749,12 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   });
 
   /* ---------- navigation par page ---------- */
-  var VIEWS=["accueil","publications","etudes","concours","agence","savoir-faire","profil","projet","hm"];
+  var VIEWS=["accueil","publications","etudes","concours","agence","competences","profil","projet","hm"];
   var lastKey=null;
   function focusView(){var t=document.querySelector("main .view:not([hidden]) h1")||document.querySelector("main .view:not([hidden]) h2");if(!t)return;t.setAttribute("tabindex","-1");t.focus({preventScroll:true})}
   $("skip").addEventListener("click",function(e){e.preventDefault();var t=document.querySelector("main .view:not([hidden]) h1")||document.querySelector("main .view:not([hidden]) h2");if(t){t.setAttribute("tabindex","-1");t.focus();t.scrollIntoView({block:"start"})}});
   function route(nav){
-    var hsh=(location.hash||"#accueil").slice(1),v=hsh.split("/")[0],arg=hsh.split("/")[1];if(v==="contact")v="profil";if(v==="publications"||v==="parcours"){location.replace("#profil");return}if(VIEWS.indexOf(v)<0)v="accueil";
+    var hsh=(location.hash||"#accueil").slice(1),v=hsh.split("/")[0],arg=hsh.split("/")[1];if(v==="contact")v="profil";if(v==="publications"||v==="parcours"){location.replace("#profil");return}if(v==="savoir-faire"){location.replace("#competences");return}if(VIEWS.indexOf(v)<0)v="accueil";
     g3seq++;
     var oh=$("g3");if(oh&&oh.classList.contains("fs")){try{if(document.fullscreenElement||document.webkitFullscreenElement)(document.exitFullscreen||document.webkitExitFullscreen).call(document)}catch(e){}document.documentElement.classList.remove("fs-on");if(oh.parentNode===document.body)oh.remove()}
     if(g3){g3.destroy();g3=null}
@@ -2426,7 +2425,7 @@ new MutationObserver(theme).observe(document.documentElement,{attributes:true,at
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
 <script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=24"></script>
-<script charset="utf-8" src="js/i18n.js?v=227"></script>
+<script charset="utf-8" src="js/i18n.js?v=228"></script>
 
 
 <script>
