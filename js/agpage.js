@@ -132,5 +132,5 @@
   function deep(){var m=/^#agence\/(.+)$/.exec(location.hash);if(!m||!AG.length)return;var el=$("ag-"+decodeURIComponent(m[1]));
     if(el)requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.focus({preventScroll:true})})}
   addEventListener("hashchange",deep);
-  fetch("data/globe/agence.json?v=16").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
+  fetch("data/globe/agence.json?v=17").then(function(r){return r.json()}).then(function(j){AG=j.p;build()});
 })();

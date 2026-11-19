@@ -1617,7 +1617,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   }
 
   /* ---------- fiche d'un projet Hamonic+Masson publié par l'agence ---------- */
-  var HMD=null;function hmData(){return HMD||(HMD=Promise.all([fetch("data/globe/agence.json").then(function(r){return r.json()}),fetch("data/globe/hm-visuels.json?v=3").then(function(r){return r.json()}),fetch("data/globe/hm-textes.json?v=1").then(function(r){return r.json()}).catch(function(){return {}})]).then(function(a){return {L:a[0].p.filter(function(p){return p.u}),V:a[1],X:a[2]}}))}
+  var HMD=null;function hmData(){return HMD||(HMD=Promise.all([fetch("data/globe/agence.json?v=17").then(function(r){return r.json()}),fetch("data/globe/hm-visuels.json?v=3").then(function(r){return r.json()}),fetch("data/globe/hm-textes.json?v=1").then(function(r){return r.json()}).catch(function(){return {}})]).then(function(a){return {L:a[0].p.filter(function(p){return p.u}),V:a[1],X:a[2]}}))}
   function hmPage(id){var P=$("hmp");P.innerHTML="";hmData().then(function(D){if(location.hash.slice(1).split("/")[0]!=="hm")return;
     var L=D.L,i=-1;L.forEach(function(p,k){if(p.id===id)i=k});if(i<0){location.replace("#agence");return}
     var p=L[i],V=D.V[p.id]||[],prev=L[i-1],next=L[i+1],y=String(p.y).slice(0,4),HU="https://hamonic-masson.com/projet/";
@@ -1986,7 +1986,7 @@ function ficheAg(k){const F=$("fiche");gallery(-1);if(k<0){F.classList.remove("o
   F.innerHTML="<p>Agence · Hamonic+Masson</p>"+(src?'<div class="agf'+(conf?" conf":"")+'"><img src="'+src+'" alt="">'+(conf?'<span class="stamp"><b>Confidentiel</b><small>non publié par l’agence</small></span>':"")+"</div>":"")+"<dl>"+rows.map(([a,b])=>"<div><dt>"+a+"</dt><dd>"+b+"</dd></div>").join("")+"</dl>"+(p.u?'<div class="fa"><a class="op" href="#hm/'+p.id+'"><span>Ouvrir le projet</span><i>→</i></a></div><a class="agl" href="'+HMU+p.u+'" target="_blank" rel="noopener">Fiche sur hamonic-masson.com ↗</a>':"");
   F.classList.add("on","ag");requestAnimationFrame(()=>{F.classList.add("vis");size()})}
 fetch("data/globe/hm-visuels.json?v=3").then(r=>r.json()).then(j=>{window.HMV=j}).catch(()=>{});
-fetch("data/globe/agence.json").then(r=>r.json()).then(j=>{AG=j.p.filter(p=>p.u);$("agN").textContent=AG.length;const C=$("cA");
+fetch("data/globe/agence.json?v=17").then(r=>r.json()).then(j=>{AG=j.p.filter(p=>p.u);$("agN").textContent=AG.length;const C=$("cA");
   AG.forEach((p,k)=>{const b=document.createElement("button");b.type="button";b.className="it";b.dataset.i=100+k;b.dataset.c="a";b.title=p.t+" · "+p.c+" · "+String(p.y).slice(0,4);b.innerHTML="<b>"+p.t+"</b><span>"+p.c+" · "+String(p.y).slice(0,4)+"</span>";
     b.addEventListener("click",()=>chooseAg(k));b.addEventListener("pointerenter",()=>setHov(100+k));b.addEventListener("pointerleave",()=>setHov(-1));b.addEventListener("focus",()=>setHov(100+k));b.addEventListener("blur",()=>setHov(-1));C.appendChild(b)});
   C.style.gridTemplateRows="repeat("+Math.ceil(AG.length/2)+",auto)";window.agRows=()=>0;window.agBuild=()=>{};marks();size();buildFrise();fitList()});
@@ -2437,7 +2437,7 @@ function hrefFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]);re
 new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme","data-eff"]});matchMedia("(prefers-color-scheme: dark)").addEventListener("change",theme);
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
-<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=28"></script>
+<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=29"></script>
 <script charset="utf-8" src="js/i18n.js?v=243"></script>
 
 
