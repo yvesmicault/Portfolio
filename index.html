@@ -12,6 +12,14 @@
 /* maquettes 3D : choix des vues sous l'image, l'image reste libre (hors plein écran) */
 .g3:not(.fs){overflow:visible;clip-path:inset(0 0 -72px 0);margin-bottom:72px}.g3:not(.fs) .g3-ui{top:calc(100% + 12px)!important;bottom:auto!important;left:0!important;right:0!important;max-width:none!important}.g3:not(.fs) .g3-ui .hint{margin-left:auto;background:none!important}
 .g3-ui .g3-2d,.g3-ui .g3-lb,.g3-ui .g3-fs{position:static!important;flex:none;width:32px!important;height:32px!important;padding:0!important;display:grid;place-items:center;letter-spacing:.04em!important}.g3-ui .g3-fs svg,.g3-ui .g3-lb svg{width:16px;height:16px}.g3-ui .g3-2d{order:-3}.g3-ui .g3-lb{order:-2}.g3-ui .g3-fs{order:-1}.g3-ui .hint{order:10}.g3-ui .g3-lb[aria-pressed="true"]{background:var(--veil)!important;color:var(--brick)!important;border-color:var(--brick)!important}.g3.r2d .g3-ui .g3-lb{display:none}
+
+/* téléphone : accueil plus compact (19/11) */
+@media (max-width:760px){
+html .hmode{display:flex!important}html .hmode{justify-content:space-between}html .hmode button{flex:0 1 auto;text-align:center;padding-left:9px!important;padding-right:9px!important}
+html .hv-f{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:16px;padding:0 0 8px;font-size:9.5px;letter-spacing:.12em;-webkit-overflow-scrolling:touch}html .hv-f::-webkit-scrollbar{display:none}html .hv-f button{flex:none;padding:5px 0}html .hv-f .lb{display:none}
+html .hv-s{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 12px;padding:8px 0}html .hv-s label{flex-direction:column;align-items:stretch;gap:4px;font-size:8.5px;letter-spacing:.12em}html .hv-s select{max-width:none;width:100%;font-size:11px;padding:3px 14px 3px 0}html .hv-s label::after{top:auto;bottom:9px;transform:rotate(45deg)}html .hv-s .rz{grid-column:1/-1;justify-self:start}
+html .hv-sig{font-size:min(10px,2.12vw);letter-spacing:0;white-space:nowrap;padding:0 4px}
+}
 /* Profil : parcours en une seule frise */
 #v-profil .pf{grid-template-columns:minmax(0,240px) minmax(0,1fr) 168px;max-width:none}
 .pf-docs{position:sticky;top:80px;display:grid;gap:26px;padding-left:22px;border-left:1px solid var(--line)}
@@ -43,7 +51,7 @@ html.m2 nav#nav a{display:flex!important;justify-content:space-between;align-ite
 html.m2 nav#nav a::after{content:"→";letter-spacing:0;color:var(--mute);font-weight:400}
 html.m2 nav#nav a[aria-current="page"]{color:var(--brick)!important}
 html.m2.mopen{overflow:hidden}
-html.m2 #ov path{display:none!important}
+html.m2 #ov path[fill="none"]{display:none!important}
 html.m2 .view.home{transform:none!important;animation:none!important}
 html.m2 #gbox .side:has(.fiche.on){position:fixed!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;width:auto!important;z-index:40;margin:0!important;padding:14px max(18px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 12px) max(18px,env(safe-area-inset-left,0px))!important;background:var(--bg);border-top:1px solid var(--ink);max-height:42vh;overflow:auto;gap:8px}
 html.m2 #gbox .side:has(.fiche.on) :is(.fim,.gin,.pv,.gal,.hint,.fiche>p,.fiche>dl,.fiche .rs){display:none!important}
@@ -2250,7 +2258,7 @@ const stageEl=document.querySelector("#gbox .stage");
 function fitList(){const L=$("list");if(!L)return;const was=L.classList.contains("cmp");L.classList.remove("cmp");if(L.scrollHeight>L.clientHeight+2)L.classList.add("cmp");if(was!==L.classList.contains("cmp"))requestAnimationFrame(()=>{try{size()}catch(e){}})}
 function fitStage(){if(!stageEl)return;const g=$("gbox");
   if(innerWidth<=760){["left","top"].forEach(k=>stageEl.style[k]="");["top","left","width","right","bottom"].forEach(k=>g.querySelector(".side").style[k]="");
-    $("dsv").style.clipPath="";const w=g.clientWidth||document.documentElement.clientWidth-32,s=Math.floor(Math.max(200,Math.min(w,(document.documentElement.clientHeight||innerHeight)*.62)));stageEl.style.width=stageEl.style.height=s+"px";return}
+    $("dsv").style.clipPath="";const w=g.clientWidth||document.documentElement.clientWidth-32,s=Math.floor(Math.max(200,Math.min(w,(document.documentElement.clientHeight||innerHeight)*.62)));stageEl.style.width=stageEl.style.height=s+"px";{const vh=document.documentElement.clientHeight||innerHeight,gt=g.getBoundingClientRect().top+scrollY,sd=g.querySelector(".side"),ch=sd&&!sd.querySelector(".fiche.on")?sd.offsetHeight:0,free=vh-gt-s-ch-28;stageEl.style.marginTop=Math.max(0,Math.min(120,Math.round(free/2)))+"px"}return}
   const W=g.clientWidth,H=g.clientHeight;if(!W||!H)return;
   const L=g.querySelector(".list"),sd=g.querySelector(".side"),gap=24,lw=L.offsetWidth,wide=innerWidth>1060;
   if(wide)["top","left","width","right","bottom"].forEach(k=>sd.style[k]="");
@@ -2295,8 +2303,8 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
   const SB=v=>v<0?"Échelle urbaine (ha)":!v?"Non communiquée":v<5000?"Moins de 5 000 m²":v<15000?"5 000 à 15 000 m²":v<30000?"15 000 à 30 000 m²":"Plus de 30 000 m²";
   function place(){const b=box.getBoundingClientRect(),a=st.getBoundingClientRect();
     if(mob()){/* téléphone : sélecteur en haut, calque sur toute la largeur */
-      const top=a.top-b.top+46;Object.assign(sw.style,{left:"0px",top:a.top-b.top+2+"px",transform:""});
-      const need=top+Math.round(innerHeight*.72);Object.assign(hv.style,{left:"0px",top:top+"px",width:b.width+"px",height:(HM!=="glo"?need-top:Math.max(200,a.bottom-b.top-top))+"px"});
+      const mt=parseFloat(st.style.marginTop)||0,top=a.top-b.top-mt+46;Object.assign(sw.style,{left:"0px",top:a.top-b.top-mt+2+"px",transform:""});
+      const vh=document.documentElement.clientHeight||innerHeight,need=top+Math.max(300,Math.round(vh-(b.top+scrollY)-top-(HM==="gal"?78:34)));Object.assign(hv.style,{left:"0px",top:top+"px",width:b.width+"px",height:(HM!=="glo"?need-top:Math.max(200,a.bottom-b.top-top))+"px"});
       box.style.minHeight=HM!=="glo"?need+104+"px":"";Object.assign(hint.style,{left:"0px",right:"0px",top:need+10+"px"});Object.assign(sig.style,{left:"0px",right:"0px",top:need+16+(hint.offsetHeight||16)+"px",textAlign:"center"})}
     else{/* ordinateur : sélecteur centré en bas, calque sur toute la page d'accueil */
       const sh=sw.offsetHeight||34,sy=b.height-sh-40,top=Math.max(0,list.offsetTop);
