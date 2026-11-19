@@ -6,7 +6,7 @@ html.cov{overflow:hidden}html.cov body{overflow:hidden}
 html.cov #cover{position:fixed;inset:0;z-index:1000;display:grid;grid-template-columns:1fr auto;grid-template-rows:1fr auto;padding:clamp(20px,4.2vw,64px);color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
 #cover .cv-bg{position:absolute;inset:0;background:var(--bg);z-index:-1}
 #cover .cv-mono{grid-column:2;grid-row:1;align-self:start;justify-self:end;width:clamp(40px,4.4vw,64px);height:auto;overflow:visible;fill:currentColor}
-#cover .cv-mono path{transform-box:view-box}#cover .cv-mono .m1{transform-origin:31px 31px}#cover .cv-mono .m2{transform-origin:31px 98.5px;fill:var(--brick)}.bar-r .nm2 .b{fill:var(--brick)}
+#cover .cv-mono path{transform-box:view-box}#cover .cv-mono .m1{transform-origin:31px 31px}#cover .cv-mono .m2{transform-origin:31px 98.5px}.bar-r .nm2 .b{fill:var(--brick)}
 #cover .cv-id{grid-column:1/3;grid-row:2;align-self:end;margin:0}
 #cover .cv-h{margin:0 0 0 -.04em;font:500 var(--cvfs,min(15vw,26vh))/.9 var(--f);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
 #cover .cv-h span{display:block;width:max-content;transform-origin:0 0}
@@ -38,13 +38,13 @@ html.cov #cover .cv-mono .m2{animation:cvM2 1s .15s cubic-bezier(.65,0,.25,1) bo
 html.cov-run .bar .name{visibility:hidden}
 /* essai I : le monogramme devient le menu, au centre (façon « île ») */
 html.isl #nav,html.isl .mbt,html.isl .bar-r .nm2{display:none!important}
-#isl{position:absolute;left:max(16px,calc((100% - var(--wide,1480px))/2));top:9px;z-index:60;background:var(--ink);color:var(--bg);border-radius:20px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.12);transition:width .5s cubic-bezier(.3,1.25,.4,1),height .5s cubic-bezier(.3,1.25,.4,1),border-radius .5s}
+#isl{position:absolute;left:max(16px,calc((100% - var(--wide,1480px))/2));top:9px;z-index:60;background:transparent;color:var(--ink);border:1px solid transparent;border-radius:20px;overflow:hidden;transition:width .5s cubic-bezier(.3,1.25,.4,1),height .5s cubic-bezier(.3,1.25,.4,1),background .3s,border-color .3s,box-shadow .3s}#isl:hover,#isl.on{border-color:var(--line)}#isl.on{background:var(--bg);box-shadow:0 10px 30px rgba(0,0,0,.08)}
 #isl .isl-b{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;height:38px;padding:0 16px;width:100%;font:500 10px/1 var(--f);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
 #isl .isl-b:focus-visible{outline:2px solid var(--brick);outline-offset:-4px;border-radius:20px}
-#isl svg{height:22px;width:auto;flex:none}#isl svg .a{fill:var(--bg)}#isl svg .b{fill:var(--brick)}
+#isl svg{height:22px;width:auto;flex:none}#isl svg path{fill:var(--ink);transition:fill .35s,transform .45s cubic-bezier(.3,1.3,.4,1)}#isl svg .b{transform-box:view-box;transform-origin:31px 98.5px}#isl:hover svg .b,#isl.on svg .b{fill:var(--brick)}
 #isl .isl-n{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:4px 22px 16px 20px;opacity:0;transition:opacity .25s}
 #isl.on .isl-n{opacity:1;transition:opacity .3s .15s}
-#isl .isl-n a{color:var(--bg);opacity:.72;text-decoration:none;font:500 10.5px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent}
+#isl .isl-n a{color:var(--ink);opacity:.62;text-decoration:none;font:500 10.5px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent}
 #isl .isl-n a:hover{opacity:1}#isl .isl-n a[aria-current="page"]{opacity:1;color:var(--brick);border-color:var(--brick)}
 #isl .isl-t{opacity:.85}
 html.isl .bar .bar-r{grid-column:3;margin-left:auto}html.isl .bar .name{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center}html.isl .bar .name small{text-align:center}
