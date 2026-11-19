@@ -5,26 +5,26 @@
 html.cov{overflow:hidden}html.cov body{overflow:hidden}
 html.cov #cover{position:fixed;inset:0;z-index:1000;display:grid;grid-template-columns:1fr auto;grid-template-rows:1fr auto;padding:clamp(20px,4.2vw,64px);color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
 #cover .cv-bg{position:absolute;inset:0;background:var(--bg);z-index:-1}
-#cover .cv-mono{grid-column:2;grid-row:1;align-self:start;justify-self:end;width:clamp(30px,3.6vw,54px);height:auto;overflow:visible;fill:currentColor}
+#cover .cv-mono{grid-column:2;grid-row:1;align-self:start;justify-self:end;width:clamp(40px,4.4vw,64px);height:auto;overflow:visible;fill:currentColor}
 #cover .cv-mono path{transform-box:view-box}#cover .cv-mono .m1{transform-origin:31px 31px}#cover .cv-mono .m2{transform-origin:31px 94.5px}
 #cover .cv-id{grid-column:1/3;grid-row:2;align-self:end;margin:0}
-#cover h1{margin:0 0 0 -.04em;font:500 var(--cvfs,min(15vw,26vh))/.9 var(--f);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
-#cover h1 span{display:block;width:max-content;transform-origin:0 0}
-#cover h1 .m{color:var(--brick)}
+#cover .cv-h{margin:0 0 0 -.04em;font:500 var(--cvfs,min(15vw,26vh))/.9 var(--f);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
+#cover .cv-h span{display:block;width:max-content;transform-origin:0 0}
+#cover .cv-h .m{color:var(--brick)}
 #cover .cv-foot{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:clamp(14px,2.4vw,30px);padding-top:clamp(10px,1.4vw,16px);border-top:1px solid var(--line)}
-#cover .cv-sub{margin:0;font:400 clamp(10.5px,1.05vw,14px)/1.3 var(--m);letter-spacing:.14em;color:var(--mute)}
+#cover .cv-sub{margin:0;font:400 clamp(11.5px,1.05vw,14px)/1.3 var(--m);letter-spacing:.14em;color:var(--mute)}
 #cover .cv-in{all:unset;cursor:pointer;font:500 clamp(10.5px,.95vw,13px)/1 var(--f);letter-spacing:.3em;text-transform:uppercase;color:var(--ink);padding:10px 0 10px 16px}
 #cover .cv-in i{font-style:normal;display:inline-block;margin-left:.6em;transition:transform .4s cubic-bezier(.2,.9,.25,1)}
 #cover:hover .cv-in i,#cover .cv-in:focus-visible i{transform:translateX(6px)}
 #cover .cv-in:focus-visible{outline:2px solid var(--brick);outline-offset:4px}
 #cover .cv-in,#cover .cv-sub,#cover .cv-foot{transition:opacity .35s,border-color .35s}
 /* arrivée : le nom se pose, les deux M tournent et se rejoignent en Y */
-html.cov #cover h1 span{animation:cvUp .9s cubic-bezier(.2,.9,.25,1) both}html.cov #cover h1 .m{animation-delay:.08s}
+html.cov #cover .cv-h span{animation:cvUp .9s cubic-bezier(.2,.9,.25,1) both}html.cov #cover .cv-h .m{animation-delay:.08s}
 html.cov #cover .cv-foot{animation:cvFade .8s .35s both}
 @keyframes cvUp{from{opacity:0;transform:translateY(18%)}}
 @keyframes cvFade{from{opacity:0}}
-html.cov #cover .cv-mono .m1{animation:cvM1 1.5s .25s cubic-bezier(.65,0,.25,1) both}
-html.cov #cover .cv-mono .m2{animation:cvM2 1.5s .25s cubic-bezier(.65,0,.25,1) both}
+html.cov #cover .cv-mono .m1{animation:cvM1 1s .15s cubic-bezier(.65,0,.25,1) both}
+html.cov #cover .cv-mono .m2{animation:cvM2 1s .15s cubic-bezier(.65,0,.25,1) both}
 @keyframes cvM1{0%{opacity:0;transform:translate(-70px,32px) rotate(180deg)}18%{opacity:1;transform:translate(-70px,32px) rotate(180deg)}100%{transform:none}}
 @keyframes cvM2{0%{opacity:0;transform:translate(0,-33px) rotate(-90deg)}18%{opacity:1;transform:translate(0,-33px) rotate(-90deg)}100%{transform:none}}
 /* sortie */
@@ -36,7 +36,7 @@ html.cov #cover .cv-mono .m2{animation:cvM2 1.5s .25s cubic-bezier(.65,0,.25,1) 
 #cover.out .cv-bg{box-shadow:30px 0 60px rgba(0,0,0,.12)}
 #cover.out h1 span{transition:transform .9s cubic-bezier(.65,0,.2,1)}
 html.cov-run .bar .name{visibility:hidden}
-@media (max-width:760px){html.cov #cover{grid-template-rows:1fr auto}#cover .cv-mono{width:34px}}
+@media (max-width:760px){html.cov #cover{grid-template-rows:1fr auto}#cover .cv-mono{width:40px}}
 @media (prefers-reduced-motion:reduce){html.cov #cover *{animation:none!important}#cover.out{transition:opacity .3s;opacity:0}#cover.out h1 span{transition:none}}
 </style><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}html{overflow-y:scroll;scrollbar-gutter:stable}#fz{display:none!important}
 #v-profil .pf-side .ct div{grid-template-columns:84px minmax(0,1fr)}#v-profil .pf-side .ct dd{font-size:13.5px;white-space:nowrap}
@@ -105,26 +105,27 @@ html.m2 .mbt{display:inline-flex;align-items:center;justify-content:center;width
 html.mopen .mbt .a{transform:translateY(5px) rotate(45deg)}html.mopen .mbt .c{opacity:0}html.mopen .mbt .b{transform:translateY(-5px) rotate(-45deg)}
 }
 </style><script data-goatcounter="https://yvesmicault.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></head><body>
-<div id="cover" role="dialog" aria-modal="true" aria-label="Page de garde"><div class="cv-bg pg"></div><svg class="cv-mono pg" viewBox="0 0 62 125" aria-hidden="true"><path class="m1" d="M0 0L21 8V44H41V17L62 25V62H0Z"/><path class="m2" d="M0 64H62V125H24L16 104H44V83H7Z"/></svg><div class="cv-id"><h1><span class="y">Yves</span><span class="m">Micault</span></h1><div class="cv-foot pg"><p class="cv-sub">Architecte HMONP</p><button type="button" class="cv-in">Entrer<i aria-hidden="true">→</i></button></div></div></div>
+<div id="cover" role="dialog" aria-modal="true" aria-label="Page de garde"><div class="cv-bg pg"></div><svg class="cv-mono pg" viewBox="0 0 62 125" aria-hidden="true"><path class="m1" d="M0 0L21 8V44H41V17L62 25V62H0Z"/><path class="m2" d="M0 64H62V125H24L16 104H44V83H7Z"/></svg><div class="cv-id"><p class="cv-h"><span class="y">Yves</span><span class="m">Micault</span></p><div class="cv-foot pg"><p class="cv-sub">Architecte HMONP</p><button type="button" class="cv-in">Entrer<i aria-hidden="true">→</i></button></div></div></div>
 <script>(function(){var C=document.getElementById("cover"),R=document.documentElement;if(!C)return;var busy=false;
 function hdr(){var n=document.querySelector(".bar .name");if(!n)return null;var t=n.firstChild,sp=n.querySelector("span"),r=document.createRange();r.selectNodeContents(t);var a=r.getBoundingClientRect();return {y:a,m:sp.getBoundingClientRect(),fs:parseFloat(getComputedStyle(n).fontSize)}}
+function inert(on){[].forEach.call(document.body.children,function(e){if(e!==C&&e.tagName!=="SCRIPT"){if(on)e.setAttribute("inert","");else e.removeAttribute("inert")}});if(on)try{C.querySelector(".cv-in").focus({preventScroll:true,focusVisible:false})}catch(e){}}
 function enter(){if(busy||!R.classList.contains("cov"))return;busy=true;try{sessionStorage.setItem("ym-cov","1")}catch(e){}
   var rm=matchMedia("(prefers-reduced-motion: reduce)").matches,h=hdr();R.classList.add("cov-run");
-  if(!rm&&h){var big=parseFloat(getComputedStyle(C.querySelector("h1")).fontSize),k=h.fs/big,T=[["y",h.y],["m",h.m]].map(function(q){var e=C.querySelector("h1 ."+q[0]);e.style.animation="none";return [e,q[1]]}),B=T.map(function(t){return t[0].getBoundingClientRect()});
+  if(!rm&&h){var big=parseFloat(getComputedStyle(C.querySelector(".cv-h")).fontSize),k=h.fs/big,T=[["y",h.y],["m",h.m]].map(function(q){var e=C.querySelector(".cv-h ."+q[0]);e.style.animation="none";return [e,q[1]]}),B=T.map(function(t){return t[0].getBoundingClientRect()});
     C.classList.add("out");C.offsetWidth;T.forEach(function(t,i){var b=B[i],q=t[1];t[0].style.transform="translate("+(q.left-b.left)+"px,"+(q.top-b.top-(b.height*k-q.height)/2)+"px) scale("+k+")"})}
   else C.classList.add("out");
   if(!rm)C.querySelectorAll(".pg").forEach(function(e){var r=e.getBoundingClientRect();e.style.transformOrigin=(-r.left)+"px "+(innerHeight/2-r.top)+"px";e.style.transform="perspective("+Math.max(1400,innerWidth*1.6)+"px) rotateY(-102deg)"});
-  setTimeout(function(){R.classList.remove("cov","cov-run");C.classList.remove("out");C.querySelectorAll("h1 span,.pg").forEach(function(e){e.style.transform="";e.style.transformOrigin="";e.style.animation=""});busy=false;var n=document.querySelector(".bar .name");if(n&&document.activeElement&&C.contains(document.activeElement))n.focus({preventScroll:true})},rm?320:1000)}
-function show(){if(R.classList.contains("cov"))return;C.querySelectorAll(".cv-mono path,h1 span,.cv-foot").forEach(function(e){e.style.animation="none";e.offsetWidth;e.style.animation=""});R.classList.add("cov")}
+  setTimeout(function(){R.classList.remove("cov","cov-run");inert(false);C.classList.remove("out");C.querySelectorAll(".cv-h span,.pg").forEach(function(e){e.style.transform="";e.style.transformOrigin="";e.style.animation=""});busy=false;var n=document.querySelector(".bar .name");if(n&&document.activeElement&&C.contains(document.activeElement))n.focus({preventScroll:true})},rm?320:1000)}
+function show(){if(R.classList.contains("cov"))return;C.querySelectorAll(".cv-mono path,.cv-h span,.cv-foot").forEach(function(e){e.style.animation="none";e.offsetWidth;e.style.animation=""});R.classList.add("cov");inert(true)}
 C.addEventListener("click",enter);
 addEventListener("keydown",function(e){if(R.classList.contains("cov")&&/^(Enter| |Escape|ArrowDown)$/.test(e.key)){e.preventDefault();enter()}});
 addEventListener("wheel",function(e){if(R.classList.contains("cov")&&e.deltaY>8)enter()},{passive:true});
 var ty=null;C.addEventListener("touchstart",function(e){ty=e.touches[0].clientY},{passive:true});C.addEventListener("touchmove",function(e){if(ty!==null&&ty-e.touches[0].clientY>40){ty=null;enter()}},{passive:true});
-addEventListener("hashchange",function(){if(R.classList.contains("cov")&&!/^(#accueil)?$/.test(location.hash)){R.classList.remove("cov")}});
+addEventListener("hashchange",function(){if(R.classList.contains("cov")&&!/^(#accueil)?$/.test(location.hash)){R.classList.remove("cov");inert(false)}});
 document.addEventListener("click",function(e){var n=e.target.closest&&e.target.closest(".bar .name");if(!n||R.classList.contains("cov"))return;var home=document.querySelector("#v-accueil,.view.home");if(/^(#accueil)?$/.test(location.hash)&&home&&!home.hidden){e.preventDefault();show()}},true);
-function fit(){var h=C.querySelector("h1"),m=h.querySelector(".m");if(!C.offsetWidth)return;for(var i=0;i<2;i++){var cur=parseFloat(getComputedStyle(h).fontSize),w=m.getBoundingClientRect().width,cs=getComputedStyle(C),av=C.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);if(!w)return;h.style.setProperty("--cvfs",Math.min(cur*av/w*.985,innerHeight*.3).toFixed(1)+"px")}}
+function fit(){var h=C.querySelector(".cv-h"),m=h.querySelector(".m");if(!C.offsetWidth)return;for(var i=0;i<2;i++){var cur=parseFloat(getComputedStyle(h).fontSize),w=m.getBoundingClientRect().width,cs=getComputedStyle(C),av=C.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);if(!w)return;h.style.setProperty("--cvfs",Math.min(cur*av/w*.985,innerHeight*.3).toFixed(1)+"px")}}
 fit();requestAnimationFrame(fit);setTimeout(fit,400);addEventListener("resize",fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
-window.YM_COVER=show})();</script>
+document.addEventListener("DOMContentLoaded",function(){if(R.classList.contains("cov"))inert(true)});window.YM_COVER=show})();</script>
 
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Yves Micault">
 <title>Yves Micault, architecte HMONP</title>
