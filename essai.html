@@ -10,6 +10,7 @@
 @media (max-width:760px){.sf-og{grid-template-columns:minmax(0,1fr);gap:8px}.sf-og .sf-o{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-columns:auto!important;width:auto}}
 /* maquettes 3D : choix des vues sous l'image, l'image reste libre (hors plein écran) */
 .g3:not(.fs){overflow:visible;clip-path:inset(0 0 -72px 0);margin-bottom:72px}.g3:not(.fs) .g3-ui{top:calc(100% + 12px)!important;bottom:auto!important;left:0!important;right:0!important;max-width:none!important}.g3:not(.fs) .g3-ui .hint{margin-left:auto;background:none!important}
+.g3-ui .g3-2d,.g3-ui .g3-lb,.g3-ui .g3-fs{position:static!important;flex:none;width:32px!important;height:32px!important;padding:0!important;display:grid;place-items:center;letter-spacing:.04em!important}.g3-ui .g3-fs svg,.g3-ui .g3-lb svg{width:16px;height:16px}.g3-ui .g3-2d{order:-3}.g3-ui .g3-lb{order:-2}.g3-ui .g3-fs{order:-1}.g3-ui .hint{order:10}.g3-ui .g3-lb[aria-pressed="true"]{background:var(--veil)!important;color:var(--brick)!important;border-color:var(--brick)!important}.g3.r2d .g3-ui .g3-lb{display:none}
 /* Profil : parcours en une seule frise */
 #v-profil .pf{grid-template-columns:minmax(0,240px) minmax(0,1fr) 168px;max-width:none}
 .pf-docs{position:sticky;top:80px;display:grid;gap:26px;padding-left:22px;border-left:1px solid var(--line)}
@@ -1046,10 +1047,10 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
     <div class="sf-k2 sf-rv"><div><b>10 ans</b><span>d’expérience en agence</span></div><div><b>61</b><span>projets auxquels j’ai contribué chez Hamonic+Masson</span></div></div>
     <h2 class="sf-h sf-rv">Ce que j’apporte en agence</h2>
     <div class="sf-a">
-      <article class="sf-rv"><i>01</i><h3>Lire un lieu, en tirer un projet</h3><em class="sf-tg">Analyse · Conception · Synthèse</em><p>Lire un site, comprendre un programme et identifier les enjeux qui feront le projet. Transformer cette analyse en une proposition architecturale forte, capable d’articuler usages, contexte et ambitions du programme.</p></article>
+      <article class="sf-rv"><i>01</i><h3>Lire un lieu, en tirer un projet</h3><em class="sf-tg">Analyse · Conception · Synthèse</em><p>Lire un site, comprendre un programme et identifier les enjeux qui feront le projet. Transformer cette analyse en une proposition architecturale forte, capable d’articuler usages, contexte et ambitions du programme.</p><a class="sf-p" href="#hm/les-anciens-thermes"><img src="img/hm/les-anciens-thermes/03_t.jpg" alt="" loading="lazy"><span><b>Les anciens thermes</b><small>Aix-les-Bains · Rôle : chef de projet · Phase : concours, 2018</small></span></a></article>
       <article class="sf-rv"><i>02</i><h3>Faire avancer une équipe</h3><em class="sf-tg">Responsabilité · Coordination · Organisation</em><p>Organiser les études, coordonner les équipes et les bureaux d’études, arbitrer les priorités et assurer la cohérence des productions. Faire avancer collectivement un projet en tenant les objectifs, les délais et le niveau d’exigence architecturale.</p><a class="sf-p" href="#hm/metamorphose"><img src="img/hm/metamorphose/07_t.jpg" alt="" loading="lazy"><span><b>Métamorphose</b><small>Angers · Rôle : chef de projet · Phases : concours → études · Lauréat en 2018, livré en 2025</small></span></a><a class="sf-all" href="#agence">Tous les projets en agence →</a></article>
       <article class="sf-rv"><i>03</i><h3>Tenir l’intention jusqu’au DCE</h3><em class="sf-tg">Technique · Réglementation · PRO/DCE</em><p>Accompagner le projet de l’esquisse aux études PRO/DCE, confronter les intentions aux exigences réglementaires, constructives et économiques. Trouver les solutions qui préservent la cohérence architecturale tout au long de son développement.</p><a class="sf-p" href="#hm/le-cabanon-ideal"><img src="img/hm/le-cabanon-ideal/01_t.jpg" alt="" loading="lazy"><span><b>Le Cabanon idéal</b><small>Marseille · Rôle : chef de projet · Phases : concours → APS → permis → PRO/DCE</small></span></a></article>
-      <article class="sf-rv"><i>04</i><h3>Expérimenter, modéliser, outiller</h3><em class="sf-tg">3D · BIM · Méthodes · Automatisation</em><p>Explorer rapidement différentes hypothèses en trois dimensions, les éprouver dans des modèles précis et développer des outils adaptés aux besoins du projet. Faire dialoguer conception, représentation, BIM et automatisation pour gagner en liberté sans perdre en rigueur.</p><span class="sf-tl"><b>Daddy SKP</b> · boîte à outils personnelle pour SketchUp, environ 26 modules : manipulation géométrique, remplacement de composants, alignement, automatisation</span></article>
+      <article class="sf-rv"><i>04</i><h3>Expérimenter, modéliser, outiller</h3><em class="sf-tg">3D · BIM · Méthodes · Automatisation</em><p>Explorer rapidement différentes hypothèses en trois dimensions, les éprouver dans des modèles précis et développer des outils adaptés aux besoins du projet. Faire dialoguer conception, représentation, BIM et automatisation pour gagner en liberté sans perdre en rigueur.</p><span class="sf-tl">Création d’outils : par curiosité, développer de nouveaux outils pour alléger la production et rendre du temps à la conception, en évoluant avec les moyens de son époque.</span></article>
     </div>
     <h2 class="sf-h sf-rv">Domaines</h2>
     <div class="sf-c">
@@ -1700,14 +1701,14 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
       [].forEach.call(vb,function(b){b.onclick=function(){go(b)}});
       var pb=pend&&!keep?host.querySelector('.g3-ui button[data-v="'+pend+'"]'):null;if(pb)go(pb);
       if(G3UI[name].auto&&!keep&&!pb&&!RM.matches)autoPlay(host,vb,go);
-      var lb=host.querySelector(".g3-ui button[data-l]");if(lb)host.appendChild(lb);
+      var lb=host.querySelector(".g3-ui button[data-l]"),gui=host.querySelector(".g3-ui"),ghint=gui&&gui.querySelector(".hint");
       if(!host.querySelector(".g3-fs")){var fsWas=false,fb=document.createElement("button");fb.type="button";fb.className="g3-fs";fb.setAttribute("aria-pressed","false");fb.setAttribute("aria-label","Plein écran");fb.title="Plein écran";
         fb.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true"><path class="o" d="M3 8V3h5M12 3h5v5M17 12v5h-5M8 17H3v-5"/><path class="i" d="M8 3v5H3M12 8V3M17 8h-5M12 17v-5h5M3 12h5v5"/></svg>';
         fb.onclick=function(){var on=!host.classList.contains("fs");if(!on)fsWas=false;if(on){fb.__ph=document.createComment("g3");host.parentNode.insertBefore(fb.__ph,host);document.body.appendChild(host)}else if(fb.__ph&&fb.__ph.parentNode){fb.__ph.parentNode.insertBefore(host,fb.__ph);fb.__ph.remove();fb.__ph=null}
           // le vrai plein écran est demandé APRÈS le déplacement du bloc (sinon le navigateur l'annule aussitôt)
           try{var rf=host.requestFullscreen||host.webkitRequestFullscreen,fe=document.fullscreenElement||document.webkitFullscreenElement;if(on&&rf&&!fe){var pr=rf.call(host);if(pr&&pr.catch)pr.catch(function(){})}else if(!on&&fe)(document.exitFullscreen||document.webkitExitFullscreen).call(document)}catch(_){}host.classList.toggle("fs",on);document.documentElement.classList.toggle("fs-on",on);fb.setAttribute("aria-pressed",on);fb.setAttribute("aria-label",on?"Quitter le plein écran":"Plein écran");window.dispatchEvent(new Event("resize"))};
         ["fullscreenchange","webkitfullscreenchange"].forEach(function(t){document.addEventListener(t,function(){var el=document.fullscreenElement||document.webkitFullscreenElement;if(el){fsWas=true}else if(fsWas){fsWas=false;if(host.classList.contains("fs"))fb.click()}})});
-        host.appendChild(fb)}
+        if(gui)gui.insertBefore(fb,ghint);else host.appendChild(fb)}
       var UU=G3UI[name];
       if(UU&&!UU.norender&&name!=="ventres"){
         var rfile=function(k){return g3file(name,k)};
@@ -1723,8 +1724,8 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
           if(!UU.auto&&im&&!RM.matches&&!document.hidden&&performance.now()-tch>8000&&(performance.now()-(host.__sl||0))>6000){var r=host.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;host.__sl=performance.now();var i=0;[].forEach.call(vb,function(x,j){if(x.getAttribute("aria-pressed")==="true")i=j});var n=vb[(i+1)%vb.length];var o=n.onclick;n.onclick&&n.onclick()}},700);
         tb.onclick=function(){setM(tb.getAttribute("aria-pressed")!=="true")};
         [].forEach.call(vb,function(b){var o=b.onclick;b.onclick=function(){o();setTimeout(paint,0)}});
-        host.appendChild(tb);host.classList.add("has2d");var m3=true;try{m3=localStorage.getItem("ym-3d")!=="0"}catch(e){}tb.setAttribute("aria-pressed","true");if(!m3)setM(false)}
-      if(lb&&g3.labels){var lon=true;try{lon=localStorage.getItem("ym-labels")!=="0"}catch(e){}lb.setAttribute("aria-pressed",lon?"true":"false");g3.labels(lon);
+        if(gui)gui.insertBefore(tb,gui.firstChild);else host.appendChild(tb);host.classList.add("has2d");var m3=true;try{m3=localStorage.getItem("ym-3d")!=="0"}catch(e){}tb.setAttribute("aria-pressed","true");if(!m3)setM(false)}
+      if(lb&&g3.labels){var lon=true;try{var sl=localStorage.getItem("ym-labels");lon=sl===null?!matchMedia("(max-width:760px)").matches:sl!=="0"}catch(e){}lb.setAttribute("aria-pressed",lon?"true":"false");g3.labels(lon);
         lb.onclick=function(){lon=!lon;lb.setAttribute("aria-pressed",lon?"true":"false");g3.labels(lon);try{localStorage.setItem("ym-labels",lon?"1":"0")}catch(e){}}}
       else if(lb)lb.remove();
       if(rb&&g3.real)rb.onclick=function(){var on=rb.getAttribute("aria-pressed")!=="true";rb.setAttribute("aria-pressed",on?"true":"false");g3.real(on)};
@@ -2085,8 +2086,8 @@ function overlay(){let s="";const brick=css("--brick"),ag=css("--agc"),L=[];
   for(let k=0;k<4;k++)for(let i=0;i<L.length;i++)for(let j=i+1;j<L.length;j++){const A=L[i],B=L[j];let dx=B.x-A.x,dy=B.y-A.y,d=Math.hypot(dx,dy);const MIN=(A.p.f===undefined&&B.p.f===undefined?6:11)*(1-V.ha*.5);
     if(d<MIN){if(d<.01){dx=1;dy=-1;d=1.41}const push=(MIN-d)/2;dx/=d;dy/=d;A.x-=dx*push;A.y-=dy*push;B.x+=dx*push;B.y+=dy*push}}
   scr=[];for(const q of L){const i=q.a.i,hot=i===hov||i===cur,o=q.v.toFixed(3),x=q.x+box0.x,y=q.y+box0.y;if(!(i===cur&&V.ha>.5))scr.push({i,x:q.x,y:q.y});
-    const sl=selI(),hot2=i===hov||i===sl;if(q.p.f===undefined){const St=window.AGST||"b",r=St==="o"?(hot2?3.6:2.3):St==="a"?(hot2?5:3.8):(hot2?5.6:4.4);if(!(V.ha>.3))s+=St==="o"?`<path d="M${x} ${y-r}L${x+r} ${y}L${x} ${y+r}L${x-r} ${y}Z" fill="${ag}" opacity="${o}"/>`:St==="a"?`<path d="M${x} ${y-r}L${x+r} ${y}L${x} ${y+r}L${x-r} ${y}Z" fill="${ag}" stroke="${css("--bg")}" stroke-width="1.3" opacity="${o}"/>`:`<path d="M${x} ${y-r}L${x+r} ${y}L${x} ${y+r}L${x-r} ${y}Z" fill="${css("--bg")}" stroke="${ag}" stroke-width="1.5" opacity="${o}"/>`;if(hot2&&leaders&&!q.a.no)s+=`<path d="M${q.a.x} ${q.a.y}L${q.a.x+14} ${q.a.y}L${x} ${y}" fill="none" stroke="${ag}" stroke-width="1" opacity="${o}"/>`;continue}
-    if(!(i===cur&&V.ha>.5))s+=q.p.f==="e"?`<circle cx="${x}" cy="${y}" r="${hot?4.4:3.2}" fill="${brick}" opacity="${o}"/>`:`<circle cx="${x}" cy="${y}" r="${hot?4.8:3.6}" fill="${css("--bg")}" stroke="${brick}" stroke-width="1.4" opacity="${o}"/>`;
+    const sl=selI(),hot2=i===hov||i===sl;if(q.p.f===undefined){const St=window.AGST||"a",r=St==="o"?(hot2?3.6:2.3):St==="a"?(hot2?6:4.7):(hot2?5.6:4.4);if(!(V.ha>.3))s+=St==="o"?`<path d="M${x} ${y-r}L${x+r} ${y}L${x} ${y+r}L${x-r} ${y}Z" fill="${ag}" opacity="${o}"/>`:St==="a"?`<path d="M${x} ${y-r}L${x+r} ${y}L${x} ${y+r}L${x-r} ${y}Z" fill="${ag}" stroke="${css("--bg")}" stroke-width="1" opacity="${o}"/>`:`<path d="M${x} ${y-r}L${x+r} ${y}L${x} ${y+r}L${x-r} ${y}Z" fill="${css("--bg")}" stroke="${ag}" stroke-width="1.5" opacity="${o}"/>`;if(hot2&&leaders&&!q.a.no)s+=`<path d="M${q.a.x} ${q.a.y}L${q.a.x+14} ${q.a.y}L${x} ${y}" fill="none" stroke="${ag}" stroke-width="1" opacity="${o}"/>`;continue}
+    if(!(i===cur&&V.ha>.5))s+=q.p.f==="e"?`<circle cx="${x}" cy="${y}" r="${hot?5.2:4}" fill="${brick}" stroke="${css("--bg")}" stroke-width="1" opacity="${o}"/>`:`<circle cx="${x}" cy="${y}" r="${hot?5.2:4}" fill="${css("--bg")}" stroke="${brick}" stroke-width="1.6" opacity="${o}"/>`;
     if(hot&&leaders){const e=rimCut(q.a.x+14,q.a.y,x,y);s+=`<path d="M${q.a.x} ${q.a.y}L${q.a.x+14} ${q.a.y}L${e.x} ${e.y}" fill="none" stroke="${brick}" stroke-width="1" opacity="${o}"/>`}}
   if(fcat&&V.ha<.3)s=constel()+s;
   // sur la maquette : le bord du disque projeté à l'écran, Ouvrir / Globe accrochés à son point le plus bas
@@ -2427,8 +2428,8 @@ function hrefFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]);re
 new MutationObserver(theme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme","data-eff"]});matchMedia("(prefers-color-scheme: dark)").addEventListener("change",theme);
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
-<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=26"></script>
-<script charset="utf-8" src="js/i18n.js?v=236"></script>
+<script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=27"></script>
+<script charset="utf-8" src="js/i18n.js?v=237"></script>
 
 
 <script>

@@ -52,6 +52,7 @@
     if(p.u)a.push('<a class="agt-lk" href="'+HM+esc(p.u)+'" target="_blank" rel="noopener">Fiche de l’agence ↗</a>');
     return a.length?'<p class="agt-ft">'+a.join("")+'</p>':""}
   function byId(id){return AG.filter(function(q){return q.id===id})[0]}
+  var HERO={"abidjan":"01","casa-anfa":"02","chateau-septfontaines":"02","cite-administrative":"02","clermont-ferrand":"03","coeur-de-carnoles":"03","evry":"01","harmony-of-the-sky":"01","high-garden":"01","l-hay-les-roses":"01","la-meridionale":"01","le-cabanon-ideal":"01","les-anciens-thermes":"03","lille":"04","metamorphose":"07","panora-marne":"02","port-marianne-lot-7a":"02","quai-simonovskaia":"01","siege-du-groupe-angevin":"07","snow-white-tower":"02","station-service":"02","tour-alta":"04"};
   var FICHE={"abidjan":1,"casa-anfa":1,"chateau-septfontaines":1,"cite-administrative":1,"clermont-ferrand":1,"coeur-de-carnoles":1,"evry":1,"harmony-of-the-sky":1,"high-garden":1,"l-hay-les-roses":1,"la-meridionale":1,"le-cabanon-ideal":1,"les-anciens-thermes":1,"lille":1,"metamorphose":1,"panora-marne":1,"port-marianne-lot-7a":1,"quai-simonovskaia":1,"siege-du-groupe-angevin":1,"snow-white-tower":1,"station-service":1,"tour-alta":1};
   function fl(p,x){return FICHE[p.id]&&document.getElementById("v-hm")?'<a class="agt-fl" href="#hm/'+esc(p.id)+'">'+x+'</a>':x}
   function card(p){
@@ -74,7 +75,7 @@
   function tb(p){var E=document.getElementById("v-hm");
     if(E&&(!p||!p.u)){var src=!p?"":p.img&&p.img.length?"img/agx/"+p.img[0]+"_t.jpg":p.im?"img/ag/"+p.im+".jpg":"";
       return src?'<div class="agt-tb"><img src="'+esc(src)+'" alt="" loading="lazy" decoding="async" width="360" height="240"></div>':'<div class="agt-tb agt-tbx" aria-hidden="true"></div>'}
-    return p&&p.u?'<div class="agt-tb"><img src="img/agt/'+esc(p.id)+'.jpg" alt="" loading="lazy" decoding="async" width="360" height="240"></div>':'<div class="agt-tb agt-tb0" aria-hidden="true"><span>H+M</span></div>'}
+    return p&&p.u?'<div class="agt-tb"><img src="'+(E&&HERO[p.id]?'img/hm/'+esc(p.id)+'/'+HERO[p.id]+'_t.jpg':'img/agt/'+esc(p.id)+'.jpg')+'" alt="" loading="lazy" decoding="async" width="360" height="240"></div>':'<div class="agt-tb agt-tb0" aria-hidden="true"><span>H+M</span></div>'}
   function feat(p){var F=FEAT[p.id];if(!F)return "";var ph=phases(p).split(/\s*→\s*/).filter(Boolean),I=F.img||[],n=I.length;
     var fig=n?'<figure class="agt-m"><button type="button" class="agt-zb" data-ag="'+esc(p.id)+'" aria-label="'+esc(p.t)+' : '+(n>1?'voir les '+n+' images':'agrandir l’image')+'"><img src="'+esc(I[0][0])+'.jpg" alt="'+esc(p.t+', '+p.c+' : '+I[0][1].toLowerCase())+'" loading="lazy" decoding="async"><span class="agt-zl">'+(n>1?'Voir les '+n+' images':'Agrandir l’image')+'</span></button><figcaption>Image : Hamonic+Masson & Associés</figcaption></figure>':"";
     function dl(rows){return '<dl>'+rows.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join("")+'</dl>'}
