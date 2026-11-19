@@ -11,7 +11,7 @@
   /* fiches développées : ma participation séparée de l'opération (fiches publiques de l'agence) */
   var FEAT={
     "metamorphose":{per:"",
-      ct:[["Concours", "Concours mené en chef de projet, de l’esquisse au rendu ; projet lauréat"], ["Conception", "Conception architecturale du projet et présentation à la maîtrise d’ouvrage en workshop"], ["Production", "Maquette numérique et études graphiques"], ["Suite des études", "Contribution aux études de développement"]],
+      ct:[["Concours", "Concours mené comme chargé de projet, de l’esquisse au rendu ; projet lauréat"], ["Conception", "Conception architecturale du projet et présentation à la maîtrise d’ouvrage en workshop"], ["Production", "Maquette numérique et études graphiques"], ["Suite des études", "Contribution aux études de développement"]],
       op:[["Maîtrise d’ouvrage","Groupe Giboire"],
           ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire)"],
           ["Programme","Bureaux, coworking, 76 logements en coliving, salle d’escalade, restaurant, serre événementielle"],
@@ -20,7 +20,7 @@
           ["État","Livré en 2025"]],
       img:[["img/agx/2017-metamorphose","Perspective du projet"],["img/agx/2025-metamorphose-photo-1","Vue aérienne du bâtiment livré","photo © Dimitri Lamour"],["img/agx/2025-metamorphose-photo-2","Depuis le boulevard et le tramway","photo © Dimitri Lamour"],["img/agx/2025-metamorphose-photo-3","Terrasses et patio","photo © Dimitri Lamour"],["img/agx/2025-metamorphose-photo-4","Le passage couvert","photo © Dimitri Lamour"],["img/agx/2025-metamorphose-photo-5","La serre et le jardin"],["img/agx/2017-metamorphose-2","Perspective du concours : rez-de-chaussée"],["img/agx/2017-metamorphose-3","Perspective du concours : bureaux"]]},
     "high-garden":{per:"",
-      ct:[["Concours", "Projet lauréat, conçu en assistant chef de projet au sein de l’équipe de concours"], ["Conception", "Conception architecturale du projet, dont les façades en variantes bois et métal"], ["Production", "Conception et production des perspectives du concours"], ["Suite des études", "Poursuite des études et travail en continu en maquette numérique BIM"]],
+      ct:[["Concours", "Projet lauréat, conçu comme collaborateur au sein de l’équipe de concours"], ["Conception", "Conception architecturale du projet, dont les façades en variantes bois et métal"], ["Production", "Conception et production des perspectives du concours"], ["Suite des études", "Poursuite des études et travail en continu en maquette numérique BIM"]],
       op:[["Maîtrise d’ouvrage","Woodeum x Pitch Immo + Immobilière 3F"],
           ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire et coordinateur)"],
           ["Programme","240 logements dont 60 sociaux, commerces, espace public"],
@@ -29,7 +29,7 @@
           ["État","Livré en 2024"]],
       img:[["img/agx/2017-high-garden","Perspective du projet"],["img/agx/2019-high-garden-photo-1","Le bâtiment livré","photo © Florian Bouziges"],["img/agx/2019-high-garden-photo-2","Façade et balcons","photo © Florian Bouziges"],["img/agx/2019-high-garden-photo-3","Vue depuis le jardin","photo © Élise Robaglia"],["img/agx/2019-high-garden-photo-4","Les balcons filants","photo © Élise Robaglia"],["img/agx/2019-high-garden-planche-1","Planche du concours 1 : parti urbain"],["img/agx/2019-high-garden-planche-2","Planche du concours 2 : un espace public augmenté"],["img/agx/2019-high-garden-planche-3","Planche du concours 3 : un événement"]]},
     "le-cabanon-ideal":{per:"",
-      ct:[["Concours", "Projet porté en chef de projet et remporté au concours"], ["Conception", "Conception architecturale, de l’esquisse au PRO / DCE"], ["Production", "Plans, images et détails ; dossiers de concours, d’APS, de permis de construire et de PRO / DCE"], ["Suite des études", "Coordination des bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)"]],
+      ct:[["Concours", "Projet porté comme chargé de projet et remporté au concours"], ["Conception", "Conception architecturale, de l’esquisse au PRO / DCE"], ["Production", "Plans, images et détails ; dossiers de concours, d’APS, de permis de construire et de PRO / DCE"], ["Suite des études", "Coordination des bureaux d’études : CEC WRD (fluides et thermique), Inddigo (environnement), Magelan (étude technique)"]],
       op:[["Maîtrise d’ouvrage","BNP Paribas Real Estate Expertise"],
           ["Maîtrise d’œuvre","Hamonic+Masson & Associés (mandataire) + Boris Bouchet Architectes"],
           ["Programme","117 logements, commerces et activités"],
