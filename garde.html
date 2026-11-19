@@ -52,7 +52,7 @@ html.isl .bar .bar-r{grid-column:3;margin-left:auto}html.isl .bar .name{position
 @media (max-width:760px){#isl .isl-t{display:none}#isl .isl-b{padding:0 11px;justify-content:center}#isl .isl-n{gap:2px;padding:6px 20px 18px}#isl .isl-n a{font-size:12px;padding:9px 0}html.isl .bar .name{font-size:12.5px}html.isl .bar .bar-r{gap:0!important;margin-right:-6px}html.isl .thm{width:26px;height:26px}html.isl .thm svg{width:13px;height:13px}html.isl .lng{margin-left:0;padding:0 2px;gap:1px;font-size:9.5px;letter-spacing:.02em}#isl{left:10px}}
 
 /* essai D : le monogramme balaie la page entre deux rubriques */
-#ymw{position:fixed;inset:0;z-index:900;pointer-events:none;visibility:hidden}
+#ymw{position:fixed;inset:0;z-index:900;pointer-events:none;visibility:hidden}#ymt{position:fixed;inset:0;z-index:900;pointer-events:none;visibility:hidden;background:var(--bg)}#ymt svg{position:absolute;left:50%;top:50%;height:min(20vh,150px);width:auto;transform:translate(-50%,-50%);overflow:visible}#ymt path{fill:transparent;stroke:var(--ink);stroke-width:1.3;stroke-dasharray:1;stroke-dashoffset:1;transform-box:view-box}
 #ymw .bg{position:absolute;inset:0;background:var(--bg)}
 #ymw svg{position:absolute;top:50%;height:min(30vh,240px);width:auto;fill:var(--ink);transform:translate(-50%,-50%)}
 #ymw svg .m2{fill:var(--brick)}
@@ -192,6 +192,21 @@ if(VV==="d")(function(){var W=document.createElement("div");W.id="ymw";W.setAttr
       lg.animate([{left:(w/2)+"px"},{left:"-80px"}],{duration:380,delay:60,easing:E,fill:"forwards"});
       a2.onfinish=function(){W.style.visibility="hidden";bg.getAnimations().concat(lg.getAnimations()).forEach(function(x){x.cancel()});run=false}}}
   document.addEventListener("click",function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey)return;var a=e.target.closest&&e.target.closest(".bar a[href^='#'],.crumb,.m2nav a[href^='#']");if(!a||R.classList.contains("cov")||matchMedia("(prefers-reduced-motion: reduce)").matches)return;var h=a.getAttribute("href");if(h===location.hash||(h==="#accueil"&&!location.hash))return;e.preventDefault();sweep(function(){location.hash=h})});
+})();
+if(VV==="i")(function(){var W=document.createElement("div");W.id="ymt";W.setAttribute("aria-hidden","true");W.innerHTML='<svg viewBox="-2 -2 66 133"><path class="m1" pathLength="1" d="M0 0L20 7.619V42H42V17L62 24.619V62H0Z"/><path class="m2" pathLength="1" d="M0 68H62V129H23.619L16 109H42V88H7.368Z"/></svg>';document.body.appendChild(W);
+  var lg=W.firstChild,p1=lg.querySelector(".m1"),p2=lg.querySelector(".m2"),run=false,E="cubic-bezier(.65,0,.35,1)",O={fill:"forwards"};
+  function ink(){return getComputedStyle(document.documentElement).getPropertyValue("--ink").trim()||"#111"}
+  function brick(){return getComputedStyle(document.documentElement).getPropertyValue("--brick").trim()||"#b5654a"}
+  function tr(go){if(run)return go();run=true;W.style.visibility="visible";var k=ink(),b=brick();
+    // 1. voile + arêtes : les deux M se dessinent en quinconce et se rejoignent
+    W.animate([{opacity:0},{opacity:1}],{duration:200,easing:"ease-out",fill:"forwards"});
+    p1.animate([{strokeDashoffset:1,transform:"translateY(-14px)",fill:"transparent"},{strokeDashoffset:0,transform:"none",fill:"transparent",offset:.6},{strokeDashoffset:0,transform:"none",fill:k}],{duration:360,easing:E,fill:"forwards"});
+    var a=p2.animate([{strokeDashoffset:1,transform:"translateY(14px)",fill:"transparent"},{strokeDashoffset:0,transform:"none",fill:"transparent",offset:.6},{strokeDashoffset:0,transform:"none",fill:k,offset:.8},{strokeDashoffset:0,transform:"none",fill:b,stroke:b}],{duration:440,easing:E,fill:"forwards"});
+    setTimeout(go,200);
+    // 2. un ton -> deux tons, puis la nouvelle page apparaît
+    a.onfinish=function(){var z=W.animate([{opacity:1},{opacity:0}],{duration:280,delay:40,easing:"ease-in",fill:"forwards"});lg.animate([{transform:"translate(-50%,-50%)"},{transform:"translate(-50%,-50%) scale(.92)"}],{duration:320,easing:"ease-in",fill:"forwards"});
+      z.onfinish=function(){W.style.visibility="hidden";W.getAnimations({subtree:true}).forEach(function(x){x.cancel()});run=false}}}
+  document.addEventListener("click",function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey)return;var a=e.target.closest&&e.target.closest("#isl-n a[href^='#'],.bar a.name,.crumb");if(!a||R.classList.contains("cov")||matchMedia("(prefers-reduced-motion: reduce)").matches)return;var h=a.getAttribute("href"),c=location.hash||"#accueil";if(h===c||c.indexOf(h+"/")===0&&h!=="#accueil")return;e.preventDefault();tr(function(){location.hash=h})});
 })();
 })();</script>
 
