@@ -7,6 +7,7 @@
 .sf-tg{display:block;font:400 10.5px/1.4 var(--m);font-style:normal;color:var(--brick);margin:-2px 0 10px;letter-spacing:.04em}.sf-tl b{color:var(--ink);font-weight:500}
 .sf-ogs{display:grid;gap:14px;margin-bottom:60px}.sf-og{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:center}.sf-og>span{font:500 10.5px/1.4 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}.sf-og .sf-o{margin:0;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(130px,1fr);width:max-content;max-width:100%}.sf-og:first-child .sf-o,.sf-og:last-child .sf-o{grid-auto-columns:200px}
 .sf-ia small{display:block;margin-top:4px;font:400 11px var(--m);color:var(--mute)}
+@media (min-width:761px) and (max-width:1120px){.sf-og{grid-template-columns:150px minmax(0,1fr)}.sf-og .sf-o{grid-auto-flow:row;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));grid-auto-columns:auto!important;width:auto}}
 @media (max-width:760px){.sf-og{grid-template-columns:minmax(0,1fr);gap:8px}.sf-og .sf-o{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-columns:auto!important;width:auto}}
 /* maquettes 3D : choix des vues sous l'image, l'image reste libre (hors plein écran) */
 .g3:not(.fs){overflow:visible;clip-path:inset(0 0 -72px 0);margin-bottom:72px}.g3:not(.fs) .g3-ui{top:calc(100% + 12px)!important;bottom:auto!important;left:0!important;right:0!important;max-width:none!important}.g3:not(.fs) .g3-ui .hint{margin-left:auto;background:none!important}
@@ -847,7 +848,7 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
 .hmode i{position:absolute;z-index:0;top:3px;bottom:3px;left:0;width:0;border-radius:999px;background:var(--ink);transition:transform .5s cubic-bezier(.2,.9,.25,1),width .5s cubic-bezier(.2,.9,.25,1)}
 #hv{position:absolute;z-index:5;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s .45s;background:var(--bg)}
 #hv.on{opacity:1;visibility:visible;transition:opacity .45s}
-#gbox.m-gal .stage,#gbox.m-bib .stage,#gbox.m-gal .side,#gbox.m-bib .side,#gbox.m-gal .list,#gbox.m-bib .list{opacity:0;transform:scale(.96);pointer-events:none}
+#gbox.m-gal .stage,#gbox.m-bib .stage,#gbox.m-gal .side,#gbox.m-bib .side,#gbox.m-gal .list,#gbox.m-bib .list{opacity:0;pointer-events:none}
 #gbox .stage,#gbox .side,#gbox .list{transition:opacity .45s,transform .7s cubic-bezier(.2,.9,.25,1)}
 #gbox.m-gal .list,#gbox.m-bib .list{transform:translateX(-12px)}
 .hv-g{position:absolute;inset:0;display:flex;gap:14px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(transparent,#000 7%,#000 93%,transparent)}
@@ -1063,7 +1064,6 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
       <div class="sf-og"><span>Outils centraux</span><div class="sf-o"><div><small>BIM</small><b>Archicad</b></div><div><small>3D</small><b>SketchUp</b></div></div></div>
       <div class="sf-og"><span>Représentation et analyse</span><div class="sf-o"><div><small>Rendu</small><b>D5 Render</b></div><div><small>Rendu</small><b>Enscape</b></div><div><small>Image</small><b>Photoshop</b></div><div><small>Graphisme</small><b>Illustrator</b></div><div><small>Mise en page</small><b>InDesign</b></div><div><small>SIG</small><b>QGIS</b></div></div></div>
       <div class="sf-og"><span>Complémentaires</span><div class="sf-o"><div><small>DAO</small><b>AutoCAD</b></div><div><small>Organisation</small><b>Notion</b></div></div></div>
-    </div>
     </div>
     <h2 class="sf-h sf-rv">IA et nouvelles méthodes de travail</h2><div class="sf-ia sf-rv"><p>Intégration de l’intelligence artificielle à différentes étapes du travail : recherche et analyse documentaire, exploration architecturale, développement de concepts et de variantes, création et transformation d’images, visualisation et animation 3D, développement d’outils et de scripts, traitement et visualisation de données, production de documents, automatisation des comptes rendus, des tâches récurrentes et des processus administratifs et organisationnels.</p><div class="sf-ic"><div><b>Recherche, analyse et développement</b><small>ChatGPT · Claude</small></div><div><b>Image et visualisation architecturale</b><small>Nano Banana · Adobe Firefly · Vizmaker · Archivis</small></div><div><b>Vidéo et animation</b><small>Kling · Higgsfield</small></div><div><b>Données, organisation et automatisation</b><small>Notion · ChatGPT · Claude · Outils et workflows personnalisés</small></div></div></div>
     <div class="sf-l sf-rv">
@@ -2057,15 +2057,15 @@ $("gdA").addEventListener("click",()=>gdAuto(!gdT));
 ["pointerdown","wheel","keydown"].forEach(t=>gboxEl.addEventListener(t,e=>{if(gdT&&!e.target.closest("#gd"))gdAuto(false)},{passive:true}));
 const _choose=choose;choose=function(i){if(gdOn){const k=GD.indexOf(i);if(k>=0){gdK=k;gdShow()}else gdStop()}return _choose(i)};
 /* ---------- taille ---------- */
-let W=1,Hh=1,box0={x:0,y:0},anc=[],leaders=true;const fx=$("fx"),fc=fx.getContext("2d"),ov=$("ov");
+let gbW=0,gbH=0,W=1,Hh=1,box0={x:0,y:0},anc=[],leaders=true;const fx=$("fx"),fc=fx.getContext("2d"),ov=$("ov");
 function size(){if(!host.clientWidth||!host.clientHeight)return;W=host.clientWidth;Hh=host.clientHeight;R.setSize(W,Hh,false);cam.aspect=W/Hh;cam.updateProjectionMatrix();
   const dp=Math.min(2,devicePixelRatio);fx.width=W*dp;fx.height=Hh*dp;fc.setTransform(dp,0,0,dp,0,0);
-  const gr=gbox.getBoundingClientRect(),sr=stage.getBoundingClientRect();box0={x:sr.left-gr.left,y:sr.top-gr.top};ov.setAttribute("viewBox","0 0 "+gr.width+" "+gr.height);
+  const gr=gbox.getBoundingClientRect(),sr=stage.getBoundingClientRect();box0={x:sr.left-gr.left,y:sr.top-gr.top};ov.setAttribute("viewBox","0 0 "+gr.width+" "+gr.height);gbW=gr.width;gbH=gr.height;
   const lr=$("list").getBoundingClientRect(),cr=$("cA").getBoundingClientRect();anc=[...document.querySelectorAll(".it")].filter(b=>{if(!b.offsetParent)return false;const r=b.getBoundingClientRect(),q=b.dataset.c==="a"?cr:lr;return r.bottom>q.top+4&&r.top<q.bottom-4}).map(b=>{const r=b.getBoundingClientRect();return {i:+b.dataset.i,x:(b.dataset.c==="a"?cr.right:r.right)-gr.left+6,y:r.top+r.height/2-gr.top}});
   leaders=$("list").getBoundingClientRect().right<=sr.left+4;
   const ca=$("cA");if(ca&&ca.offsetParent){const r=ca.getBoundingClientRect();wAnc={x:r.right-gr.left+6,y:r.top+r.height/2-gr.top}}else wAnc=null}
 let wAnc=null,wIn=false;
-new ResizeObserver(size).observe(host);addEventListener("resize",size);{let q=0;const rs=()=>{if(!q)q=requestAnimationFrame(()=>{q=0;size()})};$("list").addEventListener("scroll",rs,{passive:true});$("cA").addEventListener("scroll",rs,{passive:true})}
+new ResizeObserver(size).observe(host);new ResizeObserver(size).observe(gbox);addEventListener("resize",size);{let q=0;const rs=()=>{if(!q)q=requestAnimationFrame(()=>{q=0;size()})};$("list").addEventListener("scroll",rs,{passive:true});$("cA").addEventListener("scroll",rs,{passive:true})}
 
 /* ---------- repères, traits de rappel, survol ---------- */
 const tmp=new THREE.Vector3(),nrm=new THREE.Vector3(),camN=new THREE.Vector3();let scr=[];
@@ -2143,7 +2143,7 @@ function drawFx(){fc.clearRect(0,0,W,Hh);return;const cx=W/2,cy=Hh/2,Mx=Math.hyp
 function imgsFor(p){const L=window.YM_PROJ||[],it=L.find(x=>x.t===TITLE[p.k]),o=[];if(!it)return o;
   if(it.g3==="crank")return [{th:"img/rendu/crank_nuit.jpg",cap:"Perspective"}];
   if(it.g3==="tasty")return [{th:"img/rendu/tasty_ensemble.jpg?v=2",cap:"Perspective"}];
-  const U=(window.YM_G3UI||{})[it.g3];if(!U&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&U.norender&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&!U.norender)U.v.filter(([k])=>(it.g3!=="siberian"||k==="face"||k==="ensemble")&&!(it.g3==="varese"&&k==="parvis2")).forEach(([k,lab])=>{const f=it.g3==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":it.g3+"_"+k+".jpg"+(it.g3==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"");o.push({th:"img/rendu/"+f,src:"img/rendu/"+f,cap:lab})});return o}   // uniquement les images rendues, pas les panneaux
+  const U=(window.YM_G3UI||{})[it.g3];if(!U&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&U.norender&&it.docs)return it.docs.map(d=>({th:d.th,src:d.m||d.src,cap:d.cap}));if(U&&!U.norender)U.v.filter(([k])=>(it.g3!=="siberian"||k==="face"||k==="ensemble")&&!(it.g3==="varese"&&k==="parvis2")).forEach(([k,lab])=>{const f=it.g3==="agri"&&k==="ensemble"?"agri_ensemble.jpg?v=2":it.g3+"_"+k+".jpg"+(it.g3==="equilibrium"?(k==="ciel"?"?v=2":(k==="arrivee")?"?v=3":(k==="pointe"||k==="montee")?"?v=4":""):"");o.push({th:"img/rendu/t/"+f,src:"img/rendu/"+f,cap:lab})});return o}   // uniquement les images rendues, pas les panneaux
 function gallery(i){i=-1;const G=$("gal");   // plus de galerie dans la fiche : une seule illustration en tête
  holoOff(true);if(typeof lbClose==="function"&&window.__lbReady)lbClose();if(i<0){G.hidden=true;G.classList.remove("vis");G.innerHTML="";return}
   const L=imgsFor(P[i]);if(!L.length){G.hidden=true;return}
@@ -2223,14 +2223,14 @@ function holoStep(dt){if(mode!=="site"&&holoT)holoOff();holoK+= (holoT-holoK)*Ma
   beam.geometry.setAttribute("position",new THREE.Float32BufferAttribute(pts,3));beamM.color.set(css("--glm"));beamM.opacity=.35*holoK;beam.visible=true;$("tB").style.opacity=1-holoK}
 /* ---------- boucle ---------- */
 let last=performance.now();const nW=new THREE.Vector3();
-function frame(now){if(home.hidden){gPause=true;return}const dt=Math.min(.05,(now-last)/1000);last=now;
+let hidT=0;function frame(now){if(home.hidden){gPause=true;return}if(gbox.classList.contains("m-gal")||gbox.classList.contains("m-bib")){if(!hidT)hidT=now;if(now-hidT>700){gPause=true;hidT=0;return}}else hidT=0;const dt=Math.min(.05,(now-last)/1000);last=now;
   if(tw){const t=clamp((now-tw.t0)/tw.T,0,1);tw.step(t);if(t>=1)tw=null}
   else if(mode==="globe"&&!dragging&&hov<0&&acur<0&&!inside&&!reduce){V.lon+=dt*2*drift*clamp((V.h-80)/(H0-80),0,1);if(V.lon>48)drift=-1;if(V.lon<-14)drift=1}
   globe.rotation.set(V.lat*D2R,-V.lon*D2R,0,"XYZ");globe.updateMatrixWorld(true);
   cam.position.set(0,-V.h*Math.sin(V.tau),GR+V.h*Math.cos(V.tau));cam.up.set(0,1,0);cam.lookAt(0,0,GR+V.lk);
   {const d=Math.hypot(cam.position.x,cam.position.y,cam.position.z),rr=GR*Math.sqrt(Math.max(0,1-(GR*GR)/(d*d))),c=cam.position.clone().normalize(),zc=GR*GR/d;
     const u=new THREE.Vector3(0,1,0);if(Math.abs(c.dot(u))>.99)u.set(1,0,0);const a1=new THREE.Vector3().crossVectors(c,u).normalize(),a2=new THREE.Vector3().crossVectors(c,a1);
-    const pts=[];for(let i=0;i<=160;i++){const a=i/160*Math.PI*2;pts.push(c.clone().multiplyScalar(zc).addScaledVector(a1,Math.cos(a)*rr).addScaledVector(a2,Math.sin(a)*rr))}limb.geometry.setFromPoints(pts)}
+    let at=limb.geometry.getAttribute("position");if(!at){at=new THREE.Float32BufferAttribute(new Float32Array(161*3),3);limb.geometry.setAttribute("position",at)}const ar=at.array;for(let i=0;i<=160;i++){const a=i/160*Math.PI*2,ca=Math.cos(a)*rr,sa=Math.sin(a)*rr;ar[i*3]=c.x*zc+a1.x*ca+a2.x*sa;ar[i*3+1]=c.y*zc+a1.y*ca+a2.y*sa;ar[i*3+2]=c.z*zc+a1.z*ca+a2.z*sa}at.needsUpdate=true;limb.geometry.computeBoundingSphere()}
   holoStep(dt);const hk=holoK;HA.forEach((m,j)=>m.opacity=Math.min(1,HA0[j]*(j===4?1:j>8?1+(LB-1)*.45:LB))*V.ha*(j===0||(j>=5&&j<=8)?1-hk*.94:j>8?1-hk*.6:1));MA.forEach((m,j)=>m.opacity=Math.min(1,MA0[j]*LM)*(1-.72*V.ha));
   {const z1=clamp((170-V.h)/80,0,1),z2=clamp((75-V.h)/35,0,1)*(1-V.ha);M.coast.opacity*=1-z1;M.bord.opacity*=1-z1;M.coast2.opacity*=z1;M.bord2.opacity*=z1;M.reg.opacity*=z2;
     M.coast.visible=z1<1;M.bord.visible=z1<1;M.coast2.visible=M.bord2.visible=z1>0;M.reg.visible=z2>0}site.visible=V.ha>.01;
@@ -2238,11 +2238,12 @@ function frame(now){if(home.hidden){gPause=true;return}const dt=Math.min(.05,(no
   site.getWorldPosition(nW);const n=nW.clone().normalize();clip.normal.copy(n).negate();clip.constant=n.dot(nW)+curH*S*K;
   if(ring){ring.position.y=curH;ring.visible=printing}
   if(!reduce&&mode==="site"&&!dragging)spin.rotation.y+=dt*.12;
+  {const gr=gbox.getBoundingClientRect(),sr=stage.getBoundingClientRect(),bx=sr.left-gr.left,by=sr.top-gr.top;if(Math.abs(bx-box0.x)>.5||Math.abs(by-box0.y)>.5||Math.abs(gr.width-gbW)>.5||Math.abs(gr.height-gbH)>.5||host.clientWidth!==W||host.clientHeight!==Hh)size()}
   R.render(scene,cam);overlay();drawFx();requestAnimationFrame(frame)}
 let gPause=false;theme();requestAnimationFrame(frame);
 
 const home=$("v-accueil");
-new MutationObserver(()=>{if(!home.hidden&&gPause){gPause=false;requestAnimationFrame(t=>{last=t;frame(t)})}}).observe(home,{attributes:true,attributeFilter:["hidden"]});
+{const rs=()=>{if(!home.hidden&&gPause&&!gbox.classList.contains("m-gal")&&!gbox.classList.contains("m-bib")){gPause=false;requestAnimationFrame(t=>{last=t;frame(t)})}};new MutationObserver(rs).observe(home,{attributes:true,attributeFilter:["hidden"]});new MutationObserver(rs).observe(gbox,{attributes:true,attributeFilter:["class"]})}
 // retour à l'accueil (menu, logo, bouton précédent) : le globe revient entier, dézoomé, sans projet choisi
 // taille du globe calculée en pixels : Safari (iPad) gère mal « hauteur 100 % + aspect-ratio » dans la grille
 const stageEl=document.querySelector("#gbox .stage");
@@ -2429,7 +2430,7 @@ new MutationObserver(theme).observe(document.documentElement,{attributes:true,at
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
 <script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=27"></script>
-<script charset="utf-8" src="js/i18n.js?v=240"></script>
+<script charset="utf-8" src="js/i18n.js?v=241"></script>
 
 
 <script>
