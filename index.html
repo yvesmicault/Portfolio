@@ -2440,14 +2440,15 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
   const CAT={e:"Étude",c:"Concours",a:"Hamonic+Masson"};
   /* programme : pour mes projets, d'après leur sujet ; pour l'agence, d'après le programme publié */
   const PK={varese:"Équipement",terminus:"Équipement",elle:"Équipement",siberian:"Équipement",agri:"Urbanisme",ventres:"Urbanisme",synergies:"Urbanisme",crank:"Logement",equilibrium:"Espace public"};
-  const progAg=n=>{const lg=/logement/i.test(n),mx=/bureaux|siège|banque|hôtel|congrès|culturel/i.test(n);return lg&&mx?"Mixte":lg?"Logement":/bureaux|siège/i.test(n)?"Bureaux":"Équipement"};
+  const progsAg=n=>{const t=n.toLowerCase(),R=[];if(/logement|coliving|résidence étudiante/.test(t))R.push("Logement");if(/bureau|siège|coworking/.test(t))R.push("Bureaux");if(/commerce|boutique|restaura|banque/.test(t))R.push("Commerces");if(/hôtel/.test(t))R.push("Hôtel");if(/crèche|scolaire|école|culturel|congrès|cinéma|médical|maison de quartier|maison des familles|accueil de jour|salle polyvalente|centre de séjour|salles de consultation|station-service|campus|équipement/.test(t))R.push("Équipement");if(/projet urbain|urbanisme/.test(t))R.push("Urbanisme");if(R.length>1||/mixte/.test(t))R.unshift("Mixte");return R};
+  const progAg=n=>{const R=progsAg(n);return R[0]||"Autre"};
   const statAg=s=>/arrêt/i.test(s)?"Arrêté":/livr[ée]+ en|^livré/i.test(s)?"Livré":/^concours/i.test(s)?"Concours":"En cours";
   let IT=null;
   function items(){if(IT&&IT.n===AG.length&&IT.h===!!window.HMV)return IT.L;const o=[];
     P.forEach((p,i)=>{const im=imgsFor(p)[0];o.push({key:"p"+i,f:p.f,t:TITLE[p.k]||p.t,c:p.c||"",y:p.y1||p.y0||0,img:im?(im.th||im.src):"",pr:(p.m||"").split(" · ").slice(1,3).join(" · "),
-      prog:PK[p.k]||"",role:"Projet personnel",sf:(()=>{const x=(p.id||[]).find(z=>z[0]==="Surface");return x&&x[1]!=="—"?x[1]:""})(),stat:p.f==="e"?"Étude":"Concours",go:()=>{location.hash=hrefFor(p)},glo:()=>choose(i)})});
+      prog:PK[p.k]||"",progs:PK[p.k]?[PK[p.k]]:[],role:"Projet personnel",sf:(()=>{const x=(p.id||[]).find(z=>z[0]==="Surface");return x&&x[1]!=="—"?x[1]:""})(),stat:p.f==="e"?"Étude":"Concours",go:()=>{location.hash=hrefFor(p)},glo:()=>choose(i)})});
     AG.forEach((p,k)=>{const V=window.HMV&&HMV[p.id],im=V&&V.length?"img/hm/"+p.id+"/"+V[0][0]+"_t.jpg":p.img&&p.img.length?"img/agx/"+p.img[0]+".jpg":p.im?"img/ag/"+p.im+".jpg":"";o.push({key:"a"+k,f:"a",t:p.t,c:p.c||"",y:+String(p.y).slice(0,4)||0,img:im,r:p.r||"",pr:p.n||"",sf:p.s||"",
-      prog:progAg(p.n||""),role:p.r||"",stat:statAg(p.st||""),go:()=>{location.hash="#hm/"+p.id},glo:()=>chooseAg(k)})});
+      prog:progAg(p.n||""),progs:progsAg(p.n||""),role:p.r||"",stat:statAg(p.st||""),go:()=>{location.hash="#hm/"+p.id},glo:()=>chooseAg(k)})});
     o.forEach(x=>x.sv=sfv(x.sf));IT={n:AG.length,h:!!window.HMV,L:o};return o}
   const mob=()=>innerWidth<=760;
   /* surface : texte publié tel quel, valeur en m² pour trier et classer */
@@ -2506,7 +2507,7 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
     g.querySelectorAll(".hv-k").forEach(k=>{const seen=new Set();k.querySelectorAll(".hv-t").forEach(e=>{const t=e.querySelector("figcaption").firstChild.textContent;if(seen.has(t))return;seen.add(t);e.tabIndex=0;e.onkeydown=ev=>{if(ev.key==="Enter")e.click()}})});
     gStart()}
   /* ---- liste : la base, triable et filtrable ---- */
-  function filters(S,A,cb){const opts=(k,v)=>{const U=[...new Set(A.map(o=>o[k]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"fr"));return '<option value="">Tous</option>'+U.map(u=>`<option${u===v?" selected":""}>${u}</option>`).join("")};
+  function filters(S,A,cb){const opts=(k,v)=>{const U=[...new Set(A.flatMap(o=>k==="prog"?(o.progs&&o.progs.length?o.progs:[o.prog]):[o[k]]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"fr"));return '<option value="">Tous</option>'+U.map(u=>`<option${u===v?" selected":""}>${u}</option>`).join("")};
     S.innerHTML=`<label>Programme<select data-k="prog" class="${bP?"on":""}">${opts("prog",bP)}</select></label><label>Rôle<select data-k="role" class="${bR?"on":""}">${opts("role",bR)}</select></label><label>Statut<select data-k="stat" class="${bT?"on":""}">${opts("stat",bT)}</select></label><button class="rz" type="button"${bP||bR||bT?"":" hidden"}>Effacer</button>`;
     S.querySelectorAll("select").forEach(x=>x.onchange=()=>{const v=x.value;if(x.dataset.k==="prog")bP=v;else if(x.dataset.k==="role")bR=v;else bT=v;cb()});
     S.querySelector(".rz").onclick=()=>{bP=bR=bT="";cb()}}
@@ -2521,7 +2522,7 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
     F.innerHTML='<span class="lb">Classer par</span>'+Object.entries(GK).map(([k,[t]])=>`<button data-g="${k}" class="${dG===k?"on":""}">${t}</button>`).join("")+'<b class="sp"></b><span class="lg"><i class="e"></i>Étude<i class="c"></i>Concours<i class="a"></i>Hamonic+Masson</span>';
     F.querySelectorAll("[data-g]").forEach(x=>x.onclick=()=>{dG=x.dataset.g;bib()});
     filters(S,A,bib);
-    const ok=o=>(!bP||o.prog===bP)&&(!bR||o.role===bR)&&(!bT||o.stat===bT),gf=GK[dG][1];
+    const ok=o=>(!bP||o.prog===bP||(o.progs||[]).includes(bP))&&(!bR||o.role===bR)&&(!bT||o.stat===bT),gf=GK[dG][1];
     const L=A.filter(ok).sort((a,b)=>b.y-a.y||a.t.localeCompare(b.t)),G=[];L.forEach(o=>{const g=gf(o);let x=G.find(q=>q.k===g);if(!x)G.push(x={k:g,L:[]});x.L.push(o)});
     if(dG==="per")G.sort((a,b)=>b.k.localeCompare(a.k));else if(dG==="sf"){const O=["Moins de 5 000 m²","5 000 à 15 000 m²","15 000 à 30 000 m²","Plus de 30 000 m²","Échelle urbaine (ha)","Non communiquée"];G.sort((a,b)=>O.indexOf(a.k)-O.indexOf(b.k))}else if(dG!=="f")G.sort((a,b)=>b.L.length-a.L.length||a.k.localeCompare(b.k,"fr"));
     const zw=Z.clientWidth,zh=Z.clientHeight,gap=8,hd=34,pos=new Map(),heads=[];let total=0;
@@ -2549,7 +2550,7 @@ document.querySelector("header .name").addEventListener("click",()=>{if(!locatio
       if(p){e.style.transform=`translate(${p[0]}px,${p[1]}px)`;e.style.width=p[2]+"px";e.style.height=p[3]+"px";e.style.opacity=1;e.style.pointerEvents="";e.tabIndex=0;e.classList.remove("out")}
       else{e.classList.add("out");e.style.opacity=0;e.style.pointerEvents="none";e.tabIndex=-1}})}
 
-  function lst(){const A=items(),ok=o=>(!bP||o.prog===bP)&&(!bR||o.role===bR)&&(!bT||o.stat===bT),B=A.filter(ok),cn=f=>B.filter(o=>f==="all"||o.f===f).length;
+  function lst(){const A=items(),ok=o=>(!bP||o.prog===bP||(o.progs||[]).includes(bP))&&(!bR||o.role===bR)&&(!bT||o.stat===bT),B=A.filter(ok),cn=f=>B.filter(o=>f==="all"||o.f===f).length;
     let L=B.filter(o=>bF==="all"||o.f===bF);
     L.sort(bS==="s"?(a,b)=>(b.sv>0?b.sv:b.sv<0?-1:-2)-(a.sv>0?a.sv:a.sv<0?-1:-2)||b.y-a.y:bS==="y"?(a,b)=>b.y-a.y||a.t.localeCompare(b.t):bS==="t"?(a,b)=>a.t.localeCompare(b.t,"fr"):(a,b)=>a.c.localeCompare(b.c,"fr")||b.y-a.y);
     let b=hv.querySelector(".hv-b");
@@ -2590,7 +2591,7 @@ new MutationObserver(theme).observe(document.documentElement,{attributes:true,at
 window.__g={V,choose,back,P,setHov,get mode(){return mode}};
 </script>
 <script src="js/agwheel.js?v=1"></script><script src="js/agpage.js?v=29"></script>
-<script charset="utf-8" src="js/i18n.js?v=243"></script>
+<script charset="utf-8" src="js/i18n.js?v=244"></script>
 
 
 <script>
