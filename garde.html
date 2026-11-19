@@ -36,6 +36,18 @@ html.cov #cover .cv-mono .m2{animation:cvM2 1s .15s cubic-bezier(.65,0,.25,1) bo
 #cover.out .cv-bg{box-shadow:30px 0 60px rgba(0,0,0,.12)}
 #cover.out h1 span{transition:transform .9s cubic-bezier(.65,0,.2,1)}
 html.cov-run .bar .name{visibility:hidden}
+#cover .cv-h{width:max-content}
+/* essai B : monogramme au centre, nom réduit */
+#cover.vb .cv-mono{grid-column:1/3;grid-row:1;justify-self:center;align-self:center;width:auto;height:min(34vh,300px)}
+/* essai C : axe central */
+html.cov #cover.vc{grid-template-columns:1fr;grid-template-rows:1fr auto 1fr;text-align:center}
+#cover.vc .cv-mono{grid-column:1;grid-row:1;justify-self:center;align-self:end;width:auto;height:min(22vh,190px);margin-bottom:clamp(24px,5vh,56px)}
+#cover.vc .cv-id{grid-column:1;grid-row:2;align-self:center}
+#cover.vc .cv-h{margin:0 auto}#cover.vc .cv-h span{display:inline-block}#cover.vc .cv-h .y{margin-right:.3em}
+#cover.vc .cv-foot{flex-direction:column;align-items:center;gap:22px;border-top:0;margin-top:clamp(10px,1.6vh,18px);padding-top:0}
+#cover.vc .cv-in{padding:10px 0 10px .3em}
+@media (max-width:760px){#cover.vb .cv-mono{height:26vh}#cover.vc .cv-mono{height:17vh}}
+
 @media (max-width:760px){html.cov #cover{grid-template-rows:1fr auto}#cover .cv-mono{width:40px}}
 @media (prefers-reduced-motion:reduce){html.cov #cover *{animation:none!important}#cover.out{transition:opacity .3s;opacity:0}#cover.out h1 span{transition:none}}
 </style><meta name="robots" content="noindex,nofollow"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}html{overflow-y:scroll;scrollbar-gutter:stable}#fz{display:none!important}
@@ -123,7 +135,8 @@ addEventListener("wheel",function(e){if(R.classList.contains("cov")&&e.deltaY>8)
 var ty=null;C.addEventListener("touchstart",function(e){ty=e.touches[0].clientY},{passive:true});C.addEventListener("touchmove",function(e){if(ty!==null&&ty-e.touches[0].clientY>40){ty=null;enter()}},{passive:true});
 addEventListener("hashchange",function(){if(R.classList.contains("cov")&&!/^(#accueil)?$/.test(location.hash)){R.classList.remove("cov");inert(false)}});
 document.addEventListener("click",function(e){var n=e.target.closest&&e.target.closest(".bar .name");if(!n||R.classList.contains("cov"))return;var home=document.querySelector("#v-accueil,.view.home");if(/^(#accueil)?$/.test(location.hash)&&home&&!home.hidden){e.preventDefault();show()}},true);
-function fit(){var h=C.querySelector(".cv-h"),m=h.querySelector(".m");if(!C.offsetWidth)return;for(var i=0;i<2;i++){var cur=parseFloat(getComputedStyle(h).fontSize),w=m.getBoundingClientRect().width,cs=getComputedStyle(C),av=C.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);if(!w)return;h.style.setProperty("--cvfs",Math.min(cur*av/w*.985,innerHeight*.3).toFixed(1)+"px")}}
+var VV=(location.search.match(/[?&]essai=([bc])/)||[])[1];if(VV)C.classList.add("v"+VV);var KF=1;function kf(){var mb=innerWidth<=760;KF=VV==="b"?(mb?.78:.52):VV==="c"?(mb?.9:.62):1}kf();addEventListener("resize",kf);
+function fit(){var h=C.querySelector(".cv-h"),m=h;if(!C.offsetWidth)return;for(var i=0;i<2;i++){var cur=parseFloat(getComputedStyle(h).fontSize),w=m.getBoundingClientRect().width/KF,cs=getComputedStyle(C),av=C.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);if(!w)return;h.style.setProperty("--cvfs",Math.min(cur*av/w*.985,innerHeight*(VV==="b"?.15:VV?.12:.3)).toFixed(1)+"px")}}
 fit();requestAnimationFrame(fit);setTimeout(fit,400);addEventListener("resize",fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 document.addEventListener("DOMContentLoaded",function(){if(R.classList.contains("cov"))inert(true)});window.YM_COVER=show})();</script>
 
