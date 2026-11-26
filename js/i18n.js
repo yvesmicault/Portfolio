@@ -158,6 +158,8 @@
     "Usines Michelin, Clermont-Ferrand": "Michelin factories, Clermont-Ferrand",
     "Équipement, projet de fin d’études": "Public facility, diploma project", "Tour mixte, projet de fin d’études": "Mixed-use tower, diploma project",
     "Usine de macroalgues, médiathèque, auberge de jeunesse pour 70 personnes ; en temps 2, base nautique et bains": "Macroalgae factory, media library, youth hostel for 70 guests; in phase 2, water sports base and baths",
+    "Usine de macroalgues, médiathèque, auberge de jeunesse pour 70 personnes ; puis, dans un second temps, base nautique et bains": "Macroalgae factory, media library, youth hostel for 70 guests; then, in a second phase, water sports base and baths",
+    "Parcours en acier Corten, espaces d’exposition, toilettes, stockage": "Corten steel route, exhibition spaces, toilets, storage",
     "Usine de microalgues, restaurant, musée, jardinerie, serre tropicale, bureaux, logements": "Microalgae factory, restaurant, museum, garden centre, tropical greenhouse, offices, housing",
     "Ishøj, Copenhague, Danemark": "Ishøj, Copenhagen, Denmark", "Glostrup, Copenhague, Danemark": "Glostrup, Copenhagen, Denmark",
     "Concours Europan 16, mentionné": "Europan 16 competition, mention", "Concours d’idées": "Ideas competition", "Concours d’idées · 2020": "Ideas competition · 2020",
