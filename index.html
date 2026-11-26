@@ -363,7 +363,7 @@ h2 small,.ph-head h1 small{font:400 12px var(--m);letter-spacing:0;color:var(--b
 .crumb:hover{color:var(--brick)}
 
 .pubs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-.pub{display:block;width:100%}
+.pub{display:block;width:100%}.pubw{display:flex;flex-direction:column;align-items:center}.pub-dl{margin-top:14px}
 .pub .cov{position:relative;aspect-ratio:1/1.2;max-width:100%}
 .pub .cov img{position:absolute;left:0;right:0;bottom:0;margin:0 auto;display:block;max-height:100%;max-width:100%;background:#fff;box-shadow:0 34px 60px -20px rgba(0,0,0,.55),0 10px 20px -10px rgba(0,0,0,.35);transition:transform .8s var(--ease)}
 .pub:hover .cov img,.pub:focus-visible .cov img{transform:translateY(-6px) rotate(-1.2deg)}
@@ -1257,6 +1257,9 @@ html{scroll-padding-top:calc(var(--barH,56px) + env(safe-area-inset-top,0px) + 8
         <div class="cvcard"><button type="button" class="cov" id="cvOpen"><img src="img/t/cv01.jpg?v=1104b" alt="Couverture du CV 2026"></button>
           <b>CV 2026</b><span class="s">A3 plié · références en agence</span>
           <div class="row-btn"><button class="btn" type="button" id="cvRead">Lire</button><a class="btn dl" href="doc/CV_2026_Yves_Micault.pdf?v=1119" download="CV_2026_Yves_Micault.pdf">PDF ↓</a></div></div>
+        <div class="cvcard b26"><button type="button" class="cov" id="b26Open"><img id="b26Cov" alt="Couverture du portfolio d’architecture 2026"></button>
+          <b>Portfolio 2026</b><span class="s">Book d’architecture · 103 p.</span>
+          <div class="row-btn"><button class="btn" type="button" id="b26Read">Lire</button><a class="btn dl" href="doc/Yves_Micault_Portfolio_2026.pdf?v=1126" download="Yves_Micault_Portfolio_2026.pdf">PDF ↓</a></div></div>
         <div class="cvcard pfe"><button type="button" class="cov" id="pfeOpen"><img id="pfeCov" alt="Couverture du book PFE"></button>
           <b>Book PFE</b><span class="s">Terminus et Elle · 38 p. · 2016</span>
           <div class="row-btn"><button class="btn" type="button" id="pfeRead">Feuilleter</button></div></div>
@@ -1399,9 +1402,10 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
 
  +'<div class="ch"><h3><i>03</i>A Corten steel structure</h3><p>The structure that lets visitors walk through the landscape is built in Corten steel, a weathering steel with a stable surface rust that stands up well to the site’s climate and ensures the building lasts.</p></div>'
  +'<div class="ch"><h3><i>04</i>A walk through the landscape</h3><p>The triangle opens a unique dialogue between visitors and the space they walk through. The site is reached by the existing paths, which are preserved. Viewpoint, waiting spot, passage and lookout, the project lets visitors discover the story of the great Portuguese explorers, such as Henry the Navigator, and the geography of Sagres, along a route paced by unique landscape sequences.</p></div>';
-  var PUB=[
-    {t:"Projet de fin d'études",s:"Book PFE · 38 pages A4 · 2016",pages:pf(R(1,38))}
-  ];
+  var B26=R(1,103).map(function(n){var k=("00"+n).slice(-3);return {src:"img/book26/b26"+k+".jpg",th:"img/t/b26"+k+".jpg",cap:"Portfolio d’architecture 2026, page "+n}});
+  var PF26={t:"Portfolio d’architecture 2026",s:"Book · 103 pages A4 paysage · 2026",pages:B26,pdf:"doc/Yves_Micault_Portfolio_2026.pdf?v=1126",single:1};
+  var PFE0={t:"Projet de fin d'études",s:"Book PFE · 38 pages A4 · 2016",pages:pf(R(1,38))};
+  var PUB=[PF26,PFE0];
   var CV26={t:"CV 2026",pages:cv([1,2,3,4]),pdf:"doc/CV_2026_Yves_Micault.pdf?v=1119"};
   var CYC=[
     {c:"Master 1",d:"Domaine EVAN · 2013–2014",s1:[{t:"Sospesa",g3:"varese",txt:TXT_VARESE,txtEn:TXT_VARESE_EN,thM:"img/t/varese_parvis_color.jpg",s:"Projet de gare · Varèse, Italie · S7 · 2013–2014",o:1,fmt:"356,7 × 84,1 cm chacun",p:pan(["varese01","varese02"],"Sospesa",[[356.7,84.1],[356.7,84.1]])}],s2:[{t:"Champ libre",g3:"agri",txt:TXT_AGRI,txtEn:TXT_AGRI_EN,thM:"img/t/agri_ensemble.jpg?v=2",s:"Usines Michelin · Clermont-Ferrand · S8 · 2013–2014",o:1,fmt:"assemblage de 14 planches A1 verticales (59,4 × 84,1 cm), 7 de large sur 2 de haut",p:pan(["agri08"],"Champ libre",[[415.8,168.2]])}]},
@@ -1568,10 +1572,14 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   /* ---------- pages ---------- */
   PUB.forEach(function(p){
     var b=h("button","pub",'<div class="cov"><img src="'+p.pages[0].th+'" alt="Couverture : '+p.t+'"></div><div class="meta"><div><b>'+p.t+'</b><span class="s">'+p.s+'</span></div><span class="open">Feuilleter →</span></div>');
-    b.type="button";b.onclick=function(){openV(p.t,p.pages,0,{spread:true},b)};$("pubs").appendChild(b);
+    b.type="button";b.onclick=function(){openV(p.t,p.pages,0,{spread:!p.single,pdf:p.pdf},b)};
+    var w=document.createElement("div");w.className="pubw";w.appendChild(b);
+    if(p.pdf){var a=document.createElement("a");a.className="btn dl pub-dl";a.textContent="Télécharger le PDF ↓";a.href=p.pdf;a.setAttribute("download",p.pdf.split("/").pop().split("?")[0]);w.appendChild(a)}
+    $("pubs").appendChild(w);
   });
   var openCV=function(e){openV(CV26.t,CV26.pages,0,{spread:true,pdf:CV26.pdf},e.currentTarget)};$("cvOpen").onclick=openCV;$("cvRead").onclick=openCV;
-  $("pfeCov").src=PUB[0].pages[0].th;var openPFE=function(e){openV(PUB[0].t,PUB[0].pages,0,{spread:true},e.currentTarget)};$("pfeOpen").onclick=openPFE;$("pfeRead").onclick=openPFE;
+  $("pfeCov").src=PFE0.pages[0].th;var openPFE=function(e){openV(PFE0.t,PFE0.pages,0,{spread:true},e.currentTarget)};
+  $("b26Cov").src=PF26.pages[0].th;var openB26=function(e){openV(PF26.t,PF26.pages,0,{spread:false,pdf:PF26.pdf},e.currentTarget)};$("b26Open").onclick=openB26;$("b26Read").onclick=openB26;$("pfeOpen").onclick=openPFE;$("pfeRead").onclick=openPFE;
   var nEtu=0,ALL=[];
   function cards(list,ctx){var w=h("div","cards");if(!list.length){w.appendChild(h("p","none","Planches à venir"));return w}list.forEach(function(it){nEtu++;reg(it,"etudes",ctx);
     var th=it.thM||(it.c?"img/t/bk"+pad(it.c)+".jpg":it.p[it.k||0].th);
@@ -1629,7 +1637,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   if($("rings")){
   var NS="http://www.w3.org/2000/svg",G=$("rings"),rings={};
   var FAM=[
-    {id:1,r:120,label:"Projet de fin d’études",href:"#profil",items:PUB.map(function(p){return {t:p.t,sub:"Document · "+p.s,href:"#profil"}}),dot:{r:9,fill:"var(--brick)",stroke:"var(--brick)"},d:200},
+    {id:1,r:120,label:"Projet de fin d’études",href:"#profil",items:PUB.filter(function(p){return p===PFE0}).map(function(p){return {t:p.t,sub:"Document · "+p.s,href:"#profil"}}),dot:{r:9,fill:"var(--brick)",stroke:"var(--brick)"},d:200},
     {id:2,r:200,label:"Concours",href:"#concours",items:CONC.map(function(c){return {t:c.t,sub:"Concours · "+c.org,href:c.id?hrefOf(c):"#concours"}}),dot:{r:7.5,fill:"var(--bg)",stroke:"var(--brick)"},d:280,rev:true},
     {id:3,r:280,label:"Études",href:"#etudes",items:PROJ.filter(function(p){return p.fam==="etudes"}).map(function(p){return {t:p.t,sub:p.ctx,href:hrefOf(p)}}),dot:{r:6,fill:"var(--ink)",stroke:"var(--ink)"},d:360},
     {id:4,r:360,label:"Agence",href:"#agence",items:AGI,dot:{r:3.5,fill:"var(--mute)",stroke:"var(--mute)"},d:520,rev:true}
