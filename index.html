@@ -1403,7 +1403,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
  +'<div class="ch"><h3><i>03</i>A Corten steel structure</h3><p>The structure that lets visitors walk through the landscape is built in Corten steel, a weathering steel with a stable surface rust that stands up well to the site’s climate and ensures the building lasts.</p></div>'
  +'<div class="ch"><h3><i>04</i>A walk through the landscape</h3><p>The triangle opens a unique dialogue between visitors and the space they walk through. The site is reached by the existing paths, which are preserved. Viewpoint, waiting spot, passage and lookout, the project lets visitors discover the story of the great Portuguese explorers, such as Henry the Navigator, and the geography of Sagres, along a route paced by unique landscape sequences.</p></div>';
   var B26=R(1,103).map(function(n){var k=("00"+n).slice(-3);return {src:"img/book26/b26"+k+".jpg",th:"img/t/b26"+k+".jpg",cap:"Portfolio d’architecture 2026, page "+n}});
-  var PF26={t:"Portfolio d’architecture 2026",s:"Book · 103 pages A4 paysage · 2026",pages:B26,pdf:"doc/Yves_Micault_Portfolio_2026.pdf?v=1126",single:1};
+  var PF26={t:"Portfolio d’architecture 2026",s:"Book · 103 pages A4 paysage · 2026",pages:B26,pdf:"doc/Yves_Micault_Portfolio_2026.pdf?v=1126"};
   var PFE0={t:"Projet de fin d'études",s:"Book PFE · 38 pages A4 · 2016",pages:pf(R(1,38))};
   var PUB=[PF26,PFE0];
   var CV26={t:"CV 2026",pages:cv([1,2,3,4]),pdf:"doc/CV_2026_Yves_Micault.pdf?v=1119"};
@@ -1579,7 +1579,7 @@ var TXT_VENTRES='<p class="lead">Penser la ville contemporaine ne consiste plus 
   });
   var openCV=function(e){openV(CV26.t,CV26.pages,0,{spread:true,pdf:CV26.pdf},e.currentTarget)};$("cvOpen").onclick=openCV;$("cvRead").onclick=openCV;
   $("pfeCov").src=PFE0.pages[0].th;var openPFE=function(e){openV(PFE0.t,PFE0.pages,0,{spread:true},e.currentTarget)};
-  $("b26Cov").src=PF26.pages[0].th;var openB26=function(e){openV(PF26.t,PF26.pages,0,{spread:false,pdf:PF26.pdf},e.currentTarget)};$("b26Open").onclick=openB26;$("b26Read").onclick=openB26;$("pfeOpen").onclick=openPFE;$("pfeRead").onclick=openPFE;
+  $("b26Cov").src=PF26.pages[0].th;var openB26=function(e){openV(PF26.t,PF26.pages,0,{spread:true,pdf:PF26.pdf},e.currentTarget)};$("b26Open").onclick=openB26;$("b26Read").onclick=openB26;$("pfeOpen").onclick=openPFE;$("pfeRead").onclick=openPFE;
   var nEtu=0,ALL=[];
   function cards(list,ctx){var w=h("div","cards");if(!list.length){w.appendChild(h("p","none","Planches à venir"));return w}list.forEach(function(it){nEtu++;reg(it,"etudes",ctx);
     var th=it.thM||(it.c?"img/t/bk"+pad(it.c)+".jpg":it.p[it.k||0].th);
